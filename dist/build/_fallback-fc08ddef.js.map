@@ -1,0 +1,1 @@
+{"version":3,"file":"_fallback-fc08ddef.js","sources":["../../src/pages/example/aliasing/v1.1/_fallback.svelte"],"sourcesContent":["<script>\n    import {goto, leftover} from '@sveltech/routify'\n    $goto('../../v1/'+$leftover, null, true, true)\n</script>"],"names":["$goto","$leftover"],"mappings":"4IAEIA,EAAM,YAAYC,EAAW,MAAM,GAAM"}

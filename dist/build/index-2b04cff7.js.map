@@ -1,0 +1,1 @@
+{"version":3,"file":"index-2b04cff7.js","sources":["../../src/pages/example/transitions/tabs/index.svelte"],"sourcesContent":["<script>\n  import { goto } from \"@sveltech/routify\";\n  $goto('../home')\n</script>"],"names":["$goto"],"mappings":"qHAEEA,EAAM"}

@@ -1,0 +1,2 @@
+import{S as s,i as a,s as t,e,t as o,c,d as r,f as l,g as m,l as n,m as i,p as u}from"./main-55bc5519.js";function f(s){let a,t;return{c(){a=e("h1"),t=o("Welcome to v1")},l(s){a=c(s,"H1",{});var e=r(a);t=l(e,"Welcome to v1"),e.forEach(m)},m(s,e){n(s,a,e),i(a,t)},p:u,i:u,o:u,d(s){s&&m(a)}}}export default class extends s{constructor(s){super(),a(this,s,null,f,t,{})}}
+//# sourceMappingURL=index-0abe9fd1.js.map
