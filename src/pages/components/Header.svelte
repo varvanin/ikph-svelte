@@ -133,17 +133,14 @@
     background-color: #eef1f4;
     position: fixed;
     display: block;
-    height: 40px;
-    float: right;
+    height: calc(100% - 90px);
     bottom: 0;
     left: 0;
-    top: 75px;
   }
 
   .navbar-list li {
     list-style-type: none;
     position: relative;
-    float: left;
   }
 
   .navbar-list li:before {
@@ -185,20 +182,15 @@
       display: flex;
       padding: 0;
     }
+
+    .navbar-list a {
+      display: inline-flex;
+    }
   }
 
   @media (max-width: 767px) {
     .logo {
       margin: 0.5em;
-    }
-    .navbar-list a {
-      display: inline-flex;
-      padding: 0 4px;
-      font-size: 12px;
-    }
-
-    .navbar-list {
-      padding: 0 10px;
     }
   }
 </style>
