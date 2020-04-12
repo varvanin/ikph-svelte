@@ -1,2 +1,0 @@
-import{S as a,i as s,s as e,e as r,t,b as u,c,d as o,f,g as l,h as n,l as i,m as h,p as m}from"./main-55bc5519.js";function p(a){let s,e,p,d,v;return{c(){s=r("h1"),e=t("Feature 3"),p=u(),d=r("b"),v=t("v1 feature")},l(a){s=c(a,"H1",{});var r=o(s);e=f(r,"Feature 3"),r.forEach(l),p=n(a),d=c(a,"B",{});var t=o(d);v=f(t,"v1 feature"),t.forEach(l)},m(a,r){i(a,s,r),h(s,e),i(a,p,r),i(a,d,r),h(d,v)},p:m,i:m,o:m,d(a){a&&l(s),a&&l(p),a&&l(d)}}}export default class extends a{constructor(a){super(),s(this,a,null,p,e,{})}}
-//# sourceMappingURL=feature3-ffa8eb8f.js.map

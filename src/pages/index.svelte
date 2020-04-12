@@ -15,7 +15,6 @@
         box-shadow: 0px 0px 5px 0px rgba(189,165,189,0.5);
         z-index: 2;
     }
-    
     :global(.page-title){
         margin: 5em;
     }

@@ -1,0 +1,1 @@
+{"version":3,"file":"_store-5ddfabba.js","sources":["../../src/pages/example/app/_store.js"],"sourcesContent":["import {writable} from 'svelte/store'\n\nexport const user = writable(false)"],"names":["user","writable"],"mappings":"uCAEY,MAACA,EAAOC,GAAS"}

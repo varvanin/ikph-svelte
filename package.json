@@ -28,6 +28,7 @@
     "svelte": "3.19.2"
   },
   "dependencies": {
+    "@centroculturadigital-mx/svelte-carousel": "^0.5.20",
     "svelte-fluid-header": "^0.2.1"
   }
 }
