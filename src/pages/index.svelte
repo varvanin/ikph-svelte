@@ -64,7 +64,7 @@
         max-width: 500px;
     }
 
-    @media (max-width: 650px) {
+    @media (max-width: 767px) {
         :global(.content) {
             flex-direction: column;
             align-items: center;
