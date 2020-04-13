@@ -1,7 +1,11 @@
+<script>
+  import LazyImage from "svelte-lazy-image";
+</script>
+
 <svelte:head>
-    <title>Über uns - IKPH Inter-Kontakt Projekt und Handel GmbH</title>
-    <meta name="description" content="Über uns" />
-    <meta name="keywords" content="" />
+  <title>Über uns - IKPH Inter-Kontakt Projekt und Handel GmbH</title>
+  <meta name="description" content="Über uns" />
+  <meta name="keywords" content="" />
 </svelte:head>
 
 <div class="page-title">
@@ -47,7 +51,6 @@
   </div>
 
   <div class="item">
-    <img src="./about_us.jpg" alt="" />
+    <LazyImage src="./about_us.jpg" placeholder="./about_us.jpg" alt="Inter-Kontakt Projekt und Handel GmbH" />
   </div>
-
 </div>

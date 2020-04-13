@@ -1,5 +1,6 @@
 <script>
     import Hero from "./components/Hero.svelte";
+    import LazyImage from "svelte-lazy-image";
 </script>
 
 <style>
@@ -96,7 +97,7 @@
 
 <div class="content">
     <div class="item">
-        <img src="./house.jpg" alt="" />
+        <LazyImage src="./house.jpg" placeholder="./house.jpg" alt="Inter-Kontakt Projekt und Handel GmbH" />
     </div>
 
     <div class="item">

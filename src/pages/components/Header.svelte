@@ -31,6 +31,7 @@
   .header {
     display: flex;
     width: 100%;
+    margin-top: 1em;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
@@ -38,7 +39,7 @@
 
   .logo {
     display: block;
-    width: 170px;
+    width: 175px;
     padding-top: 8px;
   }
 
@@ -143,13 +144,7 @@
     position: relative;
   }
 
-  .navbar-list li:before {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-  }
+
 
   .navbar-list a {
     color: #333;
@@ -169,8 +164,6 @@
   .navbar-list .active {
     text-decoration: none;
     color: #009ee0;
-    border-bottom: 1px solid #009ee0;
-    display: inline-block;
   }
 
   @media only screen and (min-width: 767px) {

@@ -1,6 +1,9 @@
 <script>
   import Header from "./components/Header.svelte";
   import Footer from "./components/Footer.svelte";
+
+  let year = new Date();
+  let date = year.getFullYear();
 </script>
 
 <style>
@@ -14,6 +17,7 @@
     background: #fff;
     padding: 1em;
     text-align: center;
+    font-size: 13px;
   }
 </style>
 
@@ -25,5 +29,5 @@
 <Footer />
 
 <div class="copyright">
-  <p>©IKPH Inter-Kontakt Projekt und Handel GmbH</p>
+  <p>IKPH Inter-Kontakt Projekt und Handel GmbH ©{date}</p>
 </div>

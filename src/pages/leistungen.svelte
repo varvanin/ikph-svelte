@@ -1,11 +1,11 @@
 <script>
-
+  import LazyImage from "svelte-lazy-image";
 </script>
 
 <svelte:head>
-    <title>Leistungen - IKPH Inter-Kontakt Projekt und Handel GmbH</title>
-    <meta name="description" content="Leistungen" />
-    <meta name="keywords" content="" />
+  <title>Leistungen - IKPH Inter-Kontakt Projekt und Handel GmbH</title>
+  <meta name="description" content="Leistungen" />
+  <meta name="keywords" content="" />
 </svelte:head>
 
 <div class="page-title">
@@ -14,7 +14,7 @@
 </div>
 <div class="content">
   <div class="item">
-    <img src="./services.jpg" alt="" />
+     <LazyImage src="./services.jpg" placeholder="./services.jpg" alt="Inter-Kontakt Projekt und Handel GmbH" />
   </div>
   <div class="item">
     <p>
