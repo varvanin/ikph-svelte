@@ -1,4 +1,5 @@
 <script>
+  import PageTransitions from "./components/PageTransitions.svelte";
   import Header from "./components/Header.svelte";
   import Footer from "./components/Footer.svelte";
 
@@ -23,7 +24,7 @@
 
 <div class="container">
   <Header />
-  <slot />
+  <slot decorator={PageTransitions} />
 </div>
 
 <Footer />
