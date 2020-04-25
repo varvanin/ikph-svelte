@@ -1,5 +1,5 @@
 <script>
-  import LazyImage from "svelte-lazy-image";
+
 </script>
 
 <svelte:head>
@@ -14,7 +14,7 @@
 </div>
 <div class="content">
   <div class="item">
-     <LazyImage src="./services.jpg" placeholder="./services.jpg" alt="Inter-Kontakt Projekt und Handel GmbH" />
+    <img src="images/services.jpg" alt="Leistungen">
   </div>
   <div class="item">
     <p>

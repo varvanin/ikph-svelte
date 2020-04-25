@@ -7,7 +7,8 @@
     display: flex;
     background-image: url(../../body_bg.png);
     background-repeat: no-repeat;
-    background-size: cover;
+    background-position: right;
+    background-size: auto;
   }
   .intro {
     margin: 3em;

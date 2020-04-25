@@ -25,6 +25,7 @@
 
     mediaListener.addListener(mediaQueryHandler);
   });
+
 </script>
 
 <style>
@@ -187,7 +188,6 @@
     }
   }
 </style>
-
 <header class="header">
   <div class="logo">
     <a href="/">

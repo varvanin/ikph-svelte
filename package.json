@@ -29,6 +29,6 @@
   },
   "dependencies": {
     "@centroculturadigital-mx/svelte-carousel": "^0.5.20",
-    "svelte-lazy-image": "0.0.3"
+    "svelte-image": "^0.1.9"
   }
 }

@@ -79,6 +79,7 @@
     }
     .LightBox :global(.carousel img) {
         object-fit: contain;
+        width: 100%;
     }
     .Lightbox__Overlay {
         position: absolute;
@@ -104,7 +105,7 @@
 <div class={classList}>
     <header>
         <button on:click={close}>
-            Close
+            <img src="close.png" alt="">
         </button>
     </header>
     

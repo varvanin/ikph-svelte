@@ -1,10 +1,14 @@
+<script>
+
+</script>
+
 <style>
   footer {
     width: 100%;
     color: #333;
     padding: 130px 0 190px;
     text-align: center;
-    background-image: url(../../footer_bg.jpg);
+    background-image: url(../../bg-footer.png);
     background-repeat: no-repeat;
     background-size: cover;
   }
@@ -30,20 +34,20 @@
     margin-bottom: 17px;
   }
 
-@media (max-width: 650px) {
+  @media (max-width: 650px) {
     footer {
-        padding: 30px 0 90px;
+      padding: 30px 0 90px;
     }
     footer h2 {
-    font-size: 30px;
-    font-weight: 400;
-    margin-bottom: 30px;
-  }
+      font-size: 30px;
+      font-weight: 400;
+      margin-bottom: 30px;
+    }
     footer span {
-    font-size: 14px;
-    font-weight: 400;
+      font-size: 14px;
+      font-weight: 400;
+    }
   }
-}
 </style>
 
 <footer>

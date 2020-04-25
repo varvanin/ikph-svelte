@@ -7,7 +7,7 @@
     setTimeout(() => (go = i));
   };
 
-  let images = Array(28)
+  let images = Array(26)
     .fill(1)
     .map((e, i) => ({
       small: `./gallery/${i}.jpg`,
