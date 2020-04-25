@@ -25,7 +25,6 @@
 
     mediaListener.addListener(mediaQueryHandler);
   });
-
 </script>
 
 <style>
@@ -132,9 +131,10 @@
   }
 
   .navbar-list.mobile {
-    background-color: #eef1f4;
+    display: flex;
+    align-items: flex-start;
     position: fixed;
-    display: block;
+    padding: 0;
     height: calc(100% - 90px);
     bottom: 0;
     left: 0;
@@ -144,8 +144,6 @@
     list-style-type: none;
     position: relative;
   }
-
-
 
   .navbar-list a {
     color: #333;
@@ -186,8 +184,12 @@
     .logo {
       margin: 0.5em;
     }
+    .navbar-list a {
+      font-size: 11px;
+    }
   }
 </style>
+
 <header class="header">
   <div class="logo">
     <a href="/">

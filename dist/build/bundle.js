@@ -1,2 +1,7142 @@
-var app=function(){"use strict";function e(){}const n=e=>e;function t(e,n){for(const t in n)e[t]=n[t];return e}function r(e){return e()}function s(){return Object.create(null)}function i(e){e.forEach(r)}function a(e){return"function"==typeof e}function o(e,n){return e!=e?n==n:e!==n||e&&"object"==typeof e||"function"==typeof e}function l(n,...t){if(null==n)return e;const r=n.subscribe(...t);return r.unsubscribe?()=>r.unsubscribe():r}function c(e){let n;return l(e,e=>n=e)(),n}function u(e,n,t){e.$$.on_destroy.push(l(n,t))}function h(e,n,t,r){if(e){const s=d(e,n,t,r);return e[0](s)}}function d(e,n,r,s){return e[1]&&s?t(r.ctx.slice(),e[1](s(n))):r.ctx}function g(e,n,t,r){if(e[2]&&r){const s=e[2](r(t));if(void 0===n.dirty)return s;if("object"==typeof s){const e=[],t=Math.max(n.dirty.length,s.length);for(let r=0;r<t;r+=1)e[r]=n.dirty[r]|s[r];return e}return n.dirty|s}return n.dirty}function f(e){return null==e?"":e}function m(n){return n&&a(n.destroy)?n.destroy:e}const p="undefined"!=typeof window;let v=p?()=>window.performance.now():()=>Date.now(),b=p?e=>requestAnimationFrame(e):e;const E=new Set;function w(e){E.forEach(n=>{n.c(e)||(E.delete(n),n.f())}),0!==E.size&&b(w)}function k(e,n){e.appendChild(n)}function A(e,n,t){e.insertBefore(n,t||null)}function y(e){e.parentNode.removeChild(e)}function S(e){return document.createElement(e)}function I(e){return document.createTextNode(e)}function D(){return I(" ")}function z(){return I("")}function P(e,n,t,r){return e.addEventListener(n,t,r),()=>e.removeEventListener(n,t,r)}function $(e,n,t){null==t?e.removeAttribute(n):e.getAttribute(n)!==t&&e.setAttribute(n,t)}function H(e){return Array.from(e.childNodes)}function V(e,n,t,r){for(let r=0;r<e.length;r+=1){const s=e[r];if(s.nodeName===n){let n=0;for(;n<s.attributes.length;){const e=s.attributes[n];t[e.name]?n++:s.removeAttribute(e.name)}return e.splice(r,1)[0]}}return r?function(e){return document.createElementNS("http://www.w3.org/2000/svg",e)}(n):S(n)}function B(e,n){for(let t=0;t<e.length;t+=1){const r=e[t];if(3===r.nodeType)return r.data=""+n,e.splice(t,1)[0]}return I(n)}function L(e){return B(e," ")}function T(e,n,t){e.classList[t?"add":"remove"](n)}function x(e,n=document.body){return Array.from(n.querySelectorAll(e))}let N,W,F=0,G={};function R(e,n,t,r,s,i,a,o=0){const l=16.666/r;let c="{\n";for(let e=0;e<=1;e+=l){const r=n+(t-n)*i(e);c+=100*e+`%{${a(r,1-r)}}\n`}const u=c+`100% {${a(t,1-t)}}\n}`,h=`__svelte_${function(e){let n=5381,t=e.length;for(;t--;)n=(n<<5)-n^e.charCodeAt(t);return n>>>0}(u)}_${o}`;if(!G[h]){if(!N){const e=S("style");document.head.appendChild(e),N=e.sheet}G[h]=!0,N.insertRule(`@keyframes ${h} ${u}`,N.cssRules.length)}const d=e.style.animation||"";return e.style.animation=`${d?d+", ":""}${h} ${r}ms linear ${s}ms 1 both`,F+=1,h}function O(e,n){e.style.animation=(e.style.animation||"").split(", ").filter(n?e=>e.indexOf(n)<0:e=>-1===e.indexOf("__svelte")).join(", "),n&&!--F&&b(()=>{if(F)return;let e=N.cssRules.length;for(;e--;)N.deleteRule(e);G={}})}function j(e){W=e}function K(){if(!W)throw new Error("Function called outside component initialization");return W}function M(e){K().$$.on_mount.push(e)}function U(e,n){K().$$.context.set(e,n)}function C(e){return K().$$.context.get(e)}const X=[],Z=[],Q=[],J=[],_=Promise.resolve();let q=!1;function Y(){q||(q=!0,_.then(re))}function ee(e){Q.push(e)}let ne=!1;const te=new Set;function re(){if(!ne){ne=!0;do{for(let e=0;e<X.length;e+=1){const n=X[e];j(n),se(n.$$)}for(X.length=0;Z.length;)Z.pop()();for(let e=0;e<Q.length;e+=1){const n=Q[e];te.has(n)||(te.add(n),n())}Q.length=0}while(X.length);for(;J.length;)J.pop()();q=!1,ne=!1,te.clear()}}function se(e){if(null!==e.fragment){e.update(),i(e.before_update);const n=e.dirty;e.dirty=[-1],e.fragment&&e.fragment.p(e.ctx,n),e.after_update.forEach(ee)}}let ie;function ae(e,n,t){e.dispatchEvent(function(e,n){const t=document.createEvent("CustomEvent");return t.initCustomEvent(e,!1,!1,n),t}(`${n?"intro":"outro"}${t}`))}const oe=new Set;let le;function ce(){le={r:0,c:[],p:le}}function ue(){le.r||i(le.c),le=le.p}function he(e,n){e&&e.i&&(oe.delete(e),e.i(n))}function de(e,n,t,r){if(e&&e.o){if(oe.has(e))return;oe.add(e),le.c.push(()=>{oe.delete(e),r&&(t&&e.d(1),r())}),e.o(n)}}const ge={duration:0};function fe(t,r,s,o){let l=r(t,s),c=o?0:1,u=null,h=null,d=null;function g(){d&&O(t,d)}function f(e,n){const t=e.b-c;return n*=Math.abs(t),{a:c,b:e.b,d:t,duration:n,start:e.start,end:e.start+n,group:e.group}}function m(r){const{delay:s=0,duration:a=300,easing:o=n,tick:m=e,css:p}=l||ge,k={start:v()+s,b:r};r||(k.group=le,le.r+=1),u?h=k:(p&&(g(),d=R(t,c,r,a,s,o,p)),r&&m(0,1),u=f(k,a),ee(()=>ae(t,r,"start")),function(e){let n;0===E.size&&b(w),new Promise(t=>{E.add(n={c:e,f:t})})}(e=>{if(h&&e>h.start&&(u=f(h,a),h=null,ae(t,u.b,"start"),p&&(g(),d=R(t,c,u.b,u.duration,0,o,l.css))),u)if(e>=u.end)m(c=u.b,1-c),ae(t,u.b,"end"),h||(u.b?g():--u.group.r||i(u.group.c)),u=null;else if(e>=u.start){const n=e-u.start;c=u.a+u.d*o(n/u.duration),m(c,1-c)}return!(!u&&!h)}))}return{run(e){a(l)?(ie||(ie=Promise.resolve(),ie.then(()=>{ie=null})),ie).then(()=>{l=l(),m(e)}):m(e)},end(){g(),u=h=null}}}function me(e,n){e.d(1),n.delete(e.key)}function pe(e,n){de(e,1,1,()=>{n.delete(e.key)})}function ve(e,n,t,r,s,i,a,o,l,c,u,h){let d=e.length,g=i.length,f=d;const m={};for(;f--;)m[e[f].key]=f;const p=[],v=new Map,b=new Map;for(f=g;f--;){const e=h(s,i,f),o=t(e);let l=a.get(o);l?r&&l.p(e,n):(l=c(o,e),l.c()),v.set(o,p[f]=l),o in m&&b.set(o,Math.abs(f-m[o]))}const E=new Set,w=new Set;function k(e){he(e,1),e.m(o,u),a.set(e.key,e),u=e.first,g--}for(;d&&g;){const n=p[g-1],t=e[d-1],r=n.key,s=t.key;n===t?(u=n.first,d--,g--):v.has(s)?!a.has(r)||E.has(r)?k(n):w.has(s)?d--:b.get(r)>b.get(s)?(w.add(r),k(n)):(E.add(s),d--):(l(t,a),d--)}for(;d--;){const n=e[d];v.has(n.key)||l(n,a)}for(;g;)k(p[g-1]);return p}function be(e,n){const t={},r={},s={$$scope:1};let i=e.length;for(;i--;){const a=e[i],o=n[i];if(o){for(const e in a)e in o||(r[e]=1);for(const e in o)s[e]||(t[e]=o[e],s[e]=1);e[i]=o}else for(const e in a)s[e]=1}for(const e in r)e in t||(t[e]=void 0);return t}function Ee(e){return"object"==typeof e&&null!==e?e:{}}function we(e){e&&e.c()}function ke(e,n){e&&e.l(n)}function Ae(e,n,t){const{fragment:s,on_mount:o,on_destroy:l,after_update:c}=e.$$;s&&s.m(n,t),ee(()=>{const n=o.map(r).filter(a);l?l.push(...n):i(n),e.$$.on_mount=[]}),c.forEach(ee)}function ye(e,n){const t=e.$$;null!==t.fragment&&(i(t.on_destroy),t.fragment&&t.fragment.d(n),t.on_destroy=t.fragment=null,t.ctx=[])}function Se(n,t,r,a,o,l,c=[-1]){const u=W;j(n);const h=t.props||{},d=n.$$={fragment:null,ctx:null,props:l,update:e,not_equal:o,bound:s(),on_mount:[],on_destroy:[],before_update:[],after_update:[],context:new Map(u?u.$$.context:[]),callbacks:s(),dirty:c};let g=!1;d.ctx=r?r(n,h,(e,t,...r)=>{const s=r.length?r[0]:t;return d.ctx&&o(d.ctx[e],d.ctx[e]=s)&&(d.bound[e]&&d.bound[e](s),g&&function(e,n){-1===e.$$.dirty[0]&&(X.push(e),Y(),e.$$.dirty.fill(0)),e.$$.dirty[n/31|0]|=1<<n%31}(n,e)),t}):[],d.update(),g=!0,i(d.before_update),d.fragment=!!a&&a(d.ctx),t.target&&(t.hydrate?d.fragment&&d.fragment.l(H(t.target)):d.fragment&&d.fragment.c(),t.intro&&he(n.$$.fragment),Ae(n,t.target,t.anchor),re()),j(u)}class Ie{$destroy(){ye(this,1),this.$destroy=e}$on(e,n){const t=this.$$.callbacks[e]||(this.$$.callbacks[e]=[]);return t.push(n),()=>{const e=t.indexOf(n);-1!==e&&t.splice(e,1)}}$set(){}}const De=[];function ze(n,t=e){let r;const s=[];function i(e){if(o(n,e)&&(n=e,r)){const e=!De.length;for(let e=0;e<s.length;e+=1){const t=s[e];t[1](),De.push(t,n)}if(e){for(let e=0;e<De.length;e+=2)De[e][0](De[e+1]);De.length=0}}}return{set:i,update:function(e){i(e(n))},subscribe:function(a,o=e){const l=[a,o];return s.push(l),1===s.length&&(r=t(i)||e),a(n),()=>{const e=s.indexOf(l);-1!==e&&s.splice(e,1),0===s.length&&(r(),r=null)}}}}function Pe(n,t,r){const s=!Array.isArray(n),o=s?[n]:n,c=t.length<2;return{subscribe:ze(r,n=>{let r=!1;const u=[];let h=0,d=e;const g=()=>{if(h)return;d();const r=t(s?u[0]:u,n);c?n(r):d=a(r)?r:e},f=o.map((e,n)=>l(e,e=>{u[n]=e,h&=~(1<<n),r&&g()},()=>{h|=1<<n}));return r=!0,g(),function(){i(f),d()}}).subscribe}}const $e=ze({}),He=ze([]),Ve={_hooks:[],subscribe(e){const n=this._hooks,t=n.length;return e(e=>{n[t]=e}),()=>delete n[t]}},Be={subscribe:e=>Pe(C("routify"),e=>e.url).subscribe(e)},Le={subscribe:e=>Pe(C("routify"),e=>e.isActive).subscribe(e)};function Te(e,n){return function(t,r=!0){t=e(t,null,r);const s=e(n.path,null,r),i=new RegExp("^"+t);return s.match(i)}}function xe(e){return function(n,t,r,s){const i=e(n,t);r?C("routifyupdatepage")(i,s):history.pushState({},null,i)}}const Ne={props:{},templates:{},services:{plain:{propField:"name",valueField:"content"},twitter:{propField:"name",valueField:"content"},og:{propField:"property",valueField:"content"}},plugins:[{name:"applyTemplate",condition:()=>!0,action:(e,n)=>[e,(Ne.getLongest(Ne.templates,e)||(e=>e))(n)]},{name:"createMeta",condition:()=>!0,action(e,n){Ne.writeMeta(e,n)}},{name:"createOG",condition:e=>!e.match(":"),action(e,n){Ne.writeMeta("og:"+e,n)}},{name:"createTitle",condition:e=>"title"===e,action(e,n){document.title=n}}],getLongest(e,n){const t=e[n];if(t){const r=c($e).path;return t[Object.keys(e[n]).filter(e=>r.includes(e)).sort((e,n)=>n.length-e.length)[0]]}},writeMeta(e,n){const t=document.getElementsByTagName("head")[0],r=e.match(/(.+)\:/),s=r&&r[1]||"plain",{propField:i,valueField:a}=We.services[s]||We.services.plain,o=document.querySelector(`meta[${i}='${e}']`);o&&o.remove();const l=document.createElement("meta");l.setAttribute(i,e),l.setAttribute(a,n),l.setAttribute("data-origin","routify"),t.appendChild(l)},set(e,n){Ne.plugins.forEach(t=>{t.condition(e,n)&&([e,n]=t.action(e,n)||[e,n])})},clear(){const e=document.querySelector("meta");e&&e.remove()},template(e,n){const t=Ne.getOrigin();Ne.templates[e]=Ne.templates[e]||{},Ne.templates[e][t]=n},update(){Object.keys(Ne.props).forEach(e=>{let n=Ne.getLongest(Ne.props,e);Ne.plugins.forEach(t=>{t.condition(e,n)&&([e,n]=t.action(e,n)||[e,n])})})},batchedUpdate(){Ne._pendingUpdate||(Ne._pendingUpdate=!0,setTimeout(()=>{Ne._pendingUpdate=!1,this.update()}))},_updateQueued:!1,getOrigin(){const e=C("routify");return e&&c(e).path||"/"},_pendingUpdate:!1},We=new Proxy(Ne,{set(e,n,t,r){const{props:s,getOrigin:i}=e;return Reflect.has(e,n)?Reflect.set(e,n,t,r):(s[n]=s[n]||{},s[n][i()]=t),window.routify.appLoaded&&e.batchedUpdate(),!0}});var Fe={pages:"/Users/varvanin/ikph-svelte/src/pages",sourceDir:"src",routifyDir:"node_modules/@sveltech/routify/tmp",ignore:[],unknownPropWarnings:!0,dynamicImports:!1,singleBuild:!0,scroll:"smooth",extensions:["html","svelte","md"],distDir:"dist",noPrerender:!1,ssr:!1,prerender:!0,staticDir:"static",scriptsDir:"scripts",childProcess:"rollup -c -w",unusedPropWarnings:!0};const Ge=RegExp(/\:[^\/\()]+/g);function Re(e){!function e(n){n&&n.scrollTo&&"scroll-lock"!==n.dataset.routify&&(n.scrollTo(0,0),e(n.parentElement))}(e),function(){const{scroll:e}=Fe,n=["auto","smooth"],{hash:t}=window.location;if(e&&t){const r=n.includes(e)&&e||"auto",s=document.querySelector(t);t&&s&&s.scrollIntoView({behavior:r})}}()}let Oe=!1;function je(e,n,t){const r=e.slice();return r[24]=n[t],r}function Ke(e){let n,t,r,s;const i=[Ue,Me],a=[];function o(e,n){return e[8].length?0:1}return n=o(e),t=a[n]=i[n](e),{c(){t.c(),r=z()},l(e){t.l(e),r=z()},m(e,t){a[n].m(e,t),A(e,r,t),s=!0},p(e,s){let l=n;n=o(e),n===l?a[n].p(e,s):(ce(),de(a[l],1,1,()=>{a[l]=null}),ue(),t=a[n],t||(t=a[n]=i[n](e),t.c()),he(t,1),t.m(r.parentNode,r))},i(e){s||(he(t),s=!0)},o(e){de(t),s=!1},d(e){a[n].d(e),e&&y(r)}}}function Me(e){let n,r;const s=[{scoped:e[0]},{scopedSync:e[5]},e[3]];var i=e[7];function a(e){let n={};for(let e=0;e<s.length;e+=1)n=t(n,s[e]);return{props:n}}if(i)var o=new i(a());return{c(){o&&we(o.$$.fragment),n=z()},l(e){o&&ke(o.$$.fragment,e),n=z()},m(e,t){o&&Ae(o,e,t),A(e,n,t),r=!0},p(e,t){const r=41&t?be(s,[1&t&&{scoped:e[0]},32&t&&{scopedSync:e[5]},8&t&&Ee(e[3])]):{};if(i!==(i=e[7])){if(o){ce();const e=o;de(e.$$.fragment,1,0,()=>{ye(e,1)}),ue()}i?(we((o=new i(a())).$$.fragment),he(o.$$.fragment,1),Ae(o,n.parentNode,n)):o=null}else i&&o.$set(r)},i(e){r||(o&&he(o.$$.fragment,e),r=!0)},o(e){o&&de(o.$$.fragment,e),r=!1},d(e){e&&y(n),o&&ye(o,e)}}}function Ue(e){let n,t,r=[],s=new Map,i=[0];const a=e=>e[4];for(let n=0;n<1;n+=1){let t=je(e,i,n),o=a(t);s.set(o,r[n]=Xe(o,t))}return{c(){for(let e=0;e<1;e+=1)r[e].c();n=z()},l(e){for(let n=0;n<1;n+=1)r[n].l(e);n=z()},m(e,s){for(let n=0;n<1;n+=1)r[n].m(e,s);A(e,n,s),t=!0},p(e,t){if(134219243&t){const i=[0];ce(),r=ve(r,t,a,1,e,i,s,n.parentNode,pe,Xe,n,je),ue()}},i(e){if(!t){for(let e=0;e<1;e+=1)he(r[e]);t=!0}},o(e){for(let e=0;e<1;e+=1)de(r[e]);t=!1},d(e){for(let n=0;n<1;n+=1)r[n].d(e);e&&y(n)}}}function Ce(e){let n,t;const r=new _e({props:{layouts:[...e[8]],Decorator:void 0!==e[27]?e[27]:e[1],childOfDecorator:e[6],scoped:{...e[0],...e[10]}}});return{c(){we(r.$$.fragment),n=D()},l(e){ke(r.$$.fragment,e),n=L(e)},m(e,s){Ae(r,e,s),A(e,n,s),t=!0},p(e,n){const t={};256&n&&(t.layouts=[...e[8]]),134217730&n&&(t.Decorator=void 0!==e[27]?e[27]:e[1]),64&n&&(t.childOfDecorator=e[6]),1025&n&&(t.scoped={...e[0],...e[10]}),r.$set(t)},i(e){t||(he(r.$$.fragment,e),t=!0)},o(e){de(r.$$.fragment,e),t=!1},d(e){ye(r,e),e&&y(n)}}}function Xe(e,n){let r,s,i;const a=[{scoped:n[0]},{scopedSync:n[5]},n[3]];var o=n[7];function l(e){let n={$$slots:{default:[Ce,({scoped:e,decorator:n})=>({10:e,27:n}),({scoped:e,decorator:n})=>(e?1024:0)|(n?134217728:0)]},$$scope:{ctx:e}};for(let e=0;e<a.length;e+=1)n=t(n,a[e]);return{props:n}}if(o)var c=new o(l(n));return{key:e,first:null,c(){r=z(),c&&we(c.$$.fragment),s=z(),this.h()},l(e){r=z(),c&&ke(c.$$.fragment,e),s=z(),this.h()},h(){this.first=r},m(e,n){A(e,r,n),c&&Ae(c,e,n),A(e,s,n),i=!0},p(e,n){const t=41&n?be(a,[1&n&&{scoped:e[0]},32&n&&{scopedSync:e[5]},8&n&&Ee(e[3])]):{};if(402654531&n&&(t.$$scope={dirty:n,ctx:e}),o!==(o=e[7])){if(c){ce();const e=c;de(e.$$.fragment,1,0,()=>{ye(e,1)}),ue()}o?(we((c=new o(l(e))).$$.fragment),he(c.$$.fragment,1),Ae(c,s.parentNode,s)):c=null}else o&&c.$set(t)},i(e){i||(c&&he(c.$$.fragment,e),i=!0)},o(e){c&&de(c.$$.fragment,e),i=!1},d(e){e&&y(r),e&&y(s),c&&ye(c,e)}}}function Ze(e){let n,t,r;return{c(){n=S("span")},l(e){n=V(e,"SPAN",{}),H(n).forEach(y)},m(s,i){A(s,n,i),r=m(t=e[9].call(null,n))},d(e){e&&y(n),r()}}}function Qe(e){let n,t,r,s=e[7]&&Ke(e),i=!e[2]&&Ze(e);return{c(){s&&s.c(),n=D(),i&&i.c(),t=z()},l(e){s&&s.l(e),n=L(e),i&&i.l(e),t=z()},m(e,a){s&&s.m(e,a),A(e,n,a),i&&i.m(e,a),A(e,t,a),r=!0},p(e,[r]){e[7]?s?(s.p(e,r),he(s,1)):(s=Ke(e),s.c(),he(s,1),s.m(n.parentNode,n)):s&&(ce(),de(s,1,1,()=>{s=null}),ue()),e[2]?i&&(i.d(1),i=null):i||(i=Ze(e),i.c(),i.m(t.parentNode,t))},i(e){r||(he(s),r=!0)},o(e){de(s),r=!1},d(e){s&&s.d(e),e&&y(n),i&&i.d(e),e&&y(t)}}}function Je(e,n,t){let r,s;u(e,$e,e=>t(17,r=e)),u(e,He,e=>t(18,s=e));let i,{layouts:a=[]}=n,{scoped:o={}}=n,{Decorator:l}=n,{childOfDecorator:c=!1}=n,h={},d=0,g={},f=!1;const m=ze({});let p,v,b,E,w,k;function A(){t(13,p=E),k&&t(4,d++,d),0===w.length&&async function(){await function(){return Y(),_}(),Re(i),We.update(),window.routify.appLoaded||async function(){window.routify.stopAutoReady||(dispatchEvent(new CustomEvent("app-loaded")),window.routify.appLoaded=!0)}()}();const e=function(e,n,t){return function(r,s,i){if(r=r||"./",i||(r=r.replace(/index$/,"")),r.match(/^\.\.?\//)){let n=e.path;(r.match(/\.\.\//g)||[]).forEach(()=>{n=n.replace(/\/[^\/]+\/?$/,"")}),r=r.replace(/^[\.\/]+/,""),n=n.replace(/\/$/,"")+"/",r=n+r}else if(r.match(/^\//));else{const e=t.find(e=>e.meta.name===r);e&&(r=e.shortPath)}s=Object.assign({},n.params,e.params,s);for(const[e,n]of Object.entries(s))r=r.replace(":"+e,n);return r}}(E,r,s);m.set({route:r,path:E.path,url:e,goto:xe(e),isActive:Te(e,r)})}return U("routify",m),e.$set=e=>{"layouts"in e&&t(11,a=e.layouts),"scoped"in e&&t(0,o=e.scoped),"Decorator"in e&&t(1,l=e.Decorator),"childOfDecorator"in e&&t(12,c=e.childOfDecorator)},e.$$.update=()=>{6146&e.$$.dirty&&l&&!c&&(t(6,f=!0),t(11,a=[{component:()=>l,path:a[0].path+"__decorator"},...a])),2048&e.$$.dirty&&t(15,[E,...w]=a,E,(t(8,w),t(11,a),t(1,l),t(12,c))),32768&e.$$.dirty&&E&&E.param&&t(3,h=E.param),40960&e.$$.dirty&&(k=!p||p.path!==E.path),32768&e.$$.dirty&&function(e){k&&(v=e.component()),v.then?v.then(e=>{t(7,b=e),t(5,g={...o}),A()}):(t(7,b=v),t(5,g={...o}),A())}(E)},[o,l,i,h,d,g,f,b,w,function(e){t(2,i=e.parentElement)},void 0,a,c]}class _e extends Ie{constructor(e){super(),Se(this,e,Je,Qe,o,{layouts:11,scoped:0,Decorator:1,childOfDecorator:12})}}const{_hooks:qe}=Ve;function Ye(e,n){let t=!1;function r(r,s){const i=window.location.pathname,a=tn(r=r||i,e),o=[...(s&&tn(i,e)||a).layouts,a];delete t.prev,a.prev=t,t=a,$e.set(a),n(o)}const s=function(e){["pushState","replaceState"].forEach(e=>{const n=history[e];history[e]=async function(t,r,s){const i=new Event(e.toLowerCase());if(Object.assign(i,{state:t,title:r,url:s}),await nn(i))return n.apply(this,[t,r,s]),dispatchEvent(i)}});let n=!1;const t={click:en,pushstate:()=>e(),replacestate:()=>e(),popstate:async t=>{n?n=!1:await nn(t)?e():(n=!0,t.preventDefault(),history.go(1))}};return Object.entries(t).forEach(e=>addEventListener(...e)),()=>{Object.entries(t).forEach(e=>removeEventListener(...e))}}(r);return{updatePage:r,destroy:s}}function en(e){const n=e.target.closest("a"),t=n&&n.getAttribute("href");e.ctrlKey||e.metaKey||e.altKey||e.shiftKey||e.button||e.defaultPrevented||t&&!n.target&&n.host===location.host&&(e.preventDefault(),history.pushState({},"",t))}async function nn(e){const n=c($e);for(const t of qe.filter(Boolean))if(await!t(e,n))return!1;return!0}function tn(e,n){const t=new URL(location).searchParams.get("__mock-url");e=t||e;const r=n.find(n=>e.match(n.regex));if(!r)throw new Error(`Route could not be found. Make sure ${e}.svelte or ${e}/index.svelte exists. A restart may be required.`);if(r.paramKeys){const n=function(e){const n=[];return e.forEach(e=>{n[e.path.split("/").filter(Boolean).length-1]=e}),n}(r.layouts),t=e.split("/").filter(Boolean);(function(e){return e.split("/").filter(Boolean).map(e=>e.match(/\:(.+)/)).map(e=>e&&e[1])})(r.path).forEach((e,s)=>{e&&(r.params[e]=t[s],n[s]?n[s].param={[e]:t[s]}:r.param={[e]:t[s]})})}return r.leftover=e.replace(new RegExp(r.regex),""),r}function rn(e){let n;const t=new _e({props:{layouts:e[0]}});return{c(){we(t.$$.fragment)},l(e){ke(t.$$.fragment,e)},m(e,r){Ae(t,e,r),n=!0},p(e,n){const r={};1&n&&(r.layouts=e[0]),t.$set(r)},i(e){n||(he(t.$$.fragment,e),n=!0)},o(e){de(t.$$.fragment,e),n=!1},d(e){ye(t,e)}}}function sn(e){let n,t,r=e[0]&&rn(e);return{c(){r&&r.c(),n=z()},l(e){r&&r.l(e),n=z()},m(e,s){r&&r.m(e,s),A(e,n,s),t=!0},p(e,[t]){e[0]?r?(r.p(e,t),he(r,1)):(r=rn(e),r.c(),he(r,1),r.m(n.parentNode,n)):r&&(ce(),de(r,1,1,()=>{r=null}),ue())},i(e){t||(he(r),t=!0)},o(e){de(r),t=!1},d(e){r&&r.d(e),e&&y(n)}}}function an(e,n,t){let r,s,{routes:i}=n;!function(){if(Oe)return;const e=console.warn;console.warn=function(n,...t){if(!["was created with unknown prop 'scoped'","was created with unknown prop 'scopedSync'"].find(e=>n.includes(e)))return e(n,...t)},Oe=!0}(),window.routify||(window.routify={});U("routifyupdatepage",(...e)=>s&&s.updatePage(...e));const a=e=>t(0,r=e),o=()=>{s&&(s.destroy(),s=null)};var l;return l=o,K().$$.on_destroy.push(l),e.$set=e=>{"routes"in e&&t(1,i=e.routes)},e.$$.update=()=>{2&e.$$.dirty&&i&&(o(),s=Ye(i,a),He.set(i),s.updatePage())},[r,i]}class on extends Ie{constructor(e){super(),Se(this,e,an,sn,o,{routes:1})}}const ln=function(e){return e.paramKeys=(e=>{const n=e.match(Ge);if(n)return n.map(e=>e.substr(1,e.length-2))})(e.path),e.regex=((e,n)=>{const t=n?"":"/?$";return e="^"+(e=(e=e.replace(/\/_fallback?$/,"(/|$)")).replace(/\/index$/,"(/index)?")).replace(Ge,"([^/]+)")+t})(e.path,e.isFallback),e.name=e.path.match(/[^\/]*\/[^\/]+$/)[0].replace(/[^\w\/]/g,""),e.ranking=(({path:e})=>e.split("/").filter(Boolean).map(e=>"_fallback"===e?"A":e.startsWith(":")?"B":"C").join(""))(e),e.layouts.map(e=>(e.param={},e)),e.params={},e};function cn(e,{delay:t=0,duration:r=400,easing:s=n}){const i=+getComputedStyle(e).opacity;return{delay:t,duration:r,easing:s,css:e=>"opacity: "+e*i}}function un(e){let n,t,r;const s=e[1].default,i=h(s,e,e[0],null);return{c(){n=S("div"),i&&i.c()},l(e){n=V(e,"DIV",{});var t=H(n);i&&i.l(t),t.forEach(y)},m(e,t){A(e,n,t),i&&i.m(n,null),r=!0},p(e,[n]){i&&i.p&&1&n&&i.p(d(s,e,e[0],null),g(s,e[0],n,null))},i(e){r||(he(i,e),ee(()=>{t||(t=fe(n,cn,{delay:50,duration:150},!0)),t.run(1)}),r=!0)},o(e){de(i,e),t||(t=fe(n,cn,{delay:50,duration:150},!1)),t.run(0),r=!1},d(e){e&&y(n),i&&i.d(e),e&&t&&t.end()}}}function hn(e,n,t){let{$$slots:r={},$$scope:s}=n;return e.$set=e=>{"$$scope"in e&&t(0,s=e.$$scope)},[s,r]}class dn extends Ie{constructor(e){super(),Se(this,e,hn,un,o,{})}}function gn(e,n,t){const r=e.slice();return r[6]=n[t][0],r[7]=n[t][1],r}function fn(e){let n,t,r,s,i,a=e[7]+"";return{c(){n=S("li"),t=S("a"),r=I(a),i=D(),this.h()},l(e){n=V(e,"LI",{class:!0});var s=H(n);t=V(s,"A",{href:!0,class:!0});var o=H(t);r=B(o,a),o.forEach(y),i=L(s),s.forEach(y),this.h()},h(){$(t,"href",s=e[1](e[6])),$(t,"class","svelte-rgm2ed"),T(t,"active",e[2](e[6])),$(n,"class","svelte-rgm2ed")},m(e,s){A(e,n,s),k(n,t),k(t,r),k(n,i)},p(e,n){2&n&&s!==(s=e[1](e[6]))&&$(t,"href",s),12&n&&T(t,"active",e[2](e[6]))},d(e){e&&y(n)}}}function mn(n){let t,r,s,i,a,o,l,c,u,h,d,g,m,p,v,b=n[3],E=[];for(let e=0;e<b.length;e+=1)E[e]=fn(gn(n,b,e));return{c(){t=S("header"),r=S("div"),s=S("a"),i=S("img"),o=D(),l=S("nav"),c=S("div"),u=S("div"),h=S("div"),g=D(),m=S("ul");for(let e=0;e<E.length;e+=1)E[e].c();this.h()},l(e){t=V(e,"HEADER",{class:!0});var n=H(t);r=V(n,"DIV",{class:!0});var a=H(r);s=V(a,"A",{href:!0,class:!0});var d=H(s);i=V(d,"IMG",{src:!0,alt:!0}),d.forEach(y),a.forEach(y),o=L(n),l=V(n,"NAV",{class:!0});var f=H(l);c=V(f,"DIV",{class:!0});var p=H(c);u=V(p,"DIV",{class:!0});var v=H(u);h=V(v,"DIV",{class:!0}),H(h).forEach(y),v.forEach(y),g=L(p),m=V(p,"UL",{class:!0});var b=H(m);for(let e=0;e<E.length;e+=1)E[e].l(b);b.forEach(y),p.forEach(y),f.forEach(y),n.forEach(y),this.h()},h(){i.src!==(a="./logo.svg")&&$(i,"src","./logo.svg"),$(i,"alt",""),$(s,"href","/"),$(s,"class","svelte-rgm2ed"),$(r,"class","logo svelte-rgm2ed"),$(h,"class","middle-line svelte-rgm2ed"),$(u,"class",d=f("mobile-icon"+(n[0]?" active":""))+" svelte-rgm2ed"),$(m,"class",p=f("navbar-list"+(n[0]?" mobile":""))+" svelte-rgm2ed"),$(c,"class","inner svelte-rgm2ed"),$(l,"class","svelte-rgm2ed"),$(t,"class","header svelte-rgm2ed")},m(e,a){A(e,t,a),k(t,r),k(r,s),k(s,i),k(t,o),k(t,l),k(l,c),k(c,u),k(u,h),k(c,g),k(c,m);for(let e=0;e<E.length;e+=1)E[e].m(m,null);v=P(u,"click",n[4])},p(e,[n]){if(1&n&&d!==(d=f("mobile-icon"+(e[0]?" active":""))+" svelte-rgm2ed")&&$(u,"class",d),14&n){let t;for(b=e[3],t=0;t<b.length;t+=1){const r=gn(e,b,t);E[t]?E[t].p(r,n):(E[t]=fn(r),E[t].c(),E[t].m(m,null))}for(;t<E.length;t+=1)E[t].d(1);E.length=b.length}1&n&&p!==(p=f("navbar-list"+(e[0]?" mobile":""))+" svelte-rgm2ed")&&$(m,"class",p)},i:e,o:e,d(e){e&&y(t),function(e,n){for(let t=0;t<e.length;t+=1)e[t]&&e[t].d(n)}(E,e),v()}}}function pn(e,n,t){let r,s;u(e,Be,e=>t(1,r=e)),u(e,Le,e=>t(2,s=e));let i=!1;const a=e=>{e.matches||t(0,i=!1)};return M(()=>{window.matchMedia("(max-width: 767px)").addListener(a)}),[i,r,s,[["./index","Startseite"],["./uberuns","Über uns"],["./referenzen","Referenzen"],["./leistungen","Leistungen"],["./impressum","Impressum"]],()=>t(0,i=!i)]}class vn extends Ie{constructor(e){super(),Se(this,e,pn,mn,o,{})}}function bn(n){let t,r,s,i,a,o,l,c,u,h,d,g,f;return{c(){t=S("footer"),r=S("div"),s=S("h5"),i=I("LASS UNS ZUSAMMEN ARBEITEN"),a=D(),o=S("h2"),l=I("+49 30 984 34 329"),c=D(),u=S("span"),h=I("Altonaer Str 59-61, 13581 Berlin"),d=D(),g=S("span"),f=I("email:info@ikph.de"),this.h()},l(e){t=V(e,"FOOTER",{class:!0});var n=H(t);r=V(n,"DIV",{class:!0});var m=H(r);s=V(m,"H5",{class:!0});var p=H(s);i=B(p,"LASS UNS ZUSAMMEN ARBEITEN"),p.forEach(y),a=L(m),o=V(m,"H2",{class:!0});var v=H(o);l=B(v,"+49 30 984 34 329"),v.forEach(y),c=L(m),u=V(m,"SPAN",{class:!0});var b=H(u);h=B(b,"Altonaer Str 59-61, 13581 Berlin"),b.forEach(y),d=L(m),g=V(m,"SPAN",{class:!0});var E=H(g);f=B(E,"email:info@ikph.de"),E.forEach(y),m.forEach(y),n.forEach(y),this.h()},h(){$(s,"class","svelte-1m6zneg"),$(o,"class","svelte-1m6zneg"),$(u,"class","svelte-1m6zneg"),$(g,"class","svelte-1m6zneg"),$(r,"class","footer-text"),$(t,"class","svelte-1m6zneg")},m(e,n){A(e,t,n),k(t,r),k(r,s),k(s,i),k(r,a),k(r,o),k(o,l),k(r,c),k(r,u),k(u,h),k(r,d),k(r,g),k(g,f)},p:e,i:e,o:e,d(e){e&&y(t)}}}class En extends Ie{constructor(e){super(),Se(this,e,null,bn,o,{})}}const wn=e=>({}),kn=e=>({decorator:dn});function An(e){let n,t,r,s,i,a,o,l,c,u,f,m,p,v,b;const E=new vn({}),w=e[4].default,z=h(w,e,e[3],kn),P=new En({});return{c(){n=S("div"),we(E.$$.fragment),t=D(),z&&z.c(),r=D(),we(P.$$.fragment),s=D(),i=S("div"),a=S("p"),o=I("IKPH Inter-Kontakt Projekt und Handel GmbH ©"),l=I(e[1]),c=I(" | Crafted in\n    "),u=S("a"),f=S("img"),p=I("\n      - design studio"),this.h()},l(h){n=V(h,"DIV",{class:!0});var d=H(n);ke(E.$$.fragment,d),t=L(d),z&&z.l(d),d.forEach(y),r=L(h),ke(P.$$.fragment,h),s=L(h),i=V(h,"DIV",{class:!0});var g=H(i);a=V(g,"P",{});var m=H(a);o=B(m,"IKPH Inter-Kontakt Projekt und Handel GmbH ©"),l=B(m,e[1]),c=B(m," | Crafted in\n    "),u=V(m,"A",{href:!0,class:!0});var v=H(u);f=V(v,"IMG",{src:!0,alt:!0,class:!0}),p=B(v,"\n      - design studio"),v.forEach(y),m.forEach(y),g.forEach(y),this.h()},h(){$(n,"class","container svelte-1uyme28"),f.src!==(m="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAmCAYAAACGeMg8AAAACXBIWXMAAAsSAAALEgHS3X78AAAD3klEQVRYw+2ZS2xNURSG79WnRzXEoxKJRA2UqBYlUuo58AwSJGIgYYAYCIIqAwaohI4I8RpIExGlngkmJERJVFXRXm0FA6EafWi1qlr/kv/KcXLP3vuce5t20JV8uX2cs/dZ+6z1r7X39fl6reeaH8SDvgrk/7G8ViwOJID+DsSF+UzxirGFfqFuGgsugNvgJrkBrpNroBAcAylgIDgMOkEAVIIqflaDd+AkGO7RiWhwnmNV28av4t+KQYz1JlnlH3woE96CLHAJdGiuvWh5g25sEfioGfszn/0/RwIuHGkAuWAhf3a6TpwsYPi5sT7gNGhVjP0bHOGb+2cxLh1pZ5hNBSWaa9+DVJeOjAKP+LBO434CGfa37daRTubAepCtmfAXWMNVNrVNoFYz/wOKgS9cR+S1nwWzGauqa4+DJEMnJMyvcAFUi7MZRIVypNilI8J9sJyqprpOFmmmoSPTQZlmPFGu5FAiIp7tBi/BG0PKKdcSzxtAm2JiUcQtdoVxsEOgyUAJY1SDpIF0fupItYRLBnVdNXkhV1Flg8BdTc41g8WhwioSlkS5VD1ADWuDqqasNqgdpWBoV7Y4KzU1RcThAEhUVPJz4KdG9nN1rc8QKlAWE1PHDJIJxpBnmtUsAhMd5h8HHmve6lcwTSXlEm95oAU0cmWD1JM6B2rZl0lxzOGqOT1IE2tKqPjeBr4ZqGSiTru/e5Bfq66fAnNZcVUti+TSCNv80sVe1ixCG2uHUvliKKdeHZEHvAeWgKsGNSDTNv888Fpz3wd26H6dIxVhOCJ8YXis0yRsC2uKtb3INawdA3SKEwlHOjiZCMZTg6Qfz7lTmOSq7UA9BSbKxJHqMB0J7g8Ogr2at1JPuQ4mua5BfGi6QRNP91gmafBAM1sXyZP5lEpVPTgBRoN8gyTfwa22kUl7sJShMccDkrBT+HalptzSrHIZ5bpUc10N2yG/rxtMEnkrE9vpAevYjrRqHBFZHtydpzKzNHnXbpBzzSygsW4nT2OFzmCYTLYxyfIZJN3WMU9g9ZVQPWNwOGGy73B19HIUPOcJSSAEFaTcQnBvIsXsFSnh0dEKEk7HkMdjJ2OLjZD8WsMmn6csRR7HaGTL42av/1dpKiPoSDAsNrKmeAkvOUUZ6TY3IlHZQ+0/5CRymUa9nJrQ7TwW7XZHhDvMkxcu76uhkPi9OBLoAkekuu/kIYWb+6RnG+ZF88WRJ13gSCcPonexJpjes9Z+FOrGktmcFfKALEhBGOSxLsnGaRXYx7Ykm71dju33/WCBSbuu+34kQfN9hFv6WuQzmocGOqJ8vdZrPcf+AKYNgfyeEDunAAAAAElFTkSuQmCC")&&$(f,"src","data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAmCAYAAACGeMg8AAAACXBIWXMAAAsSAAALEgHS3X78AAAD3klEQVRYw+2ZS2xNURSG79WnRzXEoxKJRA2UqBYlUuo58AwSJGIgYYAYCIIqAwaohI4I8RpIExGlngkmJERJVFXRXm0FA6EafWi1qlr/kv/KcXLP3vuce5t20JV8uX2cs/dZ+6z1r7X39fl6reeaH8SDvgrk/7G8ViwOJID+DsSF+UzxirGFfqFuGgsugNvgJrkBrpNroBAcAylgIDgMOkEAVIIqflaDd+AkGO7RiWhwnmNV28av4t+KQYz1JlnlH3woE96CLHAJdGiuvWh5g25sEfioGfszn/0/RwIuHGkAuWAhf3a6TpwsYPi5sT7gNGhVjP0bHOGb+2cxLh1pZ5hNBSWaa9+DVJeOjAKP+LBO434CGfa37daRTubAepCtmfAXWMNVNrVNoFYz/wOKgS9cR+S1nwWzGauqa4+DJEMnJMyvcAFUi7MZRIVypNilI8J9sJyqprpOFmmmoSPTQZlmPFGu5FAiIp7tBi/BG0PKKdcSzxtAm2JiUcQtdoVxsEOgyUAJY1SDpIF0fupItYRLBnVdNXkhV1Flg8BdTc41g8WhwioSlkS5VD1ADWuDqqasNqgdpWBoV7Y4KzU1RcThAEhUVPJz4KdG9nN1rc8QKlAWE1PHDJIJxpBnmtUsAhMd5h8HHmve6lcwTSXlEm95oAU0cmWD1JM6B2rZl0lxzOGqOT1IE2tKqPjeBr4ZqGSiTru/e5Bfq66fAnNZcVUti+TSCNv80sVe1ixCG2uHUvliKKdeHZEHvAeWgKsGNSDTNv888Fpz3wd26H6dIxVhOCJ8YXis0yRsC2uKtb3INawdA3SKEwlHOjiZCMZTg6Qfz7lTmOSq7UA9BSbKxJHqMB0J7g8Ogr2at1JPuQ4mua5BfGi6QRNP91gmafBAM1sXyZP5lEpVPTgBRoN8gyTfwa22kUl7sJShMccDkrBT+HalptzSrHIZ5bpUc10N2yG/rxtMEnkrE9vpAevYjrRqHBFZHtydpzKzNHnXbpBzzSygsW4nT2OFzmCYTLYxyfIZJN3WMU9g9ZVQPWNwOGGy73B19HIUPOcJSSAEFaTcQnBvIsXsFSnh0dEKEk7HkMdjJ2OLjZD8WsMmn6csRR7HaGTL42av/1dpKiPoSDAsNrKmeAkvOUUZ6TY3IlHZQ+0/5CRymUa9nJrQ7TwW7XZHhDvMkxcu76uhkPi9OBLoAkekuu/kIYWb+6RnG+ZF88WRJ13gSCcPonexJpjes9Z+FOrGktmcFfKALEhBGOSxLsnGaRXYx7Ykm71dju33/WCBSbuu+34kQfN9hFv6WuQzmocGOqJ8vdZrPcf+AKYNgfyeEDunAAAAAElFTkSuQmCC"),$(f,"alt","Tworzenie i projektowanie stron internetowych"),$(f,"class","svelte-1uyme28"),$(u,"href",v=e[0]("https://varvanin.eu")),$(u,"class","svelte-1uyme28"),$(i,"class","copyright svelte-1uyme28")},m(e,h){A(e,n,h),Ae(E,n,null),k(n,t),z&&z.m(n,null),A(e,r,h),Ae(P,e,h),A(e,s,h),A(e,i,h),k(i,a),k(a,o),k(a,l),k(a,c),k(a,u),k(u,f),k(u,p),b=!0},p(e,[n]){z&&z.p&&8&n&&z.p(d(w,e,e[3],kn),g(w,e[3],n,wn)),(!b||1&n&&v!==(v=e[0]("https://varvanin.eu")))&&$(u,"href",v)},i(e){b||(he(E.$$.fragment,e),he(z,e),he(P.$$.fragment,e),b=!0)},o(e){de(E.$$.fragment,e),de(z,e),de(P.$$.fragment,e),b=!1},d(e){e&&y(n),ye(E),z&&z.d(e),e&&y(r),ye(P,e),e&&y(s),e&&y(i)}}}function yn(e,n,t){let r;u(e,Be,e=>t(0,r=e));let s=new Date,i=s.getFullYear(),{$$slots:a={},$$scope:o}=n;return e.$set=e=>{"$$scope"in e&&t(3,o=e.$$scope)},[r,i,s,o,a]}class Sn extends Ie{constructor(e){super(),Se(this,e,yn,An,o,{})}}function In(n){let t,r,s,i,a,o,l,c,u;return{c(){t=S("div"),r=S("div"),s=I("404"),i=D(),a=S("div"),o=I("Seite nicht gefunden. \n  \n  "),l=S("a"),c=I("Zurück"),this.h()},l(e){t=V(e,"DIV",{class:!0});var n=H(t);r=V(n,"DIV",{class:!0});var u=H(r);s=B(u,"404"),u.forEach(y),i=L(n),a=V(n,"DIV",{class:!0});var h=H(a);o=B(h,"Seite nicht gefunden. \n  \n  "),l=V(h,"A",{href:!0});var d=H(l);c=B(d,"Zurück"),d.forEach(y),h.forEach(y),n.forEach(y),this.h()},h(){$(r,"class","huge svelte-aioo8o"),$(l,"href",u=n[0]("../")),$(a,"class","big"),$(t,"class","e404 svelte-aioo8o")},m(e,n){A(e,t,n),k(t,r),k(r,s),k(t,i),k(t,a),k(a,o),k(a,l),k(l,c)},p(e,[n]){1&n&&u!==(u=e[0]("../"))&&$(l,"href",u)},i:e,o:e,d(e){e&&y(t)}}}function Dn(e,n,t){let r;return u(e,Be,e=>t(0,r=e)),[r]}class zn extends Ie{constructor(e){super(),Se(this,e,Dn,In,o,{})}}function Pn(n){let t,r,s,i;return{c(){t=S("div"),r=S("div"),s=S("h1"),i=I($n),this.h()},l(e){t=V(e,"DIV",{class:!0});var n=H(t);r=V(n,"DIV",{class:!0});var a=H(r);s=V(a,"H1",{class:!0});var o=H(s);i=B(o,$n),o.forEach(y),a.forEach(y),n.forEach(y),this.h()},h(){$(s,"class","svelte-18v0tce"),$(r,"class","intro svelte-18v0tce"),$(t,"class","hero svelte-18v0tce")},m(e,n){A(e,t,n),k(t,r),k(r,s),k(s,i)},p:e,i:e,o:e,d(e){e&&y(t)}}}let $n="Wir grüßen Sie - und laden Sie herzlich ein, unsere Dienstleistungen in Anspruch zu nehmen!";class Hn extends Ie{constructor(e){super(),Se(this,e,null,Pn,o,{})}}"undefined"!=typeof globalThis?globalThis:"undefined"!=typeof window?window:"undefined"!=typeof global?global:"undefined"!=typeof self&&self;var Vn,Bn=function(e,n){return e(n={exports:{}},n.exports),n.exports}((function(e,n){"undefined"!=typeof self&&self,e.exports=function(e){function n(r){if(t[r])return t[r].exports;var s=t[r]={i:r,l:!1,exports:{}};return e[r].call(s.exports,s,s.exports,n),s.l=!0,s.exports}var t={};return n.m=e,n.c=t,n.d=function(e,t,r){n.o(e,t)||Object.defineProperty(e,t,{configurable:!1,enumerable:!0,get:r})},n.n=function(e){var t=e&&e.__esModule?function(){return e.default}:function(){return e};return n.d(t,"a",t),t},n.o=function(e,n){return Object.prototype.hasOwnProperty.call(e,n)},n.p="",n(n.s=0)}([function(e,n,t){Object.defineProperty(n,"__esModule",{value:!0});var r="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},s=function(){function e(e,n){for(var t=0;t<n.length;t++){var r=n[t];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(e,r.key,r)}}return function(n,t,r){return t&&e(n.prototype,t),r&&e(n,r),n}}(),i=function(){function e(n){var t=this;if(function(e,n){if(!(e instanceof n))throw new TypeError("Cannot call a class as a function")}(this,e),this.config=e.mergeSettings(n),this.selector="string"==typeof this.config.selector?document.querySelector(this.config.selector):this.config.selector,null===this.selector)throw new Error("Something wrong with your selector 😭");this.resolveSlidesNumber(),this.selectorWidth=this.selector.offsetWidth,this.innerElements=[].slice.call(this.selector.children),this.currentSlide=this.config.loop?this.config.startIndex%this.innerElements.length:Math.max(0,Math.min(this.config.startIndex,this.innerElements.length-this.perPage)),this.transformProperty=e.webkitOrNot(),["resizeHandler","touchstartHandler","touchendHandler","touchmoveHandler","mousedownHandler","mouseupHandler","mouseleaveHandler","mousemoveHandler","clickHandler"].forEach((function(e){t[e]=t[e].bind(t)})),this.init()}return s(e,[{key:"attachEvents",value:function(){window.addEventListener("resize",this.resizeHandler),this.config.draggable&&(this.pointerDown=!1,this.drag={startX:0,endX:0,startY:0,letItGo:null,preventClick:!1},this.selector.addEventListener("touchstart",this.touchstartHandler),this.selector.addEventListener("touchend",this.touchendHandler),this.selector.addEventListener("touchmove",this.touchmoveHandler),this.selector.addEventListener("mousedown",this.mousedownHandler),this.selector.addEventListener("mouseup",this.mouseupHandler),this.selector.addEventListener("mouseleave",this.mouseleaveHandler),this.selector.addEventListener("mousemove",this.mousemoveHandler),this.selector.addEventListener("click",this.clickHandler))}},{key:"detachEvents",value:function(){window.removeEventListener("resize",this.resizeHandler),this.selector.removeEventListener("touchstart",this.touchstartHandler),this.selector.removeEventListener("touchend",this.touchendHandler),this.selector.removeEventListener("touchmove",this.touchmoveHandler),this.selector.removeEventListener("mousedown",this.mousedownHandler),this.selector.removeEventListener("mouseup",this.mouseupHandler),this.selector.removeEventListener("mouseleave",this.mouseleaveHandler),this.selector.removeEventListener("mousemove",this.mousemoveHandler),this.selector.removeEventListener("click",this.clickHandler)}},{key:"init",value:function(){this.attachEvents(),this.selector.style.overflow="hidden",this.selector.style.direction=this.config.rtl?"rtl":"ltr",this.buildSliderFrame(),this.config.onInit.call(this)}},{key:"buildSliderFrame",value:function(){var e=this.selectorWidth/this.perPage,n=this.config.loop?this.innerElements.length+2*this.perPage:this.innerElements.length;this.sliderFrame=document.createElement("div"),this.sliderFrame.style.width=e*n+"px",this.enableTransition(),this.config.draggable&&(this.selector.style.cursor="-webkit-grab");var t=document.createDocumentFragment();if(this.config.loop)for(var r=this.innerElements.length-this.perPage;r<this.innerElements.length;r++){var s=this.buildSliderFrameItem(this.innerElements[r].cloneNode(!0));t.appendChild(s)}for(var i=0;i<this.innerElements.length;i++){var a=this.buildSliderFrameItem(this.innerElements[i]);t.appendChild(a)}if(this.config.loop)for(var o=0;o<this.perPage;o++){var l=this.buildSliderFrameItem(this.innerElements[o].cloneNode(!0));t.appendChild(l)}this.sliderFrame.appendChild(t),this.selector.innerHTML="",this.selector.appendChild(this.sliderFrame),this.slideToCurrent()}},{key:"buildSliderFrameItem",value:function(e){var n=document.createElement("div");return n.style.cssFloat=this.config.rtl?"right":"left",n.style.float=this.config.rtl?"right":"left",n.style.width=(this.config.loop?100/(this.innerElements.length+2*this.perPage):100/this.innerElements.length)+"%",n.appendChild(e),n}},{key:"resolveSlidesNumber",value:function(){if("number"==typeof this.config.perPage)this.perPage=this.config.perPage;else if("object"===r(this.config.perPage))for(var e in this.perPage=1,this.config.perPage)window.innerWidth>=e&&(this.perPage=this.config.perPage[e])}},{key:"prev",value:function(){var e=arguments.length>0&&void 0!==arguments[0]?arguments[0]:1,n=arguments[1];if(!(this.innerElements.length<=this.perPage)){var t=this.currentSlide;if(this.config.loop)if(this.currentSlide-e<0){this.disableTransition();var r=this.currentSlide+this.innerElements.length,s=this.perPage,i=r+s,a=(this.config.rtl?1:-1)*i*(this.selectorWidth/this.perPage),o=this.config.draggable?this.drag.endX-this.drag.startX:0;this.sliderFrame.style[this.transformProperty]="translate3d("+(a+o)+"px, 0, 0)",this.currentSlide=r-e}else this.currentSlide=this.currentSlide-e;else this.currentSlide=Math.max(this.currentSlide-e,0);t!==this.currentSlide&&(this.slideToCurrent(this.config.loop),this.config.onChange.call(this),n&&n.call(this))}}},{key:"next",value:function(){var e=arguments.length>0&&void 0!==arguments[0]?arguments[0]:1,n=arguments[1];if(!(this.innerElements.length<=this.perPage)){var t=this.currentSlide;if(this.config.loop)if(this.currentSlide+e>this.innerElements.length-this.perPage){this.disableTransition();var r=this.currentSlide-this.innerElements.length,s=this.perPage,i=r+s,a=(this.config.rtl?1:-1)*i*(this.selectorWidth/this.perPage),o=this.config.draggable?this.drag.endX-this.drag.startX:0;this.sliderFrame.style[this.transformProperty]="translate3d("+(a+o)+"px, 0, 0)",this.currentSlide=r+e}else this.currentSlide=this.currentSlide+e;else this.currentSlide=Math.min(this.currentSlide+e,this.innerElements.length-this.perPage);t!==this.currentSlide&&(this.slideToCurrent(this.config.loop),this.config.onChange.call(this),n&&n.call(this))}}},{key:"disableTransition",value:function(){this.sliderFrame.style.webkitTransition="all 0ms "+this.config.easing,this.sliderFrame.style.transition="all 0ms "+this.config.easing}},{key:"enableTransition",value:function(){this.sliderFrame.style.webkitTransition="all "+this.config.duration+"ms "+this.config.easing,this.sliderFrame.style.transition="all "+this.config.duration+"ms "+this.config.easing}},{key:"goTo",value:function(e,n){if(!(this.innerElements.length<=this.perPage)){var t=this.currentSlide;this.currentSlide=this.config.loop?e%this.innerElements.length:Math.min(Math.max(e,0),this.innerElements.length-this.perPage),t!==this.currentSlide&&(this.slideToCurrent(),this.config.onChange.call(this),n&&n.call(this))}}},{key:"slideToCurrent",value:function(e){var n=this,t=this.config.loop?this.currentSlide+this.perPage:this.currentSlide,r=(this.config.rtl?1:-1)*t*(this.selectorWidth/this.perPage);e?requestAnimationFrame((function(){requestAnimationFrame((function(){n.enableTransition(),n.sliderFrame.style[n.transformProperty]="translate3d("+r+"px, 0, 0)"}))})):this.sliderFrame.style[this.transformProperty]="translate3d("+r+"px, 0, 0)"}},{key:"updateAfterDrag",value:function(){var e=(this.config.rtl?-1:1)*(this.drag.endX-this.drag.startX),n=Math.abs(e),t=this.config.multipleDrag?Math.ceil(n/(this.selectorWidth/this.perPage)):1,r=e>0&&this.currentSlide-t<0,s=e<0&&this.currentSlide+t>this.innerElements.length-this.perPage;e>0&&n>this.config.threshold&&this.innerElements.length>this.perPage?this.prev(t):e<0&&n>this.config.threshold&&this.innerElements.length>this.perPage&&this.next(t),this.slideToCurrent(r||s)}},{key:"resizeHandler",value:function(){this.resolveSlidesNumber(),this.currentSlide+this.perPage>this.innerElements.length&&(this.currentSlide=this.innerElements.length<=this.perPage?0:this.innerElements.length-this.perPage),this.selectorWidth=this.selector.offsetWidth,this.buildSliderFrame()}},{key:"clearDrag",value:function(){this.drag={startX:0,endX:0,startY:0,letItGo:null,preventClick:this.drag.preventClick}}},{key:"touchstartHandler",value:function(e){-1!==["TEXTAREA","OPTION","INPUT","SELECT"].indexOf(e.target.nodeName)||(e.stopPropagation(),this.pointerDown=!0,this.drag.startX=e.touches[0].pageX,this.drag.startY=e.touches[0].pageY)}},{key:"touchendHandler",value:function(e){e.stopPropagation(),this.pointerDown=!1,this.enableTransition(),this.drag.endX&&this.updateAfterDrag(),this.clearDrag()}},{key:"touchmoveHandler",value:function(e){if(e.stopPropagation(),null===this.drag.letItGo&&(this.drag.letItGo=Math.abs(this.drag.startY-e.touches[0].pageY)<Math.abs(this.drag.startX-e.touches[0].pageX)),this.pointerDown&&this.drag.letItGo){e.preventDefault(),this.drag.endX=e.touches[0].pageX,this.sliderFrame.style.webkitTransition="all 0ms "+this.config.easing,this.sliderFrame.style.transition="all 0ms "+this.config.easing;var n=(this.config.loop?this.currentSlide+this.perPage:this.currentSlide)*(this.selectorWidth/this.perPage),t=this.drag.endX-this.drag.startX,r=this.config.rtl?n+t:n-t;this.sliderFrame.style[this.transformProperty]="translate3d("+(this.config.rtl?1:-1)*r+"px, 0, 0)"}}},{key:"mousedownHandler",value:function(e){-1!==["TEXTAREA","OPTION","INPUT","SELECT"].indexOf(e.target.nodeName)||(e.preventDefault(),e.stopPropagation(),this.pointerDown=!0,this.drag.startX=e.pageX)}},{key:"mouseupHandler",value:function(e){e.stopPropagation(),this.pointerDown=!1,this.selector.style.cursor="-webkit-grab",this.enableTransition(),this.drag.endX&&this.updateAfterDrag(),this.clearDrag()}},{key:"mousemoveHandler",value:function(e){if(e.preventDefault(),this.pointerDown){"A"===e.target.nodeName&&(this.drag.preventClick=!0),this.drag.endX=e.pageX,this.selector.style.cursor="-webkit-grabbing",this.sliderFrame.style.webkitTransition="all 0ms "+this.config.easing,this.sliderFrame.style.transition="all 0ms "+this.config.easing;var n=(this.config.loop?this.currentSlide+this.perPage:this.currentSlide)*(this.selectorWidth/this.perPage),t=this.drag.endX-this.drag.startX,r=this.config.rtl?n+t:n-t;this.sliderFrame.style[this.transformProperty]="translate3d("+(this.config.rtl?1:-1)*r+"px, 0, 0)"}}},{key:"mouseleaveHandler",value:function(e){this.pointerDown&&(this.pointerDown=!1,this.selector.style.cursor="-webkit-grab",this.drag.endX=e.pageX,this.drag.preventClick=!1,this.enableTransition(),this.updateAfterDrag(),this.clearDrag())}},{key:"clickHandler",value:function(e){this.drag.preventClick&&e.preventDefault(),this.drag.preventClick=!1}},{key:"remove",value:function(e,n){if(e<0||e>=this.innerElements.length)throw new Error("Item to remove doesn't exist 😭");var t=e<this.currentSlide,r=this.currentSlide+this.perPage-1===e;(t||r)&&this.currentSlide--,this.innerElements.splice(e,1),this.buildSliderFrame(),n&&n.call(this)}},{key:"insert",value:function(e,n,t){if(n<0||n>this.innerElements.length+1)throw new Error("Unable to inset it at this index 😭");if(-1!==this.innerElements.indexOf(e))throw new Error("The same item in a carousel? Really? Nope 😭");var r=n<=this.currentSlide>0&&this.innerElements.length;this.currentSlide=r?this.currentSlide+1:this.currentSlide,this.innerElements.splice(n,0,e),this.buildSliderFrame(),t&&t.call(this)}},{key:"prepend",value:function(e,n){this.insert(e,0),n&&n.call(this)}},{key:"append",value:function(e,n){this.insert(e,this.innerElements.length+1),n&&n.call(this)}},{key:"destroy",value:function(){var e=arguments.length>0&&void 0!==arguments[0]&&arguments[0],n=arguments[1];if(this.detachEvents(),this.selector.style.cursor="auto",e){for(var t=document.createDocumentFragment(),r=0;r<this.innerElements.length;r++)t.appendChild(this.innerElements[r]);this.selector.innerHTML="",this.selector.appendChild(t),this.selector.removeAttribute("style")}n&&n.call(this)}}],[{key:"mergeSettings",value:function(e){var n={selector:".siema",duration:200,easing:"ease-out",perPage:1,startIndex:0,draggable:!0,multipleDrag:!0,threshold:20,loop:!1,rtl:!1,onInit:function(){},onChange:function(){}},t=e;for(var r in t)n[r]=t[r];return n}},{key:"webkitOrNot",value:function(){return"string"==typeof document.documentElement.style.transform?"transform":"WebkitTransform"}}]),e}();n.default=i,e.exports=n.default}])})),Ln=(Vn=Bn)&&Vn.__esModule&&Object.prototype.hasOwnProperty.call(Vn,"default")?Vn.default:Vn;Bn.Siema;function Tn(e,n,t){return e.addEventListener(n,t),()=>e.removeEventListener(n,t)}function xn(e,n,t){e.dispatchEvent(new CustomEvent("tap",{detail:{x:n,y:t}}))}function Nn(e){const n=Tn(e.currentTarget,"keydown",e=>{32===e.which&&xn(e.currentTarget,null,null)}),t=Tn(e.currentTarget,"blur",e=>{n(),t()})}function Wn(e){return"BUTTON"===e.tagName||"button"===e.type}const Fn="function"==typeof PointerEvent?function(e){const n=Tn(e,"pointerdown",(function(n){if(e.disabled)return;const{clientX:t,clientY:r}=n,s=Tn(e,"pointerup",n=>{Math.abs(n.clientX-t)>5||Math.abs(n.clientY-r)>5||(xn(e,n.clientX,n.clientY),s())});setTimeout(s,300)})),t=Wn(e)&&Tn(e,"focus",Nn);return{destroy(){n(),t&&t()}}}:function(e){let n,t=!0;const r=Tn(e,"mousedown",(function(r){const{clientX:s,clientY:i}=r,a=Tn(e,"mouseup",n=>{t&&(Math.abs(n.clientX-s)>5||Math.abs(n.clientY-i)>5||(xn(e,n.clientX,n.clientY),a()))});clearTimeout(n),setTimeout(a,300)})),s=Tn(e,"touchstart",(function(r){if(1!==r.changedTouches.length)return;if(e.disabled)return;const s=r.changedTouches[0],{identifier:i,clientX:a,clientY:o}=s,l=Tn(e,"touchend",r=>{const s=Array.from(r.changedTouches).find(e=>e.identifier===i);s&&(Math.abs(s.clientX-a)>5||Math.abs(s.clientY-o)>5||(xn(e,s.clientX,s.clientY),t=!1,n=setTimeout(()=>{t=!0},350)))});setTimeout(l,300)})),i=Wn(e)&&Tn(e,"focus",Nn);return{destroy(){r(),s(),i&&i()}}},Gn=e=>({}),Rn=e=>({});function On(e,n,t){const r=e.slice();return r[18]=n[t],r[20]=t,r}const jn=e=>({}),Kn=e=>({});function Mn(e,n){let t,r,s,a;function o(...e){return n[17](n[20],...e)}return{key:e,first:null,c(){t=S("li"),this.h()},l(e){t=V(e,"LI",{class:!0}),H(t).forEach(y),this.h()},h(){$(t,"class",r=f(n[0]==n[20]?"active":"")+" svelte-jrqjob"),this.first=t},m(e,n){A(e,t,n),a=[m(s=Fn.call(null,t)),P(t,"tap",o)]},p(e,s){n=e,9&s&&r!==(r=f(n[0]==n[20]?"active":"")+" svelte-jrqjob")&&$(t,"class",r)},d(e){e&&y(t),i(a)}}}function Un(e){let n,t,r,s,a,o,l,c,u,f,p,v,b=[],E=new Map;const w=e[15]["left-control"],I=h(w,e,e[14],Kn),z=e[15].default,B=h(z,e,e[14],null);let T=e[3];const x=e=>"pip_"+e[1]+"_"+e[20];for(let n=0;n<T.length;n+=1){let t=On(e,T,n),r=x(t);E.set(r,b[n]=Mn(r,t))}const N=e[15]["right-control"],W=h(N,e,e[14],Rn);return{c(){n=S("div"),t=S("button"),I&&I.c(),s=D(),a=S("div"),B&&B.c(),o=D(),l=S("ul");for(let e=0;e<b.length;e+=1)b[e].c();c=D(),u=S("button"),W&&W.c(),this.h()},l(e){n=V(e,"DIV",{class:!0});var r=H(n);t=V(r,"BUTTON",{class:!0});var i=H(t);I&&I.l(i),i.forEach(y),s=L(r),a=V(r,"DIV",{class:!0});var h=H(a);B&&B.l(h),h.forEach(y),o=L(r),l=V(r,"UL",{class:!0});var d=H(l);for(let e=0;e<b.length;e+=1)b[e].l(d);d.forEach(y),c=L(r),u=V(r,"BUTTON",{class:!0});var g=H(u);W&&W.l(g),g.forEach(y),r.forEach(y),this.h()},h(){$(t,"class","left svelte-jrqjob"),$(a,"class","slides"),$(l,"class","svelte-jrqjob"),$(u,"class","right svelte-jrqjob"),$(n,"class","carousel svelte-jrqjob")},m(i,h){A(i,n,h),k(n,t),I&&I.m(t,null),k(n,s),k(n,a),B&&B.m(a,null),e[16](a),k(n,o),k(n,l);for(let e=0;e<b.length;e+=1)b[e].m(l,null);k(n,c),k(n,u),W&&W.m(u,null),p=!0,v=[m(r=Fn.call(null,t)),P(t,"tap",e[4]),m(f=Fn.call(null,u)),P(u,"tap",e[5])]},p(e,[n]){if(I&&I.p&&16384&n&&I.p(d(w,e,e[14],Kn),g(w,e[14],n,jn)),B&&B.p&&16384&n&&B.p(d(z,e,e[14],null),g(z,e[14],n,null)),73&n){const t=e[3];b=ve(b,n,x,1,e,t,E,l,me,Mn,null,On)}W&&W.p&&16384&n&&W.p(d(N,e,e[14],Rn),g(N,e[14],n,Gn))},i(e){p||(he(I,e),he(B,e),he(W,e),p=!0)},o(e){de(I,e),de(B,e),de(W,e),p=!1},d(t){t&&y(n),I&&I.d(t),B&&B.d(t),e[16](null);for(let e=0;e<b.length;e+=1)b[e].d();W&&W.d(t),i(v)}}}function Cn(e,n,t){let r,s,i,{perPage:a=3}=n,{loop:o=!0}=n,{autoplay:l=0}=n,{go:c=0}=n,{current:u=0}=n,{useKeys:h=!1}=n;function d(){t(0,u--,u),t(0,u%=v.length),i.prev(1,f(u+1))}function g(){t(0,u++,u),t(0,u%=v.length),i.next(1,f(u-1))}function f(e){i&&(0===e||e>0)&&i.goTo(e,()=>{t(0,u=e)})}M(()=>{t(1,r=Math.ceil(3e5*Math.random()));return t(12,i=new Ln({selector:s,perPage:a,loop:o,onChange:()=>{t(0,u=i.currentSlide)}})),document.addEventListener("keydown",e=>{if(h)switch(e.keyCode){case 32:g();break;case 37:case 38:d();break;case 39:case 40:g()}}),l&&setInterval(g,l),()=>{l&&clearTimeout(void 0),i.destroy()}});let{$$slots:m={},$$scope:p}=n;let v;return e.$set=e=>{"perPage"in e&&t(7,a=e.perPage),"loop"in e&&t(8,o=e.loop),"autoplay"in e&&t(9,l=e.autoplay),"go"in e&&t(10,c=e.go),"current"in e&&t(0,u=e.current),"useKeys"in e&&t(11,h=e.useKeys),"$$scope"in e&&t(14,p=e.$$scope)},e.$$.update=()=>{1024&e.$$.dirty&&f(c),4096&e.$$.dirty&&t(3,v=i?i.innerElements:[])},[u,r,s,v,d,g,f,a,o,l,c,h,i,void 0,p,m,function(e){Z[e?"unshift":"push"](()=>{t(2,s=e)})},e=>f(e)]}class Xn extends Ie{constructor(e){super(),Se(this,e,Cn,Un,o,{perPage:7,loop:8,autoplay:9,go:10,current:0,useKeys:11})}}function Zn(e,n,t){const r=e.slice();return r[1]=n[t],r[8]=t,r}function Qn(e){let n,t,r;return{c(){n=S("img"),this.h()},l(e){n=V(e,"IMG",{src:!0,alt:!0}),this.h()},h(){n.src!==(t=e[1].full)&&$(n,"src",t),$(n,"alt",r=e[1].title)},m(e,t){A(e,n,t)},p(e,s){8&s&&n.src!==(t=e[1].full)&&$(n,"src",t),8&s&&r!==(r=e[1].title)&&$(n,"alt",r)},d(e){e&&y(n)}}}function Jn(e,n){let t,r,s=("image"==n[1].type||!n[1].type)&&Qn(n);return{key:e,first:null,c(){t=z(),s&&s.c(),r=z(),this.h()},l(e){t=z(),s&&s.l(e),r=z(),this.h()},h(){this.first=t},m(e,n){A(e,t,n),s&&s.m(e,n),A(e,r,n)},p(e,n){"image"!=e[1].type&&e[1].type?s&&(s.d(1),s=null):s?s.p(e,n):(s=Qn(e),s.c(),s.m(r.parentNode,r))},d(e){e&&y(t),s&&s.d(e),e&&y(r)}}}function _n(e){let n,t=[],r=new Map,s=e[3];const i=e=>"content_"+e[8];for(let n=0;n<s.length;n+=1){let a=Zn(e,s,n),o=i(a);r.set(o,t[n]=Jn(o,a))}return{c(){for(let e=0;e<t.length;e+=1)t[e].c();n=z()},l(e){for(let n=0;n<t.length;n+=1)t[n].l(e);n=z()},m(e,r){for(let n=0;n<t.length;n+=1)t[n].m(e,r);A(e,n,r)},p(e,s){if(8&s){const a=e[3];t=ve(t,s,i,1,e,a,r,n.parentNode,me,Jn,n,Zn)}},d(e){for(let n=0;n<t.length;n+=1)t[n].d(e);e&&y(n)}}}function qn(e){let n,t,r,s,a,o,l,c,u,h,d;const g=new Xn({props:{perPage:{perParge:1},go:e[0],$$slots:{default:[_n]},$$scope:{ctx:e}}});return{c(){n=S("div"),t=S("header"),r=S("button"),s=S("img"),o=D(),l=S("div"),c=D(),we(g.$$.fragment),this.h()},l(e){n=V(e,"DIV",{class:!0});var i=H(n);t=V(i,"HEADER",{class:!0});var a=H(t);r=V(a,"BUTTON",{});var u=H(r);s=V(u,"IMG",{src:!0,alt:!0}),u.forEach(y),a.forEach(y),o=L(i),l=V(i,"DIV",{class:!0}),H(l).forEach(y),c=L(i),ke(g.$$.fragment,i),i.forEach(y),this.h()},h(){s.src!==(a="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsSAAALEgHS3X78AAABB0lEQVRIx+1V2wqCQBA1fRXxlpdvSeibE+oLgjLzQj9kszALh8VkdzN6qIEDus6eMzO7MzrO3yxtA1jTd9Zcy28voxG2IxwIBb97M75yLSPUhErhWBQQ5BPhRkhmRORzSLiy78lEoGBysfFOiIEYyRv26QiljgDWNWFyVUQlHwip6ZnIKGMQ6QkBwSe0vDYCuWd64CjSM+GFcObnB2FrS66KBEw+MUQG0bvkuNmHyGUmwVrRh1DzFjLpldtlTd5AzSOOvIPbZVwqd4Z8hANVb1cLmbi6oyKDDh2UqygjjaB0oilzk06uoUPThVERQ8cfTQQqni2lxrDLmXyvOyo+Oq6/8sP5cXsCaq5BhBP4KlEAAAAASUVORK5CYII=")&&$(s,"src","data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsSAAALEgHS3X78AAABB0lEQVRIx+1V2wqCQBA1fRXxlpdvSeibE+oLgjLzQj9kszALh8VkdzN6qIEDus6eMzO7MzrO3yxtA1jTd9Zcy28voxG2IxwIBb97M75yLSPUhErhWBQQ5BPhRkhmRORzSLiy78lEoGBysfFOiIEYyRv26QiljgDWNWFyVUQlHwip6ZnIKGMQ6QkBwSe0vDYCuWd64CjSM+GFcObnB2FrS66KBEw+MUQG0bvkuNmHyGUmwVrRh1DzFjLpldtlTd5AzSOOvIPbZVwqd4Z8hANVb1cLmbi6oyKDDh2UqygjjaB0oilzk06uoUPThVERQ8cfTQQqni2lxrDLmXyvOyo+Oq6/8sP5cXsCaq5BhBP4KlEAAAAASUVORK5CYII="),$(s,"alt",""),$(t,"class","svelte-70dez0"),$(l,"class","Lightbox__Overlay svelte-70dez0"),$(n,"class",u=f(e[2])+" svelte-70dez0")},m(i,a){A(i,n,a),k(n,t),k(t,r),k(r,s),k(n,o),k(n,l),k(n,c),Ae(g,n,null),h=!0,d=[P(r,"click",e[4]),P(l,"click",e[4])]},p(e,[t]){const r={};1&t&&(r.go=e[0]),520&t&&(r.$$scope={dirty:t,ctx:e}),g.$set(r),(!h||4&t&&u!==(u=f(e[2])+" svelte-70dez0"))&&$(n,"class",u)},i(e){h||(he(g.$$.fragment,e),h=!0)},o(e){de(g.$$.fragment,e),h=!1},d(e){e&&y(n),ye(g),i(d)}}}function Yn(e,n,t){let{content:r}=n,{go:s}=n,i="LightBox LightBox--hidden",a=!1;M(()=>{a=!0,document.addEventListener("keydown",e=>{switch(e.keyCode){case 27:o()}})});const o=()=>{t(0,s=null),t(2,i="LightBox LightBox--hidden")};let l;return e.$set=e=>{"content"in e&&t(1,r=e.content),"go"in e&&t(0,s=e.go)},e.$$.update=()=>{var n;2&e.$$.dirty&&t(3,l=Array.isArray(r)?r:[r]),1&e.$$.dirty&&(0===(n=s)||n>0)&&a&&t(2,i="LightBox")},[s,r,i,l,o]}class et extends Ie{constructor(e){super(),Se(this,e,Yn,qn,o,{content:1,go:0})}}function nt(n){let t,r,s,i,a,o,l,c,u,h,d,g,f,m,p,v,b,E,w,z,P,T,N,W,F,G,R,O,j,K,M,U,C,X,Z,Q,J,_,q,Y,ee,ne,te,re,se,ie,ae,oe,le,ce,ue,he,de,ge,fe,me,pe,ve,be,Ee,we,ke,Ae,ye,Se,Ie,De,ze,Pe,$e,He,Ve,Be,Le,Te,xe,Ne,We,Fe,Ge,Re,Oe,je,Ke,Me,Ue,Ce,Xe,Ze,Qe,Je,_e,qe,Ye,en,nn,tn,rn,sn,an,on,ln,cn,un,hn,dn,gn,fn,mn,pn,vn,bn,En,wn,kn,An,yn,Sn,In;return{c(){t=S("meta"),r=S("meta"),s=D(),i=S("div"),a=S("h3"),o=I("Datenschutz"),l=D(),c=S("div"),u=S("div"),h=S("h4"),d=I("Verantwortliche Stelle im Sinne der Datenschutzgesetze, insbesondere der\n      EU-Datenschutzgrundverordnung (DSGVO), ist:"),g=D(),f=S("p"),m=I("Damit Sie unsere angebotene Leistung zur Beratung und Vertretung in\n      Rechtsangelegenheiten in Anspruch nehmen können, erheben, verarbeiten und\n      nutzen wir personenbezogene Daten. Mit der Zustimmung zu dieser\n      Datenschutzerklärung willigen Sie in die Erhebung, Verarbeitung und\n      Nutzung Ihrer personenbezogenen Daten gemäß den nachfolgenden Bestimmungen\n      unter Beachtung des gelten der Datenschutzgrundverordnung ein. Sie können\n      Ihr einmal gegebenes Einverständnis jederzeit mit Wirkung für die Zukunft\n      widerrufen und/ oder künftigen Verwendungen Ihrer Daten widersprechen,\n      sofern die Verarbeitung und Nutzung der Daten nicht zu Zwecken der\n      Vertragsabwicklung benötigt werden. Wir löschen im Übrigen die Daten, wenn\n      etwaige gesetzliche Aufbewahrungspflichten abgelaufen sind, Sie einen\n      Löschungsanspruch geltend gemacht haben oder eine weitere Speicherung\n      nicht mehr erforderlich ist, um den ursprünglich angestrebten\n      (Vertrags-)Zweck zu erfüllen."),p=D(),v=S("p"),b=I("Wir erheben und verarbeiten personenbezogene Daten als Bestandsdaten nur,\n      wenn dies für die Begründung und inhaltliche Ausgestaltung oder Änderung\n      der vertraglichen Rechtsverhältnisse notwendig sind (Datenerhebungs- und\n      Verarbeitungszweck). Personenbezogene Daten als Nutzungsdaten über die\n      Inanspruchnahme unserer Homepage erheben wir nicht. Bei Eingehung eines\n      Mandatsverhältnisses oder einer Beratung werden folgende Daten erhoben,\n      verarbeitet und gespeichert: Name, Anschrift, Telefonnummer, Emailadresse,\n      gegebenenfalls bei familien- und erbrechtlichen Angelegenheiten das\n      Geburtsdatum und der Geburtsort, sowie die Staatsangehörigkeit."),E=D(),w=S("h4"),z=I("Zwecke der Datenverarbeitung durch die verantwortliche Stelle und Dritte"),P=D(),T=S("p"),N=I("Wir verarbeiten Ihre personenbezogenen Daten nur zu den in dieser\n      Datenschutzerklärung genannten Zwecken. Eine Übermittlung Ihrer\n      persönlichen Daten an Dritte zu anderen als den genannten Zwecken findet\n      nicht statt. Wir geben Ihre persönlichen Daten nur an Dritte weiter, wenn:"),W=D(),F=S("ul"),G=S("li"),R=I("Sie Ihre ausdrückliche Einwilligung dazu erteilt haben,"),O=D(),j=S("li"),K=I("die Verarbeitung zur Abwicklung eines Vertrags mit Ihnen erforderlich\n        ist,"),M=D(),U=S("li"),C=I("die Verarbeitung zur Erfüllung einer rechtlichen Verpflichtung\n        erforderlich ist,"),X=D(),Z=S("li"),Q=I("die Verarbeitung zur Wahrung berechtigter Interessen erforderlich ist\n        und kein Grund zur Annahme besteht, dass Sie ein überwiegendes\n        schutzwürdiges Interesse an der Nichtweitergabe Ihrer Daten haben."),J=D(),_=S("h4"),q=I("Löschung bzw. Sperrung der Daten"),Y=D(),ee=S("p"),ne=I("Wir halten uns an die Grundsätze der Datenvermeidung und Datensparsamkeit.\n      Wir speichern Ihre personenbezogenen Daten daher nur so lange, wie dies\n      zur Erreichung der hier genannten Zwecke erforderlich ist oder wie es die\n      vom Gesetzgeber vorgesehenen vielfältigen Speicherfristen vorsehen. Nach\n      Fortfall des jeweiligen Zweckes bzw. Ablauf dieser Fristen werden die\n      entsprechenden Daten routinemäßig und entsprechend den gesetzlichen\n      Vorschriften gesperrt oder gelöscht."),te=D(),re=S("p"),se=I("Natürlich lassen wir Ihre individuellen Wünsche in die Planungen\n      einfließen und können auch einzelne Leistungen anbieten."),ie=D(),ae=S("h4"),oe=I("Recht auf Auskunft, Löschung und Sperrung"),le=D(),ce=S("p"),ue=I("Gem. Art. 15 DSGVO hat jede Person das Recht, von uns eine Bestätigung\n      darüber zu verlangen, ob betreffende personenbezogene Daten verarbeitet\n      werden. Wir stellen eine Kopie der personenbezogenen Daten, die Gegenstand\n      der Verarbeitung sind zur Verfügung, soweit dadurch nicht Rechte oder\n      Freiheiten anderer Personen beeinträchtigt werden. Für alle weiteren\n      Kopien kann von uns ein angemessenes Entgelt auf der Grundlage der\n      Verwaltungskosten verlangt werden. Wird der Auskunftsantrag elektronisch\n      gestellt, so werden die Informationen von uns in einem gängigen\n      elektronischen Format zur Verfügung gestellt. Werden personenbezogene\n      Daten verarbeitet, erstreckt sich das Auskunftsrecht auf folgende\n      Informationen:"),he=D(),de=S("ul"),ge=S("li"),fe=I("Verarbeitungszweck,"),me=D(),pe=S("li"),ve=I("Kategorien personenbezogener Daten, die verarbeitet werden,"),be=D(),Ee=S("li"),we=I("Empfänger oder Kategorien von Empfängern, gegenüber denen die\n        personenbezogenen Daten offengelegt worden sind oder noch offengelegt\n        werden,"),ke=D(),Ae=S("li"),ye=I("geplante Daten, für die die personenbezogenen Daten gespeichert werden."),Se=D(),Ie=S("p"),De=I("Weiter steht das Recht auf Berichtigung und Löschung der personenbezogenen\n      Daten oder Einschränkung der Verarbeitung sowie ein Widerspruchsrecht\n      gegen die Verarbeitung jeder betroffenen Person zu."),ze=D(),Pe=S("h4"),$e=I("Ihre Betroffenenrechte"),He=D(),Ve=S("p"),Be=I("Unter den angegebenen Kontaktdaten der verantwortlichen Stelle können Sie\n      jederzeit folgende Rechte ausüben:"),Le=D(),Te=S("ul"),xe=S("li"),Ne=I("Auskunft über Ihre bei uns gespeicherten Daten und deren Verarbeitung,"),We=D(),Fe=S("li"),Ge=I("Berichtigung unrichtiger personenbezogener Daten,"),Re=D(),Oe=S("li"),je=I("Löschung Ihrer bei uns gespeicherten Daten,"),Ke=D(),Me=S("li"),Ue=I("Einschränkung der Datenverarbeitung, sofern wir Ihre Daten aufgrund\n        gesetzlicher Pflichten noch nicht löschen dürfen,"),Ce=D(),Xe=S("li"),Ze=I("Widerspruch gegen die Verarbeitung Ihrer Daten bei uns und"),Qe=D(),Je=S("li"),_e=I("Datenübertragbarkeit, sofern Sie in die Datenverarbeitung eingewilligt\n        haben oder einen Vertrag mit uns abgeschlossen haben."),qe=D(),Ye=S("p"),en=I("Sofern Sie uns eine Einwilligung erteilt haben, können Sie diese jederzeit\n      mit Wirkung für die Zukunft widerrufen. Sie können sich jederzeit mit\n      einer Beschwerde an die für Sie zuständige Aufsichtsbehörde wenden. Ihre\n      zuständige Aufsichtsbehörde richtet sich nach dem Bundesland Ihres\n      Wohnsitzes, Ihrer Arbeit oder der mutmaßlichen Verletzung. Eine Liste der\n      Aufsichtsbehörden (für den nichtöffentlichen Bereich) mit Anschrift finden\n      Sie unter:\n      https://www.bfdi.bund.de/DE/Infothek/Anschriften_Links/anschriften_links-node.html"),nn=D(),tn=S("h4"),rn=I("SSL-Verschlüsselung"),sn=D(),an=S("p"),on=I("Um die Sicherheit Ihrer Daten bei der Übertragung zu schützen, verwenden\n      wir dem aktuellen Stand der Technik entsprechende\n      Verschlüsselungsverfahren (z. B. SSL) über HTTPS."),ln=D(),cn=S("h4"),un=I("Log-Dateien"),hn=D(),dn=S("p"),gn=I("Beim Besuch unserer Homepage werden Zugriffsdaten gespeichert. Diese Daten\n      enthalten Datum und Uhrzeit des Abrufs, Name der aufgerufenen Seite,\n      IP-Adresse, Referrer-URL, die übertragene Datenmenge und\n      Versionsinformationen zum Browser. Bei der Anonymisierung werden die\n      IP-Adressen derart verändert, dass die Einzelangaben über persönliche\n      Daten nicht mehr bestimmbar sind und einer natürlichen Person nicht mehr\n      zu geordnet werden können."),fn=D(),mn=S("h4"),pn=I("Cookies"),vn=D(),bn=S("p"),En=I("Die Homepage verwendet keine Cookies."),wn=D(),kn=S("h4"),An=I("Änderung unserer Datenschutzbestimmungen"),yn=D(),Sn=S("p"),In=I("Wir behalten uns vor, diese Datenschutzerklärung anzupassen, damit sie\n      stets den aktuellen rechtlichen Anforderungen entspricht oder um\n      Änderungen unserer Leistungen in der Datenschutzerklärung umzusetzen, z.B.\n      bei der Einführung neuer Services. Für Ihren erneuten Besuch gilt dann die\n      neue Datenschutzerklärung."),this.h()},l(e){const n=x('[data-svelte="svelte-tha89x"]',document.head);t=V(n,"META",{name:!0,content:!0}),r=V(n,"META",{name:!0,content:!0}),n.forEach(y),s=L(e),i=V(e,"DIV",{class:!0});var k=H(i);a=V(k,"H3",{});var A=H(a);o=B(A,"Datenschutz"),A.forEach(y),k.forEach(y),l=L(e),c=V(e,"DIV",{class:!0});var S=H(c);u=V(S,"DIV",{class:!0});var I=H(u);h=V(I,"H4",{});var D=H(h);d=B(D,"Verantwortliche Stelle im Sinne der Datenschutzgesetze, insbesondere der\n      EU-Datenschutzgrundverordnung (DSGVO), ist:"),D.forEach(y),g=L(I),f=V(I,"P",{});var $=H(f);m=B($,"Damit Sie unsere angebotene Leistung zur Beratung und Vertretung in\n      Rechtsangelegenheiten in Anspruch nehmen können, erheben, verarbeiten und\n      nutzen wir personenbezogene Daten. Mit der Zustimmung zu dieser\n      Datenschutzerklärung willigen Sie in die Erhebung, Verarbeitung und\n      Nutzung Ihrer personenbezogenen Daten gemäß den nachfolgenden Bestimmungen\n      unter Beachtung des gelten der Datenschutzgrundverordnung ein. Sie können\n      Ihr einmal gegebenes Einverständnis jederzeit mit Wirkung für die Zukunft\n      widerrufen und/ oder künftigen Verwendungen Ihrer Daten widersprechen,\n      sofern die Verarbeitung und Nutzung der Daten nicht zu Zwecken der\n      Vertragsabwicklung benötigt werden. Wir löschen im Übrigen die Daten, wenn\n      etwaige gesetzliche Aufbewahrungspflichten abgelaufen sind, Sie einen\n      Löschungsanspruch geltend gemacht haben oder eine weitere Speicherung\n      nicht mehr erforderlich ist, um den ursprünglich angestrebten\n      (Vertrags-)Zweck zu erfüllen."),$.forEach(y),p=L(I),v=V(I,"P",{});var Dn=H(v);b=B(Dn,"Wir erheben und verarbeiten personenbezogene Daten als Bestandsdaten nur,\n      wenn dies für die Begründung und inhaltliche Ausgestaltung oder Änderung\n      der vertraglichen Rechtsverhältnisse notwendig sind (Datenerhebungs- und\n      Verarbeitungszweck). Personenbezogene Daten als Nutzungsdaten über die\n      Inanspruchnahme unserer Homepage erheben wir nicht. Bei Eingehung eines\n      Mandatsverhältnisses oder einer Beratung werden folgende Daten erhoben,\n      verarbeitet und gespeichert: Name, Anschrift, Telefonnummer, Emailadresse,\n      gegebenenfalls bei familien- und erbrechtlichen Angelegenheiten das\n      Geburtsdatum und der Geburtsort, sowie die Staatsangehörigkeit."),Dn.forEach(y),E=L(I),w=V(I,"H4",{});var zn=H(w);z=B(zn,"Zwecke der Datenverarbeitung durch die verantwortliche Stelle und Dritte"),zn.forEach(y),P=L(I),T=V(I,"P",{});var Pn=H(T);N=B(Pn,"Wir verarbeiten Ihre personenbezogenen Daten nur zu den in dieser\n      Datenschutzerklärung genannten Zwecken. Eine Übermittlung Ihrer\n      persönlichen Daten an Dritte zu anderen als den genannten Zwecken findet\n      nicht statt. Wir geben Ihre persönlichen Daten nur an Dritte weiter, wenn:"),Pn.forEach(y),W=L(I),F=V(I,"UL",{});var $n=H(F);G=V($n,"LI",{});var Hn=H(G);R=B(Hn,"Sie Ihre ausdrückliche Einwilligung dazu erteilt haben,"),Hn.forEach(y),O=L($n),j=V($n,"LI",{});var Vn=H(j);K=B(Vn,"die Verarbeitung zur Abwicklung eines Vertrags mit Ihnen erforderlich\n        ist,"),Vn.forEach(y),M=L($n),U=V($n,"LI",{});var Bn=H(U);C=B(Bn,"die Verarbeitung zur Erfüllung einer rechtlichen Verpflichtung\n        erforderlich ist,"),Bn.forEach(y),X=L($n),Z=V($n,"LI",{});var Ln=H(Z);Q=B(Ln,"die Verarbeitung zur Wahrung berechtigter Interessen erforderlich ist\n        und kein Grund zur Annahme besteht, dass Sie ein überwiegendes\n        schutzwürdiges Interesse an der Nichtweitergabe Ihrer Daten haben."),Ln.forEach(y),$n.forEach(y),J=L(I),_=V(I,"H4",{});var Tn=H(_);q=B(Tn,"Löschung bzw. Sperrung der Daten"),Tn.forEach(y),Y=L(I),ee=V(I,"P",{});var xn=H(ee);ne=B(xn,"Wir halten uns an die Grundsätze der Datenvermeidung und Datensparsamkeit.\n      Wir speichern Ihre personenbezogenen Daten daher nur so lange, wie dies\n      zur Erreichung der hier genannten Zwecke erforderlich ist oder wie es die\n      vom Gesetzgeber vorgesehenen vielfältigen Speicherfristen vorsehen. Nach\n      Fortfall des jeweiligen Zweckes bzw. Ablauf dieser Fristen werden die\n      entsprechenden Daten routinemäßig und entsprechend den gesetzlichen\n      Vorschriften gesperrt oder gelöscht."),xn.forEach(y),te=L(I),re=V(I,"P",{});var Nn=H(re);se=B(Nn,"Natürlich lassen wir Ihre individuellen Wünsche in die Planungen\n      einfließen und können auch einzelne Leistungen anbieten."),Nn.forEach(y),ie=L(I),ae=V(I,"H4",{});var Wn=H(ae);oe=B(Wn,"Recht auf Auskunft, Löschung und Sperrung"),Wn.forEach(y),le=L(I),ce=V(I,"P",{});var Fn=H(ce);ue=B(Fn,"Gem. Art. 15 DSGVO hat jede Person das Recht, von uns eine Bestätigung\n      darüber zu verlangen, ob betreffende personenbezogene Daten verarbeitet\n      werden. Wir stellen eine Kopie der personenbezogenen Daten, die Gegenstand\n      der Verarbeitung sind zur Verfügung, soweit dadurch nicht Rechte oder\n      Freiheiten anderer Personen beeinträchtigt werden. Für alle weiteren\n      Kopien kann von uns ein angemessenes Entgelt auf der Grundlage der\n      Verwaltungskosten verlangt werden. Wird der Auskunftsantrag elektronisch\n      gestellt, so werden die Informationen von uns in einem gängigen\n      elektronischen Format zur Verfügung gestellt. Werden personenbezogene\n      Daten verarbeitet, erstreckt sich das Auskunftsrecht auf folgende\n      Informationen:"),Fn.forEach(y),he=L(I),de=V(I,"UL",{});var Gn=H(de);ge=V(Gn,"LI",{});var Rn=H(ge);fe=B(Rn,"Verarbeitungszweck,"),Rn.forEach(y),me=L(Gn),pe=V(Gn,"LI",{});var On=H(pe);ve=B(On,"Kategorien personenbezogener Daten, die verarbeitet werden,"),On.forEach(y),be=L(Gn),Ee=V(Gn,"LI",{});var jn=H(Ee);we=B(jn,"Empfänger oder Kategorien von Empfängern, gegenüber denen die\n        personenbezogenen Daten offengelegt worden sind oder noch offengelegt\n        werden,"),jn.forEach(y),ke=L(Gn),Ae=V(Gn,"LI",{});var Kn=H(Ae);ye=B(Kn,"geplante Daten, für die die personenbezogenen Daten gespeichert werden."),Kn.forEach(y),Gn.forEach(y),Se=L(I),Ie=V(I,"P",{});var Mn=H(Ie);De=B(Mn,"Weiter steht das Recht auf Berichtigung und Löschung der personenbezogenen\n      Daten oder Einschränkung der Verarbeitung sowie ein Widerspruchsrecht\n      gegen die Verarbeitung jeder betroffenen Person zu."),Mn.forEach(y),ze=L(I),Pe=V(I,"H4",{});var Un=H(Pe);$e=B(Un,"Ihre Betroffenenrechte"),Un.forEach(y),He=L(I),Ve=V(I,"P",{});var Cn=H(Ve);Be=B(Cn,"Unter den angegebenen Kontaktdaten der verantwortlichen Stelle können Sie\n      jederzeit folgende Rechte ausüben:"),Cn.forEach(y),Le=L(I),Te=V(I,"UL",{});var Xn=H(Te);xe=V(Xn,"LI",{});var Zn=H(xe);Ne=B(Zn,"Auskunft über Ihre bei uns gespeicherten Daten und deren Verarbeitung,"),Zn.forEach(y),We=L(Xn),Fe=V(Xn,"LI",{});var Qn=H(Fe);Ge=B(Qn,"Berichtigung unrichtiger personenbezogener Daten,"),Qn.forEach(y),Re=L(Xn),Oe=V(Xn,"LI",{});var Jn=H(Oe);je=B(Jn,"Löschung Ihrer bei uns gespeicherten Daten,"),Jn.forEach(y),Ke=L(Xn),Me=V(Xn,"LI",{});var _n=H(Me);Ue=B(_n,"Einschränkung der Datenverarbeitung, sofern wir Ihre Daten aufgrund\n        gesetzlicher Pflichten noch nicht löschen dürfen,"),_n.forEach(y),Ce=L(Xn),Xe=V(Xn,"LI",{});var qn=H(Xe);Ze=B(qn,"Widerspruch gegen die Verarbeitung Ihrer Daten bei uns und"),qn.forEach(y),Qe=L(Xn),Je=V(Xn,"LI",{});var Yn=H(Je);_e=B(Yn,"Datenübertragbarkeit, sofern Sie in die Datenverarbeitung eingewilligt\n        haben oder einen Vertrag mit uns abgeschlossen haben."),Yn.forEach(y),Xn.forEach(y),qe=L(I),Ye=V(I,"P",{});var et=H(Ye);en=B(et,"Sofern Sie uns eine Einwilligung erteilt haben, können Sie diese jederzeit\n      mit Wirkung für die Zukunft widerrufen. Sie können sich jederzeit mit\n      einer Beschwerde an die für Sie zuständige Aufsichtsbehörde wenden. Ihre\n      zuständige Aufsichtsbehörde richtet sich nach dem Bundesland Ihres\n      Wohnsitzes, Ihrer Arbeit oder der mutmaßlichen Verletzung. Eine Liste der\n      Aufsichtsbehörden (für den nichtöffentlichen Bereich) mit Anschrift finden\n      Sie unter:\n      https://www.bfdi.bund.de/DE/Infothek/Anschriften_Links/anschriften_links-node.html"),et.forEach(y),nn=L(I),tn=V(I,"H4",{});var nt=H(tn);rn=B(nt,"SSL-Verschlüsselung"),nt.forEach(y),sn=L(I),an=V(I,"P",{});var tt=H(an);on=B(tt,"Um die Sicherheit Ihrer Daten bei der Übertragung zu schützen, verwenden\n      wir dem aktuellen Stand der Technik entsprechende\n      Verschlüsselungsverfahren (z. B. SSL) über HTTPS."),tt.forEach(y),ln=L(I),cn=V(I,"H4",{});var rt=H(cn);un=B(rt,"Log-Dateien"),rt.forEach(y),hn=L(I),dn=V(I,"P",{});var st=H(dn);gn=B(st,"Beim Besuch unserer Homepage werden Zugriffsdaten gespeichert. Diese Daten\n      enthalten Datum und Uhrzeit des Abrufs, Name der aufgerufenen Seite,\n      IP-Adresse, Referrer-URL, die übertragene Datenmenge und\n      Versionsinformationen zum Browser. Bei der Anonymisierung werden die\n      IP-Adressen derart verändert, dass die Einzelangaben über persönliche\n      Daten nicht mehr bestimmbar sind und einer natürlichen Person nicht mehr\n      zu geordnet werden können."),st.forEach(y),fn=L(I),mn=V(I,"H4",{});var it=H(mn);pn=B(it,"Cookies"),it.forEach(y),vn=L(I),bn=V(I,"P",{});var at=H(bn);En=B(at,"Die Homepage verwendet keine Cookies."),at.forEach(y),wn=L(I),kn=V(I,"H4",{});var ot=H(kn);An=B(ot,"Änderung unserer Datenschutzbestimmungen"),ot.forEach(y),yn=L(I),Sn=V(I,"P",{});var lt=H(Sn);In=B(lt,"Wir behalten uns vor, diese Datenschutzerklärung anzupassen, damit sie\n      stets den aktuellen rechtlichen Anforderungen entspricht oder um\n      Änderungen unserer Leistungen in der Datenschutzerklärung umzusetzen, z.B.\n      bei der Einführung neuer Services. Für Ihren erneuten Besuch gilt dann die\n      neue Datenschutzerklärung."),lt.forEach(y),I.forEach(y),S.forEach(y),this.h()},h(){document.title="Datenschutz - IKPH Inter-Kontakt Projekt und Handel GmbH",$(t,"name","description"),$(t,"content","Datenschutz"),$(r,"name","keywords"),$(r,"content",""),$(i,"class","page-title"),$(u,"class","item"),$(c,"class","content")},m(e,n){k(document.head,t),k(document.head,r),A(e,s,n),A(e,i,n),k(i,a),k(a,o),A(e,l,n),A(e,c,n),k(c,u),k(u,h),k(h,d),k(u,g),k(u,f),k(f,m),k(u,p),k(u,v),k(v,b),k(u,E),k(u,w),k(w,z),k(u,P),k(u,T),k(T,N),k(u,W),k(u,F),k(F,G),k(G,R),k(F,O),k(F,j),k(j,K),k(F,M),k(F,U),k(U,C),k(F,X),k(F,Z),k(Z,Q),k(u,J),k(u,_),k(_,q),k(u,Y),k(u,ee),k(ee,ne),k(u,te),k(u,re),k(re,se),k(u,ie),k(u,ae),k(ae,oe),k(u,le),k(u,ce),k(ce,ue),k(u,he),k(u,de),k(de,ge),k(ge,fe),k(de,me),k(de,pe),k(pe,ve),k(de,be),k(de,Ee),k(Ee,we),k(de,ke),k(de,Ae),k(Ae,ye),k(u,Se),k(u,Ie),k(Ie,De),k(u,ze),k(u,Pe),k(Pe,$e),k(u,He),k(u,Ve),k(Ve,Be),k(u,Le),k(u,Te),k(Te,xe),k(xe,Ne),k(Te,We),k(Te,Fe),k(Fe,Ge),k(Te,Re),k(Te,Oe),k(Oe,je),k(Te,Ke),k(Te,Me),k(Me,Ue),k(Te,Ce),k(Te,Xe),k(Xe,Ze),k(Te,Qe),k(Te,Je),k(Je,_e),k(u,qe),k(u,Ye),k(Ye,en),k(u,nn),k(u,tn),k(tn,rn),k(u,sn),k(u,an),k(an,on),k(u,ln),k(u,cn),k(cn,un),k(u,hn),k(u,dn),k(dn,gn),k(u,fn),k(u,mn),k(mn,pn),k(u,vn),k(u,bn),k(bn,En),k(u,wn),k(u,kn),k(kn,An),k(u,yn),k(u,Sn),k(Sn,In)},p:e,i:e,o:e,d(e){y(t),y(r),e&&y(s),e&&y(i),e&&y(l),e&&y(c)}}}class tt extends Ie{constructor(e){super(),Se(this,e,null,nt,o,{})}}function rt(n){let t,r,s,i,a,o,l,c,u,h,d,g,f,m,p,v,b,E,w,z,P,T,N,W,F,G,R,O,j,K,M,U,C,X,Z,Q,J,_,q,Y,ee,ne,te,re,se,ie,ae,oe,le,ce,ue,he,de,ge,fe,me,pe,ve,be,Ee,we,ke,Ae,ye,Se,Ie;return{c(){t=S("meta"),r=S("meta"),s=D(),i=S("div"),a=S("h3"),o=I("Impressum"),l=D(),c=S("div"),u=S("div"),h=S("div"),d=S("h2"),g=S("strong"),f=I("Firmen Name:"),m=D(),p=S("p"),v=I("IKPH Inter-Kontakt Projekt & Handel GmbH Altonaer Str 59-61, 13581,\n        Berlin"),b=D(),E=S("h2"),w=S("strong"),z=I("Finanzamt Daten:"),P=D(),T=S("p"),N=I("Steuernummer 30/357/50510 Ust-id Nr DE287752857"),W=D(),F=S("h2"),G=S("strong"),R=I("Amtgericht:"),O=D(),j=S("p"),K=I("HRB Nr. 132353 B"),M=D(),U=S("h2"),C=S("strong"),X=I("Geschaftsfuhrung:"),Z=D(),Q=S("p"),J=I("Stanislaw Korshowski"),_=D(),q=S("div"),Y=S("h3"),ee=I("Kontaktdaten:"),ne=D(),te=S("h2"),re=I("+49 30 984 34 329"),se=D(),ie=S("h2"),ae=I("+49 30 984 34 327"),oe=D(),le=S("p"),ce=I("Email:"),ue=D(),he=S("h2"),de=I("info@ikph.de"),ge=D(),fe=S("div"),me=S("h3"),pe=I("Kontoverbindung:"),ve=D(),be=S("strong"),Ee=I("Postbank"),we=D(),ke=S("strong"),Ae=I("IBAN: DE 06 1001 0010 0561 24"),ye=D(),Se=S("strong"),Ie=I("BIC: PBNKDEFF"),this.h()},l(e){const n=x('[data-svelte="svelte-wavns1"]',document.head);t=V(n,"META",{name:!0,content:!0}),r=V(n,"META",{name:!0,content:!0}),n.forEach(y),s=L(e),i=V(e,"DIV",{class:!0});var k=H(i);a=V(k,"H3",{class:!0});var A=H(a);o=B(A,"Impressum"),A.forEach(y),k.forEach(y),l=L(e),c=V(e,"DIV",{class:!0});var S=H(c);u=V(S,"DIV",{class:!0});var I=H(u);h=V(I,"DIV",{class:!0});var D=H(h);d=V(D,"H2",{class:!0});var $=H(d);g=V($,"STRONG",{class:!0});var De=H(g);f=B(De,"Firmen Name:"),De.forEach(y),$.forEach(y),m=L(D),p=V(D,"P",{});var ze=H(p);v=B(ze,"IKPH Inter-Kontakt Projekt & Handel GmbH Altonaer Str 59-61, 13581,\n        Berlin"),ze.forEach(y),b=L(D),E=V(D,"H2",{class:!0});var Pe=H(E);w=V(Pe,"STRONG",{class:!0});var $e=H(w);z=B($e,"Finanzamt Daten:"),$e.forEach(y),Pe.forEach(y),P=L(D),T=V(D,"P",{});var He=H(T);N=B(He,"Steuernummer 30/357/50510 Ust-id Nr DE287752857"),He.forEach(y),W=L(D),F=V(D,"H2",{class:!0});var Ve=H(F);G=V(Ve,"STRONG",{class:!0});var Be=H(G);R=B(Be,"Amtgericht:"),Be.forEach(y),Ve.forEach(y),O=L(D),j=V(D,"P",{});var Le=H(j);K=B(Le,"HRB Nr. 132353 B"),Le.forEach(y),M=L(D),U=V(D,"H2",{class:!0});var Te=H(U);C=V(Te,"STRONG",{class:!0});var xe=H(C);X=B(xe,"Geschaftsfuhrung:"),xe.forEach(y),Te.forEach(y),Z=L(D),Q=V(D,"P",{});var Ne=H(Q);J=B(Ne,"Stanislaw Korshowski"),Ne.forEach(y),D.forEach(y),_=L(I),q=V(I,"DIV",{class:!0});var We=H(q);Y=V(We,"H3",{class:!0});var Fe=H(Y);ee=B(Fe,"Kontaktdaten:"),Fe.forEach(y),ne=L(We),te=V(We,"H2",{class:!0});var Ge=H(te);re=B(Ge,"+49 30 984 34 329"),Ge.forEach(y),se=L(We),ie=V(We,"H2",{class:!0});var Re=H(ie);ae=B(Re,"+49 30 984 34 327"),Re.forEach(y),oe=L(We),le=V(We,"P",{});var Oe=H(le);ce=B(Oe,"Email:"),Oe.forEach(y),ue=L(We),he=V(We,"H2",{class:!0});var je=H(he);de=B(je,"info@ikph.de"),je.forEach(y),ge=L(We),fe=V(We,"DIV",{class:!0});var Ke=H(fe);me=V(Ke,"H3",{class:!0});var Me=H(me);pe=B(Me,"Kontoverbindung:"),Me.forEach(y),ve=L(Ke),be=V(Ke,"STRONG",{class:!0});var Ue=H(be);Ee=B(Ue,"Postbank"),Ue.forEach(y),we=L(Ke),ke=V(Ke,"STRONG",{class:!0});var Ce=H(ke);Ae=B(Ce,"IBAN: DE 06 1001 0010 0561 24"),Ce.forEach(y),ye=L(Ke),Se=V(Ke,"STRONG",{class:!0});var Xe=H(Se);Ie=B(Xe,"BIC: PBNKDEFF"),Xe.forEach(y),Ke.forEach(y),We.forEach(y),I.forEach(y),S.forEach(y),this.h()},h(){document.title="Impressum - IKPH Inter-Kontakt Projekt und Handel GmbH",$(t,"name","description"),$(t,"content","Impressum"),$(r,"name","keywords"),$(r,"content",""),$(a,"class","svelte-1ns4jpm"),$(i,"class","page-title"),$(g,"class","svelte-1ns4jpm"),$(d,"class","svelte-1ns4jpm"),$(w,"class","svelte-1ns4jpm"),$(E,"class","svelte-1ns4jpm"),$(G,"class","svelte-1ns4jpm"),$(F,"class","svelte-1ns4jpm"),$(C,"class","svelte-1ns4jpm"),$(U,"class","svelte-1ns4jpm"),$(h,"class","item svelte-1ns4jpm"),$(Y,"class","svelte-1ns4jpm"),$(te,"class","svelte-1ns4jpm"),$(ie,"class","svelte-1ns4jpm"),$(he,"class","svelte-1ns4jpm"),$(me,"class","svelte-1ns4jpm"),$(be,"class","svelte-1ns4jpm"),$(ke,"class","svelte-1ns4jpm"),$(Se,"class","svelte-1ns4jpm"),$(fe,"class","konto svelte-1ns4jpm"),$(q,"class","item svelte-1ns4jpm"),$(u,"class","impressum svelte-1ns4jpm"),$(c,"class","content")},m(e,n){k(document.head,t),k(document.head,r),A(e,s,n),A(e,i,n),k(i,a),k(a,o),A(e,l,n),A(e,c,n),k(c,u),k(u,h),k(h,d),k(d,g),k(g,f),k(h,m),k(h,p),k(p,v),k(h,b),k(h,E),k(E,w),k(w,z),k(h,P),k(h,T),k(T,N),k(h,W),k(h,F),k(F,G),k(G,R),k(h,O),k(h,j),k(j,K),k(h,M),k(h,U),k(U,C),k(C,X),k(h,Z),k(h,Q),k(Q,J),k(u,_),k(u,q),k(q,Y),k(Y,ee),k(q,ne),k(q,te),k(te,re),k(q,se),k(q,ie),k(ie,ae),k(q,oe),k(q,le),k(le,ce),k(q,ue),k(q,he),k(he,de),k(q,ge),k(q,fe),k(fe,me),k(me,pe),k(fe,ve),k(fe,be),k(be,Ee),k(fe,we),k(fe,ke),k(ke,Ae),k(fe,ye),k(fe,Se),k(Se,Ie)},p:e,i:e,o:e,d(e){y(t),y(r),e&&y(s),e&&y(i),e&&y(l),e&&y(c)}}}class st extends Ie{constructor(e){super(),Se(this,e,null,rt,o,{})}}function it(n){let t,r,s,i,a,o,l,c,u,h,d,g,f,m,p,v,b,E,w,z,P,T,N,W,F,G,R,O,j,K,M,U,C,X,Z,Q,J,_,q;const Y=new Hn({});return{c(){t=S("meta"),r=S("meta"),s=D(),we(Y.$$.fragment),i=D(),a=S("div"),o=S("div"),l=S("img"),u=D(),h=S("div"),d=S("h3"),g=I("Herzlich willkommen auf der\n        "),f=S("br"),m=I("\n        Internetseite Ihres IKPH Teams"),p=D(),v=S("h4"),b=I("Alles aus einer Hand!"),E=D(),w=S("p"),z=I("Obwohl unsere Unternehmen erst seit wenigen Jahren auf dem Markt ist,\n      haben wir hohe Qualitätsstandards erreicht."),P=D(),T=S("p"),N=I("Unsere Firma beschäftigt sich mit Renovierungen und Innenausbau. Des\n      Weiteren mit der Realisierung von Aufträgen großer Hausverwaltungen und\n      Investoren."),W=D(),F=S("p"),G=I("Wir haben hohe Qualitätsstandards etabliert, um auch die kompliziertesten\n      Aufträge fach- und termingerecht zu realisieren."),R=D(),O=S("p"),j=I("Ob Altbau oder Neubau, ob Gewerbe, Wohnung oder komplette Wohnanlage\n      übernehmen wir alle Sanierungsarbeiten. Beratung und Planung bis zur\n      Ausführung, bei uns, bekommen Sie alle Leistungen aus einer Hand."),K=D(),M=S("p"),U=I("Dabei können Sie sich der professionellen Umsetzung und der reibungslosen\n      Kommunikation sicher sein. Unser Team wird Sie vor Ort beraten und Ihre\n      Fragen beantworten."),C=D(),X=S("p"),Z=I("Wir sind schnell, sauber und zuverlässig!"),Q=D(),J=S("p"),_=I("Ihr IKPH Team."),this.h()},l(e){const n=x('[data-svelte="svelte-95u88e"]',document.head);t=V(n,"META",{name:!0,content:!0}),r=V(n,"META",{name:!0,content:!0}),n.forEach(y),s=L(e),ke(Y.$$.fragment,e),i=L(e),a=V(e,"DIV",{class:!0});var c=H(a);o=V(c,"DIV",{class:!0});var k=H(o);l=V(k,"IMG",{src:!0,alt:!0}),k.forEach(y),u=L(c),h=V(c,"DIV",{class:!0});var A=H(h);d=V(A,"H3",{});var S=H(d);g=B(S,"Herzlich willkommen auf der\n        "),f=V(S,"BR",{}),m=B(S,"\n        Internetseite Ihres IKPH Teams"),S.forEach(y),p=L(A),v=V(A,"H4",{});var I=H(v);b=B(I,"Alles aus einer Hand!"),I.forEach(y),E=L(A),w=V(A,"P",{});var D=H(w);z=B(D,"Obwohl unsere Unternehmen erst seit wenigen Jahren auf dem Markt ist,\n      haben wir hohe Qualitätsstandards erreicht."),D.forEach(y),P=L(A),T=V(A,"P",{});var $=H(T);N=B($,"Unsere Firma beschäftigt sich mit Renovierungen und Innenausbau. Des\n      Weiteren mit der Realisierung von Aufträgen großer Hausverwaltungen und\n      Investoren."),$.forEach(y),W=L(A),F=V(A,"P",{});var q=H(F);G=B(q,"Wir haben hohe Qualitätsstandards etabliert, um auch die kompliziertesten\n      Aufträge fach- und termingerecht zu realisieren."),q.forEach(y),R=L(A),O=V(A,"P",{});var ee=H(O);j=B(ee,"Ob Altbau oder Neubau, ob Gewerbe, Wohnung oder komplette Wohnanlage\n      übernehmen wir alle Sanierungsarbeiten. Beratung und Planung bis zur\n      Ausführung, bei uns, bekommen Sie alle Leistungen aus einer Hand."),ee.forEach(y),K=L(A),M=V(A,"P",{});var ne=H(M);U=B(ne,"Dabei können Sie sich der professionellen Umsetzung und der reibungslosen\n      Kommunikation sicher sein. Unser Team wird Sie vor Ort beraten und Ihre\n      Fragen beantworten."),ne.forEach(y),C=L(A),X=V(A,"P",{});var te=H(X);Z=B(te,"Wir sind schnell, sauber und zuverlässig!"),te.forEach(y),Q=L(A),J=V(A,"P",{});var re=H(J);_=B(re,"Ihr IKPH Team."),re.forEach(y),A.forEach(y),c.forEach(y),this.h()},h(){document.title="Startseite - IKPH Inter-Kontakt Projekt und Handel GmbH",$(t,"name","description"),$(t,"content","Herzlich willkommen auf der Internetseite Ihres IKPH Teams"),$(r,"name","keywords"),$(r,"content",""),l.src!==(c="g/images/house.jpg")&&$(l,"src","g/images/house.jpg"),$(l,"alt","Inter-Kontakt Projekt und Handel GmbH"),$(o,"class","item"),$(h,"class","item"),$(a,"class","content")},m(e,n){k(document.head,t),k(document.head,r),A(e,s,n),Ae(Y,e,n),A(e,i,n),A(e,a,n),k(a,o),k(o,l),k(a,u),k(a,h),k(h,d),k(d,g),k(d,f),k(d,m),k(h,p),k(h,v),k(v,b),k(h,E),k(h,w),k(w,z),k(h,P),k(h,T),k(T,N),k(h,W),k(h,F),k(F,G),k(h,R),k(h,O),k(O,j),k(h,K),k(h,M),k(M,U),k(h,C),k(h,X),k(X,Z),k(h,Q),k(h,J),k(J,_),q=!0},p:e,i(e){q||(he(Y.$$.fragment,e),q=!0)},o(e){de(Y.$$.fragment,e),q=!1},d(e){y(t),y(r),e&&y(s),ye(Y,e),e&&y(i),e&&y(a)}}}class at extends Ie{constructor(e){super(),Se(this,e,null,it,o,{})}}function ot(n){let t,r,s,i,a,o,l,c,u,h,d,g,f,m,p,v,b,E,w,z,P,T,N,W,F,G,R,O,j,K,M,U,C,X,Z,Q,J,_,q,Y,ee,ne,te,re,se,ie,ae,oe,le;return{c(){t=S("meta"),r=S("meta"),s=D(),i=S("div"),a=S("h3"),o=I("Leistungen"),l=D(),c=S("div"),u=S("div"),h=S("img"),g=D(),f=S("div"),m=S("p"),p=I("Verantwortliche Steuerung und Sicherstellung von Bauprojekten, von der\n      Wohnungssanierung bis hin zu Großbauprojekten für alle Immobilienklassen,\n      ist unsere Stärke."),v=D(),b=S("p"),E=I("Hier sind unsere Leistungen im Überblick."),w=D(),z=S("p"),P=I("Gewerke:"),T=D(),N=S("ul"),W=S("li"),F=I("Elektro: komplette Verlegung aller Leitungen, Installationen u.a. von\n        Digitalzählermit VDE- Elektroprüfprotokoll, Schalter und Steckdosen und\n        Lampenfassungen."),G=D(),R=S("li"),O=I("Sanitär: in diesem Bereich decken wir das gesamt Spektrum ab, Bad,\n        Küche, Nassstrecke, incl. Toiletten, Armaturen, Wasseranschlüsse,\n        Waschbecken, Dichtungen."),j=D(),K=S("li"),M=I("Fliesen: Verlegen, Abdichtungen, Ausgleich, Einbringungen von x-el-\n        Bändern, Rohrmanschetten, Anschlüsse, Verfugen, Silikonarbeitend.\n        Heizung und Warmwasser Bau, Erstellung, Umbau und Reinigungen,\n        Heizkörpernach DIN-Normen incl. Rohrlegearbeiten, Schweißen u. a.m."),U=D(),C=S("li"),X=I("Trockenbau: Erstellung, Neubau, Umbau, Rekonstruktionen nach Q2, Q3\n        Spachteln und Schleifen, Ständerwerke."),Z=D(),Q=S("li"),J=I("Alle Maler-und Lackierungsarbeiten nach Q2, Q3, Q4."),_=D(),q=S("li"),Y=I("BBodenbelagsarbeiten: fachgerechtes Verlegen von Parkett und Laminat,\n        Abziehen und Versiegeln."),ee=D(),ne=S("li"),te=I("Fenster: Montage von Fenstern entsprechend der Vorgaben und Normen,\n        inklusive Ausbau und Entsorgung der alten Fenster."),re=D(),se=S("p"),ie=I("Zu unserem Leistungsangebot gehört auch,auf Wunsch, die Recherche, Ankauf\n      und Transport der Materialien, selbstverständlich auch die Reinigung."),ae=D(),oe=S("p"),le=I("Ihr IKPH Team."),this.h()},l(e){const n=x('[data-svelte="svelte-14l7syn"]',document.head);t=V(n,"META",{name:!0,content:!0}),r=V(n,"META",{name:!0,content:!0}),n.forEach(y),s=L(e),i=V(e,"DIV",{class:!0});var d=H(i);a=V(d,"H3",{});var k=H(a);o=B(k,"Leistungen"),k.forEach(y),d.forEach(y),l=L(e),c=V(e,"DIV",{class:!0});var A=H(c);u=V(A,"DIV",{class:!0});var S=H(u);h=V(S,"IMG",{src:!0,alt:!0}),S.forEach(y),g=L(A),f=V(A,"DIV",{class:!0});var I=H(f);m=V(I,"P",{});var D=H(m);p=B(D,"Verantwortliche Steuerung und Sicherstellung von Bauprojekten, von der\n      Wohnungssanierung bis hin zu Großbauprojekten für alle Immobilienklassen,\n      ist unsere Stärke."),D.forEach(y),v=L(I),b=V(I,"P",{});var $=H(b);E=B($,"Hier sind unsere Leistungen im Überblick."),$.forEach(y),w=L(I),z=V(I,"P",{});var ce=H(z);P=B(ce,"Gewerke:"),ce.forEach(y),T=L(I),N=V(I,"UL",{});var ue=H(N);W=V(ue,"LI",{});var he=H(W);F=B(he,"Elektro: komplette Verlegung aller Leitungen, Installationen u.a. von\n        Digitalzählermit VDE- Elektroprüfprotokoll, Schalter und Steckdosen und\n        Lampenfassungen."),he.forEach(y),G=L(ue),R=V(ue,"LI",{});var de=H(R);O=B(de,"Sanitär: in diesem Bereich decken wir das gesamt Spektrum ab, Bad,\n        Küche, Nassstrecke, incl. Toiletten, Armaturen, Wasseranschlüsse,\n        Waschbecken, Dichtungen."),de.forEach(y),j=L(ue),K=V(ue,"LI",{});var ge=H(K);M=B(ge,"Fliesen: Verlegen, Abdichtungen, Ausgleich, Einbringungen von x-el-\n        Bändern, Rohrmanschetten, Anschlüsse, Verfugen, Silikonarbeitend.\n        Heizung und Warmwasser Bau, Erstellung, Umbau und Reinigungen,\n        Heizkörpernach DIN-Normen incl. Rohrlegearbeiten, Schweißen u. a.m."),ge.forEach(y),U=L(ue),C=V(ue,"LI",{});var fe=H(C);X=B(fe,"Trockenbau: Erstellung, Neubau, Umbau, Rekonstruktionen nach Q2, Q3\n        Spachteln und Schleifen, Ständerwerke."),fe.forEach(y),Z=L(ue),Q=V(ue,"LI",{});var me=H(Q);J=B(me,"Alle Maler-und Lackierungsarbeiten nach Q2, Q3, Q4."),me.forEach(y),_=L(ue),q=V(ue,"LI",{});var pe=H(q);Y=B(pe,"BBodenbelagsarbeiten: fachgerechtes Verlegen von Parkett und Laminat,\n        Abziehen und Versiegeln."),pe.forEach(y),ee=L(ue),ne=V(ue,"LI",{});var ve=H(ne);te=B(ve,"Fenster: Montage von Fenstern entsprechend der Vorgaben und Normen,\n        inklusive Ausbau und Entsorgung der alten Fenster."),ve.forEach(y),ue.forEach(y),re=L(I),se=V(I,"P",{});var be=H(se);ie=B(be,"Zu unserem Leistungsangebot gehört auch,auf Wunsch, die Recherche, Ankauf\n      und Transport der Materialien, selbstverständlich auch die Reinigung."),be.forEach(y),ae=L(I),oe=V(I,"P",{});var Ee=H(oe);le=B(Ee,"Ihr IKPH Team."),Ee.forEach(y),I.forEach(y),A.forEach(y),this.h()},h(){document.title="Leistungen - IKPH Inter-Kontakt Projekt und Handel GmbH",$(t,"name","description"),$(t,"content","Leistungen"),$(r,"name","keywords"),$(r,"content",""),$(i,"class","page-title"),h.src!==(d="g/images/services.jpg")&&$(h,"src","g/images/services.jpg"),$(h,"alt","Leistungen"),$(u,"class","item"),$(f,"class","item"),$(c,"class","content")},m(e,n){k(document.head,t),k(document.head,r),A(e,s,n),A(e,i,n),k(i,a),k(a,o),A(e,l,n),A(e,c,n),k(c,u),k(u,h),k(c,g),k(c,f),k(f,m),k(m,p),k(f,v),k(f,b),k(b,E),k(f,w),k(f,z),k(z,P),k(f,T),k(f,N),k(N,W),k(W,F),k(N,G),k(N,R),k(R,O),k(N,j),k(N,K),k(K,M),k(N,U),k(N,C),k(C,X),k(N,Z),k(N,Q),k(Q,J),k(N,_),k(N,q),k(q,Y),k(N,ee),k(N,ne),k(ne,te),k(f,re),k(f,se),k(se,ie),k(f,ae),k(f,oe),k(oe,le)},p:e,i:e,o:e,d(e){y(t),y(r),e&&y(s),e&&y(i),e&&y(l),e&&y(c)}}}class lt extends Ie{constructor(e){super(),Se(this,e,null,ot,o,{})}}function ct(e,n,t){const r=e.slice();return r[4]=n[t],r[6]=t,r}function ut(e,n){let t,r,s,i,a,o;function l(...e){return n[3](n[6],...e)}return{key:e,first:null,c(){t=S("div"),r=S("img"),a=D(),this.h()},l(e){t=V(e,"DIV",{class:!0});var n=H(t);r=V(n,"IMG",{src:!0,alt:!0,class:!0}),a=L(n),n.forEach(y),this.h()},h(){r.src!==(s=n[4].small)&&$(r,"src",s),$(r,"alt",i=n[4].title),$(r,"class","svelte-6bbnfq"),$(t,"class","photo svelte-6bbnfq"),this.first=t},m(e,n){A(e,t,n),k(t,r),k(t,a),o=P(r,"click",l)},p(e,t){n=e},d(e){e&&y(t),o()}}}function ht(e){let n,t,r,s,i,a,o,l,c,u,h,d=[],g=new Map,f=e[2];const m=e=>"imagen_"+e[6];for(let n=0;n<f.length;n+=1){let t=ct(e,f,n),r=m(t);g.set(r,d[n]=ut(r,t))}const p=new et({props:{content:e[2],go:e[0]}});return{c(){n=S("meta"),t=S("meta"),r=D(),s=S("div"),i=S("h3"),a=I("Referenzen"),o=D(),l=S("div"),c=S("div");for(let e=0;e<d.length;e+=1)d[e].c();u=D(),we(p.$$.fragment),this.h()},l(e){const h=x('[data-svelte="svelte-1cibnjy"]',document.head);n=V(h,"META",{name:!0,content:!0}),t=V(h,"META",{name:!0,content:!0}),h.forEach(y),r=L(e),s=V(e,"DIV",{class:!0});var g=H(s);i=V(g,"H3",{});var f=H(i);a=B(f,"Referenzen"),f.forEach(y),g.forEach(y),o=L(e),l=V(e,"DIV",{class:!0});var m=H(l);c=V(m,"DIV",{class:!0});var v=H(c);for(let e=0;e<d.length;e+=1)d[e].l(v);v.forEach(y),m.forEach(y),u=L(e),ke(p.$$.fragment,e),this.h()},h(){document.title="Referenzen - IKPH Inter-Kontakt Projekt und Handel GmbH",$(n,"name","description"),$(n,"content","Über uns"),$(t,"name","keywords"),$(t,"content",""),$(s,"class","page-title"),$(c,"class","photo-gallery svelte-6bbnfq"),$(l,"class","content")},m(e,g){k(document.head,n),k(document.head,t),A(e,r,g),A(e,s,g),k(s,i),k(i,a),A(e,o,g),A(e,l,g),k(l,c);for(let e=0;e<d.length;e+=1)d[e].m(c,null);A(e,u,g),Ae(p,e,g),h=!0},p(e,[n]){if(6&n){const t=e[2];d=ve(d,n,m,1,e,t,g,c,me,ut,null,ct)}const t={};1&n&&(t.go=e[0]),p.$set(t)},i(e){h||(he(p.$$.fragment,e),h=!0)},o(e){de(p.$$.fragment,e),h=!1},d(e){y(n),y(t),e&&y(r),e&&y(s),e&&y(o),e&&y(l);for(let e=0;e<d.length;e+=1)d[e].d();e&&y(u),ye(p,e)}}}function dt(e,n,t){let r;const s=e=>{t(0,r=null),setTimeout(()=>t(0,r=e))};let i=Array(26).fill(1).map((e,n)=>({small:`./gallery/${n}.jpg`,full:`./gallery/${n}.jpg`}));return[r,s,i,e=>s(e)]}class gt extends Ie{constructor(e){super(),Se(this,e,dt,ht,o,{})}}function ft(n){let t,r,s,i,a,o,l,c,u,h,d,g,f,m,p,v,b,E,w,z,P,T,N,W,F,G,R,O,j,K,M,U,C;return{c(){t=S("meta"),r=S("meta"),s=D(),i=S("div"),a=S("h3"),o=I("Über uns"),l=D(),c=S("div"),u=S("div"),h=S("p"),d=I("Der Wert von Immobilien steigt unaufhörlich und deshalb ist es wichtig,\n      diese Immobilien in regelmäßigen Abständen zu warten und zu sanieren. Seit\n      drei Jahren sind wir im Bereich sach- und fachgerechter\n      Komplettrenovierung und Sanierung von Altbau oder Neubau, Gewerbe,\n      Wohnungen oder kompletten Wohnanlagen tätig."),g=D(),f=S("p"),m=I("Unsere Firma war für HV, wie Vonovia ADO u.a. über mehre Jahren\n      erfolgreich tätig. Aber auch für unsere Privatkunden sind wir gerne\n      unterwegs."),p=D(),v=S("p"),b=I("Wir bieten daher nicht nur komplette Wohnungssanierungen, sondern auch\n      Teilsanierungen an, um Ihre Wohnungen in einen zeitgemäßen und\n      vermietbaren Standard zu versetzen."),E=D(),w=S("p"),z=I("Dabei begleiten wir Sie bei der Wohnungssanierung in allen Phasen. Von der\n      ersten Planung bis hin zum letzten Pinselstrich, erhalten Sie bei uns alle\n      Leistungen aus einer Hand."),P=D(),T=S("p"),N=I("Natürlich lassen wir Ihre individuellen Wünsche in die Planungen\n      einfließen und können auch einzelne Leistungen anbieten."),W=D(),F=S("p"),G=I("Auf Wunsch erstellen wir Ihnen einen Kostenvoranschlag, so dass Sie Ihr\n      Budget besser planen können."),R=D(),O=S("p"),j=I("Nehmen Sie Kontakt zu uns auf und lassen Sie sich Ihr kostenloses,\n      persönliches Angebot erstellen."),K=D(),M=S("div"),U=S("img"),this.h()},l(e){const n=x('[data-svelte="svelte-ajwl5n"]',document.head);t=V(n,"META",{name:!0,content:!0}),r=V(n,"META",{name:!0,content:!0}),n.forEach(y),s=L(e),i=V(e,"DIV",{class:!0});var k=H(i);a=V(k,"H3",{});var A=H(a);o=B(A,"Über uns"),A.forEach(y),k.forEach(y),l=L(e),c=V(e,"DIV",{class:!0});var S=H(c);u=V(S,"DIV",{class:!0});var I=H(u);h=V(I,"P",{});var D=H(h);d=B(D,"Der Wert von Immobilien steigt unaufhörlich und deshalb ist es wichtig,\n      diese Immobilien in regelmäßigen Abständen zu warten und zu sanieren. Seit\n      drei Jahren sind wir im Bereich sach- und fachgerechter\n      Komplettrenovierung und Sanierung von Altbau oder Neubau, Gewerbe,\n      Wohnungen oder kompletten Wohnanlagen tätig."),D.forEach(y),g=L(I),f=V(I,"P",{});var $=H(f);m=B($,"Unsere Firma war für HV, wie Vonovia ADO u.a. über mehre Jahren\n      erfolgreich tätig. Aber auch für unsere Privatkunden sind wir gerne\n      unterwegs."),$.forEach(y),p=L(I),v=V(I,"P",{});var C=H(v);b=B(C,"Wir bieten daher nicht nur komplette Wohnungssanierungen, sondern auch\n      Teilsanierungen an, um Ihre Wohnungen in einen zeitgemäßen und\n      vermietbaren Standard zu versetzen."),C.forEach(y),E=L(I),w=V(I,"P",{});var X=H(w);z=B(X,"Dabei begleiten wir Sie bei der Wohnungssanierung in allen Phasen. Von der\n      ersten Planung bis hin zum letzten Pinselstrich, erhalten Sie bei uns alle\n      Leistungen aus einer Hand."),X.forEach(y),P=L(I),T=V(I,"P",{});var Z=H(T);N=B(Z,"Natürlich lassen wir Ihre individuellen Wünsche in die Planungen\n      einfließen und können auch einzelne Leistungen anbieten."),Z.forEach(y),W=L(I),F=V(I,"P",{});var Q=H(F);G=B(Q,"Auf Wunsch erstellen wir Ihnen einen Kostenvoranschlag, so dass Sie Ihr\n      Budget besser planen können."),Q.forEach(y),R=L(I),O=V(I,"P",{});var J=H(O);j=B(J,"Nehmen Sie Kontakt zu uns auf und lassen Sie sich Ihr kostenloses,\n      persönliches Angebot erstellen."),J.forEach(y),I.forEach(y),K=L(S),M=V(S,"DIV",{class:!0});var _=H(M);U=V(_,"IMG",{src:!0,alt:!0}),_.forEach(y),S.forEach(y),this.h()},h(){document.title="Über uns - IKPH Inter-Kontakt Projekt und Handel GmbH",$(t,"name","description"),$(t,"content","Über uns"),$(r,"name","keywords"),$(r,"content",""),$(i,"class","page-title"),$(u,"class","item"),U.src!==(C="g/images/about_us.jpg")&&$(U,"src","g/images/about_us.jpg"),$(U,"alt","Über uns"),$(M,"class","item"),$(c,"class","content")},m(e,n){k(document.head,t),k(document.head,r),A(e,s,n),A(e,i,n),k(i,a),k(a,o),A(e,l,n),A(e,c,n),k(c,u),k(u,h),k(h,d),k(u,g),k(u,f),k(f,m),k(u,p),k(u,v),k(v,b),k(u,E),k(u,w),k(w,z),k(u,P),k(u,T),k(T,N),k(u,W),k(u,F),k(F,G),k(u,R),k(u,O),k(O,j),k(c,K),k(c,M),k(M,U)},p:e,i:e,o:e,d(e){y(t),y(r),e&&y(s),e&&y(i),e&&y(l),e&&y(c)}}}class mt extends Ie{constructor(e){super(),Se(this,e,null,ft,o,{})}}const pt={"/_layout":{component:()=>Sn,meta:{},relativeDir:"",path:""}},vt=function(e,n){return e.map(ln).sort((e,n)=>e.ranking>=n.ranking?-1:1)}([{component:()=>zn,meta:{},isIndex:!1,isFallback:!0,hasParam:!1,path:"/_fallback",shortPath:"",layouts:[pt["/_layout"]]},{component:()=>En,meta:{},isIndex:!1,isFallback:!1,hasParam:!1,path:"/components/Footer",shortPath:"/components/Footer",layouts:[pt["/_layout"]]},{component:()=>vn,meta:{},isIndex:!1,isFallback:!1,hasParam:!1,path:"/components/Header",shortPath:"/components/Header",layouts:[pt["/_layout"]]},{component:()=>Hn,meta:{},isIndex:!1,isFallback:!1,hasParam:!1,path:"/components/Hero",shortPath:"/components/Hero",layouts:[pt["/_layout"]]},{component:()=>et,meta:{},isIndex:!1,isFallback:!1,hasParam:!1,path:"/components/LightBox",shortPath:"/components/LightBox",layouts:[pt["/_layout"]]},{component:()=>dn,meta:{},isIndex:!1,isFallback:!1,hasParam:!1,path:"/components/PageTransitions",shortPath:"/components/PageTransitions",layouts:[pt["/_layout"]]},{component:()=>tt,meta:{},isIndex:!1,isFallback:!1,hasParam:!1,path:"/datenschutz",shortPath:"/datenschutz",layouts:[pt["/_layout"]]},{component:()=>st,meta:{},isIndex:!1,isFallback:!1,hasParam:!1,path:"/impressum",shortPath:"/impressum",layouts:[pt["/_layout"]]},{component:()=>at,meta:{},isIndex:!0,isFallback:!1,hasParam:!1,path:"/index",shortPath:"",layouts:[pt["/_layout"]]},{component:()=>lt,meta:{},isIndex:!1,isFallback:!1,hasParam:!1,path:"/leistungen",shortPath:"/leistungen",layouts:[pt["/_layout"]]},{component:()=>gt,meta:{},isIndex:!1,isFallback:!1,hasParam:!1,path:"/referenzen",shortPath:"/referenzen",layouts:[pt["/_layout"]]},{component:()=>mt,meta:{},isIndex:!1,isFallback:!1,hasParam:!1,path:"/uberuns",shortPath:"/uberuns",layouts:[pt["/_layout"]]}]);function bt(n){let t;const r=new on({props:{routes:vt}});return{c(){we(r.$$.fragment)},l(e){ke(r.$$.fragment,e)},m(e,n){Ae(r,e,n),t=!0},p:e,i(e){t||(he(r.$$.fragment,e),t=!0)},o(e){de(r.$$.fragment,e),t=!1},d(e){ye(r,e)}}}return function(e,n={target:document.body},t="hmr",r="app-loaded"){const s=document.getElementById(t),i=document.createElement("div");return s?i.style.visibility="hidden":i.setAttribute("id",t),n.target.appendChild(i),addEventListener(r,(function(){s&&s.remove();i.style.visibility="initial",i.setAttribute("id",t)})),new e({...n,target:i})}(class extends Ie{constructor(e){super(),Se(this,e,null,bt,o,{})}},{target:document.body},"routify-app")}();
+
+(function(l, r) { if (l.getElementById('livereloadscript')) return; r = l.createElement('script'); r.async = 1; r.src = '//' + (window.location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1'; r.id = 'livereloadscript'; l.head.appendChild(r) })(window.document);
+var app = (function () {
+    'use strict';
+
+    /**
+     * Hot module replacement for Svelte in the Wild
+     *
+     * @export
+     * @param {object} Component Svelte component
+     * @param {object} [options={ target: document.body }] Options for the Svelte component
+     * @param {string} [id='hmr'] ID for the component container
+     * @param {string} [eventName='app-loaded'] Name of the event that triggers replacement of previous component
+     * @returns
+     */
+    function HMR(Component, options = { target: document.body }, id = 'hmr', eventName = 'app-loaded') {
+        const oldContainer = document.getElementById(id);
+
+        // Create the new (temporarily hidden) component container
+        const appContainer = document.createElement("div");
+        if (oldContainer) appContainer.style.visibility = 'hidden';
+        else appContainer.setAttribute('id', id); //ssr doesn't get an event, so we set the id now
+
+        // Attach it to the target element
+        options.target.appendChild(appContainer);
+
+        // Wait for the app to load before replacing the component
+        addEventListener(eventName, replaceComponent);
+
+        function replaceComponent() {
+            if (oldContainer) oldContainer.remove();
+            // Show our component and take over the ID of the old container
+            appContainer.style.visibility = 'initial';
+            // delete (appContainer.style.visibility)
+            appContainer.setAttribute('id', id);
+        }
+
+        return new Component({
+            ...options,
+            target: appContainer
+        });
+    }
+
+    function noop() { }
+    const identity = x => x;
+    function assign(tar, src) {
+        // @ts-ignore
+        for (const k in src)
+            tar[k] = src[k];
+        return tar;
+    }
+    function add_location(element, file, line, column, char) {
+        element.__svelte_meta = {
+            loc: { file, line, column, char }
+        };
+    }
+    function run(fn) {
+        return fn();
+    }
+    function blank_object() {
+        return Object.create(null);
+    }
+    function run_all(fns) {
+        fns.forEach(run);
+    }
+    function is_function(thing) {
+        return typeof thing === 'function';
+    }
+    function safe_not_equal(a, b) {
+        return a != a ? b == b : a !== b || ((a && typeof a === 'object') || typeof a === 'function');
+    }
+    function validate_store(store, name) {
+        if (store != null && typeof store.subscribe !== 'function') {
+            throw new Error(`'${name}' is not a store with a 'subscribe' method`);
+        }
+    }
+    function subscribe(store, ...callbacks) {
+        if (store == null) {
+            return noop;
+        }
+        const unsub = store.subscribe(...callbacks);
+        return unsub.unsubscribe ? () => unsub.unsubscribe() : unsub;
+    }
+    function get_store_value(store) {
+        let value;
+        subscribe(store, _ => value = _)();
+        return value;
+    }
+    function component_subscribe(component, store, callback) {
+        component.$$.on_destroy.push(subscribe(store, callback));
+    }
+    function create_slot(definition, ctx, $$scope, fn) {
+        if (definition) {
+            const slot_ctx = get_slot_context(definition, ctx, $$scope, fn);
+            return definition[0](slot_ctx);
+        }
+    }
+    function get_slot_context(definition, ctx, $$scope, fn) {
+        return definition[1] && fn
+            ? assign($$scope.ctx.slice(), definition[1](fn(ctx)))
+            : $$scope.ctx;
+    }
+    function get_slot_changes(definition, $$scope, dirty, fn) {
+        if (definition[2] && fn) {
+            const lets = definition[2](fn(dirty));
+            if ($$scope.dirty === undefined) {
+                return lets;
+            }
+            if (typeof lets === 'object') {
+                const merged = [];
+                const len = Math.max($$scope.dirty.length, lets.length);
+                for (let i = 0; i < len; i += 1) {
+                    merged[i] = $$scope.dirty[i] | lets[i];
+                }
+                return merged;
+            }
+            return $$scope.dirty | lets;
+        }
+        return $$scope.dirty;
+    }
+    function null_to_empty(value) {
+        return value == null ? '' : value;
+    }
+    function action_destroyer(action_result) {
+        return action_result && is_function(action_result.destroy) ? action_result.destroy : noop;
+    }
+
+    const is_client = typeof window !== 'undefined';
+    let now = is_client
+        ? () => window.performance.now()
+        : () => Date.now();
+    let raf = is_client ? cb => requestAnimationFrame(cb) : noop;
+
+    const tasks = new Set();
+    function run_tasks(now) {
+        tasks.forEach(task => {
+            if (!task.c(now)) {
+                tasks.delete(task);
+                task.f();
+            }
+        });
+        if (tasks.size !== 0)
+            raf(run_tasks);
+    }
+    /**
+     * Creates a new task that runs on each raf frame
+     * until it returns a falsy value or is aborted
+     */
+    function loop(callback) {
+        let task;
+        if (tasks.size === 0)
+            raf(run_tasks);
+        return {
+            promise: new Promise(fulfill => {
+                tasks.add(task = { c: callback, f: fulfill });
+            }),
+            abort() {
+                tasks.delete(task);
+            }
+        };
+    }
+
+    function append(target, node) {
+        target.appendChild(node);
+    }
+    function insert(target, node, anchor) {
+        target.insertBefore(node, anchor || null);
+    }
+    function detach(node) {
+        node.parentNode.removeChild(node);
+    }
+    function destroy_each(iterations, detaching) {
+        for (let i = 0; i < iterations.length; i += 1) {
+            if (iterations[i])
+                iterations[i].d(detaching);
+        }
+    }
+    function element(name) {
+        return document.createElement(name);
+    }
+    function svg_element(name) {
+        return document.createElementNS('http://www.w3.org/2000/svg', name);
+    }
+    function text(data) {
+        return document.createTextNode(data);
+    }
+    function space() {
+        return text(' ');
+    }
+    function empty() {
+        return text('');
+    }
+    function listen(node, event, handler, options) {
+        node.addEventListener(event, handler, options);
+        return () => node.removeEventListener(event, handler, options);
+    }
+    function attr(node, attribute, value) {
+        if (value == null)
+            node.removeAttribute(attribute);
+        else if (node.getAttribute(attribute) !== value)
+            node.setAttribute(attribute, value);
+    }
+    function children(element) {
+        return Array.from(element.childNodes);
+    }
+    function claim_element(nodes, name, attributes, svg) {
+        for (let i = 0; i < nodes.length; i += 1) {
+            const node = nodes[i];
+            if (node.nodeName === name) {
+                let j = 0;
+                while (j < node.attributes.length) {
+                    const attribute = node.attributes[j];
+                    if (attributes[attribute.name]) {
+                        j++;
+                    }
+                    else {
+                        node.removeAttribute(attribute.name);
+                    }
+                }
+                return nodes.splice(i, 1)[0];
+            }
+        }
+        return svg ? svg_element(name) : element(name);
+    }
+    function claim_text(nodes, data) {
+        for (let i = 0; i < nodes.length; i += 1) {
+            const node = nodes[i];
+            if (node.nodeType === 3) {
+                node.data = '' + data;
+                return nodes.splice(i, 1)[0];
+            }
+        }
+        return text(data);
+    }
+    function claim_space(nodes) {
+        return claim_text(nodes, ' ');
+    }
+    function toggle_class(element, name, toggle) {
+        element.classList[toggle ? 'add' : 'remove'](name);
+    }
+    function custom_event(type, detail) {
+        const e = document.createEvent('CustomEvent');
+        e.initCustomEvent(type, false, false, detail);
+        return e;
+    }
+    function query_selector_all(selector, parent = document.body) {
+        return Array.from(parent.querySelectorAll(selector));
+    }
+
+    let stylesheet;
+    let active = 0;
+    let current_rules = {};
+    // https://github.com/darkskyapp/string-hash/blob/master/index.js
+    function hash(str) {
+        let hash = 5381;
+        let i = str.length;
+        while (i--)
+            hash = ((hash << 5) - hash) ^ str.charCodeAt(i);
+        return hash >>> 0;
+    }
+    function create_rule(node, a, b, duration, delay, ease, fn, uid = 0) {
+        const step = 16.666 / duration;
+        let keyframes = '{\n';
+        for (let p = 0; p <= 1; p += step) {
+            const t = a + (b - a) * ease(p);
+            keyframes += p * 100 + `%{${fn(t, 1 - t)}}\n`;
+        }
+        const rule = keyframes + `100% {${fn(b, 1 - b)}}\n}`;
+        const name = `__svelte_${hash(rule)}_${uid}`;
+        if (!current_rules[name]) {
+            if (!stylesheet) {
+                const style = element('style');
+                document.head.appendChild(style);
+                stylesheet = style.sheet;
+            }
+            current_rules[name] = true;
+            stylesheet.insertRule(`@keyframes ${name} ${rule}`, stylesheet.cssRules.length);
+        }
+        const animation = node.style.animation || '';
+        node.style.animation = `${animation ? `${animation}, ` : ``}${name} ${duration}ms linear ${delay}ms 1 both`;
+        active += 1;
+        return name;
+    }
+    function delete_rule(node, name) {
+        node.style.animation = (node.style.animation || '')
+            .split(', ')
+            .filter(name
+            ? anim => anim.indexOf(name) < 0 // remove specific animation
+            : anim => anim.indexOf('__svelte') === -1 // remove all Svelte animations
+        )
+            .join(', ');
+        if (name && !--active)
+            clear_rules();
+    }
+    function clear_rules() {
+        raf(() => {
+            if (active)
+                return;
+            let i = stylesheet.cssRules.length;
+            while (i--)
+                stylesheet.deleteRule(i);
+            current_rules = {};
+        });
+    }
+
+    let current_component;
+    function set_current_component(component) {
+        current_component = component;
+    }
+    function get_current_component() {
+        if (!current_component)
+            throw new Error(`Function called outside component initialization`);
+        return current_component;
+    }
+    function onMount(fn) {
+        get_current_component().$$.on_mount.push(fn);
+    }
+    function onDestroy(fn) {
+        get_current_component().$$.on_destroy.push(fn);
+    }
+    function setContext(key, context) {
+        get_current_component().$$.context.set(key, context);
+    }
+    function getContext(key) {
+        return get_current_component().$$.context.get(key);
+    }
+
+    const dirty_components = [];
+    const binding_callbacks = [];
+    const render_callbacks = [];
+    const flush_callbacks = [];
+    const resolved_promise = Promise.resolve();
+    let update_scheduled = false;
+    function schedule_update() {
+        if (!update_scheduled) {
+            update_scheduled = true;
+            resolved_promise.then(flush);
+        }
+    }
+    function tick() {
+        schedule_update();
+        return resolved_promise;
+    }
+    function add_render_callback(fn) {
+        render_callbacks.push(fn);
+    }
+    let flushing = false;
+    const seen_callbacks = new Set();
+    function flush() {
+        if (flushing)
+            return;
+        flushing = true;
+        do {
+            // first, call beforeUpdate functions
+            // and update components
+            for (let i = 0; i < dirty_components.length; i += 1) {
+                const component = dirty_components[i];
+                set_current_component(component);
+                update(component.$$);
+            }
+            dirty_components.length = 0;
+            while (binding_callbacks.length)
+                binding_callbacks.pop()();
+            // then, once components are updated, call
+            // afterUpdate functions. This may cause
+            // subsequent updates...
+            for (let i = 0; i < render_callbacks.length; i += 1) {
+                const callback = render_callbacks[i];
+                if (!seen_callbacks.has(callback)) {
+                    // ...so guard against infinite loops
+                    seen_callbacks.add(callback);
+                    callback();
+                }
+            }
+            render_callbacks.length = 0;
+        } while (dirty_components.length);
+        while (flush_callbacks.length) {
+            flush_callbacks.pop()();
+        }
+        update_scheduled = false;
+        flushing = false;
+        seen_callbacks.clear();
+    }
+    function update($$) {
+        if ($$.fragment !== null) {
+            $$.update();
+            run_all($$.before_update);
+            const dirty = $$.dirty;
+            $$.dirty = [-1];
+            $$.fragment && $$.fragment.p($$.ctx, dirty);
+            $$.after_update.forEach(add_render_callback);
+        }
+    }
+
+    let promise;
+    function wait() {
+        if (!promise) {
+            promise = Promise.resolve();
+            promise.then(() => {
+                promise = null;
+            });
+        }
+        return promise;
+    }
+    function dispatch(node, direction, kind) {
+        node.dispatchEvent(custom_event(`${direction ? 'intro' : 'outro'}${kind}`));
+    }
+    const outroing = new Set();
+    let outros;
+    function group_outros() {
+        outros = {
+            r: 0,
+            c: [],
+            p: outros // parent group
+        };
+    }
+    function check_outros() {
+        if (!outros.r) {
+            run_all(outros.c);
+        }
+        outros = outros.p;
+    }
+    function transition_in(block, local) {
+        if (block && block.i) {
+            outroing.delete(block);
+            block.i(local);
+        }
+    }
+    function transition_out(block, local, detach, callback) {
+        if (block && block.o) {
+            if (outroing.has(block))
+                return;
+            outroing.add(block);
+            outros.c.push(() => {
+                outroing.delete(block);
+                if (callback) {
+                    if (detach)
+                        block.d(1);
+                    callback();
+                }
+            });
+            block.o(local);
+        }
+    }
+    const null_transition = { duration: 0 };
+    function create_bidirectional_transition(node, fn, params, intro) {
+        let config = fn(node, params);
+        let t = intro ? 0 : 1;
+        let running_program = null;
+        let pending_program = null;
+        let animation_name = null;
+        function clear_animation() {
+            if (animation_name)
+                delete_rule(node, animation_name);
+        }
+        function init(program, duration) {
+            const d = program.b - t;
+            duration *= Math.abs(d);
+            return {
+                a: t,
+                b: program.b,
+                d,
+                duration,
+                start: program.start,
+                end: program.start + duration,
+                group: program.group
+            };
+        }
+        function go(b) {
+            const { delay = 0, duration = 300, easing = identity, tick = noop, css } = config || null_transition;
+            const program = {
+                start: now() + delay,
+                b
+            };
+            if (!b) {
+                // @ts-ignore todo: improve typings
+                program.group = outros;
+                outros.r += 1;
+            }
+            if (running_program) {
+                pending_program = program;
+            }
+            else {
+                // if this is an intro, and there's a delay, we need to do
+                // an initial tick and/or apply CSS animation immediately
+                if (css) {
+                    clear_animation();
+                    animation_name = create_rule(node, t, b, duration, delay, easing, css);
+                }
+                if (b)
+                    tick(0, 1);
+                running_program = init(program, duration);
+                add_render_callback(() => dispatch(node, b, 'start'));
+                loop(now => {
+                    if (pending_program && now > pending_program.start) {
+                        running_program = init(pending_program, duration);
+                        pending_program = null;
+                        dispatch(node, running_program.b, 'start');
+                        if (css) {
+                            clear_animation();
+                            animation_name = create_rule(node, t, running_program.b, running_program.duration, 0, easing, config.css);
+                        }
+                    }
+                    if (running_program) {
+                        if (now >= running_program.end) {
+                            tick(t = running_program.b, 1 - t);
+                            dispatch(node, running_program.b, 'end');
+                            if (!pending_program) {
+                                // we're done
+                                if (running_program.b) {
+                                    // intro — we can tidy up immediately
+                                    clear_animation();
+                                }
+                                else {
+                                    // outro — needs to be coordinated
+                                    if (!--running_program.group.r)
+                                        run_all(running_program.group.c);
+                                }
+                            }
+                            running_program = null;
+                        }
+                        else if (now >= running_program.start) {
+                            const p = now - running_program.start;
+                            t = running_program.a + running_program.d * easing(p / running_program.duration);
+                            tick(t, 1 - t);
+                        }
+                    }
+                    return !!(running_program || pending_program);
+                });
+            }
+        }
+        return {
+            run(b) {
+                if (is_function(config)) {
+                    wait().then(() => {
+                        // @ts-ignore
+                        config = config();
+                        go(b);
+                    });
+                }
+                else {
+                    go(b);
+                }
+            },
+            end() {
+                clear_animation();
+                running_program = pending_program = null;
+            }
+        };
+    }
+
+    function destroy_block(block, lookup) {
+        block.d(1);
+        lookup.delete(block.key);
+    }
+    function outro_and_destroy_block(block, lookup) {
+        transition_out(block, 1, 1, () => {
+            lookup.delete(block.key);
+        });
+    }
+    function update_keyed_each(old_blocks, dirty, get_key, dynamic, ctx, list, lookup, node, destroy, create_each_block, next, get_context) {
+        let o = old_blocks.length;
+        let n = list.length;
+        let i = o;
+        const old_indexes = {};
+        while (i--)
+            old_indexes[old_blocks[i].key] = i;
+        const new_blocks = [];
+        const new_lookup = new Map();
+        const deltas = new Map();
+        i = n;
+        while (i--) {
+            const child_ctx = get_context(ctx, list, i);
+            const key = get_key(child_ctx);
+            let block = lookup.get(key);
+            if (!block) {
+                block = create_each_block(key, child_ctx);
+                block.c();
+            }
+            else if (dynamic) {
+                block.p(child_ctx, dirty);
+            }
+            new_lookup.set(key, new_blocks[i] = block);
+            if (key in old_indexes)
+                deltas.set(key, Math.abs(i - old_indexes[key]));
+        }
+        const will_move = new Set();
+        const did_move = new Set();
+        function insert(block) {
+            transition_in(block, 1);
+            block.m(node, next);
+            lookup.set(block.key, block);
+            next = block.first;
+            n--;
+        }
+        while (o && n) {
+            const new_block = new_blocks[n - 1];
+            const old_block = old_blocks[o - 1];
+            const new_key = new_block.key;
+            const old_key = old_block.key;
+            if (new_block === old_block) {
+                // do nothing
+                next = new_block.first;
+                o--;
+                n--;
+            }
+            else if (!new_lookup.has(old_key)) {
+                // remove old block
+                destroy(old_block, lookup);
+                o--;
+            }
+            else if (!lookup.has(new_key) || will_move.has(new_key)) {
+                insert(new_block);
+            }
+            else if (did_move.has(old_key)) {
+                o--;
+            }
+            else if (deltas.get(new_key) > deltas.get(old_key)) {
+                did_move.add(new_key);
+                insert(new_block);
+            }
+            else {
+                will_move.add(old_key);
+                o--;
+            }
+        }
+        while (o--) {
+            const old_block = old_blocks[o];
+            if (!new_lookup.has(old_block.key))
+                destroy(old_block, lookup);
+        }
+        while (n)
+            insert(new_blocks[n - 1]);
+        return new_blocks;
+    }
+    function validate_each_keys(ctx, list, get_context, get_key) {
+        const keys = new Set();
+        for (let i = 0; i < list.length; i++) {
+            const key = get_key(get_context(ctx, list, i));
+            if (keys.has(key)) {
+                throw new Error(`Cannot have duplicate keys in a keyed each`);
+            }
+            keys.add(key);
+        }
+    }
+
+    function get_spread_update(levels, updates) {
+        const update = {};
+        const to_null_out = {};
+        const accounted_for = { $$scope: 1 };
+        let i = levels.length;
+        while (i--) {
+            const o = levels[i];
+            const n = updates[i];
+            if (n) {
+                for (const key in o) {
+                    if (!(key in n))
+                        to_null_out[key] = 1;
+                }
+                for (const key in n) {
+                    if (!accounted_for[key]) {
+                        update[key] = n[key];
+                        accounted_for[key] = 1;
+                    }
+                }
+                levels[i] = n;
+            }
+            else {
+                for (const key in o) {
+                    accounted_for[key] = 1;
+                }
+            }
+        }
+        for (const key in to_null_out) {
+            if (!(key in update))
+                update[key] = undefined;
+        }
+        return update;
+    }
+    function get_spread_object(spread_props) {
+        return typeof spread_props === 'object' && spread_props !== null ? spread_props : {};
+    }
+    function create_component(block) {
+        block && block.c();
+    }
+    function claim_component(block, parent_nodes) {
+        block && block.l(parent_nodes);
+    }
+    function mount_component(component, target, anchor) {
+        const { fragment, on_mount, on_destroy, after_update } = component.$$;
+        fragment && fragment.m(target, anchor);
+        // onMount happens before the initial afterUpdate
+        add_render_callback(() => {
+            const new_on_destroy = on_mount.map(run).filter(is_function);
+            if (on_destroy) {
+                on_destroy.push(...new_on_destroy);
+            }
+            else {
+                // Edge case - component was destroyed immediately,
+                // most likely as a result of a binding initialising
+                run_all(new_on_destroy);
+            }
+            component.$$.on_mount = [];
+        });
+        after_update.forEach(add_render_callback);
+    }
+    function destroy_component(component, detaching) {
+        const $$ = component.$$;
+        if ($$.fragment !== null) {
+            run_all($$.on_destroy);
+            $$.fragment && $$.fragment.d(detaching);
+            // TODO null out other refs, including component.$$ (but need to
+            // preserve final state?)
+            $$.on_destroy = $$.fragment = null;
+            $$.ctx = [];
+        }
+    }
+    function make_dirty(component, i) {
+        if (component.$$.dirty[0] === -1) {
+            dirty_components.push(component);
+            schedule_update();
+            component.$$.dirty.fill(0);
+        }
+        component.$$.dirty[(i / 31) | 0] |= (1 << (i % 31));
+    }
+    function init(component, options, instance, create_fragment, not_equal, props, dirty = [-1]) {
+        const parent_component = current_component;
+        set_current_component(component);
+        const prop_values = options.props || {};
+        const $$ = component.$$ = {
+            fragment: null,
+            ctx: null,
+            // state
+            props,
+            update: noop,
+            not_equal,
+            bound: blank_object(),
+            // lifecycle
+            on_mount: [],
+            on_destroy: [],
+            before_update: [],
+            after_update: [],
+            context: new Map(parent_component ? parent_component.$$.context : []),
+            // everything else
+            callbacks: blank_object(),
+            dirty
+        };
+        let ready = false;
+        $$.ctx = instance
+            ? instance(component, prop_values, (i, ret, ...rest) => {
+                const value = rest.length ? rest[0] : ret;
+                if ($$.ctx && not_equal($$.ctx[i], $$.ctx[i] = value)) {
+                    if ($$.bound[i])
+                        $$.bound[i](value);
+                    if (ready)
+                        make_dirty(component, i);
+                }
+                return ret;
+            })
+            : [];
+        $$.update();
+        ready = true;
+        run_all($$.before_update);
+        // `false` as a special case of no DOM component
+        $$.fragment = create_fragment ? create_fragment($$.ctx) : false;
+        if (options.target) {
+            if (options.hydrate) {
+                // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+                $$.fragment && $$.fragment.l(children(options.target));
+            }
+            else {
+                // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+                $$.fragment && $$.fragment.c();
+            }
+            if (options.intro)
+                transition_in(component.$$.fragment);
+            mount_component(component, options.target, options.anchor);
+            flush();
+        }
+        set_current_component(parent_component);
+    }
+    class SvelteComponent {
+        $destroy() {
+            destroy_component(this, 1);
+            this.$destroy = noop;
+        }
+        $on(type, callback) {
+            const callbacks = (this.$$.callbacks[type] || (this.$$.callbacks[type] = []));
+            callbacks.push(callback);
+            return () => {
+                const index = callbacks.indexOf(callback);
+                if (index !== -1)
+                    callbacks.splice(index, 1);
+            };
+        }
+        $set() {
+            // overridden by instance, if it has props
+        }
+    }
+
+    function dispatch_dev(type, detail) {
+        document.dispatchEvent(custom_event(type, Object.assign({ version: '3.19.2' }, detail)));
+    }
+    function append_dev(target, node) {
+        dispatch_dev("SvelteDOMInsert", { target, node });
+        append(target, node);
+    }
+    function insert_dev(target, node, anchor) {
+        dispatch_dev("SvelteDOMInsert", { target, node, anchor });
+        insert(target, node, anchor);
+    }
+    function detach_dev(node) {
+        dispatch_dev("SvelteDOMRemove", { node });
+        detach(node);
+    }
+    function listen_dev(node, event, handler, options, has_prevent_default, has_stop_propagation) {
+        const modifiers = options === true ? ["capture"] : options ? Array.from(Object.keys(options)) : [];
+        if (has_prevent_default)
+            modifiers.push('preventDefault');
+        if (has_stop_propagation)
+            modifiers.push('stopPropagation');
+        dispatch_dev("SvelteDOMAddEventListener", { node, event, handler, modifiers });
+        const dispose = listen(node, event, handler, options);
+        return () => {
+            dispatch_dev("SvelteDOMRemoveEventListener", { node, event, handler, modifiers });
+            dispose();
+        };
+    }
+    function attr_dev(node, attribute, value) {
+        attr(node, attribute, value);
+        if (value == null)
+            dispatch_dev("SvelteDOMRemoveAttribute", { node, attribute });
+        else
+            dispatch_dev("SvelteDOMSetAttribute", { node, attribute, value });
+    }
+    function validate_each_argument(arg) {
+        if (typeof arg !== 'string' && !(arg && typeof arg === 'object' && 'length' in arg)) {
+            let msg = '{#each} only iterates over array-like objects.';
+            if (typeof Symbol === 'function' && arg && Symbol.iterator in arg) {
+                msg += ' You can use a spread to convert this iterable into an array.';
+            }
+            throw new Error(msg);
+        }
+    }
+    function validate_slots(name, slot, keys) {
+        for (const slot_key of Object.keys(slot)) {
+            if (!~keys.indexOf(slot_key)) {
+                console.warn(`<${name}> received an unexpected slot "${slot_key}".`);
+            }
+        }
+    }
+    class SvelteComponentDev extends SvelteComponent {
+        constructor(options) {
+            if (!options || (!options.target && !options.$$inline)) {
+                throw new Error(`'target' is a required option`);
+            }
+            super();
+        }
+        $destroy() {
+            super.$destroy();
+            this.$destroy = () => {
+                console.warn(`Component was already destroyed`); // eslint-disable-line no-console
+            };
+        }
+        $capture_state() { }
+        $inject_state() { }
+    }
+
+    const subscriber_queue = [];
+    /**
+     * Creates a `Readable` store that allows reading by subscription.
+     * @param value initial value
+     * @param {StartStopNotifier}start start and stop notifications for subscriptions
+     */
+    function readable(value, start) {
+        return {
+            subscribe: writable(value, start).subscribe,
+        };
+    }
+    /**
+     * Create a `Writable` store that allows both updating and reading by subscription.
+     * @param {*=}value initial value
+     * @param {StartStopNotifier=}start start and stop notifications for subscriptions
+     */
+    function writable(value, start = noop) {
+        let stop;
+        const subscribers = [];
+        function set(new_value) {
+            if (safe_not_equal(value, new_value)) {
+                value = new_value;
+                if (stop) { // store is ready
+                    const run_queue = !subscriber_queue.length;
+                    for (let i = 0; i < subscribers.length; i += 1) {
+                        const s = subscribers[i];
+                        s[1]();
+                        subscriber_queue.push(s, value);
+                    }
+                    if (run_queue) {
+                        for (let i = 0; i < subscriber_queue.length; i += 2) {
+                            subscriber_queue[i][0](subscriber_queue[i + 1]);
+                        }
+                        subscriber_queue.length = 0;
+                    }
+                }
+            }
+        }
+        function update(fn) {
+            set(fn(value));
+        }
+        function subscribe(run, invalidate = noop) {
+            const subscriber = [run, invalidate];
+            subscribers.push(subscriber);
+            if (subscribers.length === 1) {
+                stop = start(set) || noop;
+            }
+            run(value);
+            return () => {
+                const index = subscribers.indexOf(subscriber);
+                if (index !== -1) {
+                    subscribers.splice(index, 1);
+                }
+                if (subscribers.length === 0) {
+                    stop();
+                    stop = null;
+                }
+            };
+        }
+        return { set, update, subscribe };
+    }
+    function derived(stores, fn, initial_value) {
+        const single = !Array.isArray(stores);
+        const stores_array = single
+            ? [stores]
+            : stores;
+        const auto = fn.length < 2;
+        return readable(initial_value, (set) => {
+            let inited = false;
+            const values = [];
+            let pending = 0;
+            let cleanup = noop;
+            const sync = () => {
+                if (pending) {
+                    return;
+                }
+                cleanup();
+                const result = fn(single ? values[0] : values, set);
+                if (auto) {
+                    set(result);
+                }
+                else {
+                    cleanup = is_function(result) ? result : noop;
+                }
+            };
+            const unsubscribers = stores_array.map((store, i) => subscribe(store, (value) => {
+                values[i] = value;
+                pending &= ~(1 << i);
+                if (inited) {
+                    sync();
+                }
+            }, () => {
+                pending |= (1 << i);
+            }));
+            inited = true;
+            sync();
+            return function stop() {
+                run_all(unsubscribers);
+                cleanup();
+            };
+        });
+    }
+
+    const route = writable({});
+    const routes = writable([]);
+
+    const beforeUrlChange = {
+      _hooks: [],
+      subscribe(listener) {
+        const hooks = this._hooks;
+        const index = hooks.length;
+        listener(callback => { hooks[index] = callback; });
+        return () => delete hooks[index]
+      }
+    };
+
+    /** HELPERS */
+    const url = {
+      subscribe(listener) {
+        return derived(getContext('routify'), context => context.url).subscribe(
+          listener
+        )
+      },
+    };
+
+    const isActive = {
+      subscribe(listener) {
+        return derived(
+          getContext('routify'),
+          context => context.isActive
+        ).subscribe(listener)
+      },
+    };
+
+    function _isActive(url, route) {
+      return function (path, keepIndex = true) {
+        path = url(path, null, keepIndex);
+        const currentPath = url(route.path, null, keepIndex);
+        const re = new RegExp('^' + path);
+        return currentPath.match(re)
+      }
+    }
+
+    function _goto(url) {
+      return function goto(path, params, _static, shallow) {
+        const href = url(path, params);
+        if (!_static) history.pushState({}, null, href);
+        else getContext('routifyupdatepage')(href, shallow);
+      }
+    }
+
+    function _url(context, route, routes) {
+      return function url(path, params, preserveIndex) {
+        path = path || './';
+
+        if (!preserveIndex) path = path.replace(/index$/, '');
+
+        if (path.match(/^\.\.?\//)) {
+          //RELATIVE PATH
+          // get component's dir
+          let dir = context.path;
+          // traverse through parents if needed
+          const traverse = path.match(/\.\.\//g) || [];
+          traverse.forEach(() => {
+            dir = dir.replace(/\/[^\/]+\/?$/, '');
+          });
+
+          // strip leading periods and slashes
+          path = path.replace(/^[\.\/]+/, '');
+          dir = dir.replace(/\/$/, '') + '/';
+          path = dir + path;
+        } else if (path.match(/^\//)) ; else {
+          // NAMED PATH
+          const matchingRoute = routes.find(route => route.meta.name === path);
+          if (matchingRoute) path = matchingRoute.shortPath;
+        }
+
+        params = Object.assign({}, route.params, context.params, params);
+        for (const [key, value] of Object.entries(params)) {
+          path = path.replace(`:${key}`, value);
+        }
+        return path
+      }
+    }
+
+
+    const _meta = {
+      props: {},
+      templates: {},
+      services: {
+        plain: { propField: 'name', valueField: 'content' },
+        twitter: { propField: 'name', valueField: 'content' },
+        og: { propField: 'property', valueField: 'content' },
+      },
+      plugins: [
+        {
+          name: 'applyTemplate',
+          condition: () => true,
+          action: (prop, value) => {
+            const template = _meta.getLongest(_meta.templates, prop) || (x => x);
+            return [prop, template(value)]
+          }
+        },
+        {
+          name: 'createMeta',
+          condition: () => true,
+          action(prop, value) {
+            _meta.writeMeta(prop, value);
+          }
+        },
+        {
+          name: 'createOG',
+          condition: prop => !prop.match(':'),
+          action(prop, value) {
+            _meta.writeMeta(`og:${prop}`, value);
+          }
+        },
+        {
+          name: 'createTitle',
+          condition: prop => prop === 'title',
+          action(prop, value) {
+            document.title = value;
+          }
+        }
+      ],
+      getLongest(repo, name) {
+        const providers = repo[name];
+        if (providers) {
+          const currentPath = get_store_value(route).path;
+          const allPaths = Object.keys(repo[name]);
+          const matchingPaths = allPaths.filter(path => currentPath.includes(path));
+
+          const longestKey = matchingPaths.sort((a, b) => b.length - a.length)[0];
+
+          return providers[longestKey]
+        }
+      },
+      writeMeta(prop, value) {
+        const head = document.getElementsByTagName('head')[0];
+        const match = prop.match(/(.+)\:/);
+        const serviceName = match && match[1] || 'plain';
+        const { propField, valueField } = meta.services[serviceName] || meta.services.plain;
+        const oldElement = document.querySelector(`meta[${propField}='${prop}']`);
+        if (oldElement) oldElement.remove();
+
+        const newElement = document.createElement('meta');
+        newElement.setAttribute(propField, prop);
+        newElement.setAttribute(valueField, value);
+        newElement.setAttribute('data-origin', 'routify');
+        head.appendChild(newElement);
+      },
+      set(prop, value) {
+        _meta.plugins.forEach(plugin => {
+          if (plugin.condition(prop, value))
+            [prop, value] = plugin.action(prop, value) || [prop, value];
+        });
+      },
+      clear() {
+        const oldElement = document.querySelector(`meta`);
+        if (oldElement) oldElement.remove();
+      },
+      template(name, fn) {
+        const origin = _meta.getOrigin();
+        _meta.templates[name] = _meta.templates[name] || {};
+        _meta.templates[name][origin] = fn;
+      },
+      update() {
+        Object.keys(_meta.props).forEach((prop) => {
+          let value = (_meta.getLongest(_meta.props, prop));
+          _meta.plugins.forEach(plugin => {
+            if (plugin.condition(prop, value)) {
+              [prop, value] = plugin.action(prop, value) || [prop, value];
+
+            }
+          });
+        });
+      },
+      batchedUpdate() {
+        if (!_meta._pendingUpdate) {
+          _meta._pendingUpdate = true;
+          setTimeout(() => {
+            _meta._pendingUpdate = false;
+            this.update();
+          });
+        }
+      },
+      _updateQueued: false,
+      getOrigin() {
+        const routifyCtx = getContext('routify');
+        return routifyCtx && get_store_value(routifyCtx).path || '/'
+      },
+      _pendingUpdate: false
+    };
+
+    const meta = new Proxy(_meta, {
+      set(target, name, value, receiver) {
+        const { props, getOrigin } = target;
+
+        if (Reflect.has(target, name))
+          Reflect.set(target, name, value, receiver);
+        else {
+          props[name] = props[name] || {};
+          props[name][getOrigin()] = value;
+        }
+        
+        if (window.routify.appLoaded)
+          target.batchedUpdate();
+        return true
+      }
+    });
+
+    var config = {
+      "pages": "/Users/varvanin/ikph-svelte/src/pages",
+      "sourceDir": "src",
+      "routifyDir": "node_modules/@sveltech/routify/tmp",
+      "ignore": [],
+      "unknownPropWarnings": true,
+      "dynamicImports": false,
+      "singleBuild": false,
+      "scroll": "smooth",
+      "extensions": [
+        "html",
+        "svelte",
+        "md"
+      ],
+      "distDir": "dist",
+      "noPrerender": false,
+      "ssr": false,
+      "prerender": true,
+      "staticDir": "static",
+      "scriptsDir": "scripts",
+      "childProcess": "rollup -c -w",
+      "unusedPropWarnings": true
+    };
+
+    const MATCH_PARAM = RegExp(/\:[^\/\()]+/g);
+
+    function handleScroll(element) {
+      scrollAncestorsToTop(element);
+      handleHash();
+    }
+
+    function handleHash() {
+      const { scroll } = config;
+      const options = ['auto', 'smooth'];
+      const { hash } = window.location;
+      if (scroll && hash) {
+        const behavior = (options.includes(scroll) && scroll) || 'auto';
+        const el = document.querySelector(hash);
+        if (hash && el) el.scrollIntoView({ behavior });
+      }
+    }
+
+    function scrollAncestorsToTop(element) {
+      if (
+        element &&
+        element.scrollTo &&
+        element.dataset.routify !== 'scroll-lock'
+      ) {
+        element.scrollTo(0, 0);
+        scrollAncestorsToTop(element.parentElement);
+      }
+    }
+
+    const pathToRegex = (str, recursive) => {
+      const suffix = recursive ? '' : '/?$'; //fallbacks should match recursively
+      str = str.replace(/\/_fallback?$/, '(/|$)');
+      str = str.replace(/\/index$/, '(/index)?'); //index files should be matched even if not present in url
+      str = '^' + str.replace(MATCH_PARAM, '([^/]+)') + suffix;
+      return str
+    };
+
+    const pathToParams = string => {
+      const matches = string.match(MATCH_PARAM);
+      if (matches) return matches.map(str => str.substr(1, str.length - 2))
+    };
+
+    const pathToRank = ({ path }) => {
+      return path
+        .split('/')
+        .filter(Boolean)
+        .map(str => (str === '_fallback' ? 'A' : str.startsWith(':') ? 'B' : 'C'))
+        .join('')
+    };
+
+    let warningSuppressed = false;
+
+    /* eslint no-console: 0 */
+    function suppressWarnings() {
+      if (warningSuppressed) return
+      const consoleWarn = console.warn;
+      console.warn = function(msg, ...msgs) {
+        const ignores = [
+          "was created with unknown prop 'scoped'",
+          "was created with unknown prop 'scopedSync'",
+        ];
+        if (!ignores.find(iMsg => msg.includes(iMsg)))
+          return consoleWarn(msg, ...msgs)
+      };
+      warningSuppressed = true;
+    }
+
+    /* node_modules/@sveltech/routify/runtime/Route.svelte generated by Svelte v3.19.2 */
+    const file = "node_modules/@sveltech/routify/runtime/Route.svelte";
+
+    function get_each_context(ctx, list, i) {
+    	const child_ctx = ctx.slice();
+    	child_ctx[24] = list[i];
+    	return child_ctx;
+    }
+
+    // (87:0) {#if component}
+    function create_if_block_1(ctx) {
+    	let current_block_type_index;
+    	let if_block;
+    	let if_block_anchor;
+    	let current;
+    	const if_block_creators = [create_if_block_2, create_else_block];
+    	const if_blocks = [];
+
+    	function select_block_type(ctx, dirty) {
+    		if (/*remainingLayouts*/ ctx[8].length) return 0;
+    		return 1;
+    	}
+
+    	current_block_type_index = select_block_type(ctx);
+    	if_block = if_blocks[current_block_type_index] = if_block_creators[current_block_type_index](ctx);
+
+    	const block = {
+    		c: function create() {
+    			if_block.c();
+    			if_block_anchor = empty();
+    		},
+    		l: function claim(nodes) {
+    			if_block.l(nodes);
+    			if_block_anchor = empty();
+    		},
+    		m: function mount(target, anchor) {
+    			if_blocks[current_block_type_index].m(target, anchor);
+    			insert_dev(target, if_block_anchor, anchor);
+    			current = true;
+    		},
+    		p: function update(ctx, dirty) {
+    			let previous_block_index = current_block_type_index;
+    			current_block_type_index = select_block_type(ctx);
+
+    			if (current_block_type_index === previous_block_index) {
+    				if_blocks[current_block_type_index].p(ctx, dirty);
+    			} else {
+    				group_outros();
+
+    				transition_out(if_blocks[previous_block_index], 1, 1, () => {
+    					if_blocks[previous_block_index] = null;
+    				});
+
+    				check_outros();
+    				if_block = if_blocks[current_block_type_index];
+
+    				if (!if_block) {
+    					if_block = if_blocks[current_block_type_index] = if_block_creators[current_block_type_index](ctx);
+    					if_block.c();
+    				}
+
+    				transition_in(if_block, 1);
+    				if_block.m(if_block_anchor.parentNode, if_block_anchor);
+    			}
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(if_block);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(if_block);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			if_blocks[current_block_type_index].d(detaching);
+    			if (detaching) detach_dev(if_block_anchor);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block_1.name,
+    		type: "if",
+    		source: "(87:0) {#if component}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (104:2) {:else}
+    function create_else_block(ctx) {
+    	let switch_instance_anchor;
+    	let current;
+
+    	const switch_instance_spread_levels = [
+    		{ scoped: /*scoped*/ ctx[0] },
+    		{ scopedSync: /*scopedSync*/ ctx[5] },
+    		/*propFromParam*/ ctx[3]
+    	];
+
+    	var switch_value = /*component*/ ctx[7];
+
+    	function switch_props(ctx) {
+    		let switch_instance_props = {};
+
+    		for (let i = 0; i < switch_instance_spread_levels.length; i += 1) {
+    			switch_instance_props = assign(switch_instance_props, switch_instance_spread_levels[i]);
+    		}
+
+    		return {
+    			props: switch_instance_props,
+    			$$inline: true
+    		};
+    	}
+
+    	if (switch_value) {
+    		var switch_instance = new switch_value(switch_props());
+    	}
+
+    	const block = {
+    		c: function create() {
+    			if (switch_instance) create_component(switch_instance.$$.fragment);
+    			switch_instance_anchor = empty();
+    		},
+    		l: function claim(nodes) {
+    			if (switch_instance) claim_component(switch_instance.$$.fragment, nodes);
+    			switch_instance_anchor = empty();
+    		},
+    		m: function mount(target, anchor) {
+    			if (switch_instance) {
+    				mount_component(switch_instance, target, anchor);
+    			}
+
+    			insert_dev(target, switch_instance_anchor, anchor);
+    			current = true;
+    		},
+    		p: function update(ctx, dirty) {
+    			const switch_instance_changes = (dirty & /*scoped, scopedSync, propFromParam*/ 41)
+    			? get_spread_update(switch_instance_spread_levels, [
+    					dirty & /*scoped*/ 1 && { scoped: /*scoped*/ ctx[0] },
+    					dirty & /*scopedSync*/ 32 && { scopedSync: /*scopedSync*/ ctx[5] },
+    					dirty & /*propFromParam*/ 8 && get_spread_object(/*propFromParam*/ ctx[3])
+    				])
+    			: {};
+
+    			if (switch_value !== (switch_value = /*component*/ ctx[7])) {
+    				if (switch_instance) {
+    					group_outros();
+    					const old_component = switch_instance;
+
+    					transition_out(old_component.$$.fragment, 1, 0, () => {
+    						destroy_component(old_component, 1);
+    					});
+
+    					check_outros();
+    				}
+
+    				if (switch_value) {
+    					switch_instance = new switch_value(switch_props());
+    					create_component(switch_instance.$$.fragment);
+    					transition_in(switch_instance.$$.fragment, 1);
+    					mount_component(switch_instance, switch_instance_anchor.parentNode, switch_instance_anchor);
+    				} else {
+    					switch_instance = null;
+    				}
+    			} else if (switch_value) {
+    				switch_instance.$set(switch_instance_changes);
+    			}
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			if (switch_instance) transition_in(switch_instance.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			if (switch_instance) transition_out(switch_instance.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(switch_instance_anchor);
+    			if (switch_instance) destroy_component(switch_instance, detaching);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_else_block.name,
+    		type: "else",
+    		source: "(104:2) {:else}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (88:2) {#if remainingLayouts.length}
+    function create_if_block_2(ctx) {
+    	let each_blocks = [];
+    	let each_1_lookup = new Map();
+    	let each_1_anchor;
+    	let current;
+    	let each_value = [0];
+    	validate_each_argument(each_value);
+    	const get_key = ctx => /*key*/ ctx[4];
+    	validate_each_keys(ctx, each_value, get_each_context, get_key);
+
+    	for (let i = 0; i < 1; i += 1) {
+    		let child_ctx = get_each_context(ctx, each_value, i);
+    		let key = get_key(child_ctx);
+    		each_1_lookup.set(key, each_blocks[i] = create_each_block(key, child_ctx));
+    	}
+
+    	const block = {
+    		c: function create() {
+    			for (let i = 0; i < 1; i += 1) {
+    				each_blocks[i].c();
+    			}
+
+    			each_1_anchor = empty();
+    		},
+    		l: function claim(nodes) {
+    			for (let i = 0; i < 1; i += 1) {
+    				each_blocks[i].l(nodes);
+    			}
+
+    			each_1_anchor = empty();
+    		},
+    		m: function mount(target, anchor) {
+    			for (let i = 0; i < 1; i += 1) {
+    				each_blocks[i].m(target, anchor);
+    			}
+
+    			insert_dev(target, each_1_anchor, anchor);
+    			current = true;
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty & /*component, scoped, scopedSync, propFromParam, remainingLayouts, decorator, Decorator, isDecorator, scopeToChild*/ 134219243) {
+    				const each_value = [0];
+    				validate_each_argument(each_value);
+    				group_outros();
+    				validate_each_keys(ctx, each_value, get_each_context, get_key);
+    				each_blocks = update_keyed_each(each_blocks, dirty, get_key, 1, ctx, each_value, each_1_lookup, each_1_anchor.parentNode, outro_and_destroy_block, create_each_block, each_1_anchor, get_each_context);
+    				check_outros();
+    			}
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+
+    			for (let i = 0; i < 1; i += 1) {
+    				transition_in(each_blocks[i]);
+    			}
+
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			for (let i = 0; i < 1; i += 1) {
+    				transition_out(each_blocks[i]);
+    			}
+
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			for (let i = 0; i < 1; i += 1) {
+    				each_blocks[i].d(detaching);
+    			}
+
+    			if (detaching) detach_dev(each_1_anchor);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block_2.name,
+    		type: "if",
+    		source: "(88:2) {#if remainingLayouts.length}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (90:6) <svelte:component         this={component}         let:scoped={scopeToChild}         let:decorator         {scoped}         {scopedSync}         {...propFromParam}>
+    function create_default_slot(ctx) {
+    	let t;
+    	let current;
+
+    	const route_1 = new Route({
+    			props: {
+    				layouts: [.../*remainingLayouts*/ ctx[8]],
+    				Decorator: typeof /*decorator*/ ctx[27] !== "undefined"
+    				? /*decorator*/ ctx[27]
+    				: /*Decorator*/ ctx[1],
+    				childOfDecorator: /*isDecorator*/ ctx[6],
+    				scoped: {
+    					.../*scoped*/ ctx[0],
+    					.../*scopeToChild*/ ctx[10]
+    				}
+    			},
+    			$$inline: true
+    		});
+
+    	const block = {
+    		c: function create() {
+    			create_component(route_1.$$.fragment);
+    			t = space();
+    		},
+    		l: function claim(nodes) {
+    			claim_component(route_1.$$.fragment, nodes);
+    			t = claim_space(nodes);
+    		},
+    		m: function mount(target, anchor) {
+    			mount_component(route_1, target, anchor);
+    			insert_dev(target, t, anchor);
+    			current = true;
+    		},
+    		p: function update(ctx, dirty) {
+    			const route_1_changes = {};
+    			if (dirty & /*remainingLayouts*/ 256) route_1_changes.layouts = [.../*remainingLayouts*/ ctx[8]];
+
+    			if (dirty & /*decorator, Decorator*/ 134217730) route_1_changes.Decorator = typeof /*decorator*/ ctx[27] !== "undefined"
+    			? /*decorator*/ ctx[27]
+    			: /*Decorator*/ ctx[1];
+
+    			if (dirty & /*isDecorator*/ 64) route_1_changes.childOfDecorator = /*isDecorator*/ ctx[6];
+
+    			if (dirty & /*scoped, scopeToChild*/ 1025) route_1_changes.scoped = {
+    				.../*scoped*/ ctx[0],
+    				.../*scopeToChild*/ ctx[10]
+    			};
+
+    			route_1.$set(route_1_changes);
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(route_1.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(route_1.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			destroy_component(route_1, detaching);
+    			if (detaching) detach_dev(t);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_default_slot.name,
+    		type: "slot",
+    		source: "(90:6) <svelte:component         this={component}         let:scoped={scopeToChild}         let:decorator         {scoped}         {scopedSync}         {...propFromParam}>",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (89:4) {#each [0] as dummy (key)}
+    function create_each_block(key_2, ctx) {
+    	let first;
+    	let switch_instance_anchor;
+    	let current;
+
+    	const switch_instance_spread_levels = [
+    		{ scoped: /*scoped*/ ctx[0] },
+    		{ scopedSync: /*scopedSync*/ ctx[5] },
+    		/*propFromParam*/ ctx[3]
+    	];
+
+    	var switch_value = /*component*/ ctx[7];
+
+    	function switch_props(ctx) {
+    		let switch_instance_props = {
+    			$$slots: {
+    				default: [
+    					create_default_slot,
+    					({ scoped: scopeToChild, decorator }) => ({ 10: scopeToChild, 27: decorator }),
+    					({ scoped: scopeToChild, decorator }) => (scopeToChild ? 1024 : 0) | (decorator ? 134217728 : 0)
+    				]
+    			},
+    			$$scope: { ctx }
+    		};
+
+    		for (let i = 0; i < switch_instance_spread_levels.length; i += 1) {
+    			switch_instance_props = assign(switch_instance_props, switch_instance_spread_levels[i]);
+    		}
+
+    		return {
+    			props: switch_instance_props,
+    			$$inline: true
+    		};
+    	}
+
+    	if (switch_value) {
+    		var switch_instance = new switch_value(switch_props(ctx));
+    	}
+
+    	const block = {
+    		key: key_2,
+    		first: null,
+    		c: function create() {
+    			first = empty();
+    			if (switch_instance) create_component(switch_instance.$$.fragment);
+    			switch_instance_anchor = empty();
+    			this.h();
+    		},
+    		l: function claim(nodes) {
+    			first = empty();
+    			if (switch_instance) claim_component(switch_instance.$$.fragment, nodes);
+    			switch_instance_anchor = empty();
+    			this.h();
+    		},
+    		h: function hydrate() {
+    			this.first = first;
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, first, anchor);
+
+    			if (switch_instance) {
+    				mount_component(switch_instance, target, anchor);
+    			}
+
+    			insert_dev(target, switch_instance_anchor, anchor);
+    			current = true;
+    		},
+    		p: function update(ctx, dirty) {
+    			const switch_instance_changes = (dirty & /*scoped, scopedSync, propFromParam*/ 41)
+    			? get_spread_update(switch_instance_spread_levels, [
+    					dirty & /*scoped*/ 1 && { scoped: /*scoped*/ ctx[0] },
+    					dirty & /*scopedSync*/ 32 && { scopedSync: /*scopedSync*/ ctx[5] },
+    					dirty & /*propFromParam*/ 8 && get_spread_object(/*propFromParam*/ ctx[3])
+    				])
+    			: {};
+
+    			if (dirty & /*$$scope, remainingLayouts, decorator, Decorator, isDecorator, scoped, scopeToChild*/ 402654531) {
+    				switch_instance_changes.$$scope = { dirty, ctx };
+    			}
+
+    			if (switch_value !== (switch_value = /*component*/ ctx[7])) {
+    				if (switch_instance) {
+    					group_outros();
+    					const old_component = switch_instance;
+
+    					transition_out(old_component.$$.fragment, 1, 0, () => {
+    						destroy_component(old_component, 1);
+    					});
+
+    					check_outros();
+    				}
+
+    				if (switch_value) {
+    					switch_instance = new switch_value(switch_props(ctx));
+    					create_component(switch_instance.$$.fragment);
+    					transition_in(switch_instance.$$.fragment, 1);
+    					mount_component(switch_instance, switch_instance_anchor.parentNode, switch_instance_anchor);
+    				} else {
+    					switch_instance = null;
+    				}
+    			} else if (switch_value) {
+    				switch_instance.$set(switch_instance_changes);
+    			}
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			if (switch_instance) transition_in(switch_instance.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			if (switch_instance) transition_out(switch_instance.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(first);
+    			if (detaching) detach_dev(switch_instance_anchor);
+    			if (switch_instance) destroy_component(switch_instance, detaching);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_each_block.name,
+    		type: "each",
+    		source: "(89:4) {#each [0] as dummy (key)}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (116:0) {#if !parentElement}
+    function create_if_block(ctx) {
+    	let span;
+    	let setParent_action;
+    	let dispose;
+
+    	const block = {
+    		c: function create() {
+    			span = element("span");
+    			this.h();
+    		},
+    		l: function claim(nodes) {
+    			span = claim_element(nodes, "SPAN", {});
+    			children(span).forEach(detach_dev);
+    			this.h();
+    		},
+    		h: function hydrate() {
+    			add_location(span, file, 116, 2, 2973);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, span, anchor);
+    			dispose = action_destroyer(setParent_action = /*setParent*/ ctx[9].call(null, span));
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(span);
+    			dispose();
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block.name,
+    		type: "if",
+    		source: "(116:0) {#if !parentElement}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function create_fragment(ctx) {
+    	let t;
+    	let if_block1_anchor;
+    	let current;
+    	let if_block0 = /*component*/ ctx[7] && create_if_block_1(ctx);
+    	let if_block1 = !/*parentElement*/ ctx[2] && create_if_block(ctx);
+
+    	const block = {
+    		c: function create() {
+    			if (if_block0) if_block0.c();
+    			t = space();
+    			if (if_block1) if_block1.c();
+    			if_block1_anchor = empty();
+    		},
+    		l: function claim(nodes) {
+    			if (if_block0) if_block0.l(nodes);
+    			t = claim_space(nodes);
+    			if (if_block1) if_block1.l(nodes);
+    			if_block1_anchor = empty();
+    		},
+    		m: function mount(target, anchor) {
+    			if (if_block0) if_block0.m(target, anchor);
+    			insert_dev(target, t, anchor);
+    			if (if_block1) if_block1.m(target, anchor);
+    			insert_dev(target, if_block1_anchor, anchor);
+    			current = true;
+    		},
+    		p: function update(ctx, [dirty]) {
+    			if (/*component*/ ctx[7]) {
+    				if (if_block0) {
+    					if_block0.p(ctx, dirty);
+    					transition_in(if_block0, 1);
+    				} else {
+    					if_block0 = create_if_block_1(ctx);
+    					if_block0.c();
+    					transition_in(if_block0, 1);
+    					if_block0.m(t.parentNode, t);
+    				}
+    			} else if (if_block0) {
+    				group_outros();
+
+    				transition_out(if_block0, 1, 1, () => {
+    					if_block0 = null;
+    				});
+
+    				check_outros();
+    			}
+
+    			if (!/*parentElement*/ ctx[2]) {
+    				if (!if_block1) {
+    					if_block1 = create_if_block(ctx);
+    					if_block1.c();
+    					if_block1.m(if_block1_anchor.parentNode, if_block1_anchor);
+    				}
+    			} else if (if_block1) {
+    				if_block1.d(1);
+    				if_block1 = null;
+    			}
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(if_block0);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(if_block0);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			if (if_block0) if_block0.d(detaching);
+    			if (detaching) detach_dev(t);
+    			if (if_block1) if_block1.d(detaching);
+    			if (detaching) detach_dev(if_block1_anchor);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    async function onAppLoaded() {
+    	// Let every know the last child has rendered
+    	if (!window.routify.stopAutoReady) {
+    		dispatchEvent(new CustomEvent("app-loaded"));
+    		window.routify.appLoaded = true;
+    	}
+    }
+
+    function instance($$self, $$props, $$invalidate) {
+    	let $route;
+    	let $routes;
+    	validate_store(route, "route");
+    	component_subscribe($$self, route, $$value => $$invalidate(17, $route = $$value));
+    	validate_store(routes, "routes");
+    	component_subscribe($$self, routes, $$value => $$invalidate(18, $routes = $$value));
+
+    	let { layouts = [] } = $$props,
+    		{ scoped = {} } = $$props,
+    		{ Decorator = undefined } = $$props,
+    		{ childOfDecorator = false } = $$props;
+
+    	let scopeToChild,
+    		props = {},
+    		parentElement,
+    		propFromParam = {},
+    		key = 0,
+    		scopedSync = {},
+    		isDecorator = false;
+
+    	const context = writable({});
+    	setContext("routify", context);
+
+    	function setParent(el) {
+    		$$invalidate(2, parentElement = el.parentElement);
+    	}
+
+    	let _lastLayout, _Component;
+
+    	function onComponentLoaded() {
+    		$$invalidate(13, _lastLayout = layout);
+    		if (layoutIsUpdated) $$invalidate(4, key++, key);
+    		if (remainingLayouts.length === 0) onLastComponentLoaded();
+    		const url = _url(layout, $route, $routes);
+
+    		context.set({
+    			route: $route,
+    			path: layout.path,
+    			url,
+    			goto: _goto(url),
+    			isActive: _isActive(url, $route)
+    		});
+    	}
+
+    	let component;
+
+    	function setComponent(layout) {
+    		if (layoutIsUpdated) _Component = layout.component();
+
+    		if (_Component.then) _Component.then(res => {
+    			$$invalidate(7, component = res);
+    			$$invalidate(5, scopedSync = { ...scoped });
+    			onComponentLoaded();
+    		}); else {
+    			$$invalidate(7, component = _Component);
+    			$$invalidate(5, scopedSync = { ...scoped });
+    			onComponentLoaded();
+    		}
+    	}
+
+    	async function onLastComponentLoaded() {
+    		await tick();
+    		handleScroll(parentElement);
+    		meta.update();
+    		if (!window.routify.appLoaded) onAppLoaded();
+    	}
+
+    	const writable_props = ["layouts", "scoped", "Decorator", "childOfDecorator"];
+
+    	Object.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console.warn(`<Route> was created with unknown prop '${key}'`);
+    	});
+
+    	let { $$slots = {}, $$scope } = $$props;
+    	validate_slots("Route", $$slots, []);
+
+    	$$self.$set = $$props => {
+    		if ("layouts" in $$props) $$invalidate(11, layouts = $$props.layouts);
+    		if ("scoped" in $$props) $$invalidate(0, scoped = $$props.scoped);
+    		if ("Decorator" in $$props) $$invalidate(1, Decorator = $$props.Decorator);
+    		if ("childOfDecorator" in $$props) $$invalidate(12, childOfDecorator = $$props.childOfDecorator);
+    	};
+
+    	$$self.$capture_state = () => ({
+    		getContext,
+    		setContext,
+    		onDestroy,
+    		onMount,
+    		tick,
+    		writable,
+    		_url,
+    		_goto,
+    		_isActive,
+    		meta,
+    		route,
+    		routes,
+    		handleScroll,
+    		layouts,
+    		scoped,
+    		Decorator,
+    		childOfDecorator,
+    		scopeToChild,
+    		props,
+    		parentElement,
+    		propFromParam,
+    		key,
+    		scopedSync,
+    		isDecorator,
+    		context,
+    		setParent,
+    		_lastLayout,
+    		_Component,
+    		onComponentLoaded,
+    		component,
+    		setComponent,
+    		onLastComponentLoaded,
+    		onAppLoaded,
+    		layout,
+    		remainingLayouts,
+    		layoutIsUpdated,
+    		$route,
+    		$routes
+    	});
+
+    	$$self.$inject_state = $$props => {
+    		if ("layouts" in $$props) $$invalidate(11, layouts = $$props.layouts);
+    		if ("scoped" in $$props) $$invalidate(0, scoped = $$props.scoped);
+    		if ("Decorator" in $$props) $$invalidate(1, Decorator = $$props.Decorator);
+    		if ("childOfDecorator" in $$props) $$invalidate(12, childOfDecorator = $$props.childOfDecorator);
+    		if ("scopeToChild" in $$props) $$invalidate(10, scopeToChild = $$props.scopeToChild);
+    		if ("props" in $$props) props = $$props.props;
+    		if ("parentElement" in $$props) $$invalidate(2, parentElement = $$props.parentElement);
+    		if ("propFromParam" in $$props) $$invalidate(3, propFromParam = $$props.propFromParam);
+    		if ("key" in $$props) $$invalidate(4, key = $$props.key);
+    		if ("scopedSync" in $$props) $$invalidate(5, scopedSync = $$props.scopedSync);
+    		if ("isDecorator" in $$props) $$invalidate(6, isDecorator = $$props.isDecorator);
+    		if ("_lastLayout" in $$props) $$invalidate(13, _lastLayout = $$props._lastLayout);
+    		if ("_Component" in $$props) _Component = $$props._Component;
+    		if ("component" in $$props) $$invalidate(7, component = $$props.component);
+    		if ("layout" in $$props) $$invalidate(15, layout = $$props.layout);
+    		if ("remainingLayouts" in $$props) $$invalidate(8, remainingLayouts = $$props.remainingLayouts);
+    		if ("layoutIsUpdated" in $$props) layoutIsUpdated = $$props.layoutIsUpdated;
+    	};
+
+    	let layout;
+    	let remainingLayouts;
+    	let layoutIsUpdated;
+
+    	if ($$props && "$$inject" in $$props) {
+    		$$self.$inject_state($$props.$$inject);
+    	}
+
+    	$$self.$$.update = () => {
+    		if ($$self.$$.dirty & /*Decorator, childOfDecorator, layouts*/ 6146) {
+    			 if (Decorator && !childOfDecorator) {
+    				$$invalidate(6, isDecorator = true);
+
+    				$$invalidate(11, layouts = [
+    					{
+    						component: () => Decorator,
+    						path: layouts[0].path + "__decorator"
+    					},
+    					...layouts
+    				]);
+    			}
+    		}
+
+    		if ($$self.$$.dirty & /*layouts*/ 2048) {
+    			 $$invalidate(15, [layout, ...remainingLayouts] = layouts, layout, ((($$invalidate(8, remainingLayouts), $$invalidate(11, layouts)), $$invalidate(1, Decorator)), $$invalidate(12, childOfDecorator)));
+    		}
+
+    		if ($$self.$$.dirty & /*layout*/ 32768) {
+    			 if (layout && layout.param) $$invalidate(3, propFromParam = layout.param);
+    		}
+
+    		if ($$self.$$.dirty & /*_lastLayout, layout*/ 40960) {
+    			 layoutIsUpdated = !_lastLayout || _lastLayout.path !== layout.path;
+    		}
+
+    		if ($$self.$$.dirty & /*layout*/ 32768) {
+    			 setComponent(layout);
+    		}
+    	};
+
+    	return [
+    		scoped,
+    		Decorator,
+    		parentElement,
+    		propFromParam,
+    		key,
+    		scopedSync,
+    		isDecorator,
+    		component,
+    		remainingLayouts,
+    		setParent,
+    		scopeToChild,
+    		layouts,
+    		childOfDecorator
+    	];
+    }
+
+    class Route extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+
+    		init(this, options, instance, create_fragment, safe_not_equal, {
+    			layouts: 11,
+    			scoped: 0,
+    			Decorator: 1,
+    			childOfDecorator: 12
+    		});
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "Route",
+    			options,
+    			id: create_fragment.name
+    		});
+    	}
+
+    	get layouts() {
+    		throw new Error("<Route>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set layouts(value) {
+    		throw new Error("<Route>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get scoped() {
+    		throw new Error("<Route>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set scoped(value) {
+    		throw new Error("<Route>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get Decorator() {
+    		throw new Error("<Route>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set Decorator(value) {
+    		throw new Error("<Route>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get childOfDecorator() {
+    		throw new Error("<Route>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set childOfDecorator(value) {
+    		throw new Error("<Route>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+    }
+
+    const { _hooks } = beforeUrlChange;
+
+    function init$1(routes, callback) {
+      let prevRoute = false;
+
+      function updatePage(url, shallow) {
+        const currentUrl = window.location.pathname;
+        url = url || currentUrl;
+
+        const route$1 = urlToRoute(url, routes);
+        const currentRoute = shallow && urlToRoute(currentUrl, routes);
+        const contextRoute = currentRoute || route$1;
+        const layouts = [...contextRoute.layouts, route$1];
+        delete prevRoute.prev;
+        route$1.prev = prevRoute;
+        prevRoute = route$1;
+
+        //set the route in the store
+        route.set(route$1);
+
+        //run callback in Router.svelte
+        callback(layouts);
+      }
+
+      const destroy = createEventListeners(updatePage);
+
+      return { updatePage, destroy }
+    }
+
+    /**
+     * svelte:window events doesn't work on refresh
+     * @param {Function} updatePage
+     */
+    function createEventListeners(updatePage) {
+    ['pushState', 'replaceState'].forEach(eventName => {
+        const fn = history[eventName];
+        history[eventName] = async function (state, title, url) {
+          const event = new Event(eventName.toLowerCase());
+          Object.assign(event, { state, title, url });
+
+          if (await runHooksBeforeUrlChange(event)) {
+            fn.apply(this, [state, title, url]);
+            return dispatchEvent(event)
+          }
+        };
+      });
+
+      let _ignoreNextPop = false;
+
+      const listeners = {
+        click: handleClick,
+        pushstate: () => updatePage(),
+        replacestate: () => updatePage(),
+        popstate: async event => {
+          if (_ignoreNextPop)
+            _ignoreNextPop = false;
+          else {
+            if (await runHooksBeforeUrlChange(event)) {
+              updatePage();
+            } else {
+              _ignoreNextPop = true;
+              event.preventDefault();
+              history.go(1);
+            }
+          }
+        },
+      };
+
+      Object.entries(listeners).forEach(args => addEventListener(...args));
+
+      const unregister = () => {
+        Object.entries(listeners).forEach(args => removeEventListener(...args));
+      };
+
+      return unregister
+    }
+
+    function handleClick(event) {
+      const el = event.target.closest('a');
+      const href = el && el.getAttribute('href');
+
+      if (
+        event.ctrlKey ||
+        event.metaKey ||
+        event.altKey ||
+        event.shiftKey ||
+        event.button ||
+        event.defaultPrevented
+      )
+        return
+      if (!href || el.target || el.host !== location.host) return
+
+      event.preventDefault();
+      history.pushState({}, '', href);
+    }
+
+    async function runHooksBeforeUrlChange(event) {
+      const route$1 = get_store_value(route);
+      for (const hook of _hooks.filter(Boolean)) {
+        // return false if the hook returns false
+        if (await !hook(event, route$1)) return false
+      }
+      return true
+    }
+
+    function urlToRoute(url, routes) {
+      const mockUrl = new URL(location).searchParams.get('__mock-url');
+      url = mockUrl || url;
+
+      const route = routes.find(route => url.match(route.regex));
+      if (!route)
+        throw new Error(
+          `Route could not be found. Make sure ${url}.svelte or ${url}/index.svelte exists. A restart may be required.`
+        )
+
+      if (route.paramKeys) {
+        const layouts = layoutByPos(route.layouts);
+        const fragments = url.split('/').filter(Boolean);
+        const routeProps = getRouteProps(route.path);
+
+        routeProps.forEach((prop, i) => {
+          if (prop) {
+            route.params[prop] = fragments[i];
+            if (layouts[i]) layouts[i].param = { [prop]: fragments[i] };
+            else route.param = { [prop]: fragments[i] };
+          }
+        });
+      }
+
+      route.leftover = url.replace(new RegExp(route.regex), '');
+
+      return route
+    }
+
+    function layoutByPos(layouts) {
+      const arr = [];
+      layouts.forEach(layout => {
+        arr[layout.path.split('/').filter(Boolean).length - 1] = layout;
+      });
+      return arr
+    }
+
+    function getRouteProps(url) {
+      return url
+        .split('/')
+        .filter(Boolean)
+        .map(f => f.match(/\:(.+)/))
+        .map(f => f && f[1])
+    }
+
+    /* node_modules/@sveltech/routify/runtime/Router.svelte generated by Svelte v3.19.2 */
+
+    // (43:0) {#if layouts}
+    function create_if_block$1(ctx) {
+    	let current;
+
+    	const route = new Route({
+    			props: { layouts: /*layouts*/ ctx[0] },
+    			$$inline: true
+    		});
+
+    	const block = {
+    		c: function create() {
+    			create_component(route.$$.fragment);
+    		},
+    		l: function claim(nodes) {
+    			claim_component(route.$$.fragment, nodes);
+    		},
+    		m: function mount(target, anchor) {
+    			mount_component(route, target, anchor);
+    			current = true;
+    		},
+    		p: function update(ctx, dirty) {
+    			const route_changes = {};
+    			if (dirty & /*layouts*/ 1) route_changes.layouts = /*layouts*/ ctx[0];
+    			route.$set(route_changes);
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(route.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(route.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			destroy_component(route, detaching);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block$1.name,
+    		type: "if",
+    		source: "(43:0) {#if layouts}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function create_fragment$1(ctx) {
+    	let if_block_anchor;
+    	let current;
+    	let if_block = /*layouts*/ ctx[0] && create_if_block$1(ctx);
+
+    	const block = {
+    		c: function create() {
+    			if (if_block) if_block.c();
+    			if_block_anchor = empty();
+    		},
+    		l: function claim(nodes) {
+    			if (if_block) if_block.l(nodes);
+    			if_block_anchor = empty();
+    		},
+    		m: function mount(target, anchor) {
+    			if (if_block) if_block.m(target, anchor);
+    			insert_dev(target, if_block_anchor, anchor);
+    			current = true;
+    		},
+    		p: function update(ctx, [dirty]) {
+    			if (/*layouts*/ ctx[0]) {
+    				if (if_block) {
+    					if_block.p(ctx, dirty);
+    					transition_in(if_block, 1);
+    				} else {
+    					if_block = create_if_block$1(ctx);
+    					if_block.c();
+    					transition_in(if_block, 1);
+    					if_block.m(if_block_anchor.parentNode, if_block_anchor);
+    				}
+    			} else if (if_block) {
+    				group_outros();
+
+    				transition_out(if_block, 1, 1, () => {
+    					if_block = null;
+    				});
+
+    				check_outros();
+    			}
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(if_block);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(if_block);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			if (if_block) if_block.d(detaching);
+    			if (detaching) detach_dev(if_block_anchor);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$1.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function instance$1($$self, $$props, $$invalidate) {
+    	let { routes: routes$1 } = $$props;
+    	let layouts;
+    	let navigator;
+    	suppressWarnings();
+
+    	if (!window.routify) {
+    		window.routify = {};
+    	}
+
+    	const updatePage = (...args) => navigator && navigator.updatePage(...args);
+    	setContext("routifyupdatepage", updatePage);
+    	const callback = res => $$invalidate(0, layouts = res);
+
+    	const cleanup = () => {
+    		if (!navigator) return;
+    		navigator.destroy();
+    		navigator = null;
+    	};
+
+    	const doInit = () => {
+    		cleanup();
+    		navigator = init$1(routes$1, callback);
+    		routes.set(routes$1);
+    		navigator.updatePage();
+    	};
+
+    	onDestroy(cleanup);
+    	const writable_props = ["routes"];
+
+    	Object.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console.warn(`<Router> was created with unknown prop '${key}'`);
+    	});
+
+    	let { $$slots = {}, $$scope } = $$props;
+    	validate_slots("Router", $$slots, []);
+
+    	$$self.$set = $$props => {
+    		if ("routes" in $$props) $$invalidate(1, routes$1 = $$props.routes);
+    	};
+
+    	$$self.$capture_state = () => ({
+    		setContext,
+    		onDestroy,
+    		Route,
+    		init: init$1,
+    		routesStore: routes,
+    		suppressWarnings,
+    		routes: routes$1,
+    		layouts,
+    		navigator,
+    		updatePage,
+    		callback,
+    		cleanup,
+    		doInit
+    	});
+
+    	$$self.$inject_state = $$props => {
+    		if ("routes" in $$props) $$invalidate(1, routes$1 = $$props.routes);
+    		if ("layouts" in $$props) $$invalidate(0, layouts = $$props.layouts);
+    		if ("navigator" in $$props) navigator = $$props.navigator;
+    	};
+
+    	if ($$props && "$$inject" in $$props) {
+    		$$self.$inject_state($$props.$$inject);
+    	}
+
+    	$$self.$$.update = () => {
+    		if ($$self.$$.dirty & /*routes*/ 2) {
+    			 if (routes$1) doInit();
+    		}
+    	};
+
+    	return [layouts, routes$1];
+    }
+
+    class Router extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance$1, create_fragment$1, safe_not_equal, { routes: 1 });
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "Router",
+    			options,
+    			id: create_fragment$1.name
+    		});
+
+    		const { ctx } = this.$$;
+    		const props = options.props || {};
+
+    		if (/*routes*/ ctx[1] === undefined && !("routes" in props)) {
+    			console.warn("<Router> was created without expected prop 'routes'");
+    		}
+    	}
+
+    	get routes() {
+    		throw new Error("<Router>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set routes(value) {
+    		throw new Error("<Router>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+    }
+
+    function buildRoutes(routes, routeKeys) {
+      return (
+        routes
+          // .map(sr => deserializeRoute(sr, routeKeys))
+          .map(decorateRoute)
+          .sort((c, p) => (c.ranking >= p.ranking ? -1 : 1))
+      )
+    }
+
+    const decorateRoute = function(route) {
+      route.paramKeys = pathToParams(route.path);
+      route.regex = pathToRegex(route.path, route.isFallback);
+      route.name = route.path.match(/[^\/]*\/[^\/]+$/)[0].replace(/[^\w\/]/g, ''); //last dir and name, then replace all but \w and /
+      route.ranking = pathToRank(route);
+      route.layouts.map(l => {
+        l.param = {};
+        return l
+      });
+      route.params = {};
+
+      return route
+    };
+
+    function fade(node, { delay = 0, duration = 400, easing = identity }) {
+        const o = +getComputedStyle(node).opacity;
+        return {
+            delay,
+            duration,
+            easing,
+            css: t => `opacity: ${t * o}`
+        };
+    }
+
+    /* src/pages/components/PageTransitions.svelte generated by Svelte v3.19.2 */
+    const file$1 = "src/pages/components/PageTransitions.svelte";
+
+    function create_fragment$2(ctx) {
+    	let div;
+    	let div_transition;
+    	let current;
+    	const default_slot_template = /*$$slots*/ ctx[1].default;
+    	const default_slot = create_slot(default_slot_template, ctx, /*$$scope*/ ctx[0], null);
+
+    	const block = {
+    		c: function create() {
+    			div = element("div");
+    			if (default_slot) default_slot.c();
+    			this.h();
+    		},
+    		l: function claim(nodes) {
+    			div = claim_element(nodes, "DIV", {});
+    			var div_nodes = children(div);
+    			if (default_slot) default_slot.l(div_nodes);
+    			div_nodes.forEach(detach_dev);
+    			this.h();
+    		},
+    		h: function hydrate() {
+    			add_location(div, file$1, 4, 0, 64);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div, anchor);
+
+    			if (default_slot) {
+    				default_slot.m(div, null);
+    			}
+
+    			current = true;
+    		},
+    		p: function update(ctx, [dirty]) {
+    			if (default_slot && default_slot.p && dirty & /*$$scope*/ 1) {
+    				default_slot.p(get_slot_context(default_slot_template, ctx, /*$$scope*/ ctx[0], null), get_slot_changes(default_slot_template, /*$$scope*/ ctx[0], dirty, null));
+    			}
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(default_slot, local);
+
+    			add_render_callback(() => {
+    				if (!div_transition) div_transition = create_bidirectional_transition(div, fade, { delay: 50, duration: 150 }, true);
+    				div_transition.run(1);
+    			});
+
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(default_slot, local);
+    			if (!div_transition) div_transition = create_bidirectional_transition(div, fade, { delay: 50, duration: 150 }, false);
+    			div_transition.run(0);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(div);
+    			if (default_slot) default_slot.d(detaching);
+    			if (detaching && div_transition) div_transition.end();
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$2.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function instance$2($$self, $$props, $$invalidate) {
+    	const writable_props = [];
+
+    	Object.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console.warn(`<PageTransitions> was created with unknown prop '${key}'`);
+    	});
+
+    	let { $$slots = {}, $$scope } = $$props;
+    	validate_slots("PageTransitions", $$slots, ['default']);
+
+    	$$self.$set = $$props => {
+    		if ("$$scope" in $$props) $$invalidate(0, $$scope = $$props.$$scope);
+    	};
+
+    	$$self.$capture_state = () => ({ fade });
+    	return [$$scope, $$slots];
+    }
+
+    class PageTransitions extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance$2, create_fragment$2, safe_not_equal, {});
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "PageTransitions",
+    			options,
+    			id: create_fragment$2.name
+    		});
+    	}
+    }
+
+    /* src/pages/components/Header.svelte generated by Svelte v3.19.2 */
+    const file$2 = "src/pages/components/Header.svelte";
+
+    function get_each_context$1(ctx, list, i) {
+    	const child_ctx = ctx.slice();
+    	child_ctx[6] = list[i][0];
+    	child_ctx[7] = list[i][1];
+    	return child_ctx;
+    }
+
+    // (207:8) {#each links as [path, name]}
+    function create_each_block$1(ctx) {
+    	let li;
+    	let a;
+    	let t0_value = /*name*/ ctx[7] + "";
+    	let t0;
+    	let a_href_value;
+    	let t1;
+
+    	const block = {
+    		c: function create() {
+    			li = element("li");
+    			a = element("a");
+    			t0 = text(t0_value);
+    			t1 = space();
+    			this.h();
+    		},
+    		l: function claim(nodes) {
+    			li = claim_element(nodes, "LI", { class: true });
+    			var li_nodes = children(li);
+    			a = claim_element(li_nodes, "A", { href: true, class: true });
+    			var a_nodes = children(a);
+    			t0 = claim_text(a_nodes, t0_value);
+    			a_nodes.forEach(detach_dev);
+    			t1 = claim_space(li_nodes);
+    			li_nodes.forEach(detach_dev);
+    			this.h();
+    		},
+    		h: function hydrate() {
+    			attr_dev(a, "href", a_href_value = /*$url*/ ctx[1](/*path*/ ctx[6]));
+    			attr_dev(a, "class", "svelte-1jwca59");
+    			toggle_class(a, "active", /*$isActive*/ ctx[2](/*path*/ ctx[6]));
+    			add_location(a, file$2, 208, 12, 3620);
+    			attr_dev(li, "class", "svelte-1jwca59");
+    			add_location(li, file$2, 207, 10, 3603);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, li, anchor);
+    			append_dev(li, a);
+    			append_dev(a, t0);
+    			append_dev(li, t1);
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty & /*$url*/ 2 && a_href_value !== (a_href_value = /*$url*/ ctx[1](/*path*/ ctx[6]))) {
+    				attr_dev(a, "href", a_href_value);
+    			}
+
+    			if (dirty & /*$isActive, links*/ 12) {
+    				toggle_class(a, "active", /*$isActive*/ ctx[2](/*path*/ ctx[6]));
+    			}
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(li);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_each_block$1.name,
+    		type: "each",
+    		source: "(207:8) {#each links as [path, name]}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function create_fragment$3(ctx) {
+    	let header;
+    	let div0;
+    	let a;
+    	let img;
+    	let img_src_value;
+    	let t0;
+    	let nav;
+    	let div3;
+    	let div2;
+    	let div1;
+    	let div2_class_value;
+    	let t1;
+    	let ul;
+    	let ul_class_value;
+    	let dispose;
+    	let each_value = /*links*/ ctx[3];
+    	validate_each_argument(each_value);
+    	let each_blocks = [];
+
+    	for (let i = 0; i < each_value.length; i += 1) {
+    		each_blocks[i] = create_each_block$1(get_each_context$1(ctx, each_value, i));
+    	}
+
+    	const block = {
+    		c: function create() {
+    			header = element("header");
+    			div0 = element("div");
+    			a = element("a");
+    			img = element("img");
+    			t0 = space();
+    			nav = element("nav");
+    			div3 = element("div");
+    			div2 = element("div");
+    			div1 = element("div");
+    			t1 = space();
+    			ul = element("ul");
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].c();
+    			}
+
+    			this.h();
+    		},
+    		l: function claim(nodes) {
+    			header = claim_element(nodes, "HEADER", { class: true });
+    			var header_nodes = children(header);
+    			div0 = claim_element(header_nodes, "DIV", { class: true });
+    			var div0_nodes = children(div0);
+    			a = claim_element(div0_nodes, "A", { href: true, class: true });
+    			var a_nodes = children(a);
+    			img = claim_element(a_nodes, "IMG", { src: true, alt: true });
+    			a_nodes.forEach(detach_dev);
+    			div0_nodes.forEach(detach_dev);
+    			t0 = claim_space(header_nodes);
+    			nav = claim_element(header_nodes, "NAV", { class: true });
+    			var nav_nodes = children(nav);
+    			div3 = claim_element(nav_nodes, "DIV", { class: true });
+    			var div3_nodes = children(div3);
+    			div2 = claim_element(div3_nodes, "DIV", { class: true });
+    			var div2_nodes = children(div2);
+    			div1 = claim_element(div2_nodes, "DIV", { class: true });
+    			children(div1).forEach(detach_dev);
+    			div2_nodes.forEach(detach_dev);
+    			t1 = claim_space(div3_nodes);
+    			ul = claim_element(div3_nodes, "UL", { class: true });
+    			var ul_nodes = children(ul);
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].l(ul_nodes);
+    			}
+
+    			ul_nodes.forEach(detach_dev);
+    			div3_nodes.forEach(detach_dev);
+    			nav_nodes.forEach(detach_dev);
+    			header_nodes.forEach(detach_dev);
+    			this.h();
+    		},
+    		h: function hydrate() {
+    			if (img.src !== (img_src_value = "./logo.svg")) attr_dev(img, "src", img_src_value);
+    			attr_dev(img, "alt", "");
+    			add_location(img, file$2, 195, 6, 3240);
+    			attr_dev(a, "href", "/");
+    			attr_dev(a, "class", "svelte-1jwca59");
+    			add_location(a, file$2, 194, 4, 3221);
+    			attr_dev(div0, "class", "logo svelte-1jwca59");
+    			add_location(div0, file$2, 193, 2, 3198);
+    			attr_dev(div1, "class", "middle-line svelte-1jwca59");
+    			add_location(div1, file$2, 203, 8, 3447);
+    			attr_dev(div2, "class", div2_class_value = "" + (null_to_empty(`mobile-icon${/*showMobileMenu*/ ctx[0] ? " active" : ""}`) + " svelte-1jwca59"));
+    			add_location(div2, file$2, 200, 6, 3328);
+    			attr_dev(ul, "class", ul_class_value = "" + (null_to_empty(`navbar-list${/*showMobileMenu*/ ctx[0] ? " mobile" : ""}`) + " svelte-1jwca59"));
+    			add_location(ul, file$2, 205, 6, 3494);
+    			attr_dev(div3, "class", "inner svelte-1jwca59");
+    			add_location(div3, file$2, 199, 4, 3302);
+    			attr_dev(nav, "class", "svelte-1jwca59");
+    			add_location(nav, file$2, 198, 2, 3292);
+    			attr_dev(header, "class", "header svelte-1jwca59");
+    			add_location(header, file$2, 192, 0, 3172);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, header, anchor);
+    			append_dev(header, div0);
+    			append_dev(div0, a);
+    			append_dev(a, img);
+    			append_dev(header, t0);
+    			append_dev(header, nav);
+    			append_dev(nav, div3);
+    			append_dev(div3, div2);
+    			append_dev(div2, div1);
+    			append_dev(div3, t1);
+    			append_dev(div3, ul);
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].m(ul, null);
+    			}
+
+    			dispose = listen_dev(div2, "click", /*handleMobileIconClick*/ ctx[4], false, false, false);
+    		},
+    		p: function update(ctx, [dirty]) {
+    			if (dirty & /*showMobileMenu*/ 1 && div2_class_value !== (div2_class_value = "" + (null_to_empty(`mobile-icon${/*showMobileMenu*/ ctx[0] ? " active" : ""}`) + " svelte-1jwca59"))) {
+    				attr_dev(div2, "class", div2_class_value);
+    			}
+
+    			if (dirty & /*$url, links, $isActive*/ 14) {
+    				each_value = /*links*/ ctx[3];
+    				validate_each_argument(each_value);
+    				let i;
+
+    				for (i = 0; i < each_value.length; i += 1) {
+    					const child_ctx = get_each_context$1(ctx, each_value, i);
+
+    					if (each_blocks[i]) {
+    						each_blocks[i].p(child_ctx, dirty);
+    					} else {
+    						each_blocks[i] = create_each_block$1(child_ctx);
+    						each_blocks[i].c();
+    						each_blocks[i].m(ul, null);
+    					}
+    				}
+
+    				for (; i < each_blocks.length; i += 1) {
+    					each_blocks[i].d(1);
+    				}
+
+    				each_blocks.length = each_value.length;
+    			}
+
+    			if (dirty & /*showMobileMenu*/ 1 && ul_class_value !== (ul_class_value = "" + (null_to_empty(`navbar-list${/*showMobileMenu*/ ctx[0] ? " mobile" : ""}`) + " svelte-1jwca59"))) {
+    				attr_dev(ul, "class", ul_class_value);
+    			}
+    		},
+    		i: noop,
+    		o: noop,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(header);
+    			destroy_each(each_blocks, detaching);
+    			dispose();
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$3.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function instance$3($$self, $$props, $$invalidate) {
+    	let $url;
+    	let $isActive;
+    	validate_store(url, "url");
+    	component_subscribe($$self, url, $$value => $$invalidate(1, $url = $$value));
+    	validate_store(isActive, "isActive");
+    	component_subscribe($$self, isActive, $$value => $$invalidate(2, $isActive = $$value));
+    	let showMobileMenu = false;
+
+    	const links = [
+    		["./index", "Startseite"],
+    		["./uberuns", "Über uns"],
+    		["./referenzen", "Referenzen"],
+    		["./leistungen", "Leistungen"],
+    		["./impressum", "Impressum"]
+    	];
+
+    	const handleMobileIconClick = () => $$invalidate(0, showMobileMenu = !showMobileMenu);
+
+    	const mediaQueryHandler = e => {
+    		if (!e.matches) {
+    			$$invalidate(0, showMobileMenu = false);
+    		}
+    	};
+
+    	onMount(() => {
+    		const mediaListener = window.matchMedia("(max-width: 767px)");
+    		mediaListener.addListener(mediaQueryHandler);
+    	});
+
+    	const writable_props = [];
+
+    	Object.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console.warn(`<Header> was created with unknown prop '${key}'`);
+    	});
+
+    	let { $$slots = {}, $$scope } = $$props;
+    	validate_slots("Header", $$slots, []);
+
+    	$$self.$capture_state = () => ({
+    		onMount,
+    		isActive,
+    		url,
+    		showMobileMenu,
+    		links,
+    		handleMobileIconClick,
+    		mediaQueryHandler,
+    		$url,
+    		$isActive
+    	});
+
+    	$$self.$inject_state = $$props => {
+    		if ("showMobileMenu" in $$props) $$invalidate(0, showMobileMenu = $$props.showMobileMenu);
+    	};
+
+    	if ($$props && "$$inject" in $$props) {
+    		$$self.$inject_state($$props.$$inject);
+    	}
+
+    	return [showMobileMenu, $url, $isActive, links, handleMobileIconClick];
+    }
+
+    class Header extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance$3, create_fragment$3, safe_not_equal, {});
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "Header",
+    			options,
+    			id: create_fragment$3.name
+    		});
+    	}
+    }
+
+    /* src/pages/components/Footer.svelte generated by Svelte v3.19.2 */
+
+    const file$3 = "src/pages/components/Footer.svelte";
+
+    function create_fragment$4(ctx) {
+    	let footer;
+    	let div;
+    	let h5;
+    	let t0;
+    	let t1;
+    	let h2;
+    	let t2;
+    	let t3;
+    	let span0;
+    	let t4;
+    	let t5;
+    	let span1;
+    	let t6;
+
+    	const block = {
+    		c: function create() {
+    			footer = element("footer");
+    			div = element("div");
+    			h5 = element("h5");
+    			t0 = text("LASS UNS ZUSAMMEN ARBEITEN");
+    			t1 = space();
+    			h2 = element("h2");
+    			t2 = text("+49 30 984 34 329");
+    			t3 = space();
+    			span0 = element("span");
+    			t4 = text("Altonaer Str 59-61, 13581 Berlin");
+    			t5 = space();
+    			span1 = element("span");
+    			t6 = text("email:info@ikph.de");
+    			this.h();
+    		},
+    		l: function claim(nodes) {
+    			footer = claim_element(nodes, "FOOTER", { class: true });
+    			var footer_nodes = children(footer);
+    			div = claim_element(footer_nodes, "DIV", { class: true });
+    			var div_nodes = children(div);
+    			h5 = claim_element(div_nodes, "H5", { class: true });
+    			var h5_nodes = children(h5);
+    			t0 = claim_text(h5_nodes, "LASS UNS ZUSAMMEN ARBEITEN");
+    			h5_nodes.forEach(detach_dev);
+    			t1 = claim_space(div_nodes);
+    			h2 = claim_element(div_nodes, "H2", { class: true });
+    			var h2_nodes = children(h2);
+    			t2 = claim_text(h2_nodes, "+49 30 984 34 329");
+    			h2_nodes.forEach(detach_dev);
+    			t3 = claim_space(div_nodes);
+    			span0 = claim_element(div_nodes, "SPAN", { class: true });
+    			var span0_nodes = children(span0);
+    			t4 = claim_text(span0_nodes, "Altonaer Str 59-61, 13581 Berlin");
+    			span0_nodes.forEach(detach_dev);
+    			t5 = claim_space(div_nodes);
+    			span1 = claim_element(div_nodes, "SPAN", { class: true });
+    			var span1_nodes = children(span1);
+    			t6 = claim_text(span1_nodes, "email:info@ikph.de");
+    			span1_nodes.forEach(detach_dev);
+    			div_nodes.forEach(detach_dev);
+    			footer_nodes.forEach(detach_dev);
+    			this.h();
+    		},
+    		h: function hydrate() {
+    			attr_dev(h5, "class", "svelte-1m6zneg");
+    			add_location(h5, file$3, 54, 4, 898);
+    			attr_dev(h2, "class", "svelte-1m6zneg");
+    			add_location(h2, file$3, 55, 4, 938);
+    			attr_dev(span0, "class", "svelte-1m6zneg");
+    			add_location(span0, file$3, 56, 4, 969);
+    			attr_dev(span1, "class", "svelte-1m6zneg");
+    			add_location(span1, file$3, 57, 4, 1019);
+    			attr_dev(div, "class", "footer-text");
+    			add_location(div, file$3, 53, 2, 868);
+    			attr_dev(footer, "class", "svelte-1m6zneg");
+    			add_location(footer, file$3, 52, 0, 857);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, footer, anchor);
+    			append_dev(footer, div);
+    			append_dev(div, h5);
+    			append_dev(h5, t0);
+    			append_dev(div, t1);
+    			append_dev(div, h2);
+    			append_dev(h2, t2);
+    			append_dev(div, t3);
+    			append_dev(div, span0);
+    			append_dev(span0, t4);
+    			append_dev(div, t5);
+    			append_dev(div, span1);
+    			append_dev(span1, t6);
+    		},
+    		p: noop,
+    		i: noop,
+    		o: noop,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(footer);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$4.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function instance$4($$self, $$props) {
+    	const writable_props = [];
+
+    	Object.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console.warn(`<Footer> was created with unknown prop '${key}'`);
+    	});
+
+    	let { $$slots = {}, $$scope } = $$props;
+    	validate_slots("Footer", $$slots, []);
+    	return [];
+    }
+
+    class Footer extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance$4, create_fragment$4, safe_not_equal, {});
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "Footer",
+    			options,
+    			id: create_fragment$4.name
+    		});
+    	}
+    }
+
+    /* src/pages/_layout.svelte generated by Svelte v3.19.2 */
+    const file$4 = "src/pages/_layout.svelte";
+    const get_default_slot_changes = dirty => ({});
+    const get_default_slot_context = ctx => ({ decorator: PageTransitions });
+
+    function create_fragment$5(ctx) {
+    	let div0;
+    	let t0;
+    	let t1;
+    	let t2;
+    	let div1;
+    	let p;
+    	let t3;
+    	let t4;
+    	let t5;
+    	let a;
+    	let img;
+    	let img_src_value;
+    	let t6;
+    	let a_href_value;
+    	let current;
+    	const header = new Header({ $$inline: true });
+    	const default_slot_template = /*$$slots*/ ctx[4].default;
+    	const default_slot = create_slot(default_slot_template, ctx, /*$$scope*/ ctx[3], get_default_slot_context);
+    	const footer = new Footer({ $$inline: true });
+
+    	const block = {
+    		c: function create() {
+    			div0 = element("div");
+    			create_component(header.$$.fragment);
+    			t0 = space();
+    			if (default_slot) default_slot.c();
+    			t1 = space();
+    			create_component(footer.$$.fragment);
+    			t2 = space();
+    			div1 = element("div");
+    			p = element("p");
+    			t3 = text("IKPH Inter-Kontakt Projekt und Handel GmbH ©");
+    			t4 = text(/*date*/ ctx[1]);
+    			t5 = text(" | Crafted in\n    ");
+    			a = element("a");
+    			img = element("img");
+    			t6 = text("\n      - design studio");
+    			this.h();
+    		},
+    		l: function claim(nodes) {
+    			div0 = claim_element(nodes, "DIV", { class: true });
+    			var div0_nodes = children(div0);
+    			claim_component(header.$$.fragment, div0_nodes);
+    			t0 = claim_space(div0_nodes);
+    			if (default_slot) default_slot.l(div0_nodes);
+    			div0_nodes.forEach(detach_dev);
+    			t1 = claim_space(nodes);
+    			claim_component(footer.$$.fragment, nodes);
+    			t2 = claim_space(nodes);
+    			div1 = claim_element(nodes, "DIV", { class: true });
+    			var div1_nodes = children(div1);
+    			p = claim_element(div1_nodes, "P", {});
+    			var p_nodes = children(p);
+    			t3 = claim_text(p_nodes, "IKPH Inter-Kontakt Projekt und Handel GmbH ©");
+    			t4 = claim_text(p_nodes, /*date*/ ctx[1]);
+    			t5 = claim_text(p_nodes, " | Crafted in\n    ");
+    			a = claim_element(p_nodes, "A", { href: true, class: true });
+    			var a_nodes = children(a);
+    			img = claim_element(a_nodes, "IMG", { src: true, alt: true, class: true });
+    			t6 = claim_text(a_nodes, "\n      - design studio");
+    			a_nodes.forEach(detach_dev);
+    			p_nodes.forEach(detach_dev);
+    			div1_nodes.forEach(detach_dev);
+    			this.h();
+    		},
+    		h: function hydrate() {
+    			attr_dev(div0, "class", "container svelte-1uyme28");
+    			add_location(div0, file$4, 35, 0, 627);
+    			if (img.src !== (img_src_value = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAmCAYAAACGeMg8AAAACXBIWXMAAAsSAAALEgHS3X78AAAD3klEQVRYw+2ZS2xNURSG79WnRzXEoxKJRA2UqBYlUuo58AwSJGIgYYAYCIIqAwaohI4I8RpIExGlngkmJERJVFXRXm0FA6EafWi1qlr/kv/KcXLP3vuce5t20JV8uX2cs/dZ+6z1r7X39fl6reeaH8SDvgrk/7G8ViwOJID+DsSF+UzxirGFfqFuGgsugNvgJrkBrpNroBAcAylgIDgMOkEAVIIqflaDd+AkGO7RiWhwnmNV28av4t+KQYz1JlnlH3woE96CLHAJdGiuvWh5g25sEfioGfszn/0/RwIuHGkAuWAhf3a6TpwsYPi5sT7gNGhVjP0bHOGb+2cxLh1pZ5hNBSWaa9+DVJeOjAKP+LBO434CGfa37daRTubAepCtmfAXWMNVNrVNoFYz/wOKgS9cR+S1nwWzGauqa4+DJEMnJMyvcAFUi7MZRIVypNilI8J9sJyqprpOFmmmoSPTQZlmPFGu5FAiIp7tBi/BG0PKKdcSzxtAm2JiUcQtdoVxsEOgyUAJY1SDpIF0fupItYRLBnVdNXkhV1Flg8BdTc41g8WhwioSlkS5VD1ADWuDqqasNqgdpWBoV7Y4KzU1RcThAEhUVPJz4KdG9nN1rc8QKlAWE1PHDJIJxpBnmtUsAhMd5h8HHmve6lcwTSXlEm95oAU0cmWD1JM6B2rZl0lxzOGqOT1IE2tKqPjeBr4ZqGSiTru/e5Bfq66fAnNZcVUti+TSCNv80sVe1ixCG2uHUvliKKdeHZEHvAeWgKsGNSDTNv888Fpz3wd26H6dIxVhOCJ8YXis0yRsC2uKtb3INawdA3SKEwlHOjiZCMZTg6Qfz7lTmOSq7UA9BSbKxJHqMB0J7g8Ogr2at1JPuQ4mua5BfGi6QRNP91gmafBAM1sXyZP5lEpVPTgBRoN8gyTfwa22kUl7sJShMccDkrBT+HalptzSrHIZ5bpUc10N2yG/rxtMEnkrE9vpAevYjrRqHBFZHtydpzKzNHnXbpBzzSygsW4nT2OFzmCYTLYxyfIZJN3WMU9g9ZVQPWNwOGGy73B19HIUPOcJSSAEFaTcQnBvIsXsFSnh0dEKEk7HkMdjJ2OLjZD8WsMmn6csRR7HaGTL42av/1dpKiPoSDAsNrKmeAkvOUUZ6TY3IlHZQ+0/5CRymUa9nJrQ7TwW7XZHhDvMkxcu76uhkPi9OBLoAkekuu/kIYWb+6RnG+ZF88WRJ13gSCcPonexJpjes9Z+FOrGktmcFfKALEhBGOSxLsnGaRXYx7Ykm71dju33/WCBSbuu+34kQfN9hFv6WuQzmocGOqJ8vdZrPcf+AKYNgfyeEDunAAAAAElFTkSuQmCC")) attr_dev(img, "src", img_src_value);
+    			attr_dev(img, "alt", "Tworzenie i projektowanie stron internetowych");
+    			attr_dev(img, "class", "svelte-1uyme28");
+    			add_location(img, file$4, 46, 6, 870);
+    			attr_dev(a, "href", a_href_value = /*$url*/ ctx[0]("https://varvanin.eu"));
+    			attr_dev(a, "class", "svelte-1uyme28");
+    			add_location(a, file$4, 45, 4, 825);
+    			add_location(p, file$4, 43, 2, 749);
+    			attr_dev(div1, "class", "copyright svelte-1uyme28");
+    			add_location(div1, file$4, 42, 0, 723);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div0, anchor);
+    			mount_component(header, div0, null);
+    			append_dev(div0, t0);
+
+    			if (default_slot) {
+    				default_slot.m(div0, null);
+    			}
+
+    			insert_dev(target, t1, anchor);
+    			mount_component(footer, target, anchor);
+    			insert_dev(target, t2, anchor);
+    			insert_dev(target, div1, anchor);
+    			append_dev(div1, p);
+    			append_dev(p, t3);
+    			append_dev(p, t4);
+    			append_dev(p, t5);
+    			append_dev(p, a);
+    			append_dev(a, img);
+    			append_dev(a, t6);
+    			current = true;
+    		},
+    		p: function update(ctx, [dirty]) {
+    			if (default_slot && default_slot.p && dirty & /*$$scope*/ 8) {
+    				default_slot.p(get_slot_context(default_slot_template, ctx, /*$$scope*/ ctx[3], get_default_slot_context), get_slot_changes(default_slot_template, /*$$scope*/ ctx[3], dirty, get_default_slot_changes));
+    			}
+
+    			if (!current || dirty & /*$url*/ 1 && a_href_value !== (a_href_value = /*$url*/ ctx[0]("https://varvanin.eu"))) {
+    				attr_dev(a, "href", a_href_value);
+    			}
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(header.$$.fragment, local);
+    			transition_in(default_slot, local);
+    			transition_in(footer.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(header.$$.fragment, local);
+    			transition_out(default_slot, local);
+    			transition_out(footer.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(div0);
+    			destroy_component(header);
+    			if (default_slot) default_slot.d(detaching);
+    			if (detaching) detach_dev(t1);
+    			destroy_component(footer, detaching);
+    			if (detaching) detach_dev(t2);
+    			if (detaching) detach_dev(div1);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$5.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function instance$5($$self, $$props, $$invalidate) {
+    	let $url;
+    	validate_store(url, "url");
+    	component_subscribe($$self, url, $$value => $$invalidate(0, $url = $$value));
+    	let year = new Date();
+    	let date = year.getFullYear();
+    	const writable_props = [];
+
+    	Object.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console.warn(`<Layout> was created with unknown prop '${key}'`);
+    	});
+
+    	let { $$slots = {}, $$scope } = $$props;
+    	validate_slots("Layout", $$slots, ['default']);
+
+    	$$self.$set = $$props => {
+    		if ("$$scope" in $$props) $$invalidate(3, $$scope = $$props.$$scope);
+    	};
+
+    	$$self.$capture_state = () => ({
+    		url,
+    		PageTransitions,
+    		Header,
+    		Footer,
+    		year,
+    		date,
+    		$url
+    	});
+
+    	$$self.$inject_state = $$props => {
+    		if ("year" in $$props) year = $$props.year;
+    		if ("date" in $$props) $$invalidate(1, date = $$props.date);
+    	};
+
+    	if ($$props && "$$inject" in $$props) {
+    		$$self.$inject_state($$props.$$inject);
+    	}
+
+    	return [$url, date, year, $$scope, $$slots];
+    }
+
+    class Layout extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance$5, create_fragment$5, safe_not_equal, {});
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "Layout",
+    			options,
+    			id: create_fragment$5.name
+    		});
+    	}
+    }
+
+    /* src/pages/_fallback.svelte generated by Svelte v3.19.2 */
+    const file$5 = "src/pages/_fallback.svelte";
+
+    function create_fragment$6(ctx) {
+    	let div2;
+    	let div0;
+    	let t0;
+    	let t1;
+    	let div1;
+    	let t2;
+    	let a;
+    	let t3;
+    	let a_href_value;
+
+    	const block = {
+    		c: function create() {
+    			div2 = element("div");
+    			div0 = element("div");
+    			t0 = text("404");
+    			t1 = space();
+    			div1 = element("div");
+    			t2 = text("Seite nicht gefunden. \n  \n  ");
+    			a = element("a");
+    			t3 = text("Zurück");
+    			this.h();
+    		},
+    		l: function claim(nodes) {
+    			div2 = claim_element(nodes, "DIV", { class: true });
+    			var div2_nodes = children(div2);
+    			div0 = claim_element(div2_nodes, "DIV", { class: true });
+    			var div0_nodes = children(div0);
+    			t0 = claim_text(div0_nodes, "404");
+    			div0_nodes.forEach(detach_dev);
+    			t1 = claim_space(div2_nodes);
+    			div1 = claim_element(div2_nodes, "DIV", { class: true });
+    			var div1_nodes = children(div1);
+    			t2 = claim_text(div1_nodes, "Seite nicht gefunden. \n  \n  ");
+    			a = claim_element(div1_nodes, "A", { href: true });
+    			var a_nodes = children(a);
+    			t3 = claim_text(a_nodes, "Zurück");
+    			a_nodes.forEach(detach_dev);
+    			div1_nodes.forEach(detach_dev);
+    			div2_nodes.forEach(detach_dev);
+    			this.h();
+    		},
+    		h: function hydrate() {
+    			attr_dev(div0, "class", "huge svelte-aioo8o");
+    			add_location(div0, file$5, 18, 2, 268);
+    			attr_dev(a, "href", a_href_value = /*$url*/ ctx[0]("../"));
+    			add_location(a, file$5, 21, 2, 397);
+    			attr_dev(div1, "class", "big");
+    			add_location(div1, file$5, 19, 2, 298);
+    			attr_dev(div2, "class", "e404 svelte-aioo8o");
+    			add_location(div2, file$5, 17, 0, 247);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div2, anchor);
+    			append_dev(div2, div0);
+    			append_dev(div0, t0);
+    			append_dev(div2, t1);
+    			append_dev(div2, div1);
+    			append_dev(div1, t2);
+    			append_dev(div1, a);
+    			append_dev(a, t3);
+    		},
+    		p: function update(ctx, [dirty]) {
+    			if (dirty & /*$url*/ 1 && a_href_value !== (a_href_value = /*$url*/ ctx[0]("../"))) {
+    				attr_dev(a, "href", a_href_value);
+    			}
+    		},
+    		i: noop,
+    		o: noop,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(div2);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$6.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function instance$6($$self, $$props, $$invalidate) {
+    	let $url;
+    	validate_store(url, "url");
+    	component_subscribe($$self, url, $$value => $$invalidate(0, $url = $$value));
+    	const writable_props = [];
+
+    	Object.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console.warn(`<Fallback> was created with unknown prop '${key}'`);
+    	});
+
+    	let { $$slots = {}, $$scope } = $$props;
+    	validate_slots("Fallback", $$slots, []);
+    	$$self.$capture_state = () => ({ url, $url });
+    	return [$url];
+    }
+
+    class Fallback extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance$6, create_fragment$6, safe_not_equal, {});
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "Fallback",
+    			options,
+    			id: create_fragment$6.name
+    		});
+    	}
+    }
+
+    /* src/pages/components/Hero.svelte generated by Svelte v3.19.2 */
+
+    const file$6 = "src/pages/components/Hero.svelte";
+
+    function create_fragment$7(ctx) {
+    	let div1;
+    	let div0;
+    	let h1;
+    	let t;
+
+    	const block = {
+    		c: function create() {
+    			div1 = element("div");
+    			div0 = element("div");
+    			h1 = element("h1");
+    			t = text(/*intro*/ ctx[0]);
+    			this.h();
+    		},
+    		l: function claim(nodes) {
+    			div1 = claim_element(nodes, "DIV", { class: true });
+    			var div1_nodes = children(div1);
+    			div0 = claim_element(div1_nodes, "DIV", { class: true });
+    			var div0_nodes = children(div0);
+    			h1 = claim_element(div0_nodes, "H1", { class: true });
+    			var h1_nodes = children(h1);
+    			t = claim_text(h1_nodes, /*intro*/ ctx[0]);
+    			h1_nodes.forEach(detach_dev);
+    			div0_nodes.forEach(detach_dev);
+    			div1_nodes.forEach(detach_dev);
+    			this.h();
+    		},
+    		h: function hydrate() {
+    			attr_dev(h1, "class", "svelte-1a3otox");
+    			add_location(h1, file$6, 40, 4, 725);
+    			attr_dev(div0, "class", "intro svelte-1a3otox");
+    			add_location(div0, file$6, 39, 2, 701);
+    			attr_dev(div1, "class", "hero svelte-1a3otox");
+    			add_location(div1, file$6, 38, 0, 680);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div1, anchor);
+    			append_dev(div1, div0);
+    			append_dev(div0, h1);
+    			append_dev(h1, t);
+    		},
+    		p: noop,
+    		i: noop,
+    		o: noop,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(div1);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$7.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function instance$7($$self, $$props, $$invalidate) {
+    	let intro = "Wir grüßen Sie - und laden Sie herzlich ein, unsere Dienstleistungen in Anspruch zu nehmen!";
+    	const writable_props = [];
+
+    	Object.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console.warn(`<Hero> was created with unknown prop '${key}'`);
+    	});
+
+    	let { $$slots = {}, $$scope } = $$props;
+    	validate_slots("Hero", $$slots, []);
+    	$$self.$capture_state = () => ({ intro });
+
+    	$$self.$inject_state = $$props => {
+    		if ("intro" in $$props) $$invalidate(0, intro = $$props.intro);
+    	};
+
+    	if ($$props && "$$inject" in $$props) {
+    		$$self.$inject_state($$props.$$inject);
+    	}
+
+    	return [intro];
+    }
+
+    class Hero extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance$7, create_fragment$7, safe_not_equal, {});
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "Hero",
+    			options,
+    			id: create_fragment$7.name
+    		});
+    	}
+    }
+
+    var commonjsGlobal = typeof globalThis !== 'undefined' ? globalThis : typeof window !== 'undefined' ? window : typeof global !== 'undefined' ? global : typeof self !== 'undefined' ? self : {};
+
+    function unwrapExports (x) {
+    	return x && x.__esModule && Object.prototype.hasOwnProperty.call(x, 'default') ? x['default'] : x;
+    }
+
+    function createCommonjsModule(fn, module) {
+    	return module = { exports: {} }, fn(module, module.exports), module.exports;
+    }
+
+    var siema_min = createCommonjsModule(function (module, exports) {
+    !function(e,t){module.exports=t();}("undefined"!=typeof self?self:commonjsGlobal,function(){return function(e){function t(r){if(i[r])return i[r].exports;var n=i[r]={i:r,l:!1,exports:{}};return e[r].call(n.exports,n,n.exports,t),n.l=!0,n.exports}var i={};return t.m=e,t.c=i,t.d=function(e,i,r){t.o(e,i)||Object.defineProperty(e,i,{configurable:!1,enumerable:!0,get:r});},t.n=function(e){var i=e&&e.__esModule?function(){return e.default}:function(){return e};return t.d(i,"a",i),i},t.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},t.p="",t(t.s=0)}([function(e,t,i){function r(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}Object.defineProperty(t,"__esModule",{value:!0});var n="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},s=function(){function e(e,t){for(var i=0;i<t.length;i++){var r=t[i];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(e,r.key,r);}}return function(t,i,r){return i&&e(t.prototype,i),r&&e(t,r),t}}(),l=function(){function e(t){var i=this;if(r(this,e),this.config=e.mergeSettings(t),this.selector="string"==typeof this.config.selector?document.querySelector(this.config.selector):this.config.selector,null===this.selector)throw new Error("Something wrong with your selector 😭");this.resolveSlidesNumber(),this.selectorWidth=this.selector.offsetWidth,this.innerElements=[].slice.call(this.selector.children),this.currentSlide=this.config.loop?this.config.startIndex%this.innerElements.length:Math.max(0,Math.min(this.config.startIndex,this.innerElements.length-this.perPage)),this.transformProperty=e.webkitOrNot(),["resizeHandler","touchstartHandler","touchendHandler","touchmoveHandler","mousedownHandler","mouseupHandler","mouseleaveHandler","mousemoveHandler","clickHandler"].forEach(function(e){i[e]=i[e].bind(i);}),this.init();}return s(e,[{key:"attachEvents",value:function(){window.addEventListener("resize",this.resizeHandler),this.config.draggable&&(this.pointerDown=!1,this.drag={startX:0,endX:0,startY:0,letItGo:null,preventClick:!1},this.selector.addEventListener("touchstart",this.touchstartHandler),this.selector.addEventListener("touchend",this.touchendHandler),this.selector.addEventListener("touchmove",this.touchmoveHandler),this.selector.addEventListener("mousedown",this.mousedownHandler),this.selector.addEventListener("mouseup",this.mouseupHandler),this.selector.addEventListener("mouseleave",this.mouseleaveHandler),this.selector.addEventListener("mousemove",this.mousemoveHandler),this.selector.addEventListener("click",this.clickHandler));}},{key:"detachEvents",value:function(){window.removeEventListener("resize",this.resizeHandler),this.selector.removeEventListener("touchstart",this.touchstartHandler),this.selector.removeEventListener("touchend",this.touchendHandler),this.selector.removeEventListener("touchmove",this.touchmoveHandler),this.selector.removeEventListener("mousedown",this.mousedownHandler),this.selector.removeEventListener("mouseup",this.mouseupHandler),this.selector.removeEventListener("mouseleave",this.mouseleaveHandler),this.selector.removeEventListener("mousemove",this.mousemoveHandler),this.selector.removeEventListener("click",this.clickHandler);}},{key:"init",value:function(){this.attachEvents(),this.selector.style.overflow="hidden",this.selector.style.direction=this.config.rtl?"rtl":"ltr",this.buildSliderFrame(),this.config.onInit.call(this);}},{key:"buildSliderFrame",value:function(){var e=this.selectorWidth/this.perPage,t=this.config.loop?this.innerElements.length+2*this.perPage:this.innerElements.length;this.sliderFrame=document.createElement("div"),this.sliderFrame.style.width=e*t+"px",this.enableTransition(),this.config.draggable&&(this.selector.style.cursor="-webkit-grab");var i=document.createDocumentFragment();if(this.config.loop)for(var r=this.innerElements.length-this.perPage;r<this.innerElements.length;r++){var n=this.buildSliderFrameItem(this.innerElements[r].cloneNode(!0));i.appendChild(n);}for(var s=0;s<this.innerElements.length;s++){var l=this.buildSliderFrameItem(this.innerElements[s]);i.appendChild(l);}if(this.config.loop)for(var o=0;o<this.perPage;o++){var a=this.buildSliderFrameItem(this.innerElements[o].cloneNode(!0));i.appendChild(a);}this.sliderFrame.appendChild(i),this.selector.innerHTML="",this.selector.appendChild(this.sliderFrame),this.slideToCurrent();}},{key:"buildSliderFrameItem",value:function(e){var t=document.createElement("div");return t.style.cssFloat=this.config.rtl?"right":"left",t.style.float=this.config.rtl?"right":"left",t.style.width=(this.config.loop?100/(this.innerElements.length+2*this.perPage):100/this.innerElements.length)+"%",t.appendChild(e),t}},{key:"resolveSlidesNumber",value:function(){if("number"==typeof this.config.perPage)this.perPage=this.config.perPage;else if("object"===n(this.config.perPage)){this.perPage=1;for(var e in this.config.perPage)window.innerWidth>=e&&(this.perPage=this.config.perPage[e]);}}},{key:"prev",value:function(){var e=arguments.length>0&&void 0!==arguments[0]?arguments[0]:1,t=arguments[1];if(!(this.innerElements.length<=this.perPage)){var i=this.currentSlide;if(this.config.loop){if(this.currentSlide-e<0){this.disableTransition();var r=this.currentSlide+this.innerElements.length,n=this.perPage,s=r+n,l=(this.config.rtl?1:-1)*s*(this.selectorWidth/this.perPage),o=this.config.draggable?this.drag.endX-this.drag.startX:0;this.sliderFrame.style[this.transformProperty]="translate3d("+(l+o)+"px, 0, 0)",this.currentSlide=r-e;}else this.currentSlide=this.currentSlide-e;}else this.currentSlide=Math.max(this.currentSlide-e,0);i!==this.currentSlide&&(this.slideToCurrent(this.config.loop),this.config.onChange.call(this),t&&t.call(this));}}},{key:"next",value:function(){var e=arguments.length>0&&void 0!==arguments[0]?arguments[0]:1,t=arguments[1];if(!(this.innerElements.length<=this.perPage)){var i=this.currentSlide;if(this.config.loop){if(this.currentSlide+e>this.innerElements.length-this.perPage){this.disableTransition();var r=this.currentSlide-this.innerElements.length,n=this.perPage,s=r+n,l=(this.config.rtl?1:-1)*s*(this.selectorWidth/this.perPage),o=this.config.draggable?this.drag.endX-this.drag.startX:0;this.sliderFrame.style[this.transformProperty]="translate3d("+(l+o)+"px, 0, 0)",this.currentSlide=r+e;}else this.currentSlide=this.currentSlide+e;}else this.currentSlide=Math.min(this.currentSlide+e,this.innerElements.length-this.perPage);i!==this.currentSlide&&(this.slideToCurrent(this.config.loop),this.config.onChange.call(this),t&&t.call(this));}}},{key:"disableTransition",value:function(){this.sliderFrame.style.webkitTransition="all 0ms "+this.config.easing,this.sliderFrame.style.transition="all 0ms "+this.config.easing;}},{key:"enableTransition",value:function(){this.sliderFrame.style.webkitTransition="all "+this.config.duration+"ms "+this.config.easing,this.sliderFrame.style.transition="all "+this.config.duration+"ms "+this.config.easing;}},{key:"goTo",value:function(e,t){if(!(this.innerElements.length<=this.perPage)){var i=this.currentSlide;this.currentSlide=this.config.loop?e%this.innerElements.length:Math.min(Math.max(e,0),this.innerElements.length-this.perPage),i!==this.currentSlide&&(this.slideToCurrent(),this.config.onChange.call(this),t&&t.call(this));}}},{key:"slideToCurrent",value:function(e){var t=this,i=this.config.loop?this.currentSlide+this.perPage:this.currentSlide,r=(this.config.rtl?1:-1)*i*(this.selectorWidth/this.perPage);e?requestAnimationFrame(function(){requestAnimationFrame(function(){t.enableTransition(),t.sliderFrame.style[t.transformProperty]="translate3d("+r+"px, 0, 0)";});}):this.sliderFrame.style[this.transformProperty]="translate3d("+r+"px, 0, 0)";}},{key:"updateAfterDrag",value:function(){var e=(this.config.rtl?-1:1)*(this.drag.endX-this.drag.startX),t=Math.abs(e),i=this.config.multipleDrag?Math.ceil(t/(this.selectorWidth/this.perPage)):1,r=e>0&&this.currentSlide-i<0,n=e<0&&this.currentSlide+i>this.innerElements.length-this.perPage;e>0&&t>this.config.threshold&&this.innerElements.length>this.perPage?this.prev(i):e<0&&t>this.config.threshold&&this.innerElements.length>this.perPage&&this.next(i),this.slideToCurrent(r||n);}},{key:"resizeHandler",value:function(){this.resolveSlidesNumber(),this.currentSlide+this.perPage>this.innerElements.length&&(this.currentSlide=this.innerElements.length<=this.perPage?0:this.innerElements.length-this.perPage),this.selectorWidth=this.selector.offsetWidth,this.buildSliderFrame();}},{key:"clearDrag",value:function(){this.drag={startX:0,endX:0,startY:0,letItGo:null,preventClick:this.drag.preventClick};}},{key:"touchstartHandler",value:function(e){-1!==["TEXTAREA","OPTION","INPUT","SELECT"].indexOf(e.target.nodeName)||(e.stopPropagation(),this.pointerDown=!0,this.drag.startX=e.touches[0].pageX,this.drag.startY=e.touches[0].pageY);}},{key:"touchendHandler",value:function(e){e.stopPropagation(),this.pointerDown=!1,this.enableTransition(),this.drag.endX&&this.updateAfterDrag(),this.clearDrag();}},{key:"touchmoveHandler",value:function(e){if(e.stopPropagation(),null===this.drag.letItGo&&(this.drag.letItGo=Math.abs(this.drag.startY-e.touches[0].pageY)<Math.abs(this.drag.startX-e.touches[0].pageX)),this.pointerDown&&this.drag.letItGo){e.preventDefault(),this.drag.endX=e.touches[0].pageX,this.sliderFrame.style.webkitTransition="all 0ms "+this.config.easing,this.sliderFrame.style.transition="all 0ms "+this.config.easing;var t=this.config.loop?this.currentSlide+this.perPage:this.currentSlide,i=t*(this.selectorWidth/this.perPage),r=this.drag.endX-this.drag.startX,n=this.config.rtl?i+r:i-r;this.sliderFrame.style[this.transformProperty]="translate3d("+(this.config.rtl?1:-1)*n+"px, 0, 0)";}}},{key:"mousedownHandler",value:function(e){-1!==["TEXTAREA","OPTION","INPUT","SELECT"].indexOf(e.target.nodeName)||(e.preventDefault(),e.stopPropagation(),this.pointerDown=!0,this.drag.startX=e.pageX);}},{key:"mouseupHandler",value:function(e){e.stopPropagation(),this.pointerDown=!1,this.selector.style.cursor="-webkit-grab",this.enableTransition(),this.drag.endX&&this.updateAfterDrag(),this.clearDrag();}},{key:"mousemoveHandler",value:function(e){if(e.preventDefault(),this.pointerDown){"A"===e.target.nodeName&&(this.drag.preventClick=!0),this.drag.endX=e.pageX,this.selector.style.cursor="-webkit-grabbing",this.sliderFrame.style.webkitTransition="all 0ms "+this.config.easing,this.sliderFrame.style.transition="all 0ms "+this.config.easing;var t=this.config.loop?this.currentSlide+this.perPage:this.currentSlide,i=t*(this.selectorWidth/this.perPage),r=this.drag.endX-this.drag.startX,n=this.config.rtl?i+r:i-r;this.sliderFrame.style[this.transformProperty]="translate3d("+(this.config.rtl?1:-1)*n+"px, 0, 0)";}}},{key:"mouseleaveHandler",value:function(e){this.pointerDown&&(this.pointerDown=!1,this.selector.style.cursor="-webkit-grab",this.drag.endX=e.pageX,this.drag.preventClick=!1,this.enableTransition(),this.updateAfterDrag(),this.clearDrag());}},{key:"clickHandler",value:function(e){this.drag.preventClick&&e.preventDefault(),this.drag.preventClick=!1;}},{key:"remove",value:function(e,t){if(e<0||e>=this.innerElements.length)throw new Error("Item to remove doesn't exist 😭");var i=e<this.currentSlide,r=this.currentSlide+this.perPage-1===e;(i||r)&&this.currentSlide--,this.innerElements.splice(e,1),this.buildSliderFrame(),t&&t.call(this);}},{key:"insert",value:function(e,t,i){if(t<0||t>this.innerElements.length+1)throw new Error("Unable to inset it at this index 😭");if(-1!==this.innerElements.indexOf(e))throw new Error("The same item in a carousel? Really? Nope 😭");var r=t<=this.currentSlide>0&&this.innerElements.length;this.currentSlide=r?this.currentSlide+1:this.currentSlide,this.innerElements.splice(t,0,e),this.buildSliderFrame(),i&&i.call(this);}},{key:"prepend",value:function(e,t){this.insert(e,0),t&&t.call(this);}},{key:"append",value:function(e,t){this.insert(e,this.innerElements.length+1),t&&t.call(this);}},{key:"destroy",value:function(){var e=arguments.length>0&&void 0!==arguments[0]&&arguments[0],t=arguments[1];if(this.detachEvents(),this.selector.style.cursor="auto",e){for(var i=document.createDocumentFragment(),r=0;r<this.innerElements.length;r++)i.appendChild(this.innerElements[r]);this.selector.innerHTML="",this.selector.appendChild(i),this.selector.removeAttribute("style");}t&&t.call(this);}}],[{key:"mergeSettings",value:function(e){var t={selector:".siema",duration:200,easing:"ease-out",perPage:1,startIndex:0,draggable:!0,multipleDrag:!0,threshold:20,loop:!1,rtl:!1,onInit:function(){},onChange:function(){}},i=e;for(var r in i)t[r]=i[r];return t}},{key:"webkitOrNot",value:function(){return "string"==typeof document.documentElement.style.transform?"transform":"WebkitTransform"}}]),e}();t.default=l,e.exports=t.default;}])});
+    });
+
+    var Siema = unwrapExports(siema_min);
+    var siema_min_1 = siema_min.Siema;
+
+    function add(node, event, handler) {
+    	node.addEventListener(event, handler);
+    	return () => node.removeEventListener(event, handler);
+    }
+
+    function dispatch_tap(node, x, y) {
+    	node.dispatchEvent(new CustomEvent('tap', {
+    		detail: { x, y }
+    	}));
+    }
+
+    function handle_focus(event) {
+    	const remove_keydown_handler = add(event.currentTarget, 'keydown', (event) => {
+    		if (event.which === 32) dispatch_tap(event.currentTarget, null, null);
+    	});
+
+    	const remove_blur_handler = add(event.currentTarget, 'blur', (event) => {
+    		remove_keydown_handler();
+    		remove_blur_handler();
+    	});
+    }
+
+    function is_button(node) {
+    	return node.tagName === 'BUTTON' || node.type === 'button';
+    }
+
+    function tap_pointer(node) {
+    	function handle_pointerdown(event) {
+    		if ((node ).disabled) return;
+    		const { clientX, clientY } = event;
+
+    		const remove_pointerup_handler = add(node, 'pointerup', (event) => {
+    			if (Math.abs(event.clientX - clientX) > 5) return;
+    			if (Math.abs(event.clientY - clientY) > 5) return;
+
+    			dispatch_tap(node, event.clientX, event.clientY);
+    			remove_pointerup_handler();
+    		});
+
+    		setTimeout(remove_pointerup_handler, 300);
+    	}
+
+    	const remove_pointerdown_handler = add(node, 'pointerdown', handle_pointerdown);
+    	const remove_focus_handler = is_button(node ) && add(node, 'focus', handle_focus);
+
+    	return {
+    		destroy() {
+    			remove_pointerdown_handler();
+    			remove_focus_handler && remove_focus_handler();
+    		}
+    	};
+    }
+
+    function tap_legacy(node) {
+    	let mouse_enabled = true;
+    	let mouse_timeout;
+
+    	function handle_mousedown(event) {
+    		const { clientX, clientY } = event;
+
+    		const remove_mouseup_handler = add(node, 'mouseup', (event) => {
+    			if (!mouse_enabled) return;
+    			if (Math.abs(event.clientX - clientX) > 5) return;
+    			if (Math.abs(event.clientY - clientY) > 5) return;
+
+    			dispatch_tap(node, event.clientX, event.clientY);
+    			remove_mouseup_handler();
+    		});
+
+    		clearTimeout(mouse_timeout);
+    		setTimeout(remove_mouseup_handler, 300);
+    	}
+
+    	function handle_touchstart(event) {
+    		if (event.changedTouches.length !== 1) return;
+    		if ((node ).disabled) return;
+
+    		const touch = event.changedTouches[0];
+    		const { identifier, clientX, clientY } = touch;
+
+    		const remove_touchend_handler = add(node, 'touchend', (event) => {
+    			const touch = Array.from(event.changedTouches).find(t => t.identifier === identifier);
+    			if (!touch) return;
+
+    			if (Math.abs(touch.clientX - clientX) > 5) return;
+    			if (Math.abs(touch.clientY - clientY) > 5) return;
+
+    			dispatch_tap(node, touch.clientX, touch.clientY);
+
+    			mouse_enabled = false;
+    			mouse_timeout = setTimeout(() => {
+    				mouse_enabled = true;
+    			}, 350);
+    		});
+
+    		setTimeout(remove_touchend_handler, 300);
+    	}
+
+    	const remove_mousedown_handler = add(node, 'mousedown', handle_mousedown);
+    	const remove_touchstart_handler = add(node, 'touchstart', handle_touchstart);
+    	const remove_focus_handler = is_button(node ) && add(node, 'focus', handle_focus);
+
+    	return {
+    		destroy() {
+    			remove_mousedown_handler();
+    			remove_touchstart_handler();
+    			remove_focus_handler && remove_focus_handler();
+    		}
+    	};
+    }
+
+    const tap = typeof PointerEvent === 'function'
+    	? tap_pointer
+    	: tap_legacy;
+
+    /* node_modules/@centroculturadigital-mx/svelte-carousel/src/Carousel.svelte generated by Svelte v3.19.2 */
+    const file$7 = "node_modules/@centroculturadigital-mx/svelte-carousel/src/Carousel.svelte";
+    const get_right_control_slot_changes = dirty => ({});
+    const get_right_control_slot_context = ctx => ({});
+
+    function get_each_context$2(ctx, list, i) {
+    	const child_ctx = ctx.slice();
+    	child_ctx[18] = list[i];
+    	child_ctx[20] = i;
+    	return child_ctx;
+    }
+
+    const get_left_control_slot_changes = dirty => ({});
+    const get_left_control_slot_context = ctx => ({});
+
+    // (156:4) {#each pips as pip, i ('pip_' + id + '_' + i)}
+    function create_each_block$2(key_1, ctx) {
+    	let li;
+    	let li_class_value;
+    	let tap_action;
+    	let dispose;
+
+    	function tap_handler(...args) {
+    		return /*tap_handler*/ ctx[17](/*i*/ ctx[20], ...args);
+    	}
+
+    	const block = {
+    		key: key_1,
+    		first: null,
+    		c: function create() {
+    			li = element("li");
+    			this.h();
+    		},
+    		l: function claim(nodes) {
+    			li = claim_element(nodes, "LI", { class: true });
+    			children(li).forEach(detach_dev);
+    			this.h();
+    		},
+    		h: function hydrate() {
+    			attr_dev(li, "class", li_class_value = "" + (null_to_empty(/*current*/ ctx[0] == /*i*/ ctx[20] ? "active" : "") + " svelte-jrqjob"));
+    			add_location(li, file$7, 156, 6, 2731);
+    			this.first = li;
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, li, anchor);
+
+    			dispose = [
+    				action_destroyer(tap_action = tap.call(null, li)),
+    				listen_dev(li, "tap", tap_handler, false, false, false)
+    			];
+    		},
+    		p: function update(new_ctx, dirty) {
+    			ctx = new_ctx;
+
+    			if (dirty & /*current, pips*/ 9 && li_class_value !== (li_class_value = "" + (null_to_empty(/*current*/ ctx[0] == /*i*/ ctx[20] ? "active" : "") + " svelte-jrqjob"))) {
+    				attr_dev(li, "class", li_class_value);
+    			}
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(li);
+    			run_all(dispose);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_each_block$2.name,
+    		type: "each",
+    		source: "(156:4) {#each pips as pip, i ('pip_' + id + '_' + i)}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function create_fragment$8(ctx) {
+    	let div1;
+    	let button0;
+    	let tap_action;
+    	let t0;
+    	let div0;
+    	let t1;
+    	let ul;
+    	let each_blocks = [];
+    	let each_1_lookup = new Map();
+    	let t2;
+    	let button1;
+    	let tap_action_1;
+    	let current;
+    	let dispose;
+    	const left_control_slot_template = /*$$slots*/ ctx[15]["left-control"];
+    	const left_control_slot = create_slot(left_control_slot_template, ctx, /*$$scope*/ ctx[14], get_left_control_slot_context);
+    	const default_slot_template = /*$$slots*/ ctx[15].default;
+    	const default_slot = create_slot(default_slot_template, ctx, /*$$scope*/ ctx[14], null);
+    	let each_value = /*pips*/ ctx[3];
+    	validate_each_argument(each_value);
+    	const get_key = ctx => "pip_" + /*id*/ ctx[1] + "_" + /*i*/ ctx[20];
+    	validate_each_keys(ctx, each_value, get_each_context$2, get_key);
+
+    	for (let i = 0; i < each_value.length; i += 1) {
+    		let child_ctx = get_each_context$2(ctx, each_value, i);
+    		let key = get_key(child_ctx);
+    		each_1_lookup.set(key, each_blocks[i] = create_each_block$2(key, child_ctx));
+    	}
+
+    	const right_control_slot_template = /*$$slots*/ ctx[15]["right-control"];
+    	const right_control_slot = create_slot(right_control_slot_template, ctx, /*$$scope*/ ctx[14], get_right_control_slot_context);
+
+    	const block = {
+    		c: function create() {
+    			div1 = element("div");
+    			button0 = element("button");
+    			if (left_control_slot) left_control_slot.c();
+    			t0 = space();
+    			div0 = element("div");
+    			if (default_slot) default_slot.c();
+    			t1 = space();
+    			ul = element("ul");
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].c();
+    			}
+
+    			t2 = space();
+    			button1 = element("button");
+    			if (right_control_slot) right_control_slot.c();
+    			this.h();
+    		},
+    		l: function claim(nodes) {
+    			div1 = claim_element(nodes, "DIV", { class: true });
+    			var div1_nodes = children(div1);
+    			button0 = claim_element(div1_nodes, "BUTTON", { class: true });
+    			var button0_nodes = children(button0);
+    			if (left_control_slot) left_control_slot.l(button0_nodes);
+    			button0_nodes.forEach(detach_dev);
+    			t0 = claim_space(div1_nodes);
+    			div0 = claim_element(div1_nodes, "DIV", { class: true });
+    			var div0_nodes = children(div0);
+    			if (default_slot) default_slot.l(div0_nodes);
+    			div0_nodes.forEach(detach_dev);
+    			t1 = claim_space(div1_nodes);
+    			ul = claim_element(div1_nodes, "UL", { class: true });
+    			var ul_nodes = children(ul);
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].l(ul_nodes);
+    			}
+
+    			ul_nodes.forEach(detach_dev);
+    			t2 = claim_space(div1_nodes);
+    			button1 = claim_element(div1_nodes, "BUTTON", { class: true });
+    			var button1_nodes = children(button1);
+    			if (right_control_slot) right_control_slot.l(button1_nodes);
+    			button1_nodes.forEach(detach_dev);
+    			div1_nodes.forEach(detach_dev);
+    			this.h();
+    		},
+    		h: function hydrate() {
+    			attr_dev(button0, "class", "left svelte-jrqjob");
+    			add_location(button0, file$7, 148, 2, 2515);
+    			attr_dev(div0, "class", "slides");
+    			add_location(div0, file$7, 151, 2, 2606);
+    			attr_dev(ul, "class", "svelte-jrqjob");
+    			add_location(ul, file$7, 154, 2, 2669);
+    			attr_dev(button1, "class", "right svelte-jrqjob");
+    			add_location(button1, file$7, 159, 2, 2828);
+    			attr_dev(div1, "class", "carousel svelte-jrqjob");
+    			add_location(div1, file$7, 147, 0, 2490);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div1, anchor);
+    			append_dev(div1, button0);
+
+    			if (left_control_slot) {
+    				left_control_slot.m(button0, null);
+    			}
+
+    			append_dev(div1, t0);
+    			append_dev(div1, div0);
+
+    			if (default_slot) {
+    				default_slot.m(div0, null);
+    			}
+
+    			/*div0_binding*/ ctx[16](div0);
+    			append_dev(div1, t1);
+    			append_dev(div1, ul);
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].m(ul, null);
+    			}
+
+    			append_dev(div1, t2);
+    			append_dev(div1, button1);
+
+    			if (right_control_slot) {
+    				right_control_slot.m(button1, null);
+    			}
+
+    			current = true;
+
+    			dispose = [
+    				action_destroyer(tap_action = tap.call(null, button0)),
+    				listen_dev(button0, "tap", /*left*/ ctx[4], false, false, false),
+    				action_destroyer(tap_action_1 = tap.call(null, button1)),
+    				listen_dev(button1, "tap", /*right*/ ctx[5], false, false, false)
+    			];
+    		},
+    		p: function update(ctx, [dirty]) {
+    			if (left_control_slot && left_control_slot.p && dirty & /*$$scope*/ 16384) {
+    				left_control_slot.p(get_slot_context(left_control_slot_template, ctx, /*$$scope*/ ctx[14], get_left_control_slot_context), get_slot_changes(left_control_slot_template, /*$$scope*/ ctx[14], dirty, get_left_control_slot_changes));
+    			}
+
+    			if (default_slot && default_slot.p && dirty & /*$$scope*/ 16384) {
+    				default_slot.p(get_slot_context(default_slot_template, ctx, /*$$scope*/ ctx[14], null), get_slot_changes(default_slot_template, /*$$scope*/ ctx[14], dirty, null));
+    			}
+
+    			if (dirty & /*current, pips, goTo*/ 73) {
+    				const each_value = /*pips*/ ctx[3];
+    				validate_each_argument(each_value);
+    				validate_each_keys(ctx, each_value, get_each_context$2, get_key);
+    				each_blocks = update_keyed_each(each_blocks, dirty, get_key, 1, ctx, each_value, each_1_lookup, ul, destroy_block, create_each_block$2, null, get_each_context$2);
+    			}
+
+    			if (right_control_slot && right_control_slot.p && dirty & /*$$scope*/ 16384) {
+    				right_control_slot.p(get_slot_context(right_control_slot_template, ctx, /*$$scope*/ ctx[14], get_right_control_slot_context), get_slot_changes(right_control_slot_template, /*$$scope*/ ctx[14], dirty, get_right_control_slot_changes));
+    			}
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(left_control_slot, local);
+    			transition_in(default_slot, local);
+    			transition_in(right_control_slot, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(left_control_slot, local);
+    			transition_out(default_slot, local);
+    			transition_out(right_control_slot, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(div1);
+    			if (left_control_slot) left_control_slot.d(detaching);
+    			if (default_slot) default_slot.d(detaching);
+    			/*div0_binding*/ ctx[16](null);
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].d();
+    			}
+
+    			if (right_control_slot) right_control_slot.d(detaching);
+    			run_all(dispose);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$8.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function instance$8($$self, $$props, $$invalidate) {
+    	let { perPage = 3 } = $$props;
+    	let { loop = true } = $$props;
+    	let { autoplay = 0 } = $$props;
+    	let { go = 0 } = $$props;
+    	let { current = 0 } = $$props;
+    	let { useKeys = false } = $$props;
+    	let id;
+    	let siema;
+    	let controller;
+    	let timer;
+
+    	onMount(() => {
+    		$$invalidate(1, id = Math.ceil(Math.random() * 300000));
+
+    		const onChange = () => {
+    			//   console.log("onChange", controller.currentSlide);
+    			$$invalidate(0, current = controller.currentSlide);
+    		};
+
+    		$$invalidate(12, controller = new Siema({ selector: siema, perPage, loop, onChange }));
+
+    		document.addEventListener("keydown", event => {
+    			if (useKeys) {
+    				switch (event.keyCode) {
+    					case 32:
+    						right();
+    						break;
+    					case 37:
+    					case 38:
+    						left();
+    						break;
+    					case 39:
+    					case 40:
+    						right();
+    						break;
+    				}
+    			}
+    		});
+
+    		autoplay && setInterval(right, autoplay);
+
+    		return () => {
+    			autoplay && clearTimeout(timer);
+    			controller.destroy();
+    		};
+    	});
+
+    	function left() {
+    		$$invalidate(0, current--, current);
+    		$$invalidate(0, current %= pips.length);
+    		controller.prev(1, goTo(current + 1));
+    	}
+
+    	function right() {
+    		$$invalidate(0, current++, current);
+    		$$invalidate(0, current %= pips.length);
+    		controller.next(1, goTo(current - 1));
+    	}
+
+    	function goTo(index) {
+    		// console.log("go to", index);
+    		if (!!controller && (index === 0 || index > 0)) {
+    			controller.goTo(index, () => {
+    				//   console.log("went to", index);
+    				$$invalidate(0, current = index);
+    			});
+    		}
+    	}
+
+    	const writable_props = ["perPage", "loop", "autoplay", "go", "current", "useKeys"];
+
+    	Object.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console.warn(`<Carousel> was created with unknown prop '${key}'`);
+    	});
+
+    	let { $$slots = {}, $$scope } = $$props;
+    	validate_slots("Carousel", $$slots, ['left-control','default','right-control']);
+
+    	function div0_binding($$value) {
+    		binding_callbacks[$$value ? "unshift" : "push"](() => {
+    			$$invalidate(2, siema = $$value);
+    		});
+    	}
+
+    	const tap_handler = i => goTo(i);
+
+    	$$self.$set = $$props => {
+    		if ("perPage" in $$props) $$invalidate(7, perPage = $$props.perPage);
+    		if ("loop" in $$props) $$invalidate(8, loop = $$props.loop);
+    		if ("autoplay" in $$props) $$invalidate(9, autoplay = $$props.autoplay);
+    		if ("go" in $$props) $$invalidate(10, go = $$props.go);
+    		if ("current" in $$props) $$invalidate(0, current = $$props.current);
+    		if ("useKeys" in $$props) $$invalidate(11, useKeys = $$props.useKeys);
+    		if ("$$scope" in $$props) $$invalidate(14, $$scope = $$props.$$scope);
+    	};
+
+    	$$self.$capture_state = () => ({
+    		Siema,
+    		tap,
+    		onMount,
+    		perPage,
+    		loop,
+    		autoplay,
+    		go,
+    		current,
+    		useKeys,
+    		id,
+    		siema,
+    		controller,
+    		timer,
+    		left,
+    		right,
+    		goTo,
+    		pips
+    	});
+
+    	$$self.$inject_state = $$props => {
+    		if ("perPage" in $$props) $$invalidate(7, perPage = $$props.perPage);
+    		if ("loop" in $$props) $$invalidate(8, loop = $$props.loop);
+    		if ("autoplay" in $$props) $$invalidate(9, autoplay = $$props.autoplay);
+    		if ("go" in $$props) $$invalidate(10, go = $$props.go);
+    		if ("current" in $$props) $$invalidate(0, current = $$props.current);
+    		if ("useKeys" in $$props) $$invalidate(11, useKeys = $$props.useKeys);
+    		if ("id" in $$props) $$invalidate(1, id = $$props.id);
+    		if ("siema" in $$props) $$invalidate(2, siema = $$props.siema);
+    		if ("controller" in $$props) $$invalidate(12, controller = $$props.controller);
+    		if ("timer" in $$props) timer = $$props.timer;
+    		if ("pips" in $$props) $$invalidate(3, pips = $$props.pips);
+    	};
+
+    	let pips;
+
+    	if ($$props && "$$inject" in $$props) {
+    		$$self.$inject_state($$props.$$inject);
+    	}
+
+    	$$self.$$.update = () => {
+    		if ($$self.$$.dirty & /*go*/ 1024) {
+    			 goTo(go);
+    		}
+
+    		if ($$self.$$.dirty & /*controller*/ 4096) {
+    			 $$invalidate(3, pips = controller ? controller.innerElements : []);
+    		}
+    	};
+
+    	return [
+    		current,
+    		id,
+    		siema,
+    		pips,
+    		left,
+    		right,
+    		goTo,
+    		perPage,
+    		loop,
+    		autoplay,
+    		go,
+    		useKeys,
+    		controller,
+    		timer,
+    		$$scope,
+    		$$slots,
+    		div0_binding,
+    		tap_handler
+    	];
+    }
+
+    class Carousel extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+
+    		init(this, options, instance$8, create_fragment$8, safe_not_equal, {
+    			perPage: 7,
+    			loop: 8,
+    			autoplay: 9,
+    			go: 10,
+    			current: 0,
+    			useKeys: 11
+    		});
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "Carousel",
+    			options,
+    			id: create_fragment$8.name
+    		});
+    	}
+
+    	get perPage() {
+    		throw new Error("<Carousel>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set perPage(value) {
+    		throw new Error("<Carousel>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get loop() {
+    		throw new Error("<Carousel>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set loop(value) {
+    		throw new Error("<Carousel>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get autoplay() {
+    		throw new Error("<Carousel>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set autoplay(value) {
+    		throw new Error("<Carousel>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get go() {
+    		throw new Error("<Carousel>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set go(value) {
+    		throw new Error("<Carousel>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get current() {
+    		throw new Error("<Carousel>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set current(value) {
+    		throw new Error("<Carousel>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get useKeys() {
+    		throw new Error("<Carousel>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set useKeys(value) {
+    		throw new Error("<Carousel>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+    }
+
+    /* src/pages/components/LightBox.svelte generated by Svelte v3.19.2 */
+    const file$8 = "src/pages/components/LightBox.svelte";
+
+    function get_each_context$3(ctx, list, i) {
+    	const child_ctx = ctx.slice();
+    	child_ctx[1] = list[i];
+    	child_ctx[9] = i;
+    	return child_ctx;
+    }
+
+    // (116:12) {#if content.type=="image"|| !content.type }
+    function create_if_block$2(ctx) {
+    	let img;
+    	let img_src_value;
+    	let img_alt_value;
+
+    	const block = {
+    		c: function create() {
+    			img = element("img");
+    			this.h();
+    		},
+    		l: function claim(nodes) {
+    			img = claim_element(nodes, "IMG", { src: true, alt: true });
+    			this.h();
+    		},
+    		h: function hydrate() {
+    			if (img.src !== (img_src_value = /*content*/ ctx[1].full)) attr_dev(img, "src", img_src_value);
+    			attr_dev(img, "alt", img_alt_value = /*content*/ ctx[1].title);
+    			add_location(img, file$8, 116, 16, 3078);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, img, anchor);
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty & /*contents*/ 8 && img.src !== (img_src_value = /*content*/ ctx[1].full)) {
+    				attr_dev(img, "src", img_src_value);
+    			}
+
+    			if (dirty & /*contents*/ 8 && img_alt_value !== (img_alt_value = /*content*/ ctx[1].title)) {
+    				attr_dev(img, "alt", img_alt_value);
+    			}
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(img);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block$2.name,
+    		type: "if",
+    		source: "(116:12) {#if content.type==\\\"image\\\"|| !content.type }",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (115:8) {#each contents as content,i ("content_"+i)}
+    function create_each_block$3(key_1, ctx) {
+    	let first;
+    	let if_block_anchor;
+    	let if_block = (/*content*/ ctx[1].type == "image" || !/*content*/ ctx[1].type) && create_if_block$2(ctx);
+
+    	const block = {
+    		key: key_1,
+    		first: null,
+    		c: function create() {
+    			first = empty();
+    			if (if_block) if_block.c();
+    			if_block_anchor = empty();
+    			this.h();
+    		},
+    		l: function claim(nodes) {
+    			first = empty();
+    			if (if_block) if_block.l(nodes);
+    			if_block_anchor = empty();
+    			this.h();
+    		},
+    		h: function hydrate() {
+    			this.first = first;
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, first, anchor);
+    			if (if_block) if_block.m(target, anchor);
+    			insert_dev(target, if_block_anchor, anchor);
+    		},
+    		p: function update(ctx, dirty) {
+    			if (/*content*/ ctx[1].type == "image" || !/*content*/ ctx[1].type) {
+    				if (if_block) {
+    					if_block.p(ctx, dirty);
+    				} else {
+    					if_block = create_if_block$2(ctx);
+    					if_block.c();
+    					if_block.m(if_block_anchor.parentNode, if_block_anchor);
+    				}
+    			} else if (if_block) {
+    				if_block.d(1);
+    				if_block = null;
+    			}
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(first);
+    			if (if_block) if_block.d(detaching);
+    			if (detaching) detach_dev(if_block_anchor);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_each_block$3.name,
+    		type: "each",
+    		source: "(115:8) {#each contents as content,i (\\\"content_\\\"+i)}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (113:4) <Carousel perPage={({perParge:1})} go={go}>
+    function create_default_slot$1(ctx) {
+    	let each_blocks = [];
+    	let each_1_lookup = new Map();
+    	let each_1_anchor;
+    	let each_value = /*contents*/ ctx[3];
+    	validate_each_argument(each_value);
+    	const get_key = ctx => "content_" + /*i*/ ctx[9];
+    	validate_each_keys(ctx, each_value, get_each_context$3, get_key);
+
+    	for (let i = 0; i < each_value.length; i += 1) {
+    		let child_ctx = get_each_context$3(ctx, each_value, i);
+    		let key = get_key(child_ctx);
+    		each_1_lookup.set(key, each_blocks[i] = create_each_block$3(key, child_ctx));
+    	}
+
+    	const block = {
+    		c: function create() {
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].c();
+    			}
+
+    			each_1_anchor = empty();
+    		},
+    		l: function claim(nodes) {
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].l(nodes);
+    			}
+
+    			each_1_anchor = empty();
+    		},
+    		m: function mount(target, anchor) {
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].m(target, anchor);
+    			}
+
+    			insert_dev(target, each_1_anchor, anchor);
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty & /*contents*/ 8) {
+    				const each_value = /*contents*/ ctx[3];
+    				validate_each_argument(each_value);
+    				validate_each_keys(ctx, each_value, get_each_context$3, get_key);
+    				each_blocks = update_keyed_each(each_blocks, dirty, get_key, 1, ctx, each_value, each_1_lookup, each_1_anchor.parentNode, destroy_block, create_each_block$3, each_1_anchor, get_each_context$3);
+    			}
+    		},
+    		d: function destroy(detaching) {
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].d(detaching);
+    			}
+
+    			if (detaching) detach_dev(each_1_anchor);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_default_slot$1.name,
+    		type: "slot",
+    		source: "(113:4) <Carousel perPage={({perParge:1})} go={go}>",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function create_fragment$9(ctx) {
+    	let div1;
+    	let header;
+    	let button;
+    	let img;
+    	let img_src_value;
+    	let t0;
+    	let div0;
+    	let t1;
+    	let div1_class_value;
+    	let current;
+    	let dispose;
+
+    	const carousel = new Carousel({
+    			props: {
+    				perPage: { perParge: 1 },
+    				go: /*go*/ ctx[0],
+    				$$slots: { default: [create_default_slot$1] },
+    				$$scope: { ctx }
+    			},
+    			$$inline: true
+    		});
+
+    	const block = {
+    		c: function create() {
+    			div1 = element("div");
+    			header = element("header");
+    			button = element("button");
+    			img = element("img");
+    			t0 = space();
+    			div0 = element("div");
+    			t1 = space();
+    			create_component(carousel.$$.fragment);
+    			this.h();
+    		},
+    		l: function claim(nodes) {
+    			div1 = claim_element(nodes, "DIV", { class: true });
+    			var div1_nodes = children(div1);
+    			header = claim_element(div1_nodes, "HEADER", { class: true });
+    			var header_nodes = children(header);
+    			button = claim_element(header_nodes, "BUTTON", {});
+    			var button_nodes = children(button);
+    			img = claim_element(button_nodes, "IMG", { src: true, alt: true });
+    			button_nodes.forEach(detach_dev);
+    			header_nodes.forEach(detach_dev);
+    			t0 = claim_space(div1_nodes);
+    			div0 = claim_element(div1_nodes, "DIV", { class: true });
+    			children(div0).forEach(detach_dev);
+    			t1 = claim_space(div1_nodes);
+    			claim_component(carousel.$$.fragment, div1_nodes);
+    			div1_nodes.forEach(detach_dev);
+    			this.h();
+    		},
+    		h: function hydrate() {
+    			if (img.src !== (img_src_value = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsSAAALEgHS3X78AAABB0lEQVRIx+1V2wqCQBA1fRXxlpdvSeibE+oLgjLzQj9kszALh8VkdzN6qIEDus6eMzO7MzrO3yxtA1jTd9Zcy28voxG2IxwIBb97M75yLSPUhErhWBQQ5BPhRkhmRORzSLiy78lEoGBysfFOiIEYyRv26QiljgDWNWFyVUQlHwip6ZnIKGMQ6QkBwSe0vDYCuWd64CjSM+GFcObnB2FrS66KBEw+MUQG0bvkuNmHyGUmwVrRh1DzFjLpldtlTd5AzSOOvIPbZVwqd4Z8hANVb1cLmbi6oyKDDh2UqygjjaB0oilzk06uoUPThVERQ8cfTQQqni2lxrDLmXyvOyo+Oq6/8sP5cXsCaq5BhBP4KlEAAAAASUVORK5CYII=")) attr_dev(img, "src", img_src_value);
+    			attr_dev(img, "alt", "");
+    			add_location(img, file$8, 107, 12, 2297);
+    			add_location(button, file$8, 106, 8, 2259);
+    			attr_dev(header, "class", "svelte-70dez0");
+    			add_location(header, file$8, 105, 4, 2242);
+    			attr_dev(div0, "class", "Lightbox__Overlay svelte-70dez0");
+    			add_location(div0, file$8, 111, 4, 2836);
+    			attr_dev(div1, "class", div1_class_value = "" + (null_to_empty(/*classList*/ ctx[2]) + " svelte-70dez0"));
+    			add_location(div1, file$8, 104, 0, 2214);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div1, anchor);
+    			append_dev(div1, header);
+    			append_dev(header, button);
+    			append_dev(button, img);
+    			append_dev(div1, t0);
+    			append_dev(div1, div0);
+    			append_dev(div1, t1);
+    			mount_component(carousel, div1, null);
+    			current = true;
+
+    			dispose = [
+    				listen_dev(button, "click", /*close*/ ctx[4], false, false, false),
+    				listen_dev(div0, "click", /*close*/ ctx[4], false, false, false)
+    			];
+    		},
+    		p: function update(ctx, [dirty]) {
+    			const carousel_changes = {};
+    			if (dirty & /*go*/ 1) carousel_changes.go = /*go*/ ctx[0];
+
+    			if (dirty & /*$$scope, contents*/ 1032) {
+    				carousel_changes.$$scope = { dirty, ctx };
+    			}
+
+    			carousel.$set(carousel_changes);
+
+    			if (!current || dirty & /*classList*/ 4 && div1_class_value !== (div1_class_value = "" + (null_to_empty(/*classList*/ ctx[2]) + " svelte-70dez0"))) {
+    				attr_dev(div1, "class", div1_class_value);
+    			}
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(carousel.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(carousel.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(div1);
+    			destroy_component(carousel);
+    			run_all(dispose);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$9.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function instance$9($$self, $$props, $$invalidate) {
+    	let { content } = $$props;
+    	let { go } = $$props;
+    	let classBase = "LightBox";
+    	let classList = `${classBase} ${classBase}--hidden`;
+    	let shouldOpen = false;
+
+    	onMount(() => {
+    		shouldOpen = true;
+
+    		document.addEventListener("keydown", event => {
+    			switch (event.keyCode) {
+    				case 27:
+    					close();
+    					break;
+    			}
+    		});
+    	});
+
+    	const open = goIndex => {
+    		if ((goIndex === 0 || goIndex > 0) && shouldOpen) {
+    			$$invalidate(2, classList = classBase);
+    		}
+    	};
+
+    	const close = () => {
+    		$$invalidate(0, go = null);
+    		$$invalidate(2, classList = `${classBase} ${classBase}--hidden`);
+    	};
+
+    	const writable_props = ["content", "go"];
+
+    	Object.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console.warn(`<LightBox> was created with unknown prop '${key}'`);
+    	});
+
+    	let { $$slots = {}, $$scope } = $$props;
+    	validate_slots("LightBox", $$slots, []);
+
+    	$$self.$set = $$props => {
+    		if ("content" in $$props) $$invalidate(1, content = $$props.content);
+    		if ("go" in $$props) $$invalidate(0, go = $$props.go);
+    	};
+
+    	$$self.$capture_state = () => ({
+    		Carousel,
+    		onMount,
+    		content,
+    		go,
+    		classBase,
+    		classList,
+    		shouldOpen,
+    		open,
+    		close,
+    		contents
+    	});
+
+    	$$self.$inject_state = $$props => {
+    		if ("content" in $$props) $$invalidate(1, content = $$props.content);
+    		if ("go" in $$props) $$invalidate(0, go = $$props.go);
+    		if ("classBase" in $$props) classBase = $$props.classBase;
+    		if ("classList" in $$props) $$invalidate(2, classList = $$props.classList);
+    		if ("shouldOpen" in $$props) shouldOpen = $$props.shouldOpen;
+    		if ("contents" in $$props) $$invalidate(3, contents = $$props.contents);
+    	};
+
+    	let contents;
+
+    	if ($$props && "$$inject" in $$props) {
+    		$$self.$inject_state($$props.$$inject);
+    	}
+
+    	$$self.$$.update = () => {
+    		if ($$self.$$.dirty & /*content*/ 2) {
+    			 $$invalidate(3, contents = Array.isArray(content) ? content : [content]);
+    		}
+
+    		if ($$self.$$.dirty & /*go*/ 1) {
+    			 open(go);
+    		}
+    	};
+
+    	return [go, content, classList, contents, close];
+    }
+
+    class LightBox extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance$9, create_fragment$9, safe_not_equal, { content: 1, go: 0 });
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "LightBox",
+    			options,
+    			id: create_fragment$9.name
+    		});
+
+    		const { ctx } = this.$$;
+    		const props = options.props || {};
+
+    		if (/*content*/ ctx[1] === undefined && !("content" in props)) {
+    			console.warn("<LightBox> was created without expected prop 'content'");
+    		}
+
+    		if (/*go*/ ctx[0] === undefined && !("go" in props)) {
+    			console.warn("<LightBox> was created without expected prop 'go'");
+    		}
+    	}
+
+    	get content() {
+    		throw new Error("<LightBox>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set content(value) {
+    		throw new Error("<LightBox>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get go() {
+    		throw new Error("<LightBox>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set go(value) {
+    		throw new Error("<LightBox>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+    }
+
+    /* src/pages/datenschutz.svelte generated by Svelte v3.19.2 */
+
+    const file$9 = "src/pages/datenschutz.svelte";
+
+    function create_fragment$a(ctx) {
+    	let meta0;
+    	let meta1;
+    	let t0;
+    	let div0;
+    	let h3;
+    	let t1;
+    	let t2;
+    	let div2;
+    	let div1;
+    	let h40;
+    	let t3;
+    	let t4;
+    	let p0;
+    	let t5;
+    	let t6;
+    	let p1;
+    	let t7;
+    	let t8;
+    	let h41;
+    	let t9;
+    	let t10;
+    	let p2;
+    	let t11;
+    	let t12;
+    	let ul0;
+    	let li0;
+    	let t13;
+    	let t14;
+    	let li1;
+    	let t15;
+    	let t16;
+    	let li2;
+    	let t17;
+    	let t18;
+    	let li3;
+    	let t19;
+    	let t20;
+    	let h42;
+    	let t21;
+    	let t22;
+    	let p3;
+    	let t23;
+    	let t24;
+    	let p4;
+    	let t25;
+    	let t26;
+    	let h43;
+    	let t27;
+    	let t28;
+    	let p5;
+    	let t29;
+    	let t30;
+    	let ul1;
+    	let li4;
+    	let t31;
+    	let t32;
+    	let li5;
+    	let t33;
+    	let t34;
+    	let li6;
+    	let t35;
+    	let t36;
+    	let li7;
+    	let t37;
+    	let t38;
+    	let p6;
+    	let t39;
+    	let t40;
+    	let h44;
+    	let t41;
+    	let t42;
+    	let p7;
+    	let t43;
+    	let t44;
+    	let ul2;
+    	let li8;
+    	let t45;
+    	let t46;
+    	let li9;
+    	let t47;
+    	let t48;
+    	let li10;
+    	let t49;
+    	let t50;
+    	let li11;
+    	let t51;
+    	let t52;
+    	let li12;
+    	let t53;
+    	let t54;
+    	let li13;
+    	let t55;
+    	let t56;
+    	let p8;
+    	let t57;
+    	let t58;
+    	let h45;
+    	let t59;
+    	let t60;
+    	let p9;
+    	let t61;
+    	let t62;
+    	let h46;
+    	let t63;
+    	let t64;
+    	let p10;
+    	let t65;
+    	let t66;
+    	let h47;
+    	let t67;
+    	let t68;
+    	let p11;
+    	let t69;
+    	let t70;
+    	let h48;
+    	let t71;
+    	let t72;
+    	let p12;
+    	let t73;
+
+    	const block = {
+    		c: function create() {
+    			meta0 = element("meta");
+    			meta1 = element("meta");
+    			t0 = space();
+    			div0 = element("div");
+    			h3 = element("h3");
+    			t1 = text("Datenschutz");
+    			t2 = space();
+    			div2 = element("div");
+    			div1 = element("div");
+    			h40 = element("h4");
+    			t3 = text("Verantwortliche Stelle im Sinne der Datenschutzgesetze, insbesondere der\n      EU-Datenschutzgrundverordnung (DSGVO), ist:");
+    			t4 = space();
+    			p0 = element("p");
+    			t5 = text("Damit Sie unsere angebotene Leistung zur Beratung und Vertretung in\n      Rechtsangelegenheiten in Anspruch nehmen können, erheben, verarbeiten und\n      nutzen wir personenbezogene Daten. Mit der Zustimmung zu dieser\n      Datenschutzerklärung willigen Sie in die Erhebung, Verarbeitung und\n      Nutzung Ihrer personenbezogenen Daten gemäß den nachfolgenden Bestimmungen\n      unter Beachtung des gelten der Datenschutzgrundverordnung ein. Sie können\n      Ihr einmal gegebenes Einverständnis jederzeit mit Wirkung für die Zukunft\n      widerrufen und/ oder künftigen Verwendungen Ihrer Daten widersprechen,\n      sofern die Verarbeitung und Nutzung der Daten nicht zu Zwecken der\n      Vertragsabwicklung benötigt werden. Wir löschen im Übrigen die Daten, wenn\n      etwaige gesetzliche Aufbewahrungspflichten abgelaufen sind, Sie einen\n      Löschungsanspruch geltend gemacht haben oder eine weitere Speicherung\n      nicht mehr erforderlich ist, um den ursprünglich angestrebten\n      (Vertrags-)Zweck zu erfüllen.");
+    			t6 = space();
+    			p1 = element("p");
+    			t7 = text("Wir erheben und verarbeiten personenbezogene Daten als Bestandsdaten nur,\n      wenn dies für die Begründung und inhaltliche Ausgestaltung oder Änderung\n      der vertraglichen Rechtsverhältnisse notwendig sind (Datenerhebungs- und\n      Verarbeitungszweck). Personenbezogene Daten als Nutzungsdaten über die\n      Inanspruchnahme unserer Homepage erheben wir nicht. Bei Eingehung eines\n      Mandatsverhältnisses oder einer Beratung werden folgende Daten erhoben,\n      verarbeitet und gespeichert: Name, Anschrift, Telefonnummer, Emailadresse,\n      gegebenenfalls bei familien- und erbrechtlichen Angelegenheiten das\n      Geburtsdatum und der Geburtsort, sowie die Staatsangehörigkeit.");
+    			t8 = space();
+    			h41 = element("h4");
+    			t9 = text("Zwecke der Datenverarbeitung durch die verantwortliche Stelle und Dritte");
+    			t10 = space();
+    			p2 = element("p");
+    			t11 = text("Wir verarbeiten Ihre personenbezogenen Daten nur zu den in dieser\n      Datenschutzerklärung genannten Zwecken. Eine Übermittlung Ihrer\n      persönlichen Daten an Dritte zu anderen als den genannten Zwecken findet\n      nicht statt. Wir geben Ihre persönlichen Daten nur an Dritte weiter, wenn:");
+    			t12 = space();
+    			ul0 = element("ul");
+    			li0 = element("li");
+    			t13 = text("Sie Ihre ausdrückliche Einwilligung dazu erteilt haben,");
+    			t14 = space();
+    			li1 = element("li");
+    			t15 = text("die Verarbeitung zur Abwicklung eines Vertrags mit Ihnen erforderlich\n        ist,");
+    			t16 = space();
+    			li2 = element("li");
+    			t17 = text("die Verarbeitung zur Erfüllung einer rechtlichen Verpflichtung\n        erforderlich ist,");
+    			t18 = space();
+    			li3 = element("li");
+    			t19 = text("die Verarbeitung zur Wahrung berechtigter Interessen erforderlich ist\n        und kein Grund zur Annahme besteht, dass Sie ein überwiegendes\n        schutzwürdiges Interesse an der Nichtweitergabe Ihrer Daten haben.");
+    			t20 = space();
+    			h42 = element("h4");
+    			t21 = text("Löschung bzw. Sperrung der Daten");
+    			t22 = space();
+    			p3 = element("p");
+    			t23 = text("Wir halten uns an die Grundsätze der Datenvermeidung und Datensparsamkeit.\n      Wir speichern Ihre personenbezogenen Daten daher nur so lange, wie dies\n      zur Erreichung der hier genannten Zwecke erforderlich ist oder wie es die\n      vom Gesetzgeber vorgesehenen vielfältigen Speicherfristen vorsehen. Nach\n      Fortfall des jeweiligen Zweckes bzw. Ablauf dieser Fristen werden die\n      entsprechenden Daten routinemäßig und entsprechend den gesetzlichen\n      Vorschriften gesperrt oder gelöscht.");
+    			t24 = space();
+    			p4 = element("p");
+    			t25 = text("Natürlich lassen wir Ihre individuellen Wünsche in die Planungen\n      einfließen und können auch einzelne Leistungen anbieten.");
+    			t26 = space();
+    			h43 = element("h4");
+    			t27 = text("Recht auf Auskunft, Löschung und Sperrung");
+    			t28 = space();
+    			p5 = element("p");
+    			t29 = text("Gem. Art. 15 DSGVO hat jede Person das Recht, von uns eine Bestätigung\n      darüber zu verlangen, ob betreffende personenbezogene Daten verarbeitet\n      werden. Wir stellen eine Kopie der personenbezogenen Daten, die Gegenstand\n      der Verarbeitung sind zur Verfügung, soweit dadurch nicht Rechte oder\n      Freiheiten anderer Personen beeinträchtigt werden. Für alle weiteren\n      Kopien kann von uns ein angemessenes Entgelt auf der Grundlage der\n      Verwaltungskosten verlangt werden. Wird der Auskunftsantrag elektronisch\n      gestellt, so werden die Informationen von uns in einem gängigen\n      elektronischen Format zur Verfügung gestellt. Werden personenbezogene\n      Daten verarbeitet, erstreckt sich das Auskunftsrecht auf folgende\n      Informationen:");
+    			t30 = space();
+    			ul1 = element("ul");
+    			li4 = element("li");
+    			t31 = text("Verarbeitungszweck,");
+    			t32 = space();
+    			li5 = element("li");
+    			t33 = text("Kategorien personenbezogener Daten, die verarbeitet werden,");
+    			t34 = space();
+    			li6 = element("li");
+    			t35 = text("Empfänger oder Kategorien von Empfängern, gegenüber denen die\n        personenbezogenen Daten offengelegt worden sind oder noch offengelegt\n        werden,");
+    			t36 = space();
+    			li7 = element("li");
+    			t37 = text("geplante Daten, für die die personenbezogenen Daten gespeichert werden.");
+    			t38 = space();
+    			p6 = element("p");
+    			t39 = text("Weiter steht das Recht auf Berichtigung und Löschung der personenbezogenen\n      Daten oder Einschränkung der Verarbeitung sowie ein Widerspruchsrecht\n      gegen die Verarbeitung jeder betroffenen Person zu.");
+    			t40 = space();
+    			h44 = element("h4");
+    			t41 = text("Ihre Betroffenenrechte");
+    			t42 = space();
+    			p7 = element("p");
+    			t43 = text("Unter den angegebenen Kontaktdaten der verantwortlichen Stelle können Sie\n      jederzeit folgende Rechte ausüben:");
+    			t44 = space();
+    			ul2 = element("ul");
+    			li8 = element("li");
+    			t45 = text("Auskunft über Ihre bei uns gespeicherten Daten und deren Verarbeitung,");
+    			t46 = space();
+    			li9 = element("li");
+    			t47 = text("Berichtigung unrichtiger personenbezogener Daten,");
+    			t48 = space();
+    			li10 = element("li");
+    			t49 = text("Löschung Ihrer bei uns gespeicherten Daten,");
+    			t50 = space();
+    			li11 = element("li");
+    			t51 = text("Einschränkung der Datenverarbeitung, sofern wir Ihre Daten aufgrund\n        gesetzlicher Pflichten noch nicht löschen dürfen,");
+    			t52 = space();
+    			li12 = element("li");
+    			t53 = text("Widerspruch gegen die Verarbeitung Ihrer Daten bei uns und");
+    			t54 = space();
+    			li13 = element("li");
+    			t55 = text("Datenübertragbarkeit, sofern Sie in die Datenverarbeitung eingewilligt\n        haben oder einen Vertrag mit uns abgeschlossen haben.");
+    			t56 = space();
+    			p8 = element("p");
+    			t57 = text("Sofern Sie uns eine Einwilligung erteilt haben, können Sie diese jederzeit\n      mit Wirkung für die Zukunft widerrufen. Sie können sich jederzeit mit\n      einer Beschwerde an die für Sie zuständige Aufsichtsbehörde wenden. Ihre\n      zuständige Aufsichtsbehörde richtet sich nach dem Bundesland Ihres\n      Wohnsitzes, Ihrer Arbeit oder der mutmaßlichen Verletzung. Eine Liste der\n      Aufsichtsbehörden (für den nichtöffentlichen Bereich) mit Anschrift finden\n      Sie unter:\n      https://www.bfdi.bund.de/DE/Infothek/Anschriften_Links/anschriften_links-node.html");
+    			t58 = space();
+    			h45 = element("h4");
+    			t59 = text("SSL-Verschlüsselung");
+    			t60 = space();
+    			p9 = element("p");
+    			t61 = text("Um die Sicherheit Ihrer Daten bei der Übertragung zu schützen, verwenden\n      wir dem aktuellen Stand der Technik entsprechende\n      Verschlüsselungsverfahren (z. B. SSL) über HTTPS.");
+    			t62 = space();
+    			h46 = element("h4");
+    			t63 = text("Log-Dateien");
+    			t64 = space();
+    			p10 = element("p");
+    			t65 = text("Beim Besuch unserer Homepage werden Zugriffsdaten gespeichert. Diese Daten\n      enthalten Datum und Uhrzeit des Abrufs, Name der aufgerufenen Seite,\n      IP-Adresse, Referrer-URL, die übertragene Datenmenge und\n      Versionsinformationen zum Browser. Bei der Anonymisierung werden die\n      IP-Adressen derart verändert, dass die Einzelangaben über persönliche\n      Daten nicht mehr bestimmbar sind und einer natürlichen Person nicht mehr\n      zu geordnet werden können.");
+    			t66 = space();
+    			h47 = element("h4");
+    			t67 = text("Cookies");
+    			t68 = space();
+    			p11 = element("p");
+    			t69 = text("Die Homepage verwendet keine Cookies.");
+    			t70 = space();
+    			h48 = element("h4");
+    			t71 = text("Änderung unserer Datenschutzbestimmungen");
+    			t72 = space();
+    			p12 = element("p");
+    			t73 = text("Wir behalten uns vor, diese Datenschutzerklärung anzupassen, damit sie\n      stets den aktuellen rechtlichen Anforderungen entspricht oder um\n      Änderungen unserer Leistungen in der Datenschutzerklärung umzusetzen, z.B.\n      bei der Einführung neuer Services. Für Ihren erneuten Besuch gilt dann die\n      neue Datenschutzerklärung.");
+    			this.h();
+    		},
+    		l: function claim(nodes) {
+    			const head_nodes = query_selector_all("[data-svelte=\"svelte-tha89x\"]", document.head);
+    			meta0 = claim_element(head_nodes, "META", { name: true, content: true });
+    			meta1 = claim_element(head_nodes, "META", { name: true, content: true });
+    			head_nodes.forEach(detach_dev);
+    			t0 = claim_space(nodes);
+    			div0 = claim_element(nodes, "DIV", { class: true });
+    			var div0_nodes = children(div0);
+    			h3 = claim_element(div0_nodes, "H3", {});
+    			var h3_nodes = children(h3);
+    			t1 = claim_text(h3_nodes, "Datenschutz");
+    			h3_nodes.forEach(detach_dev);
+    			div0_nodes.forEach(detach_dev);
+    			t2 = claim_space(nodes);
+    			div2 = claim_element(nodes, "DIV", { class: true });
+    			var div2_nodes = children(div2);
+    			div1 = claim_element(div2_nodes, "DIV", { class: true });
+    			var div1_nodes = children(div1);
+    			h40 = claim_element(div1_nodes, "H4", {});
+    			var h40_nodes = children(h40);
+    			t3 = claim_text(h40_nodes, "Verantwortliche Stelle im Sinne der Datenschutzgesetze, insbesondere der\n      EU-Datenschutzgrundverordnung (DSGVO), ist:");
+    			h40_nodes.forEach(detach_dev);
+    			t4 = claim_space(div1_nodes);
+    			p0 = claim_element(div1_nodes, "P", {});
+    			var p0_nodes = children(p0);
+    			t5 = claim_text(p0_nodes, "Damit Sie unsere angebotene Leistung zur Beratung und Vertretung in\n      Rechtsangelegenheiten in Anspruch nehmen können, erheben, verarbeiten und\n      nutzen wir personenbezogene Daten. Mit der Zustimmung zu dieser\n      Datenschutzerklärung willigen Sie in die Erhebung, Verarbeitung und\n      Nutzung Ihrer personenbezogenen Daten gemäß den nachfolgenden Bestimmungen\n      unter Beachtung des gelten der Datenschutzgrundverordnung ein. Sie können\n      Ihr einmal gegebenes Einverständnis jederzeit mit Wirkung für die Zukunft\n      widerrufen und/ oder künftigen Verwendungen Ihrer Daten widersprechen,\n      sofern die Verarbeitung und Nutzung der Daten nicht zu Zwecken der\n      Vertragsabwicklung benötigt werden. Wir löschen im Übrigen die Daten, wenn\n      etwaige gesetzliche Aufbewahrungspflichten abgelaufen sind, Sie einen\n      Löschungsanspruch geltend gemacht haben oder eine weitere Speicherung\n      nicht mehr erforderlich ist, um den ursprünglich angestrebten\n      (Vertrags-)Zweck zu erfüllen.");
+    			p0_nodes.forEach(detach_dev);
+    			t6 = claim_space(div1_nodes);
+    			p1 = claim_element(div1_nodes, "P", {});
+    			var p1_nodes = children(p1);
+    			t7 = claim_text(p1_nodes, "Wir erheben und verarbeiten personenbezogene Daten als Bestandsdaten nur,\n      wenn dies für die Begründung und inhaltliche Ausgestaltung oder Änderung\n      der vertraglichen Rechtsverhältnisse notwendig sind (Datenerhebungs- und\n      Verarbeitungszweck). Personenbezogene Daten als Nutzungsdaten über die\n      Inanspruchnahme unserer Homepage erheben wir nicht. Bei Eingehung eines\n      Mandatsverhältnisses oder einer Beratung werden folgende Daten erhoben,\n      verarbeitet und gespeichert: Name, Anschrift, Telefonnummer, Emailadresse,\n      gegebenenfalls bei familien- und erbrechtlichen Angelegenheiten das\n      Geburtsdatum und der Geburtsort, sowie die Staatsangehörigkeit.");
+    			p1_nodes.forEach(detach_dev);
+    			t8 = claim_space(div1_nodes);
+    			h41 = claim_element(div1_nodes, "H4", {});
+    			var h41_nodes = children(h41);
+    			t9 = claim_text(h41_nodes, "Zwecke der Datenverarbeitung durch die verantwortliche Stelle und Dritte");
+    			h41_nodes.forEach(detach_dev);
+    			t10 = claim_space(div1_nodes);
+    			p2 = claim_element(div1_nodes, "P", {});
+    			var p2_nodes = children(p2);
+    			t11 = claim_text(p2_nodes, "Wir verarbeiten Ihre personenbezogenen Daten nur zu den in dieser\n      Datenschutzerklärung genannten Zwecken. Eine Übermittlung Ihrer\n      persönlichen Daten an Dritte zu anderen als den genannten Zwecken findet\n      nicht statt. Wir geben Ihre persönlichen Daten nur an Dritte weiter, wenn:");
+    			p2_nodes.forEach(detach_dev);
+    			t12 = claim_space(div1_nodes);
+    			ul0 = claim_element(div1_nodes, "UL", {});
+    			var ul0_nodes = children(ul0);
+    			li0 = claim_element(ul0_nodes, "LI", {});
+    			var li0_nodes = children(li0);
+    			t13 = claim_text(li0_nodes, "Sie Ihre ausdrückliche Einwilligung dazu erteilt haben,");
+    			li0_nodes.forEach(detach_dev);
+    			t14 = claim_space(ul0_nodes);
+    			li1 = claim_element(ul0_nodes, "LI", {});
+    			var li1_nodes = children(li1);
+    			t15 = claim_text(li1_nodes, "die Verarbeitung zur Abwicklung eines Vertrags mit Ihnen erforderlich\n        ist,");
+    			li1_nodes.forEach(detach_dev);
+    			t16 = claim_space(ul0_nodes);
+    			li2 = claim_element(ul0_nodes, "LI", {});
+    			var li2_nodes = children(li2);
+    			t17 = claim_text(li2_nodes, "die Verarbeitung zur Erfüllung einer rechtlichen Verpflichtung\n        erforderlich ist,");
+    			li2_nodes.forEach(detach_dev);
+    			t18 = claim_space(ul0_nodes);
+    			li3 = claim_element(ul0_nodes, "LI", {});
+    			var li3_nodes = children(li3);
+    			t19 = claim_text(li3_nodes, "die Verarbeitung zur Wahrung berechtigter Interessen erforderlich ist\n        und kein Grund zur Annahme besteht, dass Sie ein überwiegendes\n        schutzwürdiges Interesse an der Nichtweitergabe Ihrer Daten haben.");
+    			li3_nodes.forEach(detach_dev);
+    			ul0_nodes.forEach(detach_dev);
+    			t20 = claim_space(div1_nodes);
+    			h42 = claim_element(div1_nodes, "H4", {});
+    			var h42_nodes = children(h42);
+    			t21 = claim_text(h42_nodes, "Löschung bzw. Sperrung der Daten");
+    			h42_nodes.forEach(detach_dev);
+    			t22 = claim_space(div1_nodes);
+    			p3 = claim_element(div1_nodes, "P", {});
+    			var p3_nodes = children(p3);
+    			t23 = claim_text(p3_nodes, "Wir halten uns an die Grundsätze der Datenvermeidung und Datensparsamkeit.\n      Wir speichern Ihre personenbezogenen Daten daher nur so lange, wie dies\n      zur Erreichung der hier genannten Zwecke erforderlich ist oder wie es die\n      vom Gesetzgeber vorgesehenen vielfältigen Speicherfristen vorsehen. Nach\n      Fortfall des jeweiligen Zweckes bzw. Ablauf dieser Fristen werden die\n      entsprechenden Daten routinemäßig und entsprechend den gesetzlichen\n      Vorschriften gesperrt oder gelöscht.");
+    			p3_nodes.forEach(detach_dev);
+    			t24 = claim_space(div1_nodes);
+    			p4 = claim_element(div1_nodes, "P", {});
+    			var p4_nodes = children(p4);
+    			t25 = claim_text(p4_nodes, "Natürlich lassen wir Ihre individuellen Wünsche in die Planungen\n      einfließen und können auch einzelne Leistungen anbieten.");
+    			p4_nodes.forEach(detach_dev);
+    			t26 = claim_space(div1_nodes);
+    			h43 = claim_element(div1_nodes, "H4", {});
+    			var h43_nodes = children(h43);
+    			t27 = claim_text(h43_nodes, "Recht auf Auskunft, Löschung und Sperrung");
+    			h43_nodes.forEach(detach_dev);
+    			t28 = claim_space(div1_nodes);
+    			p5 = claim_element(div1_nodes, "P", {});
+    			var p5_nodes = children(p5);
+    			t29 = claim_text(p5_nodes, "Gem. Art. 15 DSGVO hat jede Person das Recht, von uns eine Bestätigung\n      darüber zu verlangen, ob betreffende personenbezogene Daten verarbeitet\n      werden. Wir stellen eine Kopie der personenbezogenen Daten, die Gegenstand\n      der Verarbeitung sind zur Verfügung, soweit dadurch nicht Rechte oder\n      Freiheiten anderer Personen beeinträchtigt werden. Für alle weiteren\n      Kopien kann von uns ein angemessenes Entgelt auf der Grundlage der\n      Verwaltungskosten verlangt werden. Wird der Auskunftsantrag elektronisch\n      gestellt, so werden die Informationen von uns in einem gängigen\n      elektronischen Format zur Verfügung gestellt. Werden personenbezogene\n      Daten verarbeitet, erstreckt sich das Auskunftsrecht auf folgende\n      Informationen:");
+    			p5_nodes.forEach(detach_dev);
+    			t30 = claim_space(div1_nodes);
+    			ul1 = claim_element(div1_nodes, "UL", {});
+    			var ul1_nodes = children(ul1);
+    			li4 = claim_element(ul1_nodes, "LI", {});
+    			var li4_nodes = children(li4);
+    			t31 = claim_text(li4_nodes, "Verarbeitungszweck,");
+    			li4_nodes.forEach(detach_dev);
+    			t32 = claim_space(ul1_nodes);
+    			li5 = claim_element(ul1_nodes, "LI", {});
+    			var li5_nodes = children(li5);
+    			t33 = claim_text(li5_nodes, "Kategorien personenbezogener Daten, die verarbeitet werden,");
+    			li5_nodes.forEach(detach_dev);
+    			t34 = claim_space(ul1_nodes);
+    			li6 = claim_element(ul1_nodes, "LI", {});
+    			var li6_nodes = children(li6);
+    			t35 = claim_text(li6_nodes, "Empfänger oder Kategorien von Empfängern, gegenüber denen die\n        personenbezogenen Daten offengelegt worden sind oder noch offengelegt\n        werden,");
+    			li6_nodes.forEach(detach_dev);
+    			t36 = claim_space(ul1_nodes);
+    			li7 = claim_element(ul1_nodes, "LI", {});
+    			var li7_nodes = children(li7);
+    			t37 = claim_text(li7_nodes, "geplante Daten, für die die personenbezogenen Daten gespeichert werden.");
+    			li7_nodes.forEach(detach_dev);
+    			ul1_nodes.forEach(detach_dev);
+    			t38 = claim_space(div1_nodes);
+    			p6 = claim_element(div1_nodes, "P", {});
+    			var p6_nodes = children(p6);
+    			t39 = claim_text(p6_nodes, "Weiter steht das Recht auf Berichtigung und Löschung der personenbezogenen\n      Daten oder Einschränkung der Verarbeitung sowie ein Widerspruchsrecht\n      gegen die Verarbeitung jeder betroffenen Person zu.");
+    			p6_nodes.forEach(detach_dev);
+    			t40 = claim_space(div1_nodes);
+    			h44 = claim_element(div1_nodes, "H4", {});
+    			var h44_nodes = children(h44);
+    			t41 = claim_text(h44_nodes, "Ihre Betroffenenrechte");
+    			h44_nodes.forEach(detach_dev);
+    			t42 = claim_space(div1_nodes);
+    			p7 = claim_element(div1_nodes, "P", {});
+    			var p7_nodes = children(p7);
+    			t43 = claim_text(p7_nodes, "Unter den angegebenen Kontaktdaten der verantwortlichen Stelle können Sie\n      jederzeit folgende Rechte ausüben:");
+    			p7_nodes.forEach(detach_dev);
+    			t44 = claim_space(div1_nodes);
+    			ul2 = claim_element(div1_nodes, "UL", {});
+    			var ul2_nodes = children(ul2);
+    			li8 = claim_element(ul2_nodes, "LI", {});
+    			var li8_nodes = children(li8);
+    			t45 = claim_text(li8_nodes, "Auskunft über Ihre bei uns gespeicherten Daten und deren Verarbeitung,");
+    			li8_nodes.forEach(detach_dev);
+    			t46 = claim_space(ul2_nodes);
+    			li9 = claim_element(ul2_nodes, "LI", {});
+    			var li9_nodes = children(li9);
+    			t47 = claim_text(li9_nodes, "Berichtigung unrichtiger personenbezogener Daten,");
+    			li9_nodes.forEach(detach_dev);
+    			t48 = claim_space(ul2_nodes);
+    			li10 = claim_element(ul2_nodes, "LI", {});
+    			var li10_nodes = children(li10);
+    			t49 = claim_text(li10_nodes, "Löschung Ihrer bei uns gespeicherten Daten,");
+    			li10_nodes.forEach(detach_dev);
+    			t50 = claim_space(ul2_nodes);
+    			li11 = claim_element(ul2_nodes, "LI", {});
+    			var li11_nodes = children(li11);
+    			t51 = claim_text(li11_nodes, "Einschränkung der Datenverarbeitung, sofern wir Ihre Daten aufgrund\n        gesetzlicher Pflichten noch nicht löschen dürfen,");
+    			li11_nodes.forEach(detach_dev);
+    			t52 = claim_space(ul2_nodes);
+    			li12 = claim_element(ul2_nodes, "LI", {});
+    			var li12_nodes = children(li12);
+    			t53 = claim_text(li12_nodes, "Widerspruch gegen die Verarbeitung Ihrer Daten bei uns und");
+    			li12_nodes.forEach(detach_dev);
+    			t54 = claim_space(ul2_nodes);
+    			li13 = claim_element(ul2_nodes, "LI", {});
+    			var li13_nodes = children(li13);
+    			t55 = claim_text(li13_nodes, "Datenübertragbarkeit, sofern Sie in die Datenverarbeitung eingewilligt\n        haben oder einen Vertrag mit uns abgeschlossen haben.");
+    			li13_nodes.forEach(detach_dev);
+    			ul2_nodes.forEach(detach_dev);
+    			t56 = claim_space(div1_nodes);
+    			p8 = claim_element(div1_nodes, "P", {});
+    			var p8_nodes = children(p8);
+    			t57 = claim_text(p8_nodes, "Sofern Sie uns eine Einwilligung erteilt haben, können Sie diese jederzeit\n      mit Wirkung für die Zukunft widerrufen. Sie können sich jederzeit mit\n      einer Beschwerde an die für Sie zuständige Aufsichtsbehörde wenden. Ihre\n      zuständige Aufsichtsbehörde richtet sich nach dem Bundesland Ihres\n      Wohnsitzes, Ihrer Arbeit oder der mutmaßlichen Verletzung. Eine Liste der\n      Aufsichtsbehörden (für den nichtöffentlichen Bereich) mit Anschrift finden\n      Sie unter:\n      https://www.bfdi.bund.de/DE/Infothek/Anschriften_Links/anschriften_links-node.html");
+    			p8_nodes.forEach(detach_dev);
+    			t58 = claim_space(div1_nodes);
+    			h45 = claim_element(div1_nodes, "H4", {});
+    			var h45_nodes = children(h45);
+    			t59 = claim_text(h45_nodes, "SSL-Verschlüsselung");
+    			h45_nodes.forEach(detach_dev);
+    			t60 = claim_space(div1_nodes);
+    			p9 = claim_element(div1_nodes, "P", {});
+    			var p9_nodes = children(p9);
+    			t61 = claim_text(p9_nodes, "Um die Sicherheit Ihrer Daten bei der Übertragung zu schützen, verwenden\n      wir dem aktuellen Stand der Technik entsprechende\n      Verschlüsselungsverfahren (z. B. SSL) über HTTPS.");
+    			p9_nodes.forEach(detach_dev);
+    			t62 = claim_space(div1_nodes);
+    			h46 = claim_element(div1_nodes, "H4", {});
+    			var h46_nodes = children(h46);
+    			t63 = claim_text(h46_nodes, "Log-Dateien");
+    			h46_nodes.forEach(detach_dev);
+    			t64 = claim_space(div1_nodes);
+    			p10 = claim_element(div1_nodes, "P", {});
+    			var p10_nodes = children(p10);
+    			t65 = claim_text(p10_nodes, "Beim Besuch unserer Homepage werden Zugriffsdaten gespeichert. Diese Daten\n      enthalten Datum und Uhrzeit des Abrufs, Name der aufgerufenen Seite,\n      IP-Adresse, Referrer-URL, die übertragene Datenmenge und\n      Versionsinformationen zum Browser. Bei der Anonymisierung werden die\n      IP-Adressen derart verändert, dass die Einzelangaben über persönliche\n      Daten nicht mehr bestimmbar sind und einer natürlichen Person nicht mehr\n      zu geordnet werden können.");
+    			p10_nodes.forEach(detach_dev);
+    			t66 = claim_space(div1_nodes);
+    			h47 = claim_element(div1_nodes, "H4", {});
+    			var h47_nodes = children(h47);
+    			t67 = claim_text(h47_nodes, "Cookies");
+    			h47_nodes.forEach(detach_dev);
+    			t68 = claim_space(div1_nodes);
+    			p11 = claim_element(div1_nodes, "P", {});
+    			var p11_nodes = children(p11);
+    			t69 = claim_text(p11_nodes, "Die Homepage verwendet keine Cookies.");
+    			p11_nodes.forEach(detach_dev);
+    			t70 = claim_space(div1_nodes);
+    			h48 = claim_element(div1_nodes, "H4", {});
+    			var h48_nodes = children(h48);
+    			t71 = claim_text(h48_nodes, "Änderung unserer Datenschutzbestimmungen");
+    			h48_nodes.forEach(detach_dev);
+    			t72 = claim_space(div1_nodes);
+    			p12 = claim_element(div1_nodes, "P", {});
+    			var p12_nodes = children(p12);
+    			t73 = claim_text(p12_nodes, "Wir behalten uns vor, diese Datenschutzerklärung anzupassen, damit sie\n      stets den aktuellen rechtlichen Anforderungen entspricht oder um\n      Änderungen unserer Leistungen in der Datenschutzerklärung umzusetzen, z.B.\n      bei der Einführung neuer Services. Für Ihren erneuten Besuch gilt dann die\n      neue Datenschutzerklärung.");
+    			p12_nodes.forEach(detach_dev);
+    			div1_nodes.forEach(detach_dev);
+    			div2_nodes.forEach(detach_dev);
+    			this.h();
+    		},
+    		h: function hydrate() {
+    			document.title = "Datenschutz - IKPH Inter-Kontakt Projekt und Handel GmbH";
+    			attr_dev(meta0, "name", "description");
+    			attr_dev(meta0, "content", "Datenschutz");
+    			add_location(meta0, file$9, 2, 2, 90);
+    			attr_dev(meta1, "name", "keywords");
+    			attr_dev(meta1, "content", "");
+    			add_location(meta1, file$9, 3, 2, 142);
+    			add_location(h3, file$9, 7, 2, 221);
+    			attr_dev(div0, "class", "page-title");
+    			add_location(div0, file$9, 6, 0, 194);
+    			add_location(h40, file$9, 12, 4, 297);
+    			add_location(p0, file$9, 16, 4, 445);
+    			add_location(p1, file$9, 32, 4, 1488);
+    			add_location(h41, file$9, 43, 4, 2201);
+    			add_location(p2, file$9, 46, 4, 2299);
+    			add_location(li0, file$9, 53, 6, 2629);
+    			add_location(li1, file$9, 54, 6, 2700);
+    			add_location(li2, file$9, 58, 6, 2814);
+    			add_location(li3, file$9, 62, 6, 2934);
+    			add_location(ul0, file$9, 52, 4, 2618);
+    			add_location(h42, file$9, 69, 4, 3190);
+    			add_location(p3, file$9, 70, 4, 3236);
+    			add_location(p4, file$9, 79, 4, 3764);
+    			add_location(h43, file$9, 83, 4, 3915);
+    			add_location(p5, file$9, 84, 4, 3970);
+    			add_location(li4, file$9, 98, 6, 4776);
+    			add_location(li5, file$9, 99, 6, 4811);
+    			add_location(li6, file$9, 100, 6, 4886);
+    			add_location(li7, file$9, 105, 6, 5073);
+    			add_location(ul1, file$9, 97, 4, 4765);
+    			add_location(p6, file$9, 110, 4, 5185);
+    			add_location(h44, file$9, 115, 4, 5417);
+    			add_location(p7, file$9, 116, 4, 5453);
+    			add_location(li8, file$9, 121, 6, 5602);
+    			add_location(li9, file$9, 124, 6, 5704);
+    			add_location(li10, file$9, 125, 6, 5769);
+    			add_location(li11, file$9, 126, 6, 5828);
+    			add_location(li12, file$9, 130, 6, 5985);
+    			add_location(li13, file$9, 131, 6, 6059);
+    			add_location(ul2, file$9, 120, 4, 5591);
+    			add_location(p8, file$9, 136, 4, 6231);
+    			add_location(h45, file$9, 146, 4, 6824);
+    			add_location(p9, file$9, 147, 4, 6857);
+    			add_location(h46, file$9, 152, 4, 7065);
+    			add_location(p10, file$9, 153, 4, 7090);
+    			add_location(h47, file$9, 162, 4, 7589);
+    			add_location(p11, file$9, 163, 4, 7610);
+    			add_location(h48, file$9, 164, 4, 7659);
+    			add_location(p12, file$9, 165, 4, 7713);
+    			attr_dev(div1, "class", "item");
+    			add_location(div1, file$9, 11, 2, 274);
+    			attr_dev(div2, "class", "content");
+    			add_location(div2, file$9, 10, 0, 250);
+    		},
+    		m: function mount(target, anchor) {
+    			append_dev(document.head, meta0);
+    			append_dev(document.head, meta1);
+    			insert_dev(target, t0, anchor);
+    			insert_dev(target, div0, anchor);
+    			append_dev(div0, h3);
+    			append_dev(h3, t1);
+    			insert_dev(target, t2, anchor);
+    			insert_dev(target, div2, anchor);
+    			append_dev(div2, div1);
+    			append_dev(div1, h40);
+    			append_dev(h40, t3);
+    			append_dev(div1, t4);
+    			append_dev(div1, p0);
+    			append_dev(p0, t5);
+    			append_dev(div1, t6);
+    			append_dev(div1, p1);
+    			append_dev(p1, t7);
+    			append_dev(div1, t8);
+    			append_dev(div1, h41);
+    			append_dev(h41, t9);
+    			append_dev(div1, t10);
+    			append_dev(div1, p2);
+    			append_dev(p2, t11);
+    			append_dev(div1, t12);
+    			append_dev(div1, ul0);
+    			append_dev(ul0, li0);
+    			append_dev(li0, t13);
+    			append_dev(ul0, t14);
+    			append_dev(ul0, li1);
+    			append_dev(li1, t15);
+    			append_dev(ul0, t16);
+    			append_dev(ul0, li2);
+    			append_dev(li2, t17);
+    			append_dev(ul0, t18);
+    			append_dev(ul0, li3);
+    			append_dev(li3, t19);
+    			append_dev(div1, t20);
+    			append_dev(div1, h42);
+    			append_dev(h42, t21);
+    			append_dev(div1, t22);
+    			append_dev(div1, p3);
+    			append_dev(p3, t23);
+    			append_dev(div1, t24);
+    			append_dev(div1, p4);
+    			append_dev(p4, t25);
+    			append_dev(div1, t26);
+    			append_dev(div1, h43);
+    			append_dev(h43, t27);
+    			append_dev(div1, t28);
+    			append_dev(div1, p5);
+    			append_dev(p5, t29);
+    			append_dev(div1, t30);
+    			append_dev(div1, ul1);
+    			append_dev(ul1, li4);
+    			append_dev(li4, t31);
+    			append_dev(ul1, t32);
+    			append_dev(ul1, li5);
+    			append_dev(li5, t33);
+    			append_dev(ul1, t34);
+    			append_dev(ul1, li6);
+    			append_dev(li6, t35);
+    			append_dev(ul1, t36);
+    			append_dev(ul1, li7);
+    			append_dev(li7, t37);
+    			append_dev(div1, t38);
+    			append_dev(div1, p6);
+    			append_dev(p6, t39);
+    			append_dev(div1, t40);
+    			append_dev(div1, h44);
+    			append_dev(h44, t41);
+    			append_dev(div1, t42);
+    			append_dev(div1, p7);
+    			append_dev(p7, t43);
+    			append_dev(div1, t44);
+    			append_dev(div1, ul2);
+    			append_dev(ul2, li8);
+    			append_dev(li8, t45);
+    			append_dev(ul2, t46);
+    			append_dev(ul2, li9);
+    			append_dev(li9, t47);
+    			append_dev(ul2, t48);
+    			append_dev(ul2, li10);
+    			append_dev(li10, t49);
+    			append_dev(ul2, t50);
+    			append_dev(ul2, li11);
+    			append_dev(li11, t51);
+    			append_dev(ul2, t52);
+    			append_dev(ul2, li12);
+    			append_dev(li12, t53);
+    			append_dev(ul2, t54);
+    			append_dev(ul2, li13);
+    			append_dev(li13, t55);
+    			append_dev(div1, t56);
+    			append_dev(div1, p8);
+    			append_dev(p8, t57);
+    			append_dev(div1, t58);
+    			append_dev(div1, h45);
+    			append_dev(h45, t59);
+    			append_dev(div1, t60);
+    			append_dev(div1, p9);
+    			append_dev(p9, t61);
+    			append_dev(div1, t62);
+    			append_dev(div1, h46);
+    			append_dev(h46, t63);
+    			append_dev(div1, t64);
+    			append_dev(div1, p10);
+    			append_dev(p10, t65);
+    			append_dev(div1, t66);
+    			append_dev(div1, h47);
+    			append_dev(h47, t67);
+    			append_dev(div1, t68);
+    			append_dev(div1, p11);
+    			append_dev(p11, t69);
+    			append_dev(div1, t70);
+    			append_dev(div1, h48);
+    			append_dev(h48, t71);
+    			append_dev(div1, t72);
+    			append_dev(div1, p12);
+    			append_dev(p12, t73);
+    		},
+    		p: noop,
+    		i: noop,
+    		o: noop,
+    		d: function destroy(detaching) {
+    			detach_dev(meta0);
+    			detach_dev(meta1);
+    			if (detaching) detach_dev(t0);
+    			if (detaching) detach_dev(div0);
+    			if (detaching) detach_dev(t2);
+    			if (detaching) detach_dev(div2);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$a.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function instance$a($$self, $$props) {
+    	const writable_props = [];
+
+    	Object.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console.warn(`<Datenschutz> was created with unknown prop '${key}'`);
+    	});
+
+    	let { $$slots = {}, $$scope } = $$props;
+    	validate_slots("Datenschutz", $$slots, []);
+    	return [];
+    }
+
+    class Datenschutz extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance$a, create_fragment$a, safe_not_equal, {});
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "Datenschutz",
+    			options,
+    			id: create_fragment$a.name
+    		});
+    	}
+    }
+
+    /* src/pages/impressum.svelte generated by Svelte v3.19.2 */
+
+    const file$a = "src/pages/impressum.svelte";
+
+    function create_fragment$b(ctx) {
+    	let meta0;
+    	let meta1;
+    	let t0;
+    	let div0;
+    	let h30;
+    	let t1;
+    	let t2;
+    	let div5;
+    	let div4;
+    	let div1;
+    	let h20;
+    	let strong0;
+    	let t3;
+    	let t4;
+    	let p0;
+    	let t5;
+    	let t6;
+    	let h21;
+    	let strong1;
+    	let t7;
+    	let t8;
+    	let p1;
+    	let t9;
+    	let t10;
+    	let h22;
+    	let strong2;
+    	let t11;
+    	let t12;
+    	let p2;
+    	let t13;
+    	let t14;
+    	let h23;
+    	let strong3;
+    	let t15;
+    	let t16;
+    	let p3;
+    	let t17;
+    	let t18;
+    	let div3;
+    	let h31;
+    	let t19;
+    	let t20;
+    	let h24;
+    	let t21;
+    	let t22;
+    	let h25;
+    	let t23;
+    	let t24;
+    	let p4;
+    	let t25;
+    	let t26;
+    	let h26;
+    	let t27;
+    	let t28;
+    	let div2;
+    	let h32;
+    	let t29;
+    	let t30;
+    	let strong4;
+    	let t31;
+    	let t32;
+    	let strong5;
+    	let t33;
+    	let t34;
+    	let strong6;
+    	let t35;
+
+    	const block = {
+    		c: function create() {
+    			meta0 = element("meta");
+    			meta1 = element("meta");
+    			t0 = space();
+    			div0 = element("div");
+    			h30 = element("h3");
+    			t1 = text("Impressum");
+    			t2 = space();
+    			div5 = element("div");
+    			div4 = element("div");
+    			div1 = element("div");
+    			h20 = element("h2");
+    			strong0 = element("strong");
+    			t3 = text("Firmen Name:");
+    			t4 = space();
+    			p0 = element("p");
+    			t5 = text("IKPH Inter-Kontakt Projekt & Handel GmbH Altonaer Str 59-61, 13581,\n        Berlin");
+    			t6 = space();
+    			h21 = element("h2");
+    			strong1 = element("strong");
+    			t7 = text("Finanzamt Daten:");
+    			t8 = space();
+    			p1 = element("p");
+    			t9 = text("Steuernummer 30/357/50510 Ust-id Nr DE287752857");
+    			t10 = space();
+    			h22 = element("h2");
+    			strong2 = element("strong");
+    			t11 = text("Amtgericht:");
+    			t12 = space();
+    			p2 = element("p");
+    			t13 = text("HRB Nr. 132353 B");
+    			t14 = space();
+    			h23 = element("h2");
+    			strong3 = element("strong");
+    			t15 = text("Geschaftsfuhrung:");
+    			t16 = space();
+    			p3 = element("p");
+    			t17 = text("Stanislaw Korshowski");
+    			t18 = space();
+    			div3 = element("div");
+    			h31 = element("h3");
+    			t19 = text("Kontaktdaten:");
+    			t20 = space();
+    			h24 = element("h2");
+    			t21 = text("+49 30 984 34 329");
+    			t22 = space();
+    			h25 = element("h2");
+    			t23 = text("+49 30 984 34 327");
+    			t24 = space();
+    			p4 = element("p");
+    			t25 = text("Email:");
+    			t26 = space();
+    			h26 = element("h2");
+    			t27 = text("info@ikph.de");
+    			t28 = space();
+    			div2 = element("div");
+    			h32 = element("h3");
+    			t29 = text("Kontoverbindung:");
+    			t30 = space();
+    			strong4 = element("strong");
+    			t31 = text("Postbank");
+    			t32 = space();
+    			strong5 = element("strong");
+    			t33 = text("IBAN: DE 06 1001 0010 0561 24");
+    			t34 = space();
+    			strong6 = element("strong");
+    			t35 = text("BIC: PBNKDEFF");
+    			this.h();
+    		},
+    		l: function claim(nodes) {
+    			const head_nodes = query_selector_all("[data-svelte=\"svelte-wavns1\"]", document.head);
+    			meta0 = claim_element(head_nodes, "META", { name: true, content: true });
+    			meta1 = claim_element(head_nodes, "META", { name: true, content: true });
+    			head_nodes.forEach(detach_dev);
+    			t0 = claim_space(nodes);
+    			div0 = claim_element(nodes, "DIV", { class: true });
+    			var div0_nodes = children(div0);
+    			h30 = claim_element(div0_nodes, "H3", { class: true });
+    			var h30_nodes = children(h30);
+    			t1 = claim_text(h30_nodes, "Impressum");
+    			h30_nodes.forEach(detach_dev);
+    			div0_nodes.forEach(detach_dev);
+    			t2 = claim_space(nodes);
+    			div5 = claim_element(nodes, "DIV", { class: true });
+    			var div5_nodes = children(div5);
+    			div4 = claim_element(div5_nodes, "DIV", { class: true });
+    			var div4_nodes = children(div4);
+    			div1 = claim_element(div4_nodes, "DIV", { class: true });
+    			var div1_nodes = children(div1);
+    			h20 = claim_element(div1_nodes, "H2", { class: true });
+    			var h20_nodes = children(h20);
+    			strong0 = claim_element(h20_nodes, "STRONG", { class: true });
+    			var strong0_nodes = children(strong0);
+    			t3 = claim_text(strong0_nodes, "Firmen Name:");
+    			strong0_nodes.forEach(detach_dev);
+    			h20_nodes.forEach(detach_dev);
+    			t4 = claim_space(div1_nodes);
+    			p0 = claim_element(div1_nodes, "P", {});
+    			var p0_nodes = children(p0);
+    			t5 = claim_text(p0_nodes, "IKPH Inter-Kontakt Projekt & Handel GmbH Altonaer Str 59-61, 13581,\n        Berlin");
+    			p0_nodes.forEach(detach_dev);
+    			t6 = claim_space(div1_nodes);
+    			h21 = claim_element(div1_nodes, "H2", { class: true });
+    			var h21_nodes = children(h21);
+    			strong1 = claim_element(h21_nodes, "STRONG", { class: true });
+    			var strong1_nodes = children(strong1);
+    			t7 = claim_text(strong1_nodes, "Finanzamt Daten:");
+    			strong1_nodes.forEach(detach_dev);
+    			h21_nodes.forEach(detach_dev);
+    			t8 = claim_space(div1_nodes);
+    			p1 = claim_element(div1_nodes, "P", {});
+    			var p1_nodes = children(p1);
+    			t9 = claim_text(p1_nodes, "Steuernummer 30/357/50510 Ust-id Nr DE287752857");
+    			p1_nodes.forEach(detach_dev);
+    			t10 = claim_space(div1_nodes);
+    			h22 = claim_element(div1_nodes, "H2", { class: true });
+    			var h22_nodes = children(h22);
+    			strong2 = claim_element(h22_nodes, "STRONG", { class: true });
+    			var strong2_nodes = children(strong2);
+    			t11 = claim_text(strong2_nodes, "Amtgericht:");
+    			strong2_nodes.forEach(detach_dev);
+    			h22_nodes.forEach(detach_dev);
+    			t12 = claim_space(div1_nodes);
+    			p2 = claim_element(div1_nodes, "P", {});
+    			var p2_nodes = children(p2);
+    			t13 = claim_text(p2_nodes, "HRB Nr. 132353 B");
+    			p2_nodes.forEach(detach_dev);
+    			t14 = claim_space(div1_nodes);
+    			h23 = claim_element(div1_nodes, "H2", { class: true });
+    			var h23_nodes = children(h23);
+    			strong3 = claim_element(h23_nodes, "STRONG", { class: true });
+    			var strong3_nodes = children(strong3);
+    			t15 = claim_text(strong3_nodes, "Geschaftsfuhrung:");
+    			strong3_nodes.forEach(detach_dev);
+    			h23_nodes.forEach(detach_dev);
+    			t16 = claim_space(div1_nodes);
+    			p3 = claim_element(div1_nodes, "P", {});
+    			var p3_nodes = children(p3);
+    			t17 = claim_text(p3_nodes, "Stanislaw Korshowski");
+    			p3_nodes.forEach(detach_dev);
+    			div1_nodes.forEach(detach_dev);
+    			t18 = claim_space(div4_nodes);
+    			div3 = claim_element(div4_nodes, "DIV", { class: true });
+    			var div3_nodes = children(div3);
+    			h31 = claim_element(div3_nodes, "H3", { class: true });
+    			var h31_nodes = children(h31);
+    			t19 = claim_text(h31_nodes, "Kontaktdaten:");
+    			h31_nodes.forEach(detach_dev);
+    			t20 = claim_space(div3_nodes);
+    			h24 = claim_element(div3_nodes, "H2", { class: true });
+    			var h24_nodes = children(h24);
+    			t21 = claim_text(h24_nodes, "+49 30 984 34 329");
+    			h24_nodes.forEach(detach_dev);
+    			t22 = claim_space(div3_nodes);
+    			h25 = claim_element(div3_nodes, "H2", { class: true });
+    			var h25_nodes = children(h25);
+    			t23 = claim_text(h25_nodes, "+49 30 984 34 327");
+    			h25_nodes.forEach(detach_dev);
+    			t24 = claim_space(div3_nodes);
+    			p4 = claim_element(div3_nodes, "P", {});
+    			var p4_nodes = children(p4);
+    			t25 = claim_text(p4_nodes, "Email:");
+    			p4_nodes.forEach(detach_dev);
+    			t26 = claim_space(div3_nodes);
+    			h26 = claim_element(div3_nodes, "H2", { class: true });
+    			var h26_nodes = children(h26);
+    			t27 = claim_text(h26_nodes, "info@ikph.de");
+    			h26_nodes.forEach(detach_dev);
+    			t28 = claim_space(div3_nodes);
+    			div2 = claim_element(div3_nodes, "DIV", { class: true });
+    			var div2_nodes = children(div2);
+    			h32 = claim_element(div2_nodes, "H3", { class: true });
+    			var h32_nodes = children(h32);
+    			t29 = claim_text(h32_nodes, "Kontoverbindung:");
+    			h32_nodes.forEach(detach_dev);
+    			t30 = claim_space(div2_nodes);
+    			strong4 = claim_element(div2_nodes, "STRONG", { class: true });
+    			var strong4_nodes = children(strong4);
+    			t31 = claim_text(strong4_nodes, "Postbank");
+    			strong4_nodes.forEach(detach_dev);
+    			t32 = claim_space(div2_nodes);
+    			strong5 = claim_element(div2_nodes, "STRONG", { class: true });
+    			var strong5_nodes = children(strong5);
+    			t33 = claim_text(strong5_nodes, "IBAN: DE 06 1001 0010 0561 24");
+    			strong5_nodes.forEach(detach_dev);
+    			t34 = claim_space(div2_nodes);
+    			strong6 = claim_element(div2_nodes, "STRONG", { class: true });
+    			var strong6_nodes = children(strong6);
+    			t35 = claim_text(strong6_nodes, "BIC: PBNKDEFF");
+    			strong6_nodes.forEach(detach_dev);
+    			div2_nodes.forEach(detach_dev);
+    			div3_nodes.forEach(detach_dev);
+    			div4_nodes.forEach(detach_dev);
+    			div5_nodes.forEach(detach_dev);
+    			this.h();
+    		},
+    		h: function hydrate() {
+    			document.title = "Impressum - IKPH Inter-Kontakt Projekt und Handel GmbH";
+    			attr_dev(meta0, "name", "description");
+    			attr_dev(meta0, "content", "Impressum");
+    			add_location(meta0, file$a, 29, 2, 396);
+    			attr_dev(meta1, "name", "keywords");
+    			attr_dev(meta1, "content", "");
+    			add_location(meta1, file$a, 30, 2, 446);
+    			attr_dev(h30, "class", "svelte-1ns4jpm");
+    			add_location(h30, file$a, 34, 2, 525);
+    			attr_dev(div0, "class", "page-title");
+    			add_location(div0, file$a, 33, 0, 498);
+    			attr_dev(strong0, "class", "svelte-1ns4jpm");
+    			add_location(strong0, file$a, 39, 10, 632);
+    			attr_dev(h20, "class", "svelte-1ns4jpm");
+    			add_location(h20, file$a, 39, 6, 628);
+    			add_location(p0, file$a, 40, 6, 673);
+    			attr_dev(strong1, "class", "svelte-1ns4jpm");
+    			add_location(strong1, file$a, 44, 10, 793);
+    			attr_dev(h21, "class", "svelte-1ns4jpm");
+    			add_location(h21, file$a, 44, 6, 789);
+    			add_location(p1, file$a, 45, 6, 838);
+    			attr_dev(strong2, "class", "svelte-1ns4jpm");
+    			add_location(strong2, file$a, 49, 10, 920);
+    			attr_dev(h22, "class", "svelte-1ns4jpm");
+    			add_location(h22, file$a, 49, 6, 916);
+    			add_location(p2, file$a, 50, 6, 960);
+    			attr_dev(strong3, "class", "svelte-1ns4jpm");
+    			add_location(strong3, file$a, 54, 10, 1011);
+    			attr_dev(h23, "class", "svelte-1ns4jpm");
+    			add_location(h23, file$a, 54, 6, 1007);
+    			add_location(p3, file$a, 55, 6, 1057);
+    			attr_dev(div1, "class", "item svelte-1ns4jpm");
+    			add_location(div1, file$a, 38, 4, 603);
+    			attr_dev(h31, "class", "svelte-1ns4jpm");
+    			add_location(h31, file$a, 61, 6, 1142);
+    			attr_dev(h24, "class", "svelte-1ns4jpm");
+    			add_location(h24, file$a, 62, 6, 1171);
+    			attr_dev(h25, "class", "svelte-1ns4jpm");
+    			add_location(h25, file$a, 63, 6, 1204);
+    			add_location(p4, file$a, 64, 6, 1237);
+    			attr_dev(h26, "class", "svelte-1ns4jpm");
+    			add_location(h26, file$a, 65, 6, 1257);
+    			attr_dev(h32, "class", "svelte-1ns4jpm");
+    			add_location(h32, file$a, 67, 8, 1313);
+    			attr_dev(strong4, "class", "svelte-1ns4jpm");
+    			add_location(strong4, file$a, 68, 8, 1347);
+    			attr_dev(strong5, "class", "svelte-1ns4jpm");
+    			add_location(strong5, file$a, 69, 8, 1381);
+    			attr_dev(strong6, "class", "svelte-1ns4jpm");
+    			add_location(strong6, file$a, 70, 8, 1436);
+    			attr_dev(div2, "class", "konto svelte-1ns4jpm");
+    			add_location(div2, file$a, 66, 6, 1285);
+    			attr_dev(div3, "class", "item svelte-1ns4jpm");
+    			add_location(div3, file$a, 60, 4, 1117);
+    			attr_dev(div4, "class", "impressum svelte-1ns4jpm");
+    			add_location(div4, file$a, 37, 2, 575);
+    			attr_dev(div5, "class", "content");
+    			add_location(div5, file$a, 36, 0, 551);
+    		},
+    		m: function mount(target, anchor) {
+    			append_dev(document.head, meta0);
+    			append_dev(document.head, meta1);
+    			insert_dev(target, t0, anchor);
+    			insert_dev(target, div0, anchor);
+    			append_dev(div0, h30);
+    			append_dev(h30, t1);
+    			insert_dev(target, t2, anchor);
+    			insert_dev(target, div5, anchor);
+    			append_dev(div5, div4);
+    			append_dev(div4, div1);
+    			append_dev(div1, h20);
+    			append_dev(h20, strong0);
+    			append_dev(strong0, t3);
+    			append_dev(div1, t4);
+    			append_dev(div1, p0);
+    			append_dev(p0, t5);
+    			append_dev(div1, t6);
+    			append_dev(div1, h21);
+    			append_dev(h21, strong1);
+    			append_dev(strong1, t7);
+    			append_dev(div1, t8);
+    			append_dev(div1, p1);
+    			append_dev(p1, t9);
+    			append_dev(div1, t10);
+    			append_dev(div1, h22);
+    			append_dev(h22, strong2);
+    			append_dev(strong2, t11);
+    			append_dev(div1, t12);
+    			append_dev(div1, p2);
+    			append_dev(p2, t13);
+    			append_dev(div1, t14);
+    			append_dev(div1, h23);
+    			append_dev(h23, strong3);
+    			append_dev(strong3, t15);
+    			append_dev(div1, t16);
+    			append_dev(div1, p3);
+    			append_dev(p3, t17);
+    			append_dev(div4, t18);
+    			append_dev(div4, div3);
+    			append_dev(div3, h31);
+    			append_dev(h31, t19);
+    			append_dev(div3, t20);
+    			append_dev(div3, h24);
+    			append_dev(h24, t21);
+    			append_dev(div3, t22);
+    			append_dev(div3, h25);
+    			append_dev(h25, t23);
+    			append_dev(div3, t24);
+    			append_dev(div3, p4);
+    			append_dev(p4, t25);
+    			append_dev(div3, t26);
+    			append_dev(div3, h26);
+    			append_dev(h26, t27);
+    			append_dev(div3, t28);
+    			append_dev(div3, div2);
+    			append_dev(div2, h32);
+    			append_dev(h32, t29);
+    			append_dev(div2, t30);
+    			append_dev(div2, strong4);
+    			append_dev(strong4, t31);
+    			append_dev(div2, t32);
+    			append_dev(div2, strong5);
+    			append_dev(strong5, t33);
+    			append_dev(div2, t34);
+    			append_dev(div2, strong6);
+    			append_dev(strong6, t35);
+    		},
+    		p: noop,
+    		i: noop,
+    		o: noop,
+    		d: function destroy(detaching) {
+    			detach_dev(meta0);
+    			detach_dev(meta1);
+    			if (detaching) detach_dev(t0);
+    			if (detaching) detach_dev(div0);
+    			if (detaching) detach_dev(t2);
+    			if (detaching) detach_dev(div5);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$b.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function instance$b($$self, $$props) {
+    	const writable_props = [];
+
+    	Object.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console.warn(`<Impressum> was created with unknown prop '${key}'`);
+    	});
+
+    	let { $$slots = {}, $$scope } = $$props;
+    	validate_slots("Impressum", $$slots, []);
+    	return [];
+    }
+
+    class Impressum extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance$b, create_fragment$b, safe_not_equal, {});
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "Impressum",
+    			options,
+    			id: create_fragment$b.name
+    		});
+    	}
+    }
+
+    /* src/pages/index.svelte generated by Svelte v3.19.2 */
+    const file$b = "src/pages/index.svelte";
+
+    function create_fragment$c(ctx) {
+    	let meta0;
+    	let meta1;
+    	let t0;
+    	let t1;
+    	let div2;
+    	let div0;
+    	let img;
+    	let img_src_value;
+    	let t2;
+    	let div1;
+    	let h3;
+    	let t3;
+    	let br;
+    	let t4;
+    	let t5;
+    	let h4;
+    	let t6;
+    	let t7;
+    	let p0;
+    	let t8;
+    	let t9;
+    	let p1;
+    	let t10;
+    	let t11;
+    	let p2;
+    	let t12;
+    	let t13;
+    	let p3;
+    	let t14;
+    	let t15;
+    	let p4;
+    	let t16;
+    	let t17;
+    	let p5;
+    	let t18;
+    	let t19;
+    	let p6;
+    	let t20;
+    	let current;
+    	const hero = new Hero({ $$inline: true });
+
+    	const block = {
+    		c: function create() {
+    			meta0 = element("meta");
+    			meta1 = element("meta");
+    			t0 = space();
+    			create_component(hero.$$.fragment);
+    			t1 = space();
+    			div2 = element("div");
+    			div0 = element("div");
+    			img = element("img");
+    			t2 = space();
+    			div1 = element("div");
+    			h3 = element("h3");
+    			t3 = text("Herzlich willkommen auf der\n        ");
+    			br = element("br");
+    			t4 = text("\n        Internetseite Ihres IKPH Teams");
+    			t5 = space();
+    			h4 = element("h4");
+    			t6 = text("Alles aus einer Hand!");
+    			t7 = space();
+    			p0 = element("p");
+    			t8 = text("Obwohl unsere Unternehmen erst seit wenigen Jahren auf dem Markt ist,\n      haben wir hohe Qualitätsstandards erreicht.");
+    			t9 = space();
+    			p1 = element("p");
+    			t10 = text("Unsere Firma beschäftigt sich mit Renovierungen und Innenausbau. Des\n      Weiteren mit der Realisierung von Aufträgen großer Hausverwaltungen und\n      Investoren.");
+    			t11 = space();
+    			p2 = element("p");
+    			t12 = text("Wir haben hohe Qualitätsstandards etabliert, um auch die kompliziertesten\n      Aufträge fach- und termingerecht zu realisieren.");
+    			t13 = space();
+    			p3 = element("p");
+    			t14 = text("Ob Altbau oder Neubau, ob Gewerbe, Wohnung oder komplette Wohnanlage\n      übernehmen wir alle Sanierungsarbeiten. Beratung und Planung bis zur\n      Ausführung, bei uns, bekommen Sie alle Leistungen aus einer Hand.");
+    			t15 = space();
+    			p4 = element("p");
+    			t16 = text("Dabei können Sie sich der professionellen Umsetzung und der reibungslosen\n      Kommunikation sicher sein. Unser Team wird Sie vor Ort beraten und Ihre\n      Fragen beantworten.");
+    			t17 = space();
+    			p5 = element("p");
+    			t18 = text("Wir sind schnell, sauber und zuverlässig!");
+    			t19 = space();
+    			p6 = element("p");
+    			t20 = text("Ihr IKPH Team.");
+    			this.h();
+    		},
+    		l: function claim(nodes) {
+    			const head_nodes = query_selector_all("[data-svelte=\"svelte-95u88e\"]", document.head);
+    			meta0 = claim_element(head_nodes, "META", { name: true, content: true });
+    			meta1 = claim_element(head_nodes, "META", { name: true, content: true });
+    			head_nodes.forEach(detach_dev);
+    			t0 = claim_space(nodes);
+    			claim_component(hero.$$.fragment, nodes);
+    			t1 = claim_space(nodes);
+    			div2 = claim_element(nodes, "DIV", { class: true });
+    			var div2_nodes = children(div2);
+    			div0 = claim_element(div2_nodes, "DIV", { class: true });
+    			var div0_nodes = children(div0);
+    			img = claim_element(div0_nodes, "IMG", { src: true, alt: true });
+    			div0_nodes.forEach(detach_dev);
+    			t2 = claim_space(div2_nodes);
+    			div1 = claim_element(div2_nodes, "DIV", { class: true });
+    			var div1_nodes = children(div1);
+    			h3 = claim_element(div1_nodes, "H3", {});
+    			var h3_nodes = children(h3);
+    			t3 = claim_text(h3_nodes, "Herzlich willkommen auf der\n        ");
+    			br = claim_element(h3_nodes, "BR", {});
+    			t4 = claim_text(h3_nodes, "\n        Internetseite Ihres IKPH Teams");
+    			h3_nodes.forEach(detach_dev);
+    			t5 = claim_space(div1_nodes);
+    			h4 = claim_element(div1_nodes, "H4", {});
+    			var h4_nodes = children(h4);
+    			t6 = claim_text(h4_nodes, "Alles aus einer Hand!");
+    			h4_nodes.forEach(detach_dev);
+    			t7 = claim_space(div1_nodes);
+    			p0 = claim_element(div1_nodes, "P", {});
+    			var p0_nodes = children(p0);
+    			t8 = claim_text(p0_nodes, "Obwohl unsere Unternehmen erst seit wenigen Jahren auf dem Markt ist,\n      haben wir hohe Qualitätsstandards erreicht.");
+    			p0_nodes.forEach(detach_dev);
+    			t9 = claim_space(div1_nodes);
+    			p1 = claim_element(div1_nodes, "P", {});
+    			var p1_nodes = children(p1);
+    			t10 = claim_text(p1_nodes, "Unsere Firma beschäftigt sich mit Renovierungen und Innenausbau. Des\n      Weiteren mit der Realisierung von Aufträgen großer Hausverwaltungen und\n      Investoren.");
+    			p1_nodes.forEach(detach_dev);
+    			t11 = claim_space(div1_nodes);
+    			p2 = claim_element(div1_nodes, "P", {});
+    			var p2_nodes = children(p2);
+    			t12 = claim_text(p2_nodes, "Wir haben hohe Qualitätsstandards etabliert, um auch die kompliziertesten\n      Aufträge fach- und termingerecht zu realisieren.");
+    			p2_nodes.forEach(detach_dev);
+    			t13 = claim_space(div1_nodes);
+    			p3 = claim_element(div1_nodes, "P", {});
+    			var p3_nodes = children(p3);
+    			t14 = claim_text(p3_nodes, "Ob Altbau oder Neubau, ob Gewerbe, Wohnung oder komplette Wohnanlage\n      übernehmen wir alle Sanierungsarbeiten. Beratung und Planung bis zur\n      Ausführung, bei uns, bekommen Sie alle Leistungen aus einer Hand.");
+    			p3_nodes.forEach(detach_dev);
+    			t15 = claim_space(div1_nodes);
+    			p4 = claim_element(div1_nodes, "P", {});
+    			var p4_nodes = children(p4);
+    			t16 = claim_text(p4_nodes, "Dabei können Sie sich der professionellen Umsetzung und der reibungslosen\n      Kommunikation sicher sein. Unser Team wird Sie vor Ort beraten und Ihre\n      Fragen beantworten.");
+    			p4_nodes.forEach(detach_dev);
+    			t17 = claim_space(div1_nodes);
+    			p5 = claim_element(div1_nodes, "P", {});
+    			var p5_nodes = children(p5);
+    			t18 = claim_text(p5_nodes, "Wir sind schnell, sauber und zuverlässig!");
+    			p5_nodes.forEach(detach_dev);
+    			t19 = claim_space(div1_nodes);
+    			p6 = claim_element(div1_nodes, "P", {});
+    			var p6_nodes = children(p6);
+    			t20 = claim_text(p6_nodes, "Ihr IKPH Team.");
+    			p6_nodes.forEach(detach_dev);
+    			div1_nodes.forEach(detach_dev);
+    			div2_nodes.forEach(detach_dev);
+    			this.h();
+    		},
+    		h: function hydrate() {
+    			document.title = "Startseite - IKPH Inter-Kontakt Projekt und Handel GmbH";
+    			attr_dev(meta0, "name", "description");
+    			attr_dev(meta0, "content", "Herzlich willkommen auf der Internetseite Ihres IKPH Teams");
+    			add_location(meta0, file$b, 86, 2, 1597);
+    			attr_dev(meta1, "name", "keywords");
+    			attr_dev(meta1, "content", "");
+    			add_location(meta1, file$b, 89, 2, 1704);
+    			if (img.src !== (img_src_value = "g/images/house.jpg")) attr_dev(img, "src", img_src_value);
+    			attr_dev(img, "alt", "Inter-Kontakt Projekt und Handel GmbH");
+    			add_location(img, file$b, 96, 4, 1813);
+    			attr_dev(div0, "class", "item");
+    			add_location(div0, file$b, 95, 2, 1790);
+    			add_location(br, file$b, 102, 8, 1976);
+    			add_location(h3, file$b, 100, 6, 1927);
+    			add_location(h4, file$b, 105, 4, 2038);
+    			add_location(p0, file$b, 106, 4, 2073);
+    			add_location(p1, file$b, 110, 4, 2216);
+    			add_location(p2, file$b, 115, 4, 2404);
+    			add_location(p3, file$b, 119, 4, 2556);
+    			add_location(p4, file$b, 124, 4, 2795);
+    			add_location(p5, file$b, 129, 4, 2996);
+    			add_location(p6, file$b, 130, 4, 3049);
+    			attr_dev(div1, "class", "item");
+    			add_location(div1, file$b, 99, 2, 1902);
+    			attr_dev(div2, "class", "content");
+    			add_location(div2, file$b, 94, 0, 1766);
+    		},
+    		m: function mount(target, anchor) {
+    			append_dev(document.head, meta0);
+    			append_dev(document.head, meta1);
+    			insert_dev(target, t0, anchor);
+    			mount_component(hero, target, anchor);
+    			insert_dev(target, t1, anchor);
+    			insert_dev(target, div2, anchor);
+    			append_dev(div2, div0);
+    			append_dev(div0, img);
+    			append_dev(div2, t2);
+    			append_dev(div2, div1);
+    			append_dev(div1, h3);
+    			append_dev(h3, t3);
+    			append_dev(h3, br);
+    			append_dev(h3, t4);
+    			append_dev(div1, t5);
+    			append_dev(div1, h4);
+    			append_dev(h4, t6);
+    			append_dev(div1, t7);
+    			append_dev(div1, p0);
+    			append_dev(p0, t8);
+    			append_dev(div1, t9);
+    			append_dev(div1, p1);
+    			append_dev(p1, t10);
+    			append_dev(div1, t11);
+    			append_dev(div1, p2);
+    			append_dev(p2, t12);
+    			append_dev(div1, t13);
+    			append_dev(div1, p3);
+    			append_dev(p3, t14);
+    			append_dev(div1, t15);
+    			append_dev(div1, p4);
+    			append_dev(p4, t16);
+    			append_dev(div1, t17);
+    			append_dev(div1, p5);
+    			append_dev(p5, t18);
+    			append_dev(div1, t19);
+    			append_dev(div1, p6);
+    			append_dev(p6, t20);
+    			current = true;
+    		},
+    		p: noop,
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(hero.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(hero.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			detach_dev(meta0);
+    			detach_dev(meta1);
+    			if (detaching) detach_dev(t0);
+    			destroy_component(hero, detaching);
+    			if (detaching) detach_dev(t1);
+    			if (detaching) detach_dev(div2);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$c.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function instance$c($$self, $$props, $$invalidate) {
+    	const writable_props = [];
+
+    	Object.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console.warn(`<Pages> was created with unknown prop '${key}'`);
+    	});
+
+    	let { $$slots = {}, $$scope } = $$props;
+    	validate_slots("Pages", $$slots, []);
+    	$$self.$capture_state = () => ({ Hero });
+    	return [];
+    }
+
+    class Pages extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance$c, create_fragment$c, safe_not_equal, {});
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "Pages",
+    			options,
+    			id: create_fragment$c.name
+    		});
+    	}
+    }
+
+    /* src/pages/leistungen.svelte generated by Svelte v3.19.2 */
+
+    const file$c = "src/pages/leistungen.svelte";
+
+    function create_fragment$d(ctx) {
+    	let meta0;
+    	let meta1;
+    	let t0;
+    	let div0;
+    	let h3;
+    	let t1;
+    	let t2;
+    	let div3;
+    	let div1;
+    	let img;
+    	let img_src_value;
+    	let t3;
+    	let div2;
+    	let p0;
+    	let t4;
+    	let t5;
+    	let p1;
+    	let t6;
+    	let t7;
+    	let p2;
+    	let t8;
+    	let t9;
+    	let ul;
+    	let li0;
+    	let t10;
+    	let t11;
+    	let li1;
+    	let t12;
+    	let t13;
+    	let li2;
+    	let t14;
+    	let t15;
+    	let li3;
+    	let t16;
+    	let t17;
+    	let li4;
+    	let t18;
+    	let t19;
+    	let li5;
+    	let t20;
+    	let t21;
+    	let li6;
+    	let t22;
+    	let t23;
+    	let p3;
+    	let t24;
+    	let t25;
+    	let p4;
+    	let t26;
+
+    	const block = {
+    		c: function create() {
+    			meta0 = element("meta");
+    			meta1 = element("meta");
+    			t0 = space();
+    			div0 = element("div");
+    			h3 = element("h3");
+    			t1 = text("Leistungen");
+    			t2 = space();
+    			div3 = element("div");
+    			div1 = element("div");
+    			img = element("img");
+    			t3 = space();
+    			div2 = element("div");
+    			p0 = element("p");
+    			t4 = text("Verantwortliche Steuerung und Sicherstellung von Bauprojekten, von der\n      Wohnungssanierung bis hin zu Großbauprojekten für alle Immobilienklassen,\n      ist unsere Stärke.");
+    			t5 = space();
+    			p1 = element("p");
+    			t6 = text("Hier sind unsere Leistungen im Überblick.");
+    			t7 = space();
+    			p2 = element("p");
+    			t8 = text("Gewerke:");
+    			t9 = space();
+    			ul = element("ul");
+    			li0 = element("li");
+    			t10 = text("Elektro: komplette Verlegung aller Leitungen, Installationen u.a. von\n        Digitalzählermit VDE- Elektroprüfprotokoll, Schalter und Steckdosen und\n        Lampenfassungen.");
+    			t11 = space();
+    			li1 = element("li");
+    			t12 = text("Sanitär: in diesem Bereich decken wir das gesamt Spektrum ab, Bad,\n        Küche, Nassstrecke, incl. Toiletten, Armaturen, Wasseranschlüsse,\n        Waschbecken, Dichtungen.");
+    			t13 = space();
+    			li2 = element("li");
+    			t14 = text("Fliesen: Verlegen, Abdichtungen, Ausgleich, Einbringungen von x-el-\n        Bändern, Rohrmanschetten, Anschlüsse, Verfugen, Silikonarbeitend.\n        Heizung und Warmwasser Bau, Erstellung, Umbau und Reinigungen,\n        Heizkörpernach DIN-Normen incl. Rohrlegearbeiten, Schweißen u. a.m.");
+    			t15 = space();
+    			li3 = element("li");
+    			t16 = text("Trockenbau: Erstellung, Neubau, Umbau, Rekonstruktionen nach Q2, Q3\n        Spachteln und Schleifen, Ständerwerke.");
+    			t17 = space();
+    			li4 = element("li");
+    			t18 = text("Alle Maler-und Lackierungsarbeiten nach Q2, Q3, Q4.");
+    			t19 = space();
+    			li5 = element("li");
+    			t20 = text("BBodenbelagsarbeiten: fachgerechtes Verlegen von Parkett und Laminat,\n        Abziehen und Versiegeln.");
+    			t21 = space();
+    			li6 = element("li");
+    			t22 = text("Fenster: Montage von Fenstern entsprechend der Vorgaben und Normen,\n        inklusive Ausbau und Entsorgung der alten Fenster.");
+    			t23 = space();
+    			p3 = element("p");
+    			t24 = text("Zu unserem Leistungsangebot gehört auch,auf Wunsch, die Recherche, Ankauf\n      und Transport der Materialien, selbstverständlich auch die Reinigung.");
+    			t25 = space();
+    			p4 = element("p");
+    			t26 = text("Ihr IKPH Team.");
+    			this.h();
+    		},
+    		l: function claim(nodes) {
+    			const head_nodes = query_selector_all("[data-svelte=\"svelte-14l7syn\"]", document.head);
+    			meta0 = claim_element(head_nodes, "META", { name: true, content: true });
+    			meta1 = claim_element(head_nodes, "META", { name: true, content: true });
+    			head_nodes.forEach(detach_dev);
+    			t0 = claim_space(nodes);
+    			div0 = claim_element(nodes, "DIV", { class: true });
+    			var div0_nodes = children(div0);
+    			h3 = claim_element(div0_nodes, "H3", {});
+    			var h3_nodes = children(h3);
+    			t1 = claim_text(h3_nodes, "Leistungen");
+    			h3_nodes.forEach(detach_dev);
+    			div0_nodes.forEach(detach_dev);
+    			t2 = claim_space(nodes);
+    			div3 = claim_element(nodes, "DIV", { class: true });
+    			var div3_nodes = children(div3);
+    			div1 = claim_element(div3_nodes, "DIV", { class: true });
+    			var div1_nodes = children(div1);
+    			img = claim_element(div1_nodes, "IMG", { src: true, alt: true });
+    			div1_nodes.forEach(detach_dev);
+    			t3 = claim_space(div3_nodes);
+    			div2 = claim_element(div3_nodes, "DIV", { class: true });
+    			var div2_nodes = children(div2);
+    			p0 = claim_element(div2_nodes, "P", {});
+    			var p0_nodes = children(p0);
+    			t4 = claim_text(p0_nodes, "Verantwortliche Steuerung und Sicherstellung von Bauprojekten, von der\n      Wohnungssanierung bis hin zu Großbauprojekten für alle Immobilienklassen,\n      ist unsere Stärke.");
+    			p0_nodes.forEach(detach_dev);
+    			t5 = claim_space(div2_nodes);
+    			p1 = claim_element(div2_nodes, "P", {});
+    			var p1_nodes = children(p1);
+    			t6 = claim_text(p1_nodes, "Hier sind unsere Leistungen im Überblick.");
+    			p1_nodes.forEach(detach_dev);
+    			t7 = claim_space(div2_nodes);
+    			p2 = claim_element(div2_nodes, "P", {});
+    			var p2_nodes = children(p2);
+    			t8 = claim_text(p2_nodes, "Gewerke:");
+    			p2_nodes.forEach(detach_dev);
+    			t9 = claim_space(div2_nodes);
+    			ul = claim_element(div2_nodes, "UL", {});
+    			var ul_nodes = children(ul);
+    			li0 = claim_element(ul_nodes, "LI", {});
+    			var li0_nodes = children(li0);
+    			t10 = claim_text(li0_nodes, "Elektro: komplette Verlegung aller Leitungen, Installationen u.a. von\n        Digitalzählermit VDE- Elektroprüfprotokoll, Schalter und Steckdosen und\n        Lampenfassungen.");
+    			li0_nodes.forEach(detach_dev);
+    			t11 = claim_space(ul_nodes);
+    			li1 = claim_element(ul_nodes, "LI", {});
+    			var li1_nodes = children(li1);
+    			t12 = claim_text(li1_nodes, "Sanitär: in diesem Bereich decken wir das gesamt Spektrum ab, Bad,\n        Küche, Nassstrecke, incl. Toiletten, Armaturen, Wasseranschlüsse,\n        Waschbecken, Dichtungen.");
+    			li1_nodes.forEach(detach_dev);
+    			t13 = claim_space(ul_nodes);
+    			li2 = claim_element(ul_nodes, "LI", {});
+    			var li2_nodes = children(li2);
+    			t14 = claim_text(li2_nodes, "Fliesen: Verlegen, Abdichtungen, Ausgleich, Einbringungen von x-el-\n        Bändern, Rohrmanschetten, Anschlüsse, Verfugen, Silikonarbeitend.\n        Heizung und Warmwasser Bau, Erstellung, Umbau und Reinigungen,\n        Heizkörpernach DIN-Normen incl. Rohrlegearbeiten, Schweißen u. a.m.");
+    			li2_nodes.forEach(detach_dev);
+    			t15 = claim_space(ul_nodes);
+    			li3 = claim_element(ul_nodes, "LI", {});
+    			var li3_nodes = children(li3);
+    			t16 = claim_text(li3_nodes, "Trockenbau: Erstellung, Neubau, Umbau, Rekonstruktionen nach Q2, Q3\n        Spachteln und Schleifen, Ständerwerke.");
+    			li3_nodes.forEach(detach_dev);
+    			t17 = claim_space(ul_nodes);
+    			li4 = claim_element(ul_nodes, "LI", {});
+    			var li4_nodes = children(li4);
+    			t18 = claim_text(li4_nodes, "Alle Maler-und Lackierungsarbeiten nach Q2, Q3, Q4.");
+    			li4_nodes.forEach(detach_dev);
+    			t19 = claim_space(ul_nodes);
+    			li5 = claim_element(ul_nodes, "LI", {});
+    			var li5_nodes = children(li5);
+    			t20 = claim_text(li5_nodes, "BBodenbelagsarbeiten: fachgerechtes Verlegen von Parkett und Laminat,\n        Abziehen und Versiegeln.");
+    			li5_nodes.forEach(detach_dev);
+    			t21 = claim_space(ul_nodes);
+    			li6 = claim_element(ul_nodes, "LI", {});
+    			var li6_nodes = children(li6);
+    			t22 = claim_text(li6_nodes, "Fenster: Montage von Fenstern entsprechend der Vorgaben und Normen,\n        inklusive Ausbau und Entsorgung der alten Fenster.");
+    			li6_nodes.forEach(detach_dev);
+    			ul_nodes.forEach(detach_dev);
+    			t23 = claim_space(div2_nodes);
+    			p3 = claim_element(div2_nodes, "P", {});
+    			var p3_nodes = children(p3);
+    			t24 = claim_text(p3_nodes, "Zu unserem Leistungsangebot gehört auch,auf Wunsch, die Recherche, Ankauf\n      und Transport der Materialien, selbstverständlich auch die Reinigung.");
+    			p3_nodes.forEach(detach_dev);
+    			t25 = claim_space(div2_nodes);
+    			p4 = claim_element(div2_nodes, "P", {});
+    			var p4_nodes = children(p4);
+    			t26 = claim_text(p4_nodes, "Ihr IKPH Team.");
+    			p4_nodes.forEach(detach_dev);
+    			div2_nodes.forEach(detach_dev);
+    			div3_nodes.forEach(detach_dev);
+    			this.h();
+    		},
+    		h: function hydrate() {
+    			document.title = "Leistungen - IKPH Inter-Kontakt Projekt und Handel GmbH";
+    			attr_dev(meta0, "name", "description");
+    			attr_dev(meta0, "content", "Leistungen");
+    			add_location(meta0, file$c, 6, 2, 110);
+    			attr_dev(meta1, "name", "keywords");
+    			attr_dev(meta1, "content", "");
+    			add_location(meta1, file$c, 7, 2, 161);
+    			add_location(h3, file$c, 12, 2, 241);
+    			attr_dev(div0, "class", "page-title");
+    			add_location(div0, file$c, 10, 0, 213);
+    			if (img.src !== (img_src_value = "g/images/services.jpg")) attr_dev(img, "src", img_src_value);
+    			attr_dev(img, "alt", "Leistungen");
+    			add_location(img, file$c, 16, 4, 315);
+    			attr_dev(div1, "class", "item");
+    			add_location(div1, file$c, 15, 2, 292);
+    			add_location(p0, file$c, 19, 4, 400);
+    			add_location(p1, file$c, 24, 4, 599);
+    			add_location(p2, file$c, 25, 4, 652);
+    			add_location(li0, file$c, 27, 6, 683);
+    			add_location(li1, file$c, 32, 6, 889);
+    			add_location(li2, file$c, 37, 6, 1094);
+    			add_location(li3, file$c, 43, 6, 1414);
+    			add_location(li4, file$c, 47, 6, 1560);
+    			add_location(li5, file$c, 48, 6, 1627);
+    			add_location(li6, file$c, 52, 6, 1761);
+    			add_location(ul, file$c, 26, 4, 672);
+    			add_location(p3, file$c, 57, 4, 1927);
+    			add_location(p4, file$c, 61, 4, 2100);
+    			attr_dev(div2, "class", "item");
+    			add_location(div2, file$c, 18, 2, 377);
+    			attr_dev(div3, "class", "content");
+    			add_location(div3, file$c, 14, 0, 268);
+    		},
+    		m: function mount(target, anchor) {
+    			append_dev(document.head, meta0);
+    			append_dev(document.head, meta1);
+    			insert_dev(target, t0, anchor);
+    			insert_dev(target, div0, anchor);
+    			append_dev(div0, h3);
+    			append_dev(h3, t1);
+    			insert_dev(target, t2, anchor);
+    			insert_dev(target, div3, anchor);
+    			append_dev(div3, div1);
+    			append_dev(div1, img);
+    			append_dev(div3, t3);
+    			append_dev(div3, div2);
+    			append_dev(div2, p0);
+    			append_dev(p0, t4);
+    			append_dev(div2, t5);
+    			append_dev(div2, p1);
+    			append_dev(p1, t6);
+    			append_dev(div2, t7);
+    			append_dev(div2, p2);
+    			append_dev(p2, t8);
+    			append_dev(div2, t9);
+    			append_dev(div2, ul);
+    			append_dev(ul, li0);
+    			append_dev(li0, t10);
+    			append_dev(ul, t11);
+    			append_dev(ul, li1);
+    			append_dev(li1, t12);
+    			append_dev(ul, t13);
+    			append_dev(ul, li2);
+    			append_dev(li2, t14);
+    			append_dev(ul, t15);
+    			append_dev(ul, li3);
+    			append_dev(li3, t16);
+    			append_dev(ul, t17);
+    			append_dev(ul, li4);
+    			append_dev(li4, t18);
+    			append_dev(ul, t19);
+    			append_dev(ul, li5);
+    			append_dev(li5, t20);
+    			append_dev(ul, t21);
+    			append_dev(ul, li6);
+    			append_dev(li6, t22);
+    			append_dev(div2, t23);
+    			append_dev(div2, p3);
+    			append_dev(p3, t24);
+    			append_dev(div2, t25);
+    			append_dev(div2, p4);
+    			append_dev(p4, t26);
+    		},
+    		p: noop,
+    		i: noop,
+    		o: noop,
+    		d: function destroy(detaching) {
+    			detach_dev(meta0);
+    			detach_dev(meta1);
+    			if (detaching) detach_dev(t0);
+    			if (detaching) detach_dev(div0);
+    			if (detaching) detach_dev(t2);
+    			if (detaching) detach_dev(div3);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$d.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function instance$d($$self, $$props) {
+    	const writable_props = [];
+
+    	Object.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console.warn(`<Leistungen> was created with unknown prop '${key}'`);
+    	});
+
+    	let { $$slots = {}, $$scope } = $$props;
+    	validate_slots("Leistungen", $$slots, []);
+    	return [];
+    }
+
+    class Leistungen extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance$d, create_fragment$d, safe_not_equal, {});
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "Leistungen",
+    			options,
+    			id: create_fragment$d.name
+    		});
+    	}
+    }
+
+    /* src/pages/referenzen.svelte generated by Svelte v3.19.2 */
+    const file$d = "src/pages/referenzen.svelte";
+
+    function get_each_context$4(ctx, list, i) {
+    	const child_ctx = ctx.slice();
+    	child_ctx[4] = list[i];
+    	child_ctx[6] = i;
+    	return child_ctx;
+    }
+
+    // (49:4) {#each images as image, i ('imagen_' + i)}
+    function create_each_block$4(key_1, ctx) {
+    	let div;
+    	let img;
+    	let img_src_value;
+    	let img_alt_value;
+    	let t;
+    	let dispose;
+
+    	function click_handler(...args) {
+    		return /*click_handler*/ ctx[3](/*i*/ ctx[6], ...args);
+    	}
+
+    	const block = {
+    		key: key_1,
+    		first: null,
+    		c: function create() {
+    			div = element("div");
+    			img = element("img");
+    			t = space();
+    			this.h();
+    		},
+    		l: function claim(nodes) {
+    			div = claim_element(nodes, "DIV", { class: true });
+    			var div_nodes = children(div);
+    			img = claim_element(div_nodes, "IMG", { src: true, alt: true, class: true });
+    			t = claim_space(div_nodes);
+    			div_nodes.forEach(detach_dev);
+    			this.h();
+    		},
+    		h: function hydrate() {
+    			if (img.src !== (img_src_value = /*image*/ ctx[4].small)) attr_dev(img, "src", img_src_value);
+    			attr_dev(img, "alt", img_alt_value = /*image*/ ctx[4].title);
+    			attr_dev(img, "class", "svelte-6bbnfq");
+    			add_location(img, file$d, 50, 8, 952);
+    			attr_dev(div, "class", "photo svelte-6bbnfq");
+    			add_location(div, file$d, 49, 6, 924);
+    			this.first = div;
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div, anchor);
+    			append_dev(div, img);
+    			append_dev(div, t);
+    			dispose = listen_dev(img, "click", click_handler, false, false, false);
+    		},
+    		p: function update(new_ctx, dirty) {
+    			ctx = new_ctx;
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(div);
+    			dispose();
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_each_block$4.name,
+    		type: "each",
+    		source: "(49:4) {#each images as image, i ('imagen_' + i)}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function create_fragment$e(ctx) {
+    	let meta0;
+    	let meta1;
+    	let t0;
+    	let div0;
+    	let h3;
+    	let t1;
+    	let t2;
+    	let div2;
+    	let div1;
+    	let each_blocks = [];
+    	let each_1_lookup = new Map();
+    	let t3;
+    	let current;
+    	let each_value = /*images*/ ctx[2];
+    	validate_each_argument(each_value);
+    	const get_key = ctx => "imagen_" + /*i*/ ctx[6];
+    	validate_each_keys(ctx, each_value, get_each_context$4, get_key);
+
+    	for (let i = 0; i < each_value.length; i += 1) {
+    		let child_ctx = get_each_context$4(ctx, each_value, i);
+    		let key = get_key(child_ctx);
+    		each_1_lookup.set(key, each_blocks[i] = create_each_block$4(key, child_ctx));
+    	}
+
+    	const lightbox = new LightBox({
+    			props: {
+    				content: /*images*/ ctx[2],
+    				go: /*go*/ ctx[0]
+    			},
+    			$$inline: true
+    		});
+
+    	const block = {
+    		c: function create() {
+    			meta0 = element("meta");
+    			meta1 = element("meta");
+    			t0 = space();
+    			div0 = element("div");
+    			h3 = element("h3");
+    			t1 = text("Referenzen");
+    			t2 = space();
+    			div2 = element("div");
+    			div1 = element("div");
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].c();
+    			}
+
+    			t3 = space();
+    			create_component(lightbox.$$.fragment);
+    			this.h();
+    		},
+    		l: function claim(nodes) {
+    			const head_nodes = query_selector_all("[data-svelte=\"svelte-1cibnjy\"]", document.head);
+    			meta0 = claim_element(head_nodes, "META", { name: true, content: true });
+    			meta1 = claim_element(head_nodes, "META", { name: true, content: true });
+    			head_nodes.forEach(detach_dev);
+    			t0 = claim_space(nodes);
+    			div0 = claim_element(nodes, "DIV", { class: true });
+    			var div0_nodes = children(div0);
+    			h3 = claim_element(div0_nodes, "H3", {});
+    			var h3_nodes = children(h3);
+    			t1 = claim_text(h3_nodes, "Referenzen");
+    			h3_nodes.forEach(detach_dev);
+    			div0_nodes.forEach(detach_dev);
+    			t2 = claim_space(nodes);
+    			div2 = claim_element(nodes, "DIV", { class: true });
+    			var div2_nodes = children(div2);
+    			div1 = claim_element(div2_nodes, "DIV", { class: true });
+    			var div1_nodes = children(div1);
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].l(div1_nodes);
+    			}
+
+    			div1_nodes.forEach(detach_dev);
+    			div2_nodes.forEach(detach_dev);
+    			t3 = claim_space(nodes);
+    			claim_component(lightbox.$$.fragment, nodes);
+    			this.h();
+    		},
+    		h: function hydrate() {
+    			document.title = "Referenzen - IKPH Inter-Kontakt Projekt und Handel GmbH";
+    			attr_dev(meta0, "name", "description");
+    			attr_dev(meta0, "content", "Über uns");
+    			add_location(meta0, file$d, 38, 2, 663);
+    			attr_dev(meta1, "name", "keywords");
+    			attr_dev(meta1, "content", "");
+    			add_location(meta1, file$d, 39, 2, 712);
+    			add_location(h3, file$d, 44, 2, 792);
+    			attr_dev(div0, "class", "page-title");
+    			add_location(div0, file$d, 42, 0, 764);
+    			attr_dev(div1, "class", "photo-gallery svelte-6bbnfq");
+    			add_location(div1, file$d, 47, 2, 843);
+    			attr_dev(div2, "class", "content");
+    			add_location(div2, file$d, 46, 0, 819);
+    		},
+    		m: function mount(target, anchor) {
+    			append_dev(document.head, meta0);
+    			append_dev(document.head, meta1);
+    			insert_dev(target, t0, anchor);
+    			insert_dev(target, div0, anchor);
+    			append_dev(div0, h3);
+    			append_dev(h3, t1);
+    			insert_dev(target, t2, anchor);
+    			insert_dev(target, div2, anchor);
+    			append_dev(div2, div1);
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].m(div1, null);
+    			}
+
+    			insert_dev(target, t3, anchor);
+    			mount_component(lightbox, target, anchor);
+    			current = true;
+    		},
+    		p: function update(ctx, [dirty]) {
+    			if (dirty & /*images, openLightBox*/ 6) {
+    				const each_value = /*images*/ ctx[2];
+    				validate_each_argument(each_value);
+    				validate_each_keys(ctx, each_value, get_each_context$4, get_key);
+    				each_blocks = update_keyed_each(each_blocks, dirty, get_key, 1, ctx, each_value, each_1_lookup, div1, destroy_block, create_each_block$4, null, get_each_context$4);
+    			}
+
+    			const lightbox_changes = {};
+    			if (dirty & /*go*/ 1) lightbox_changes.go = /*go*/ ctx[0];
+    			lightbox.$set(lightbox_changes);
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(lightbox.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(lightbox.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			detach_dev(meta0);
+    			detach_dev(meta1);
+    			if (detaching) detach_dev(t0);
+    			if (detaching) detach_dev(div0);
+    			if (detaching) detach_dev(t2);
+    			if (detaching) detach_dev(div2);
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].d();
+    			}
+
+    			if (detaching) detach_dev(t3);
+    			destroy_component(lightbox, detaching);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$e.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function instance$e($$self, $$props, $$invalidate) {
+    	let go;
+
+    	const openLightBox = i => {
+    		$$invalidate(0, go = null);
+    		setTimeout(() => $$invalidate(0, go = i));
+    	};
+
+    	let images = Array(26).fill(1).map((e, i) => ({
+    		small: `./gallery/${i}.jpg`,
+    		full: `./gallery/${i}.jpg`
+    	}));
+
+    	const writable_props = [];
+
+    	Object.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console.warn(`<Referenzen> was created with unknown prop '${key}'`);
+    	});
+
+    	let { $$slots = {}, $$scope } = $$props;
+    	validate_slots("Referenzen", $$slots, []);
+    	const click_handler = i => openLightBox(i);
+    	$$self.$capture_state = () => ({ LightBox, go, openLightBox, images });
+
+    	$$self.$inject_state = $$props => {
+    		if ("go" in $$props) $$invalidate(0, go = $$props.go);
+    		if ("images" in $$props) $$invalidate(2, images = $$props.images);
+    	};
+
+    	if ($$props && "$$inject" in $$props) {
+    		$$self.$inject_state($$props.$$inject);
+    	}
+
+    	return [go, openLightBox, images, click_handler];
+    }
+
+    class Referenzen extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance$e, create_fragment$e, safe_not_equal, {});
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "Referenzen",
+    			options,
+    			id: create_fragment$e.name
+    		});
+    	}
+    }
+
+    /* src/pages/uberuns.svelte generated by Svelte v3.19.2 */
+
+    const file$e = "src/pages/uberuns.svelte";
+
+    function create_fragment$f(ctx) {
+    	let meta0;
+    	let meta1;
+    	let t0;
+    	let div0;
+    	let h3;
+    	let t1;
+    	let t2;
+    	let div3;
+    	let div1;
+    	let p0;
+    	let t3;
+    	let t4;
+    	let p1;
+    	let t5;
+    	let t6;
+    	let p2;
+    	let t7;
+    	let t8;
+    	let p3;
+    	let t9;
+    	let t10;
+    	let p4;
+    	let t11;
+    	let t12;
+    	let p5;
+    	let t13;
+    	let t14;
+    	let p6;
+    	let t15;
+    	let t16;
+    	let div2;
+    	let img;
+    	let img_src_value;
+
+    	const block = {
+    		c: function create() {
+    			meta0 = element("meta");
+    			meta1 = element("meta");
+    			t0 = space();
+    			div0 = element("div");
+    			h3 = element("h3");
+    			t1 = text("Über uns");
+    			t2 = space();
+    			div3 = element("div");
+    			div1 = element("div");
+    			p0 = element("p");
+    			t3 = text("Der Wert von Immobilien steigt unaufhörlich und deshalb ist es wichtig,\n      diese Immobilien in regelmäßigen Abständen zu warten und zu sanieren. Seit\n      drei Jahren sind wir im Bereich sach- und fachgerechter\n      Komplettrenovierung und Sanierung von Altbau oder Neubau, Gewerbe,\n      Wohnungen oder kompletten Wohnanlagen tätig.");
+    			t4 = space();
+    			p1 = element("p");
+    			t5 = text("Unsere Firma war für HV, wie Vonovia ADO u.a. über mehre Jahren\n      erfolgreich tätig. Aber auch für unsere Privatkunden sind wir gerne\n      unterwegs.");
+    			t6 = space();
+    			p2 = element("p");
+    			t7 = text("Wir bieten daher nicht nur komplette Wohnungssanierungen, sondern auch\n      Teilsanierungen an, um Ihre Wohnungen in einen zeitgemäßen und\n      vermietbaren Standard zu versetzen.");
+    			t8 = space();
+    			p3 = element("p");
+    			t9 = text("Dabei begleiten wir Sie bei der Wohnungssanierung in allen Phasen. Von der\n      ersten Planung bis hin zum letzten Pinselstrich, erhalten Sie bei uns alle\n      Leistungen aus einer Hand.");
+    			t10 = space();
+    			p4 = element("p");
+    			t11 = text("Natürlich lassen wir Ihre individuellen Wünsche in die Planungen\n      einfließen und können auch einzelne Leistungen anbieten.");
+    			t12 = space();
+    			p5 = element("p");
+    			t13 = text("Auf Wunsch erstellen wir Ihnen einen Kostenvoranschlag, so dass Sie Ihr\n      Budget besser planen können.");
+    			t14 = space();
+    			p6 = element("p");
+    			t15 = text("Nehmen Sie Kontakt zu uns auf und lassen Sie sich Ihr kostenloses,\n      persönliches Angebot erstellen.");
+    			t16 = space();
+    			div2 = element("div");
+    			img = element("img");
+    			this.h();
+    		},
+    		l: function claim(nodes) {
+    			const head_nodes = query_selector_all("[data-svelte=\"svelte-ajwl5n\"]", document.head);
+    			meta0 = claim_element(head_nodes, "META", { name: true, content: true });
+    			meta1 = claim_element(head_nodes, "META", { name: true, content: true });
+    			head_nodes.forEach(detach_dev);
+    			t0 = claim_space(nodes);
+    			div0 = claim_element(nodes, "DIV", { class: true });
+    			var div0_nodes = children(div0);
+    			h3 = claim_element(div0_nodes, "H3", {});
+    			var h3_nodes = children(h3);
+    			t1 = claim_text(h3_nodes, "Über uns");
+    			h3_nodes.forEach(detach_dev);
+    			div0_nodes.forEach(detach_dev);
+    			t2 = claim_space(nodes);
+    			div3 = claim_element(nodes, "DIV", { class: true });
+    			var div3_nodes = children(div3);
+    			div1 = claim_element(div3_nodes, "DIV", { class: true });
+    			var div1_nodes = children(div1);
+    			p0 = claim_element(div1_nodes, "P", {});
+    			var p0_nodes = children(p0);
+    			t3 = claim_text(p0_nodes, "Der Wert von Immobilien steigt unaufhörlich und deshalb ist es wichtig,\n      diese Immobilien in regelmäßigen Abständen zu warten und zu sanieren. Seit\n      drei Jahren sind wir im Bereich sach- und fachgerechter\n      Komplettrenovierung und Sanierung von Altbau oder Neubau, Gewerbe,\n      Wohnungen oder kompletten Wohnanlagen tätig.");
+    			p0_nodes.forEach(detach_dev);
+    			t4 = claim_space(div1_nodes);
+    			p1 = claim_element(div1_nodes, "P", {});
+    			var p1_nodes = children(p1);
+    			t5 = claim_text(p1_nodes, "Unsere Firma war für HV, wie Vonovia ADO u.a. über mehre Jahren\n      erfolgreich tätig. Aber auch für unsere Privatkunden sind wir gerne\n      unterwegs.");
+    			p1_nodes.forEach(detach_dev);
+    			t6 = claim_space(div1_nodes);
+    			p2 = claim_element(div1_nodes, "P", {});
+    			var p2_nodes = children(p2);
+    			t7 = claim_text(p2_nodes, "Wir bieten daher nicht nur komplette Wohnungssanierungen, sondern auch\n      Teilsanierungen an, um Ihre Wohnungen in einen zeitgemäßen und\n      vermietbaren Standard zu versetzen.");
+    			p2_nodes.forEach(detach_dev);
+    			t8 = claim_space(div1_nodes);
+    			p3 = claim_element(div1_nodes, "P", {});
+    			var p3_nodes = children(p3);
+    			t9 = claim_text(p3_nodes, "Dabei begleiten wir Sie bei der Wohnungssanierung in allen Phasen. Von der\n      ersten Planung bis hin zum letzten Pinselstrich, erhalten Sie bei uns alle\n      Leistungen aus einer Hand.");
+    			p3_nodes.forEach(detach_dev);
+    			t10 = claim_space(div1_nodes);
+    			p4 = claim_element(div1_nodes, "P", {});
+    			var p4_nodes = children(p4);
+    			t11 = claim_text(p4_nodes, "Natürlich lassen wir Ihre individuellen Wünsche in die Planungen\n      einfließen und können auch einzelne Leistungen anbieten.");
+    			p4_nodes.forEach(detach_dev);
+    			t12 = claim_space(div1_nodes);
+    			p5 = claim_element(div1_nodes, "P", {});
+    			var p5_nodes = children(p5);
+    			t13 = claim_text(p5_nodes, "Auf Wunsch erstellen wir Ihnen einen Kostenvoranschlag, so dass Sie Ihr\n      Budget besser planen können.");
+    			p5_nodes.forEach(detach_dev);
+    			t14 = claim_space(div1_nodes);
+    			p6 = claim_element(div1_nodes, "P", {});
+    			var p6_nodes = children(p6);
+    			t15 = claim_text(p6_nodes, "Nehmen Sie Kontakt zu uns auf und lassen Sie sich Ihr kostenloses,\n      persönliches Angebot erstellen.");
+    			p6_nodes.forEach(detach_dev);
+    			div1_nodes.forEach(detach_dev);
+    			t16 = claim_space(div3_nodes);
+    			div2 = claim_element(div3_nodes, "DIV", { class: true });
+    			var div2_nodes = children(div2);
+    			img = claim_element(div2_nodes, "IMG", { src: true, alt: true });
+    			div2_nodes.forEach(detach_dev);
+    			div3_nodes.forEach(detach_dev);
+    			this.h();
+    		},
+    		h: function hydrate() {
+    			document.title = "Über uns - IKPH Inter-Kontakt Projekt und Handel GmbH";
+    			attr_dev(meta0, "name", "description");
+    			attr_dev(meta0, "content", "Über uns");
+    			add_location(meta0, file$e, 5, 2, 107);
+    			attr_dev(meta1, "name", "keywords");
+    			attr_dev(meta1, "content", "");
+    			add_location(meta1, file$e, 6, 2, 156);
+    			add_location(h3, file$e, 10, 2, 235);
+    			attr_dev(div0, "class", "page-title");
+    			add_location(div0, file$e, 9, 0, 208);
+    			add_location(p0, file$e, 15, 4, 308);
+    			add_location(p1, file$e, 22, 4, 670);
+    			add_location(p2, file$e, 27, 4, 848);
+    			add_location(p3, file$e, 32, 4, 1053);
+    			add_location(p4, file$e, 37, 4, 1265);
+    			add_location(p5, file$e, 41, 4, 1416);
+    			add_location(p6, file$e, 45, 4, 1546);
+    			attr_dev(div1, "class", "item");
+    			add_location(div1, file$e, 14, 2, 285);
+    			if (img.src !== (img_src_value = "g/images/about_us.jpg")) attr_dev(img, "src", img_src_value);
+    			attr_dev(img, "alt", "Über uns");
+    			add_location(img, file$e, 52, 4, 1705);
+    			attr_dev(div2, "class", "item");
+    			add_location(div2, file$e, 51, 2, 1682);
+    			attr_dev(div3, "class", "content");
+    			add_location(div3, file$e, 13, 0, 261);
+    		},
+    		m: function mount(target, anchor) {
+    			append_dev(document.head, meta0);
+    			append_dev(document.head, meta1);
+    			insert_dev(target, t0, anchor);
+    			insert_dev(target, div0, anchor);
+    			append_dev(div0, h3);
+    			append_dev(h3, t1);
+    			insert_dev(target, t2, anchor);
+    			insert_dev(target, div3, anchor);
+    			append_dev(div3, div1);
+    			append_dev(div1, p0);
+    			append_dev(p0, t3);
+    			append_dev(div1, t4);
+    			append_dev(div1, p1);
+    			append_dev(p1, t5);
+    			append_dev(div1, t6);
+    			append_dev(div1, p2);
+    			append_dev(p2, t7);
+    			append_dev(div1, t8);
+    			append_dev(div1, p3);
+    			append_dev(p3, t9);
+    			append_dev(div1, t10);
+    			append_dev(div1, p4);
+    			append_dev(p4, t11);
+    			append_dev(div1, t12);
+    			append_dev(div1, p5);
+    			append_dev(p5, t13);
+    			append_dev(div1, t14);
+    			append_dev(div1, p6);
+    			append_dev(p6, t15);
+    			append_dev(div3, t16);
+    			append_dev(div3, div2);
+    			append_dev(div2, img);
+    		},
+    		p: noop,
+    		i: noop,
+    		o: noop,
+    		d: function destroy(detaching) {
+    			detach_dev(meta0);
+    			detach_dev(meta1);
+    			if (detaching) detach_dev(t0);
+    			if (detaching) detach_dev(div0);
+    			if (detaching) detach_dev(t2);
+    			if (detaching) detach_dev(div3);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$f.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function instance$f($$self, $$props) {
+    	const writable_props = [];
+
+    	Object.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console.warn(`<Uberuns> was created with unknown prop '${key}'`);
+    	});
+
+    	let { $$slots = {}, $$scope } = $$props;
+    	validate_slots("Uberuns", $$slots, []);
+    	return [];
+    }
+
+    class Uberuns extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance$f, create_fragment$f, safe_not_equal, {});
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "Uberuns",
+    			options,
+    			id: create_fragment$f.name
+    		});
+    	}
+    }
+
+    //layouts
+    const layouts = {
+      "/_layout": {
+        "component": () => Layout,
+        "meta": {},
+        "relativeDir": "",
+        "path": ""
+      }
+    };
+
+
+    //raw routes
+    const _routes = [
+      {
+        "component": () => Fallback,
+        "meta": {},
+        "isIndex": false,
+        "isFallback": true,
+        "hasParam": false,
+        "path": "/_fallback",
+        "shortPath": "",
+        "layouts": [
+          layouts['/_layout']
+        ]
+      },
+      {
+        "component": () => Footer,
+        "meta": {},
+        "isIndex": false,
+        "isFallback": false,
+        "hasParam": false,
+        "path": "/components/Footer",
+        "shortPath": "/components/Footer",
+        "layouts": [
+          layouts['/_layout']
+        ]
+      },
+      {
+        "component": () => Header,
+        "meta": {},
+        "isIndex": false,
+        "isFallback": false,
+        "hasParam": false,
+        "path": "/components/Header",
+        "shortPath": "/components/Header",
+        "layouts": [
+          layouts['/_layout']
+        ]
+      },
+      {
+        "component": () => Hero,
+        "meta": {},
+        "isIndex": false,
+        "isFallback": false,
+        "hasParam": false,
+        "path": "/components/Hero",
+        "shortPath": "/components/Hero",
+        "layouts": [
+          layouts['/_layout']
+        ]
+      },
+      {
+        "component": () => LightBox,
+        "meta": {},
+        "isIndex": false,
+        "isFallback": false,
+        "hasParam": false,
+        "path": "/components/LightBox",
+        "shortPath": "/components/LightBox",
+        "layouts": [
+          layouts['/_layout']
+        ]
+      },
+      {
+        "component": () => PageTransitions,
+        "meta": {},
+        "isIndex": false,
+        "isFallback": false,
+        "hasParam": false,
+        "path": "/components/PageTransitions",
+        "shortPath": "/components/PageTransitions",
+        "layouts": [
+          layouts['/_layout']
+        ]
+      },
+      {
+        "component": () => Datenschutz,
+        "meta": {},
+        "isIndex": false,
+        "isFallback": false,
+        "hasParam": false,
+        "path": "/datenschutz",
+        "shortPath": "/datenschutz",
+        "layouts": [
+          layouts['/_layout']
+        ]
+      },
+      {
+        "component": () => Impressum,
+        "meta": {},
+        "isIndex": false,
+        "isFallback": false,
+        "hasParam": false,
+        "path": "/impressum",
+        "shortPath": "/impressum",
+        "layouts": [
+          layouts['/_layout']
+        ]
+      },
+      {
+        "component": () => Pages,
+        "meta": {},
+        "isIndex": true,
+        "isFallback": false,
+        "hasParam": false,
+        "path": "/index",
+        "shortPath": "",
+        "layouts": [
+          layouts['/_layout']
+        ]
+      },
+      {
+        "component": () => Leistungen,
+        "meta": {},
+        "isIndex": false,
+        "isFallback": false,
+        "hasParam": false,
+        "path": "/leistungen",
+        "shortPath": "/leistungen",
+        "layouts": [
+          layouts['/_layout']
+        ]
+      },
+      {
+        "component": () => Referenzen,
+        "meta": {},
+        "isIndex": false,
+        "isFallback": false,
+        "hasParam": false,
+        "path": "/referenzen",
+        "shortPath": "/referenzen",
+        "layouts": [
+          layouts['/_layout']
+        ]
+      },
+      {
+        "component": () => Uberuns,
+        "meta": {},
+        "isIndex": false,
+        "isFallback": false,
+        "hasParam": false,
+        "path": "/uberuns",
+        "shortPath": "/uberuns",
+        "layouts": [
+          layouts['/_layout']
+        ]
+      }
+    ];
+
+    //routes
+    const routes$1 = buildRoutes(_routes);
+
+    /* src/App.svelte generated by Svelte v3.19.2 */
+
+    function create_fragment$g(ctx) {
+    	let current;
+    	const router = new Router({ props: { routes: routes$1 }, $$inline: true });
+
+    	const block = {
+    		c: function create() {
+    			create_component(router.$$.fragment);
+    		},
+    		l: function claim(nodes) {
+    			claim_component(router.$$.fragment, nodes);
+    		},
+    		m: function mount(target, anchor) {
+    			mount_component(router, target, anchor);
+    			current = true;
+    		},
+    		p: noop,
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(router.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(router.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			destroy_component(router, detaching);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$g.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function instance$g($$self, $$props, $$invalidate) {
+    	const writable_props = [];
+
+    	Object.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console.warn(`<App> was created with unknown prop '${key}'`);
+    	});
+
+    	let { $$slots = {}, $$scope } = $$props;
+    	validate_slots("App", $$slots, []);
+    	$$self.$capture_state = () => ({ Router, routes: routes$1 });
+    	return [];
+    }
+
+    class App extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance$g, create_fragment$g, safe_not_equal, {});
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "App",
+    			options,
+    			id: create_fragment$g.name
+    		});
+    	}
+    }
+
+    const app = HMR(App, { target: document.body }, 'routify-app');
+
+    return app;
+
+}());
 //# sourceMappingURL=bundle.js.map

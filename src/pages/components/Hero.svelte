@@ -21,6 +21,9 @@
   }
 
   @media (max-width: 600px) {
+    .hero {
+      background: none;
+    }
     .intro {
       width: 100%;
       margin: 1.5em;
